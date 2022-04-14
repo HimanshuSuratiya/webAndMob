@@ -248,14 +248,9 @@ const UsagePage = ({ match }) => {
                     item.type === "DEVELOPMENTUNIT" || item.type == "OTHER"
                 )
                 .map((entries, index) => {
-                  const color = {
-                    0: 'black',
-                    1: 'yellow',
-                    2: 'cyan',
-                    3: 'magenta'
-                  }
+                  const color = ['black', 'yellow', 'cyan', 'magenta']
                   return (
-                    <div class={"animated-progress progress-" + color[index]}>
+                    <div class={"animated-progress progress-" + color[index%4]}>
                       <span data-progress={entries.currentLevel}></span>
                     </div>
                   );
