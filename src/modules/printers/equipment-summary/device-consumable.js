@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import clsx from "clsx";
-import { ERROR_MESSAGES } from "shared/constants";
-import { NavLink, useHistory } from "react-router-dom";
+import {ERROR_MESSAGES} from "shared/constants";
+import {NavLink, useHistory} from "react-router-dom";
 import Link from "@material-ui/core/Link";
-import { setToken, getChartColorCode, formatDate, daysBetween } from "utils";
+import {setToken, getChartColorCode, formatDate, daysBetween} from "utils";
 import Service from "../service";
 import isEmail from "validator/es/lib/isEmail";
 import Button from "@material-ui/core/Button";
@@ -27,20 +27,22 @@ import useStyles from "./style";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import $ from "jquery";
-import { Grid, DoughnutComponent } from "shared/components";
-import { useTranslation } from "react-i18next";
+import {Grid, DoughnutComponent} from "shared/components";
+import {useTranslation} from "react-i18next";
+
 let chartIndex = 0;
 let chartIdHeader = "toner_";
 
 const DeviceConsumableLevel = ({
                                  isFetching = false,
                                  deviceConsumableLevel = [],
-                                 handleDetailClick = () => {},
+                                 handleDetailClick = () => {
+                                 },
                                  lastUpdatedDate = null,
                                  deviceInfoId = null,
                                  noticeNoEmail = 0,
                                }) => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const classes = useStyles();
   const history = useHistory();
 
@@ -70,6 +72,7 @@ const DeviceConsumableLevel = ({
   setTimeout(() => {
     const newLocal = ".animated-progress span";
     $(newLocal).each(function () {
+      const displayMethod = this.attributes[0].value
       $(this).animate(
         {
           width: $(this).attr("data-progress") + "%",
@@ -77,6 +80,9 @@ const DeviceConsumableLevel = ({
         1000
       );
       $(this).text($(this).attr("data-progress") + "%");
+      if (displayMethod === '1') {
+        $(this).text($(this).attr("currentLevelText"));
+      }
     });
   }, 50);
 
@@ -108,23 +114,40 @@ const DeviceConsumableLevel = ({
     if (deviceConsumableLevel.length == 1) {
       return (
         <div class="animated-progress progress-blue">
-          <span data-progress={deviceConsumableLevel[0].currentLevel}></span>
+          <span
+            displayMethod={deviceConsumableLevel[0].displayMethod}
+            data-progress={deviceConsumableLevel[0].currentLevel}
+            currentLevelText={deviceConsumableLevel[0].currentLevelText}
+          />
         </div>
       );
     } else {
       return (
         <>
           <div class="animated-progress progress-blue">
-            <span data-progress={deviceConsumableLevel[0].currentLevel}></span>
+            <span displayMethod={deviceConsumableLevel[0].displayMethod}
+                  data-progress={deviceConsumableLevel[0].currentLevel}
+                  currentLevelText={deviceConsumableLevel[0].currentLevelText}
+            />
+
           </div>
           <div class="animated-progress progress-green">
-            <span data-progress={deviceConsumableLevel[1].currentLevel}></span>
+            <span displayMethod={deviceConsumableLevel[1].displayMethod}
+                  data-progress={deviceConsumableLevel[1].currentLevel}
+                  currentLevelText={deviceConsumableLevel[0].currentLevelText}
+            />
           </div>
           <div class="animated-progress progress-purple">
-            <span data-progress={deviceConsumableLevel[2].currentLevel}></span>
+            <span displayMethod={deviceConsumableLevel[2].displayMethod}
+                  data-progress={deviceConsumableLevel[2].currentLevel}
+                  currentLevelText={deviceConsumableLevel[0].currentLevelText}
+            />
           </div>
           <div class="animated-progress progress-red">
-            <span data-progress={deviceConsumableLevel[3].currentLevel}></span>
+            <span displayMethod={deviceConsumableLevel[3].displayMethod}
+                  data-progress={deviceConsumableLevel[3].currentLevel}
+                  currentLevelText={deviceConsumableLevel[0].currentLevelText}
+            />
           </div>
         </>
       );
@@ -135,7 +158,7 @@ const DeviceConsumableLevel = ({
     <Paper elevation={4} className="mb-6">
       <div
         className={classes.usagePagePaper}
-        style={{ overflowY: "auto", flexWrap: "wrap" }}
+        style={{overflowY: "auto", flexWrap: "wrap"}}
       >
         <div className="d-flex f-align-center f-justify-between mb-4 ml-4">
           <Typography variant="h5" className="mt-4">
@@ -171,11 +194,11 @@ const DeviceConsumableLevel = ({
             {lastUpdatedDate}
           </Typography>
         </div>
-        <Divider />
+        <Divider/>
         {hideshow11111 == "checked" ? (
           <div
             className="d-flex c-pointer f-justify-around"
-            style={{ overflowY: "auto", flexWrap: "wrap" }}
+            style={{overflowY: "auto", flexWrap: "wrap"}}
           >
             {deviceConsumableLevel.map((consumable) => {
               let currentConsumable = consumable;
@@ -203,7 +226,7 @@ const DeviceConsumableLevel = ({
         )}
       </div>
 
-      <Divider />
+      <Divider/>
       {!!deviceConsumableLevel.length && (
         <Button
           className="w-100 pt-1 pb-1"
