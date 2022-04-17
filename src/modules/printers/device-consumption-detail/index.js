@@ -47,6 +47,10 @@ const UsagePage = ({ match }) => {
   setTimeout(() => {
     const newLocal = ".animated-progress span";
     $(newLocal).each(function () {
+      const displayMethod = this.attributes[0].value;
+      const goodDisplayMethod = this.attributes[1].value;
+      console.log("hello");
+      console.log(displayMethod, goodDisplayMethod);
       $(this).animate(
         {
           width: $(this).attr("data-progress") + "%",
@@ -54,6 +58,9 @@ const UsagePage = ({ match }) => {
         1000
       );
       $(this).text($(this).attr("data-progress") + "%");
+      if (displayMethod === "1" && goodDisplayMethod === "100") {
+        $(this).text($(this).attr("currentLevelText"));
+      }
     });
   }, 500);
 
@@ -120,8 +127,12 @@ const UsagePage = ({ match }) => {
                 .filter((item) => item.type === "TONER" || item.type == "INK")
                 .map((entries) => {
                   return (
-                    <div class={'animated-progress progress-' + entries.color}>
-                      <span data-progress={entries.currentLevel}></span>
+                    <div class={"animated-progress progress-" + entries.color}>
+                      <span
+                        displayMethod={entries.displayMethod}
+                        data-progress={entries.currentLevel}
+                        currentLevelText={entries.currentLevelText}
+                      />
                     </div>
                   );
                 })}
@@ -182,7 +193,11 @@ const UsagePage = ({ match }) => {
                 .map((entries) => {
                   return (
                     <div class={"animated-progress progress-" + entries.color}>
-                      <span data-progress={entries.currentLevel}></span>
+                    <span
+                        displayMethod={entries.displayMethod}
+                        data-progress={entries.currentLevel}
+                        currentLevelText={entries.currentLevelText}
+                      />
                     </div>
                   );
                 })}
@@ -248,10 +263,16 @@ const UsagePage = ({ match }) => {
                     item.type === "DEVELOPMENTUNIT" || item.type == "OTHER"
                 )
                 .map((entries, index) => {
-                  const color = ['black', 'yellow', 'cyan', 'magenta']
+                  const color = ["black", "yellow", "cyan", "magenta"];
                   return (
-                    <div class={"animated-progress progress-" + color[index%4]}>
-                      <span data-progress={entries.currentLevel}></span>
+                    <div
+                      class={"animated-progress progress-" + color[index % 4]}
+                    >
+                       <span
+                        displayMethod={entries.displayMethod}
+                        data-progress={entries.currentLevel}
+                        currentLevelText={entries.currentLevelText}
+                      />
                     </div>
                   );
                 })}
