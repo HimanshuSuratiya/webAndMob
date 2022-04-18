@@ -71,7 +71,6 @@ const DeviceConsumableLevel = ({
     const newLocal = ".animated-progress span";
     $(newLocal).each(function () {
       const displayMethod = this.attributes[0].value;
-      const goodDisplayMethod = this.attributes[1].value;
       $(this).animate(
         {
           width: $(this).attr("data-progress") + "%",
@@ -79,7 +78,7 @@ const DeviceConsumableLevel = ({
         1000
       );
       $(this).text($(this).attr("data-progress") + "%");
-      if (displayMethod === "1" && goodDisplayMethod === "100") {
+      if (displayMethod === "1") {
         $(this).text($(this).attr("currentLevelText"));
       }
     });
@@ -122,21 +121,21 @@ const DeviceConsumableLevel = ({
             <span
               displayMethod={deviceConsumableLevel[1].displayMethod}
               data-progress={deviceConsumableLevel[1].currentLevel}
-              currentLevelText={deviceConsumableLevel[0].currentLevelText}
+              currentLevelText={deviceConsumableLevel[1].currentLevelText}
             />
           </div>
           <div class="animated-progress progress-purple">
             <span
               displayMethod={deviceConsumableLevel[2].displayMethod}
               data-progress={deviceConsumableLevel[2].currentLevel}
-              currentLevelText={deviceConsumableLevel[0].currentLevelText}
+              currentLevelText={deviceConsumableLevel[2].currentLevelText}
             />
           </div>
           <div class="animated-progress progress-red">
             <span
               displayMethod={deviceConsumableLevel[3].displayMethod}
               data-progress={deviceConsumableLevel[3].currentLevel}
-              currentLevelText={deviceConsumableLevel[0].currentLevelText}
+              currentLevelText={deviceConsumableLevel[3].currentLevelText}
             />
           </div>
         </>

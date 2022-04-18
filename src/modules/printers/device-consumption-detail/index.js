@@ -48,9 +48,6 @@ const UsagePage = ({ match }) => {
     const newLocal = ".animated-progress span";
     $(newLocal).each(function () {
       const displayMethod = this.attributes[0].value;
-      const goodDisplayMethod = this.attributes[1].value;
-      console.log("hello");
-      console.log(displayMethod, goodDisplayMethod);
       $(this).animate(
         {
           width: $(this).attr("data-progress") + "%",
@@ -58,7 +55,7 @@ const UsagePage = ({ match }) => {
         1000
       );
       $(this).text($(this).attr("data-progress") + "%");
-      if (displayMethod === "1" && goodDisplayMethod === "100") {
+      if (displayMethod === "1") {
         $(this).text($(this).attr("currentLevelText"));
       }
     });
@@ -193,7 +190,7 @@ const UsagePage = ({ match }) => {
                 .map((entries) => {
                   return (
                     <div class={"animated-progress progress-" + entries.color}>
-                    <span
+                      <span
                         displayMethod={entries.displayMethod}
                         data-progress={entries.currentLevel}
                         currentLevelText={entries.currentLevelText}
@@ -268,7 +265,7 @@ const UsagePage = ({ match }) => {
                     <div
                       class={"animated-progress progress-" + color[index % 4]}
                     >
-                       <span
+                      <span
                         displayMethod={entries.displayMethod}
                         data-progress={entries.currentLevel}
                         currentLevelText={entries.currentLevelText}
