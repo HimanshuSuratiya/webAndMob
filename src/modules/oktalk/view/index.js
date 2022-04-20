@@ -197,7 +197,6 @@ const ViewOKTalk = ({
     setNotifications(updatedNotifications);
     setDevices(devices.map(device => ({
       ...device,
-      notificationCount: updatedNotifications.filter(notification => notification.deviceInfoId !== device.deviceInfoId).length,
     })));
     Service.removeChatCount({
 	    deviceInfoId,
@@ -444,7 +443,7 @@ const ViewOKTalk = ({
                       <Tooltip title={`${device.displayName}(${device.deviceSerial})`} placement='top-right'>
                         <Typography variant='body2' noWrap className={clsx(classes.printerListnam)}>{device.displayName}({device.deviceSerial})</Typography>
                       </Tooltip>
-                      {(device.notificationCount > 0 && state.showMessageCount) && (
+                      {(device.notificationCount > 0) && (
                         <Badge badgeContent={device.notificationCount > 99 ? '+99' : device.notificationCount} color='primary' className='ml-2'></Badge>
                       )}
                     </div>
