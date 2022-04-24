@@ -131,7 +131,7 @@ const ViewOKTalk = ({
       const updatedDevices = devices.map(device => {
         return {
           ...device,
-          chatDate: notifications.find(item => item.deviceInfoId == device.deviceInfoId)?.chatDate.replace("T"," ") || device.chatDate,
+          chatDate: notifications.slice().reverse().find(item => item.deviceInfoId == device.deviceInfoId)?.chatDate.replace("T"," ") || device.chatDate,
           notificationCount: notifications.filter(notification => (notification.userId !== userData.userId && notification.deviceInfoId === device.deviceInfoId)).length,
         }
       });

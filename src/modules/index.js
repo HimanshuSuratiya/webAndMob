@@ -41,7 +41,7 @@ import { getTokenData, removeTokenData } from 'utils';
 import { FormControl, MenuItem, Select } from '@material-ui/core'
 import { AppContext, AppContextConsumer } from 'shared/contexts';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useContext, useEffect, useMemo } from 'react';
+import {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import ChatIcon from '@material-ui/icons/Chat';
 import { SharedService } from 'services';
 import { w3cwebsocket as W3CWebSocket } from "websocket";
@@ -60,6 +60,7 @@ const Logout = () => {
   const history = useHistory();
   const { t } = useTranslation();
   const { showLoader } = useContext(AppContext);
+  const [remainingTime, setRemainingTime] = useState(600000)
   const { getRemainingTime, getLastActiveTime } = useIdleTimer({
     timeout: 1000 * 60 * 10,
     debounce: 500,
@@ -71,6 +72,18 @@ const Logout = () => {
       //setTimeout(() => showLoader(false), 1000);
     },
   })
+
+  function millisToMinutesAndSeconds(millis) {
+    let minutes = Math.floor(millis / 60000);
+    let seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
+
+  useEffect(()=>{
+    setInterval(()=>{
+      setRemainingTime(getRemainingTime())
+    }, 1000)
+  },[])
 
   return (
     <Button
@@ -97,6 +110,9 @@ const Logout = () => {
       }}
     >
       {t("naviationLogout")}
+      <div className={clsx('', useStyles().logout_time)}>
+        <p>( {millisToMinutesAndSeconds(remainingTime)} )</p>
+      </div>
     </Button>
   );
 };
@@ -326,9 +342,6 @@ const AppModule = () => {
 
 
                   <Logout />
-
-                  <div className={clsx('', classes.logout_time)}>
-                   <p>( 09: 00 )</p></div>
 
 
                 </div>

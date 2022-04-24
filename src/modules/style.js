@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
      logout_time:{
       //top: '-12px',
       color: '#000',
-      right: '6px',
+      right: '-6px',
       position: 'relative',
       fontSize: '15px',
   
