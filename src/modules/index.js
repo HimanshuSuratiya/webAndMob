@@ -20,6 +20,8 @@ import UsersModule from "./users";
 import NoticeModule from "./notice";
 import CustomersModule from "./customers";
 import DataProcessModule from "./data-process";
+import SearchHistory from './Administrators/Search History/SearchHistory';
+import PrinterSearch from "./Administrators/Printer Search/PrinterSearch";
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
@@ -35,6 +37,9 @@ import GroupIcon from "@material-ui/icons/Group";
 import SettingsIcon from "@material-ui/icons/Settings";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import FindReplaceIcon from '@material-ui/icons/FindReplace';
+import SearchIcon from '@material-ui/icons/Search';
 import {
   Backdrop,
   Button,
@@ -112,7 +117,6 @@ const Logout = () => {
     >
       {t("naviationLogout")}
       <div className={clsx("", useStyles().logout_time)}>
-        {console.log(millisToMinutesAndSeconds(remainingTime))}
         <p>( {millisToMinutesAndSeconds(remainingTime) == '9:60'? '10:00': millisToMinutesAndSeconds(remainingTime)} )</p>
       </div>
     </Button>
@@ -283,6 +287,21 @@ const AppModule = () => {
       icon: <CalendarViewDayIcon className="color-white" />,
       label: t("sidebarDataProcess"),
     },
+    {
+      to: "/administrators",
+      icon: <SupervisorAccountIcon className="color-white" />,
+      label: t("sidebarAdministrators"),
+    },
+    {
+      to: "/printer-search",
+      icon: <SearchIcon className="color-white" />,
+      label: t("sidebarPrinterSearch"),
+    },
+    {
+      to: "/search-history",
+      icon: <FindReplaceIcon className="color-white" />,
+      label: t("sidebarSearchHistory"),
+    },
   ];
 
   if (userData?.userRole !== "10") {
@@ -430,6 +449,8 @@ const AppModule = () => {
               <Route path="/summary" component={SummaryModule} />
               <Route path="/settings" component={SettingsModule} />
               <Route path="/profile" component={ProfileModule} />
+              <Route path="/search-history" component={SearchHistory} />
+              <Route path="/printer-search" component={PrinterSearch} />
               <Route
                 path="/oktalk"
                 render={(props) => (

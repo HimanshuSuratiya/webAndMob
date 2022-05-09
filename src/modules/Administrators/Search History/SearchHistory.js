@@ -1,0 +1,150 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
+import Typography from "@material-ui/core/Typography";
+import { Grid } from "shared/components";
+import Paper from "@material-ui/core/Paper";
+
+const SearchHistory = () => {
+  const { t } = useTranslation();
+
+  const Rows = [
+    {
+      sNo: 1,
+      searchDate: "06-04-2022 11:53:15 AM",
+      registrationIp: "192,168,1 192,168,1",
+      normalDetected: 1,
+      abnormalDetected: 10,
+      notDetectedNo: "Complete",
+      StatusId: "	Complete",
+    },
+    {
+      sNo: 2,
+      searchDate: "09-05-2022 12:33:15 AM",
+      registrationIp: "192,170,2 192,168,1",
+      normalDetected: 3,
+      abnormalDetected: 25,
+      notDetectedNo: "InComplete",
+      StatusId: "InComplete",
+    },
+    {
+      sNo: 3,
+      searchDate: "16-06-2022 02:53:15 PM",
+      registrationIp: "192,168,3 192,168,1",
+      normalDetected: 65,
+      abnormalDetected: 8,
+      notDetectedNo: "Complete",
+      StatusId: "	Complete",
+    },
+    {
+      sNo: 4,
+      searchDate: "06-04-2022 11:53:15 AM",
+      registrationIp: "192,168,4 192,168,1",
+      normalDetected: 23,
+      abnormalDetected: 34,
+      notDetectedNo: "Complete",
+      StatusId: "	InComplete",
+    },
+    {
+      sNo: 5,
+      searchDate: "06-04-2022 11:53:15 AM",
+      registrationIp: "192,168,5 192,168,1",
+      normalDetected: 0,
+      abnormalDetected: 75,
+      notDetectedNo: "InComplete",
+      StatusId: "	Complete",
+    },
+  ];
+
+  const columnConfig = [
+    {
+      id: "s_No",
+      fieldName: "s_No",
+      label: t("processNo"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.sNo}
+        </Typography>
+      ),
+    },
+    {
+      id: "search_Date",
+      fieldName: "search_Date",
+      label: t("processSearchDate"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.searchDate}
+        </Typography>
+      ),
+    },
+    {
+      id: "registration_Ip",
+      field: "registration_Ip",
+      label: t("processRegistration"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.registrationIp}
+        </Typography>
+      ),
+    },
+    {
+      id: "detected_No",
+      field: "detected_No",
+      label: t("processNormalDetected"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.normalDetected}
+        </Typography>
+      ),
+    },
+    {
+      id: "detected_No",
+      field: "detected_No",
+      label: t("processAbnormalDetected"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.abnormalDetected}
+        </Typography>
+      ),
+    },
+    {
+      id: "notDetected_No",
+      fieldName: "notDetected_No",
+      label: t("processNotDetected"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.notDetectedNo}
+        </Typography>
+      ),
+    },
+    {
+      id: "Status_Id",
+      fieldName: "Status_Id",
+      label: t("processStatus"),
+      canSort: true,
+      render: (Rows) => (
+        <Typography variant="body1" style={{ textAlign: "center" }}>
+          {Rows.StatusId}
+        </Typography>
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <div className="d-flex f-align-center f-justify-between mb-8">
+        <Typography variant="h4">{t("sidebarSearchHistory")}</Typography>
+      </div>
+      <Paper elevation={4}>
+        <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
+      </Paper>
+    </>
+  );
+};
+
+export default SearchHistory;

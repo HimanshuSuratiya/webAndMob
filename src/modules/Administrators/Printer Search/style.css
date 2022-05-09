@@ -1,0 +1,36 @@
+.dropDown {
+  height: 27px;
+  width: 10%;
+  margin-left: 80px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.startIplabel {
+  margin-right: 68px;
+}
+
+.EndIplabel {
+  margin-right: 74px;
+}
+
+.textField {
+  width: 10%;
+}
+
+strong {
+  font-weight: bolder;
+  font-size: 25px;
+  padding: 0 7px;
+}
+
+.searchBtn {
+  color: white;
+  font-size: 18px;
+  margin-top: 40px !important;
+  margin-left: 121px !important;
+  width: 12%;
+}
