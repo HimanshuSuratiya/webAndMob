@@ -51,6 +51,12 @@ const MessageBox = ({
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      scrollToBotom()
+    }, 1200);
+  }, [state.bottomMessageId])
+
+  useEffect(() => {
     if(refMeas)
     {
      scrollToBotom();

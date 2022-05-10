@@ -145,6 +145,13 @@ const ViewOKTalk = ({
         removeNotification(state.deviceInfoId);
       }
     }
+    else {
+        const devicesWithChat = devices.filter(item => item.chatDate).sort((a, b) => new Date(b.chatDate) - new Date(a.chatDate));
+        const devicesWithoutChat = devices.filter(item => !item.chatDate);
+        setTimeout(() => {
+          setDevices([...devicesWithChat, ...devicesWithoutChat]);
+        }, 10)
+    }
   }, [notifications]);
   
   useEffect(() => {
@@ -192,16 +199,30 @@ const ViewOKTalk = ({
     });
   };
 
+  // const removeNotification = (deviceInfoId) => {
+  //   const updatedNotifications = notifications.filter(notification => notification.deviceInfoId !== deviceInfoId);
+  //   setNotifications(updatedNotifications);
+  //   setDevices(devices.map(device => ({
+  //     ...device,
+  //   })));
+  //   Service.removeChatCount({
+	//     deviceInfoId,
+	//     chatCount: 0,
+	//     dt1: ''
+  //   });
+  // };
+
   const removeNotification = (deviceInfoId) => {
     const updatedNotifications = notifications.filter(notification => notification.deviceInfoId !== deviceInfoId);
     setNotifications(updatedNotifications);
-    setDevices(devices.map(device => ({
-      ...device,
-    })));
+    devices.forEach((device)=>{
+      device.notificationCount = (device.deviceInfoId === deviceInfoId)? 0 : device.notificationCount;
+      device.chatCount = (device.deviceInfoId === deviceInfoId)? '0' : device.chatCount;
+    })
     Service.removeChatCount({
-	    deviceInfoId,
-	    chatCount: 0,
-	    dt1: ''
+      deviceInfoId,
+      chatCount: 0,
+      dt1: ''
     });
   };
 
