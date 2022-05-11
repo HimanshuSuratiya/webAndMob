@@ -7,6 +7,7 @@ import Select from "@material-ui/core/Select";
 import { Button, MenuItem } from "@material-ui/core";
 import { Grid } from "shared/components";
 import TextField from "@material-ui/core/TextField";
+import InfoIcon from '@material-ui/icons/Info';
 
 const PrinterSearch = () => {
   const [Department, setDepartment] = useState(0);
@@ -35,9 +36,9 @@ const PrinterSearch = () => {
       ),
     },
     {
-      id: "serial_Number",
-      fieldName: "serial_Number",
-      label: t("processSerialNumber"),
+      id: "printer_Model",
+      field: "printer_Model",
+      label: t("processPrinterModel"),
       canSort: true,
       render: (Rows) => (
         <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -46,9 +47,9 @@ const PrinterSearch = () => {
       ),
     },
     {
-      id: "model_Name",
-      field: "model_Name",
-      label: t("processModelName"),
+      id: "serial_Number",
+      fieldName: "serial_Number",
+      label: t("processSerialNumber"),
       canSort: true,
       render: (Rows) => (
         <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -68,9 +69,9 @@ const PrinterSearch = () => {
       ),
     },
     {
-      id: "printer_Name",
-      field: "printer_Name",
-      label: t("processPrinterName"),
+      id: "host_Name",
+      field: "host_Name",
+      label: t("processHostName"),
       canSort: true,
       render: (Rows) => (
         <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -143,7 +144,7 @@ const PrinterSearch = () => {
         </div>
         <Paper elevation={4} className="p-4">
           <div>
-            <label className="agent">Agent</label>
+            <label className="agent">{t("processagent")}</label>
             <Select
               className="dropDown"
               value={Department}
@@ -151,74 +152,36 @@ const PrinterSearch = () => {
               displayEmpty
               variant="outlined"
             >
-              <MenuItem value={0}>Select</MenuItem>
-              <MenuItem value={1}>One</MenuItem>
-              <MenuItem value={2}>Two</MenuItem>
-              <MenuItem value={3}>Three</MenuItem>
-              <MenuItem value={4}>Four</MenuItem>
+              <MenuItem value={0}>{t('processSelect')}</MenuItem>
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
             </Select>
           </div>
           <br />
           <br />
-          <div className="startIp">
-            <label className="startIplabel">Start IP</label>
+          <div>
+            <label className="startIplabel">{t("processIpAddress")}<strong>(*)</strong></label>
             <TextField
-              name="noticeNoUse"
+              error
               variant="outlined"
               className="textField"
               size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
-              size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
-              size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
-              size="small"
+              label="IP Address"
+              helperText="IP Address is required."
             />
           </div>
           <br />
           <br />
-          <div className="startIp">
-            <label className="EndIplabel">End IP</label>
+          <div>
+            <label className="EndIplabel">{t("processIpAddress")}<strong>(*)</strong></label>
             <TextField
-              name="noticeNoUse"
+              error
               variant="outlined"
               className="textField"
-              size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
-              size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
-              size="small"
-            />
-            <strong>-</strong>
-            <TextField
-              name="noticeNoUse"
-              variant="outlined"
-              className="textField"
+              color="sucess"
+              label="192.168.1.101"
               size="small"
             />
           </div>
@@ -233,14 +196,14 @@ const PrinterSearch = () => {
     return (
       <>
         <div className="d-flex f-align-center f-justify-between mb-8">
-          <Typography variant="h4">{t("Search Result")}</Typography>
+          <Typography variant="h4">{t("processSearchResult")}</Typography>
         </div>
         <Paper elevation={4}>
           <Grid columns={columnConfig} rows={Rows} />
         </Paper>
         <div className="divBtn">
-          <Button variant="contained" color="primary" onClick={() => { setPage(3) }} style={{ marginRight: '20px', }} type="submit">Register</Button>
-          <Button variant="contained" color="danger" style={{ marginRight: '20px', }} type="submit">Delete</Button>
+          <Button variant="contained" color="primary" onClick={() => { setPage(3) }} style={{ marginRight: '20px', }} type="submit">{t('processRegisterBtn')}</Button>
+          <Button variant="contained" color="danger" style={{ marginRight: '20px', }} type="submit">{t('processDeleteBtn')}</Button>
         </div>
       </>
     )
@@ -250,28 +213,28 @@ const PrinterSearch = () => {
       <>
         <div className='d-flex f-align-center f-justify-between mb-8'>
           <Typography variant='h4'>
-            {t('Single Printer')}
+            {t('processRegisterPrinter')}
           </Typography>
         </div>
         <Paper elevation={4} className='p-4'>
           <div className='wraplayout'>
-            <label className="formlabel" >Department Name</label>
+            <label className="formlabel">{t('processDepartmentName')}</label>
             <Select value={Department} onChange={updateDepartment} displayEmpty variant="outlined" style={{ height: '44px', width: '100%' }}>
-              <MenuItem value={0} >Select</MenuItem>
-              <MenuItem value={1} >One</MenuItem>
-              <MenuItem value={2} >Two</MenuItem>
-              <MenuItem value={3} >Three</MenuItem>
-              <MenuItem value={4} >Four</MenuItem>
-              <MenuItem value={5} >Five</MenuItem>
+              <MenuItem value={0} >{t('processSelect')}</MenuItem>
+              <MenuItem value={1} >1</MenuItem>
+              <MenuItem value={2} >2</MenuItem>
+              <MenuItem value={3} >3</MenuItem>
+              <MenuItem value={4} >4</MenuItem>
+              <MenuItem value={5} >5</MenuItem>
             </Select>
-            <label className="formlabel" >Location</label>
+            <label className="formlabel">{t('processLocation')}</label>
             <TextField
               name='noticeUsageLevel'
               fullWidth
               variant='outlined'
               size='small'
             />
-            <label className="formlabel" >Printer information</label>
+            <label className="formlabel">{t('processPrinterinformation')}</label>
             <TextField
               name='noticeNoUse'
               fullWidth
@@ -279,11 +242,11 @@ const PrinterSearch = () => {
               size='small'
               label={t('Brother MFC-LS700DW services')}
             />
-            <label style={{ fontWeight: 'bold', fontSize: '16px', marginTop: '12px', display: 'block' }} >Contract</label>
+            <label style={{ fontWeight: 'bold', fontSize: '16px', marginTop: '12px', display: 'block' }} >{t('processContract')}</label>
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <div style={{ width: '48%' }}>
-                <label className="formlabel" style={{ display: 'block' }}>Start Date </label>
+                <label className="formlabel" style={{ display: 'block' }}>{t('processStartDate')}</label>
                 <TextField
                   name='noticeNoUse'
                   variant='outlined'
@@ -293,7 +256,7 @@ const PrinterSearch = () => {
                 />
               </div>
               <div style={{ width: '48%' }}>
-                <label className="formlabel" style={{ display: 'block' }}>End Date</label>
+                <label className="formlabel" style={{ display: 'block' }}>{t('processEndDate')}</label>
                 <TextField
                   name='noticeNoUse'
                   variant='outlined'
@@ -333,31 +296,31 @@ const PrinterSearch = () => {
       <>
         <div className='d-flex f-align-center f-justify-between mb-8'>
           <Typography variant='h4'>
-            {t('Multiple Printer')}
+            {t('processPrintersDetail')}
           </Typography>
         </div>
         <Paper elevation={4} className='p-4'>
           <div className='wraplayout'>
-            <label className="formlabel">Department Name</label>
+            <label className="formlabel">{t('processDepartmentName')}</label>
             <Select value={Department} onChange={updateDepartment} displayEmpty variant="outlined" style={{ height: '44px', width: '100%' }}>
-              <MenuItem value={0} >Select</MenuItem>
-              <MenuItem value={1} >One</MenuItem>
-              <MenuItem value={2} >Two</MenuItem>
-              <MenuItem value={3} >Three</MenuItem>
-              <MenuItem value={4} >Four</MenuItem>
-              <MenuItem value={5} >Five</MenuItem>
+              <MenuItem value={0} >{t('processSelect')}</MenuItem>
+              <MenuItem value={1} >1</MenuItem>
+              <MenuItem value={2} >2</MenuItem>
+              <MenuItem value={3} >3</MenuItem>
+              <MenuItem value={4} >4</MenuItem>
+              <MenuItem value={5} >5</MenuItem>
             </Select>
-            <label className="formlabel">Location</label>
+            <label className="formlabel">{t('processLocation')}</label>
             <TextField
               name='noticeUsageLevel'
               fullWidth
               variant='outlined'
               size='small'
             />
-            <label style={{ fontWeight: 'bold', fontSize: '16px', marginTop: '12px', display: 'block' }} >Contract</label>
+            <label style={{ fontWeight: 'bold', fontSize: '16px', marginTop: '12px', display: 'block' }} >{t('processContract')}</label>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <div style={{ width: '48%' }}>
-                <label className="formlabel" style={{ display: 'block' }}>Start Date </label>
+                <label className="formlabel" style={{ display: 'block' }}>{t('processStartDate')}</label>
                 <TextField
                   name='noticeNoUse'
                   variant='outlined'
@@ -367,7 +330,7 @@ const PrinterSearch = () => {
                 />
               </div>
               <div style={{ width: '48%' }}>
-                <label className="formlabel" style={{ display: 'block' }}>End Date</label>
+                <label className="formlabel" style={{ display: 'block' }}>{t('processEndDate')}</label>
                 <TextField
                   name='noticeNoUse'
                   variant='outlined'
@@ -377,7 +340,7 @@ const PrinterSearch = () => {
                 />
               </div>
             </div>
-            <label className="formlabel">Memo</label>
+            <label className="formlabel">{t('processMemo')}</label>
             <TextField
               name='noticeNoUse'
               className='mt-2'

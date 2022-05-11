@@ -11,7 +11,7 @@ const SearchHistory = () => {
     {
       sNo: 1,
       searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192,168,1 192,168,1",
+      registrationIp: "192.168.1.101 ~ 192.168.1.234",
       normalDetected: 1,
       abnormalDetected: 10,
       notDetectedNo: "Complete",
@@ -20,7 +20,7 @@ const SearchHistory = () => {
     {
       sNo: 2,
       searchDate: "09-05-2022 12:33:15 AM",
-      registrationIp: "192,170,2 192,168,1",
+      registrationIp: "192.168.3.401 ~ 192.178.7.234",
       normalDetected: 3,
       abnormalDetected: 25,
       notDetectedNo: "InComplete",
@@ -29,7 +29,7 @@ const SearchHistory = () => {
     {
       sNo: 3,
       searchDate: "16-06-2022 02:53:15 PM",
-      registrationIp: "192,168,3 192,168,1",
+      registrationIp: "192.268.1.101 ~ 192.768.1.333",
       normalDetected: 65,
       abnormalDetected: 8,
       notDetectedNo: "Complete",
@@ -38,7 +38,7 @@ const SearchHistory = () => {
     {
       sNo: 4,
       searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192,168,4 192,168,1",
+      registrationIp: "192.368.1.312 ~ 192.182.6.347",
       normalDetected: 23,
       abnormalDetected: 34,
       notDetectedNo: "Complete",
@@ -47,7 +47,7 @@ const SearchHistory = () => {
     {
       sNo: 5,
       searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192,168,5 192,168,1",
+      registrationIp: "192.178.9.101 ~ 192.368.2.334",
       normalDetected: 0,
       abnormalDetected: 75,
       notDetectedNo: "InComplete",

@@ -37,6 +37,7 @@ const defaultState = {
 };
 
 const ViewLogin = ({ history }) => {
+  const [dateTime, setDateTime] = useState({ time: '', date: '' })
   const { t } = useTranslation();
   const { showLoader, setAvatar } = useContext(AppContext);
   const classes = useStyles();
@@ -64,10 +65,10 @@ const ViewLogin = ({ history }) => {
   };
 
   const handleChange = evt => {
-    
+
     const { name, value } = evt.target;
-    
-    
+
+
     const errorMessage = validate(name, $.trim(value)) ? ' ' : t(`login_error_${name}`);
     setState(prevState => ({
       ...prevState,
@@ -91,7 +92,7 @@ const ViewLogin = ({ history }) => {
       showLoader(false);
       return toast.error(error || t('popupSomethingWrong'));
     }
-    
+
     if (data.userSessionToken) {
       setTokenData(data);
       setAvatar(`${config.frontendUrl}/${data?.profileImage}`);
@@ -107,7 +108,7 @@ const ViewLogin = ({ history }) => {
       showLoader(false);
       return toast.error(error || t('popupSomethingWrong'));
     }
-    
+
     if (data.userSessionToken) {
       setTokenData({
         ...data,
@@ -145,9 +146,9 @@ const ViewLogin = ({ history }) => {
 
   const loginWithKakao = () => {
     window?.Kakao?.Auth?.loginForm({
-      success: function(authObj) {
+      success: function (authObj) {
         window.Kakao.Auth.setAccessToken(authObj.access_token);
-        window.Kakao.Auth.getStatusInfo(function(statusObject) {
+        window.Kakao.Auth.getStatusInfo(function (statusObject) {
           handleLoginSNS({
             "userId": statusObject.user.id,
             "userSessionToken": authObj.access_token,
@@ -182,13 +183,23 @@ const ViewLogin = ({ history }) => {
     if (naverLogin) {
       naverLogin && naverLogin.init();
     }
-    
+
     localStorage.removeItem('probe-ignore-showed');
   }, []);
   const isFormValid = validate();
 
+  const updateTimeDate = () => {
+    const currentDate = new Date().toLocaleDateString();
+    const currentTime = new Date().toLocaleTimeString();
+    setDateTime({
+      time: currentTime,
+      date: currentDate,
+    })
+  }
+  setInterval(updateTimeDate,1000)
+
   return (
-    
+
     <div className={clsx('d-flex flex-column f-align-center f-justify-center', classes.loginWrapper)}>
       <AppContextConsumer>
         {({
@@ -196,9 +207,9 @@ const ViewLogin = ({ history }) => {
           setLang
         }) => (
 
-         
-          <div className='p-absolute mr-5 mt-1' style={{ top:0, right: 0 }}>
-           
+
+          <div className='p-absolute mr-5 mt-1' style={{ top: 0, right: 0 }}>
+
             <FormControl>
               <Select
                 value={lang}
@@ -212,11 +223,11 @@ const ViewLogin = ({ history }) => {
         )}
       </AppContextConsumer>
       <img alt='Organisation Logo' src={OrgImg} />
-    
+
       <Paper elevation={4} className={clsx('p-10 d-flex flex-column f-align-center', classes.paper)}>
-       
+
         <Typography variant='body1'>{t('loginTitle')}</Typography>
-        
+
         <img
           alt='Kakao CTA'
           src={KakaoImg}
@@ -294,12 +305,12 @@ const ViewLogin = ({ history }) => {
           >
             {t('loginSubmit')}
           </Button>
-         
+
         </div>
-     
+
       </Paper>
-      <p className={clsx('',classes.login_info)}>Build:0.1.0 / 21 March 22</p>
-    
+      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / {dateTime.date} {dateTime.time}</p>
+
     </div>
   )
 };
