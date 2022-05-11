@@ -1,28 +1,39 @@
 .dropDown {
   height: 27px;
   width: 10%;
-  margin-left: 121px;
 }
 
 strong {
   color: red;
 }
 
+.endIp .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline {
+  border: 1px solid #35b803;
+}
+
+.endIp .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline:focus{
+  border: 1px solid #35b803 !important;
+  outline: #35b803 !important;
+  color: #35b803 !important;
+}
 .agent {
+  width: 165px;
   font-weight: bold;
   font-size: 16px;
-  margin-left: 5px;
+  display: inline-block;
 }
 
 .startIplabel {
-  margin-right: 68px;
+  width: 158px;
+  display: inline-block;
   font-weight: bold;
   font-size: 16px;
   line-height: 33px;
 }
 
 .EndIplabel {
-  margin-right: 68px;
+  display: inline-block;
+  width: 158px;
   font-weight: bold;
   font-size: 16px;
   line-height: 33px;
@@ -40,8 +51,8 @@ strong {
 .searchBtn {
   color: white !important;
   font-size: 15px !important;
-  margin-top: 40px !important;
-  margin-left: 160px !important;
+  margin-top: 20px !important;
+  margin-left: 165px !important;
   width: 10% !important;
 }
 

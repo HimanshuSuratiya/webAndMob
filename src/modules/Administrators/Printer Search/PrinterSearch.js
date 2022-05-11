@@ -173,13 +173,11 @@ const PrinterSearch = () => {
             />
           </div>
           <br />
-          <br />
           <div>
             <label className="EndIplabel">{t("processIpAddress")}<strong>(*)</strong></label>
             <TextField
-              error
               variant="outlined"
-              className="textField"
+              className="textField endIp"
               color="sucess"
               label="192.168.1.101"
               size="small"
