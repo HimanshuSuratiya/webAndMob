@@ -8,6 +8,8 @@ import { Button, MenuItem } from "@material-ui/core";
 import { Grid } from "shared/components";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from '@material-ui/icons/Info';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import InputAdornment from '@material-ui/core/InputAdornment'
 
 const PrinterSearch = () => {
   const [Department, setDepartment] = useState(0);
@@ -164,12 +166,21 @@ const PrinterSearch = () => {
           <div>
             <label className="startIplabel">{t("processIpAddress")}<strong>(*)</strong></label>
             <TextField
-              error
+              error={true}
               variant="outlined"
               className="textField"
               size="small"
               label="IP Address"
               helperText="IP Address is required."
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <div style={{ width: 15, height: 22, color: 'red' }}>
+                      <InfoIcon />
+                    </div>
+                  </InputAdornment>
+                )
+              }}
             />
           </div>
           <br />
@@ -181,6 +192,15 @@ const PrinterSearch = () => {
               color="sucess"
               label="192.168.1.101"
               size="small"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <div style={{ width: 15, height: 22, color: '#35b803' }}>
+                      <CheckCircleOutlineIcon />
+                    </div>
+                  </InputAdornment>
+                )
+              }}
             />
           </div>
           <Button variant="contained" onClick={() => { setPage(1) }} className="searchBtn" color="primary">
@@ -370,7 +390,6 @@ const PrinterSearch = () => {
           </div>
         </Paper>
       </>
-
     )
   }
 };
