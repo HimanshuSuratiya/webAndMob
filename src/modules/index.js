@@ -291,16 +291,18 @@ const AppModule = () => {
       to: "/administrators",
       icon: <SupervisorAccountIcon className="color-white" />,
       label: t("sidebarAdministrators"),
-    },
-    {
-      to: "/printer-search",
-      icon: <SearchIcon className="color-white" />,
-      label: t("sidebarPrinterSearch"),
-    },
-    {
-      to: "/search-history",
-      icon: <FindReplaceIcon className="color-white" />,
-      label: t("sidebarSearchHistory"),
+        administratorSubArray: [
+          {
+            to: "/printer-search",
+            icon: <SearchIcon className="color-white" />,
+            label: t("sidebarPrinterSearch"),
+          },
+          {
+            to: "/search-history",
+            icon: <FindReplaceIcon className="color-white" />,
+            label: t("sidebarSearchHistory"),
+          },
+        ]
     },
   ];
 

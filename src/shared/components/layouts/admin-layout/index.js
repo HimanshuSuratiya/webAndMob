@@ -36,6 +36,8 @@ import {AppContext} from "shared/contexts";
 import {getTokenData} from "utils";
 import config from 'config';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 import {useIdleTimer} from 'react-idle-timer';
 
@@ -97,6 +99,7 @@ const AdminLayout = ({
 
   });
   const [showAdminCollapse, setShowAdminCollapse] = useState(false)
+  const [updown,setUpDwon] = useState(false)
 
   const handleDrawer = (open) => {
     setState((prevState) => ({
@@ -189,44 +192,44 @@ const AdminLayout = ({
             matches && handleDrawer(state.close)
           }}
         >
-          {/*<ListItem button>*/}
-          {/*  <ListItemIcon>*/}
-          {/*    <AcUnitIcon className="color-white" />*/}
-          {/*  </ListItemIcon>*/}
-          {/*  {state.open && (*/}
-          {/*    <ListItemText>*/}
-          {/*      <Typography variant="h5" className="color-white">*/}
-          {/*        {getTokenData().partnerName}*/}
-          {/*      </Typography>*/}
-          {/*    </ListItemText>*/}
-          {/*  )}*/}
-          {/*</ListItem>*/}
-          {/*<Divider className={classes.divider} />*/}
-          {/*<ListItem*/}
-          {/*  className="pl-2"*/}
-          {/*  button*/}
-          {/*  onClick={() => {*/}
-          {/*    history.push(`/profile`);*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <Avatar*/}
-          {/*    className={classes.avtarImage}*/}
-          {/*    src={avatar || `${config.frontendUrl}/${getTokenData().avatar}`}*/}
-          {/*  />*/}
-          {/*  {state.open && (*/}
-          {/*    <ListItemText className="pl-6">*/}
-          {/*      <Tooltip*/}
-          {/*        title={localStorage.getItem("probe-email")}*/}
-          {/*        placement="top-start"*/}
-          {/*      >*/}
-          {/*        <Typography variant="body1" className="color-white" noWrap>*/}
-          {/*          {localStorage.getItem("probe-name")}*/}
-          {/*        </Typography>*/}
-          {/*      </Tooltip>*/}
-          {/*    </ListItemText>*/}
-          {/*  )}*/}
-          {/*</ListItem>*/}
-          {/*<Divider className={classes.divider} />*/}
+          <ListItem button>
+           <ListItemIcon>
+             <AcUnitIcon className="color-white" />
+           </ListItemIcon>
+           {state.open && (
+             <ListItemText>
+               <Typography variant="h5" className="color-white">
+                 {getTokenData().partnerName}
+               </Typography>
+             </ListItemText>
+           )}
+          </ListItem>
+          <Divider className={classes.divider} />
+          <ListItem
+           className="pl-2"
+           button
+           onClick={() => {
+             history.push(`/profile`);
+           }}
+          >
+           <Avatar
+             className={classes.avtarImage}
+             src={avatar || `${config.frontendUrl}/${getTokenData().avatar}`}
+           />
+           {state.open && (
+             <ListItemText className="pl-6">
+               <Tooltip
+                 title={localStorage.getItem("probe-email")}
+                 placement="top-start"
+               >
+                 <Typography variant="body1" className="color-white" noWrap>
+                   {localStorage.getItem("probe-name")}
+                 </Typography>
+               </Tooltip>
+             </ListItemText>
+           )}
+          </ListItem>
+          <Divider className={classes.divider} />
           {sidebarElements.map((item) => (
             <>
               <ListItem
@@ -264,31 +267,79 @@ const AdminLayout = ({
                     </div>
                   </ListItemText>
                 )}
-                <div style={{width: '10px', height: '10px', backgroundColor: 'red'}}
-                     onClick={() => setShowAdminCollapse(!showAdminCollapse)}></div>
+                {item.to === '/administrators'?<div style={{width: '100%', height: '23px', color:'white',paddingTop:'1px', marginLeft:'120px'}}
+                    onClick={() => { 
+                      setShowAdminCollapse(!showAdminCollapse); 
+                      setUpDwon(!updown);
+                      }}>
+                       {updown?<KeyboardArrowDownIcon/>:<ChevronRightIcon/>}
+                     </div>:''}
+                    
               </ListItem>
+              {item.to === '/administrators'?
               <Collapse in={showAdminCollapse} timeout="auto" unmountOnExit>
-                <div style={{width: '50px', height: '20px', backgroundColor: 'red'}}></div>
-              </Collapse>
+                  {item.administratorSubArray.map((items)=>{
+                    return (
+                      <>
+                        <ListItem
+                          component={NavLink}
+                          activeClassName={classes.activeListItem}
+                          to={items.to}
+                          key={items.lable}
+                        >
+                          {!state.open ? (
+                          <Badge
+                            badgeContent={items.count}
+                            color={"secondary"}
+                            className="mb-1"
+                          >
+                            <ListItemIcon className={classes.listIcon}>
+                              {items.icon}
+                            </ListItemIcon>
+                          </Badge>
+                          ) : (
+                            <ListItemIcon>{items.icon}</ListItemIcon>
+                          )}
+                          {state.open && (
+                            <ListItemText>
+                              <div className="d-flex f-justify-between f-align-center">
+                                <Typography variant="body1" className="color-white">
+                                  {items.label}
+                                </Typography>
+                                {parseInt(item?.count) > 0 && (
+                                <Badge
+                                  badgeContent={items.count}
+                                  color={"secondary"}
+                                  className="mb-1"
+                                />
+                                )}
+                              </div>
+                          </ListItemText>
+                          )}
+                        </ListItem>
+                      </>
+                    )  
+                  })}
+              </Collapse>:''}
             </>
           ))}
-          {/*<ListItem*/}
-          {/*  button*/}
-          {/*  onClick={() => {*/}
-          {/*    window.open("https://pf.kakao.com/_xmExnIC", "_blank");*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <ListItemIcon>*/}
-          {/*    <ContactSupportIcon className="color-white" />*/}
-          {/*  </ListItemIcon>*/}
-          {/*  {state.open && (*/}
-          {/*    <ListItemText>*/}
-          {/*      <Typography variant="body1" className="color-white">*/}
-          {/*        {t("sidebarContact")}*/}
-          {/*      </Typography>*/}
-          {/*    </ListItemText>*/}
-          {/*  )}*/}
-          {/*</ListItem>*/}
+          <ListItem
+           button
+           onClick={() => {
+             window.open("https://pf.kakao.com/_xmExnIC", "_blank");
+           }}
+          >
+           <ListItemIcon>
+             <ContactSupportIcon className="color-white" />
+           </ListItemIcon>
+           {state.open && (
+             <ListItemText>
+               <Typography variant="body1" className="color-white">
+                 {t("sidebarContact")}
+               </Typography>
+             </ListItemText>
+           )}
+          </ListItem>
         </List>
       </Drawer>
       <main className={classes.content} onClick={() => (matches && state.open) && handleDrawer(false)}>
