@@ -21,7 +21,7 @@ import NoticeModule from "./notice";
 import CustomersModule from "./customers";
 import DataProcessModule from "./data-process";
 import SearchHistory from './Administrators/Search History/SearchHistory';
-import PrinterSearch from "./Administrators/Printer Search/PrinterSearch";
+import PrinterSearch from "./Administrators/Printer Search/view/PrinterSearch";
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
