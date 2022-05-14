@@ -277,7 +277,7 @@ const AdminLayout = ({
                     
               </ListItem>
               {item.to === '/administrators'?
-              <Collapse in={showAdminCollapse} timeout="auto" unmountOnExit>
+              <Collapse style={{backgroundColor:'#4b4f52',borderBottomLeftRadius:'10px', borderBottomRightRadius:'10px'}} in={showAdminCollapse} timeout="auto" unmountOnExit>
                   {item.administratorSubArray.map((items)=>{
                     return (
                       <>

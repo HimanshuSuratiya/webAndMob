@@ -10,9 +10,14 @@ import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
+const ipRegex =
+  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
 const IPAddress = () => {
   const [Department, setDepartment] = useState(0);
   const { t } = useTranslation();
+  const [startIpError, setStartIpError] = useState(false);
+  const [endIpError, setEndIpError] = useState(false);
 
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
@@ -43,21 +48,31 @@ const IPAddress = () => {
         <br />
         <div>
           <label className="startIplabel">
-            {t("processIpAddress")}
+            {t("processStartIp")}
             <strong>(*)</strong>
           </label>
           <TextField
-            error={true}
+            error={startIpError}
             variant="outlined"
             className="textField"
             size="small"
             label="IP Address"
             helperText="IP Address is required."
+            onChange={(e) => {
+              const isIpCorrect = ipRegex.test(e.target.value);
+              setStartIpError(!isIpCorrect);
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <div style={{ width: 15, height: 22, color: "red" }}>
-                    <InfoIcon />
+                  <div
+                    style={{
+                      width: 15,
+                      height: 22,
+                      color: startIpError ? "red" : "#35b803",
+                    }}
+                  >
+                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
@@ -67,20 +82,32 @@ const IPAddress = () => {
         <br />
         <div>
           <label className="EndIplabel">
-            {t("processIpAddress")}
+            {t("processEndIp")}
             <strong>(*)</strong>
           </label>
           <TextField
+            error={endIpError}
             variant="outlined"
-            className="textField endIp"
-            color="sucess"
-            label="192.168.1.101"
+            className="textField"
+            color="yellow"
             size="small"
+            label="IP Address"
+            helperText="IP Address is required."
+            onChange={(e) => {
+              const isIpCorrect = ipRegex.test(e.target.value);
+              setEndIpError(!isIpCorrect);
+            }}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <div style={{ width: 15, height: 22, color: "#35b803" }}>
-                    <CheckCircleOutlineIcon />
+                  <div
+                    style={{
+                      width: 15,
+                      height: 22,
+                      color: endIpError ? "red" : "#35b803",
+                    }}
+                  >
+                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
