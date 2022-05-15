@@ -1,13 +1,13 @@
 import React from "react";
-import { Button } from "@material-ui/core";
-import { Grid } from "shared/components";
+import {Button} from "@material-ui/core";
+import {Grid} from "shared/components";
 import "../view/style.css";
 import Typography from "@material-ui/core/Typography";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 
 const SearchResult = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const columnConfig = [
     {
       id: "check_Box",
@@ -20,7 +20,7 @@ const SearchResult = () => {
       label: t("processNo"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.sNo}
         </Typography>
       ),
@@ -31,7 +31,7 @@ const SearchResult = () => {
       label: t("processPrinterModel"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.serialnumber}
         </Typography>
       ),
@@ -42,7 +42,7 @@ const SearchResult = () => {
       label: t("processSerialNumber"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.modelname}
         </Typography>
       ),
@@ -53,7 +53,7 @@ const SearchResult = () => {
       label: t("processIp"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.ip}
         </Typography>
       ),
@@ -64,7 +64,7 @@ const SearchResult = () => {
       label: t("processHostName"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.printername}
         </Typography>
       ),
@@ -75,7 +75,7 @@ const SearchResult = () => {
       label: t("processStatus"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{textAlign: "center"}}>
           {Rows.status}
         </Typography>
       ),
@@ -85,6 +85,7 @@ const SearchResult = () => {
   const Rows = [
     {
       sNo: 1,
+      id: 1,
       serialnumber: "Samsung x 4300 Series",
       modelname: "SEC30CDA7634013",
       ip: "192,168,1,233",
@@ -93,6 +94,7 @@ const SearchResult = () => {
     },
     {
       sNo: 2,
+      id: 2,
       serialnumber: "Samsung x 4300 Series",
       modelname: "SEC30CDA7634013",
       ip: "192,168,1,233",
@@ -101,6 +103,7 @@ const SearchResult = () => {
     },
     {
       sNo: 3,
+      id: 3,
       serialnumber: "Samsung x 4300 Series",
       modelname: "SEC30CDA7634013",
       ip: "192,168,1,233",
@@ -109,6 +112,7 @@ const SearchResult = () => {
     },
     {
       sNo: 4,
+      id: 4,
       serialnumber: "Samsung x 4300 Series",
       modelname: "SEC30CDA7634013",
       ip: "192,168,1,233",
@@ -117,6 +121,7 @@ const SearchResult = () => {
     },
     {
       sNo: 5,
+      id: 5,
       serialnumber: "Samsung x 4300 Series",
       modelname: "SEC30CDA7634013",
       ip: "192,168,1,233",
@@ -130,13 +135,13 @@ const SearchResult = () => {
         <Typography variant="h4">{t("processSearchResult")}</Typography>
       </div>
       <Paper elevation={4}>
-        <Grid columns={columnConfig} rows={Rows} />
+        <Grid columns={columnConfig} rows={Rows}/>
       </Paper>
       <div className="divBtn">
         <Button
           variant="contained"
           color="primary"
-          style={{ marginRight: "20px" }}
+          style={{marginRight: "20px"}}
           type="submit"
         >
           {t("processRegisterBtn")}
@@ -144,7 +149,7 @@ const SearchResult = () => {
         <Button
           variant="contained"
           color="danger"
-          style={{ marginRight: "20px" }}
+          style={{marginRight: "20px"}}
           type="submit"
         >
           {t("processDeleteBtn")}

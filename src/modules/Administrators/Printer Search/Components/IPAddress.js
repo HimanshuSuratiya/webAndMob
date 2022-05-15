@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../view/style.css";
 import Typography from "@material-ui/core/Typography";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
-import { Button, MenuItem } from "@material-ui/core";
+import {Button, MenuItem} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -13,12 +13,13 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 const ipRegex =
   /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-const IPAddress = () => {
+const IPAddress = ({setPage}) => {
   const [Department, setDepartment] = useState(0);
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
   const [endIpError, setEndIpError] = useState(false);
 
+  const ip = 'w'
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
@@ -44,8 +45,8 @@ const IPAddress = () => {
             <MenuItem value={4}>4</MenuItem>
           </Select>
         </div>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <div>
           <label className="startIplabel">
             {t("processStartIp")}
@@ -58,6 +59,8 @@ const IPAddress = () => {
             size="small"
             label="IP Address"
             helperText="IP Address is required."
+            required
+            pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setStartIpError(!isIpCorrect);
@@ -72,14 +75,14 @@ const IPAddress = () => {
                       color: startIpError ? "red" : "#35b803",
                     }}
                   >
-                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    {startIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
         </div>
-        <br />
+        <br/>
         <div>
           <label className="EndIplabel">
             {t("processEndIp")}
@@ -107,14 +110,16 @@ const IPAddress = () => {
                       color: endIpError ? "red" : "#35b803",
                     }}
                   >
-                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    {endIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
         </div>
-        <Button variant="contained" className="searchBtn" color="primary">
+        <Button variant="contained" className="searchBtn" color="primary"
+                disabled={!ip.length || (endIpError || startIpError)}
+                onClick={() => setPage(2)}>
           {t("processSearchBtn")}
         </Button>
       </Paper>
