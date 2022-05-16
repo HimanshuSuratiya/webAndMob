@@ -53,9 +53,15 @@ const Grid = ({
   const classes =  useStyles();
   const [state, setState] = useState(defaultState);
 
+  if(state.selectedRows.length === 0){
+    localStorage.removeItem('SelectRow');
+  }
   const handleSelectAllChange = evt => {
     const { checked } = evt.currentTarget;
     const selectedRows = checked ? rows.map(row => row.id) : [];
+    console.log('selectedAllRows')
+    console.log(selectedRows)
+    localStorage.setItem('SelectRow',JSON.stringify(selectedRows))
     onSelectionChange(selectedRows);
     setState(prevState => ({
       ...prevState,
@@ -67,6 +73,9 @@ const Grid = ({
       const existingSelectionIndex = prevState.selectedRows.indexOf(rowId);
       let selectedRows = prevState.selectedRows.slice();
       existingSelectionIndex === -1 ? selectedRows.push(rowId) : selectedRows.splice(existingSelectionIndex, 1);
+      console.log('selectedRows')
+      console.log(selectedRows)
+      localStorage.setItem('SelectRow',JSON.stringify(selectedRows))
       onSelectionChange(selectedRows);
       return {
         ...prevState,

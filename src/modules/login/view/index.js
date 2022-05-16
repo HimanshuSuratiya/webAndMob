@@ -37,7 +37,6 @@ const defaultState = {
 };
 
 const ViewLogin = ({ history }) => {
-  const [dateTime, setDateTime] = useState({ time: '', date: '' })
   const { t } = useTranslation();
   const { showLoader, setAvatar } = useContext(AppContext);
   const classes = useStyles();
@@ -188,16 +187,6 @@ const ViewLogin = ({ history }) => {
   }, []);
   const isFormValid = validate();
 
-  const updateTimeDate = () => {
-    const currentDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
-    setDateTime({
-      time: currentTime,
-      date: currentDate,
-    })
-  }
-  setInterval(updateTimeDate,1000)
-
   return (
 
     <div className={clsx('d-flex flex-column f-align-center f-justify-center', classes.loginWrapper)}>
@@ -309,7 +298,7 @@ const ViewLogin = ({ history }) => {
         </div>
 
       </Paper>
-      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / {dateTime.date} {dateTime.time}</p>
+      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / 16 May 2022 3:05 PM</p>
 
     </div>
   )

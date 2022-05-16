@@ -18,8 +18,8 @@ const IPAddress = ({setPage}) => {
   const {t} = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
   const [endIpError, setEndIpError] = useState(false);
-
-  const ip = 'w'
+  const [firstTextfield ,setFirstTextfield] = useState('');
+  const [secondTextfield ,setSecondTextfield] = useState('');
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
@@ -58,12 +58,12 @@ const IPAddress = ({setPage}) => {
             className="textField"
             size="small"
             label="IP Address"
-            helperText="IP Address is required."
-            required
-            pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
+            helperText={(startIpError?"IP Address is required.":'')}
+            // pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setStartIpError(!isIpCorrect);
+              setFirstTextfield(e.target.value)
             }}
             InputProps={{
               endAdornment: (
@@ -95,10 +95,11 @@ const IPAddress = ({setPage}) => {
             color="yellow"
             size="small"
             label="IP Address"
-            helperText="IP Address is required."
+            helperText={(endIpError?"IP Address is required.":'')}
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setEndIpError(!isIpCorrect);
+              setSecondTextfield(e.target.value)
             }}
             InputProps={{
               endAdornment: (
@@ -118,7 +119,7 @@ const IPAddress = ({setPage}) => {
           />
         </div>
         <Button variant="contained" className="searchBtn" color="primary"
-                disabled={!ip.length || (endIpError || startIpError)}
+                disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError)?false:true}
                 onClick={() => setPage(2)}>
           {t("processSearchBtn")}
         </Button>

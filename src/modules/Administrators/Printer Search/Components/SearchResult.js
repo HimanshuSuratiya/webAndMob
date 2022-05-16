@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Button} from "@material-ui/core";
 import {Grid} from "shared/components";
 import "../view/style.css";
@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 
-const SearchResult = () => {
+const SearchResult = ({setPage}) => {
   const {t} = useTranslation();
   const columnConfig = [
     {
@@ -129,6 +129,22 @@ const SearchResult = () => {
       status: "complete",
     },
   ];
+
+  const findSelectedRow = () => {
+    var SelectedRows = [];
+    SelectedRows = JSON.parse(localStorage.getItem('SelectRow'));
+    console.log('SelectedRows');
+    if(SelectedRows === null){}
+    else{
+      if(SelectedRows.length === 1){
+        setPage(3)
+      }
+      if(SelectedRows.length >= 2){
+        setPage(4)
+      }
+    }
+  }
+  
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
@@ -143,13 +159,13 @@ const SearchResult = () => {
           color="primary"
           style={{marginRight: "20px"}}
           type="submit"
+          onClick={()=>{findSelectedRow()}}
         >
           {t("processRegisterBtn")}
         </Button>
         <Button
           variant="contained"
-          color="danger"
-          style={{marginRight: "20px"}}
+          style={{marginRight: "20px", backgroundColor:'#f44336' ,color:'white'}}
           type="submit"
         >
           {t("processDeleteBtn")}

@@ -19,7 +19,7 @@ const PrinterSearch = () => {
     if (page === 2) {
       return (
         <>
-          <SearchResult/>
+          <SearchResult setPage={setPage}/>
         </>
       );
     }
@@ -41,26 +41,6 @@ const PrinterSearch = () => {
   return (
     <>
       {setPagefun()}
-      <Button onClick={() => {
-        setPage(1)
-      }} variant="contained" color="primary" style={{margin: "10px"}}>
-        Page 1
-      </Button>
-      <Button onClick={() => {
-        setPage(2)
-      }} variant="contained" color="primary" style={{margin: "10px"}}>
-        Page 2
-      </Button>
-      <Button onClick={() => {
-        setPage(3)
-      }} variant="contained" color="primary" style={{margin: "10px"}}>
-        Page 3
-      </Button>
-      <Button onClick={() => {
-        setPage(4)
-      }} variant="contained" color="primary" style={{margin: "10px"}}>
-        Page 4
-      </Button>
     </>
   );
 };
