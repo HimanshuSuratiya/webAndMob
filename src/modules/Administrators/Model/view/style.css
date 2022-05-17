@@ -1,0 +1,50 @@
+.tableBordered {
+    width: 100%;
+    border-spacing: 0px;
+}
+
+.tableBordered tbody tr {
+    width: 50%;
+}
+
+.tableBordered tbody tr td {
+    border: 1px solid #eee;
+    padding: 0.75rem;
+    vertical-align: top;
+}
+
+.printer1Img img {
+    width: 120px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.reducedsize img {
+    width: 66px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.imageFullsize {
+    padding: 0 !important;
+}
+
+.imageFullsize ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.imageFullsize li {
+    width: 50%;
+    border-left: 1px solid #ddd9d9;
+    height: 90px;
+    padding: 7px 0 0 12px;
+}
+
+.imageFullsize li:first-child {
+    border-left: none;
+
+}

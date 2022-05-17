@@ -22,6 +22,7 @@ import CustomersModule from "./customers";
 import DataProcessModule from "./data-process";
 import SearchHistory from './Administrators/Search History/SearchHistory';
 import PrinterSearch from "./Administrators/Printer Search/view/PrinterSearch";
+import Model from "./Administrators/Model/view/Model";
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
@@ -302,6 +303,11 @@ const AppModule = () => {
             icon: <FindReplaceIcon className="color-white" />,
             label: t("sidebarSearchHistory"),
           },
+          {
+            to: "/model",
+            icon: <FindReplaceIcon className="color-white" />,
+            label: t("sidebarModel"),
+          },
         ]
     },
   ];
@@ -453,6 +459,7 @@ const AppModule = () => {
               <Route path="/profile" component={ProfileModule} />
               <Route path="/search-history" component={SearchHistory} />
               <Route path="/printer-search" component={PrinterSearch} />
+              <Route path="/model" component={Model} />
               <Route
                 path="/oktalk"
                 render={(props) => (
