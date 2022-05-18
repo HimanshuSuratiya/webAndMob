@@ -23,6 +23,7 @@ import DataProcessModule from "./data-process";
 import SearchHistory from './Administrators/Search History/SearchHistory';
 import PrinterSearch from "./Administrators/Printer Search/view/PrinterSearch";
 import Model from "./Administrators/Model/view/Model";
+import GroupManagement from "./Administrators/Group Management/view/GroupManagement";
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
@@ -41,6 +42,7 @@ import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import FindReplaceIcon from '@material-ui/icons/FindReplace';
 import SearchIcon from '@material-ui/icons/Search';
+import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import {
   Backdrop,
   Button,
@@ -308,6 +310,11 @@ const AppModule = () => {
             icon: <FindReplaceIcon className="color-white" />,
             label: t("sidebarModel"),
           },
+          {
+            to: "/group-management",
+            icon: <GroupAddIcon className="color-white" />,
+            label: t("sidebarGroupManagement"),
+          },
         ]
     },
   ];
@@ -457,6 +464,8 @@ const AppModule = () => {
               <Route path="/summary" component={SummaryModule} />
               <Route path="/settings" component={SettingsModule} />
               <Route path="/profile" component={ProfileModule} />
+              <Route path="/administrators" component={PrinterSearch} />
+              <Route path="/group-management" component={GroupManagement}/>
               <Route path="/search-history" component={SearchHistory} />
               <Route path="/printer-search" component={PrinterSearch} />
               <Route path="/model" component={Model} />

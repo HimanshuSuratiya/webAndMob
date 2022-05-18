@@ -359,7 +359,7 @@ const OtherPage = () => {
                     <tbody>
                         <tr>
                             <td colspan="2">
-                                <strong style={{ color: "black", fontSize: "16px" }}>{t('Manufacturer')}</strong>
+                                <strong style={{ color: "black", fontSize: "16px" }}>{t('processManufacturer')}</strong>
                             </td>
                             <td>
                                 <TextField

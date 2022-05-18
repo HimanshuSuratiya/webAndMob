@@ -1,0 +1,40 @@
+.tabBtn {
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+ul.tabBtn li {
+  width: 100%;
+  padding-right: 12px;
+}
+
+ul.tabBtn li:last-child {
+  padding: 0;
+}
+
+.tabBtn li a {
+  padding: 8px 20px;
+  color: #000;
+  text-align: center;
+  font-size: 17px;
+  display: block;
+}
+
+.tabBtn li.active a {
+  border-bottom: 2px solid #5b73e8;
+  color: #5b73e8;
+}
+
+.tabDepartment {
+  width: 100%;
+  padding: 30px;
+  background-color: #f00;
+}
+
+.tabTree {
+  width: 100%;
+  padding: 30px;
+  color: white;
+  background-color: #000;
+}
