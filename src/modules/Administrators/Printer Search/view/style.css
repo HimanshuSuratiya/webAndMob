@@ -11,7 +11,7 @@ strong {
   border: 1px solid #35b803;
 }
 
-.endIp .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline:focus{
+.endIp .MuiInputBase-formControl .MuiOutlinedInput-notchedOutline:focus {
   border: 1px solid #35b803 !important;
   outline: #35b803 !important;
   color: #35b803 !important;

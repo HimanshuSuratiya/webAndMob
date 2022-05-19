@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import '../view/style.css'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import EventNoteIcon from '@material-ui/icons/EventNote';
+import Add from '../Components/Add';
 
 const GroupManagement = () => {
   const [showHide, setShowHide] = useState(true);
@@ -24,6 +25,7 @@ const GroupManagement = () => {
         </ul>
         {showHide ? <div className='tabDepartment' > <Department /> </div> : <div className='tabTree' ><Tree /> </div>}
       </Paper>
+      <Add />
     </>
   );
 };

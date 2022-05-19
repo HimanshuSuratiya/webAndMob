@@ -85,3 +85,111 @@ ul.tabBtn li:last-child {
   background-color: rgb(4, 54, 107) !important;
   color: white;
 }
+
+/* Add Css */
+.AddMainDiv {
+  height: 450px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.AddInnerDiv {
+  margin: 15px 0px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  position: relative;
+  height: 95%;
+  width: 53%;
+}
+
+.Heading {
+  height: 65px;
+  margin: 0px;
+  padding-left: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #007bff;
+  font-size: 32px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.AddcrossHeading {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: 20px;
+  border-radius: 3px;
+  display: flex;
+  color: rgb(70, 68, 68);
+  justify-content: center;
+  align-items: center;
+}
+
+.AddDepartmentDiv {
+  margin-top: 10px;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddDepartmentName {
+  font-size: 20px;
+}
+
+.AddDepartmentTextfield {
+  margin-left: 30px !important;
+  width: 62%;
+}
+
+.AdddropDown {
+  margin-left: 28px !important;
+  width: 62%;
+}
+
+.AdddropDown .MuiOutlinedInput-input {
+  padding: 11px 14px;
+}
+
+.AddRemark {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.AddTextarea {
+  margin-left: 120px !important;
+  height: 130px;
+  width: 62%;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.AddRemarkDiv {
+  margin-top: 10px;
+  height: 140px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.AddButtonDiv {
+  margin-top: 10px;
+  height: 50px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 17px;
+}
+
+.Addpagebtn {
+  margin-left: 2px !important;
+  width: 98% !important;
+}
