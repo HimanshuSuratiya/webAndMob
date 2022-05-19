@@ -484,12 +484,12 @@ const OtherPage = () => {
                     </tbody>
                 </table>
                 <br />
-                <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >Model Consumable Threshold</h1>
+                <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >{t('processModelConsumableThreshold')}</h1>
                 <Paper elevation={4} style={{ marginTop: '20px' }}>
                     <Grid columns={columnConfig} rows={Rows} />
                 </Paper>
                 <br />
-                <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >Model Usage Threshold</h1>
+                <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >{t('processModelUsageThreshold')}</h1>
                 <Paper elevation={4} style={{ marginTop: '20px' }}>
                     <Grid columns={columnConfig2} rows={Rows2} />
                 </Paper>

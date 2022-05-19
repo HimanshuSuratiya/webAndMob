@@ -22,19 +22,66 @@ ul.tabBtn li:last-child {
 }
 
 .tabBtn li.active a {
-  border-bottom: 2px solid #5b73e8;
-  color: #5b73e8;
+  border-bottom: 2px solid #007bff;
+  color: #007bff;
 }
 
 .tabDepartment {
   width: 100%;
-  padding: 30px;
-  background-color: #f00;
 }
 
 .tabTree {
   width: 100%;
-  padding: 30px;
   color: white;
   background-color: #000;
+}
+
+.topDivDepartment {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+}
+
+.departmentTextfield {
+  width: 18%;
+  padding-left: 8px !important;
+}
+
+.departmentTextfield .MuiOutlinedInput-inputMarginDense {
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+
+.DepartmentBtnDiv {
+  height: 90%;
+  width: 21%;
+}
+
+.AddBtn {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.ExportBtn {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.DeleteBtn {
+  border-radius: 0px !important;
+}
+
+.ImportBtn {
+  border-radius: 0px !important;
+}
+
+.btn {
+  width: 9%;
+  margin: 1px !important;
+}
+
+.btn:hover {
+  background-color: rgb(4, 54, 107) !important;
+  color: white;
 }
