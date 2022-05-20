@@ -100,6 +100,10 @@ const AdminLayout = ({
   });
   const [showAdminCollapse, setShowAdminCollapse] = useState(false)
   const [updown,setUpDwon] = useState(false)
+  const setDropDown = () => {
+    setShowAdminCollapse(!showAdminCollapse);
+    setUpDwon(!updown);
+  };
 
   const handleDrawer = (open) => {
     setState((prevState) => ({
@@ -233,6 +237,7 @@ const AdminLayout = ({
           {sidebarElements.map((item) => (
             <>
               <ListItem
+                onClick={() => {if(item.to === '/administrators'){setDropDown()}}}
                 component={NavLink}
                 activeClassName={classes.activeListItem}
                 to={item.to}
@@ -268,11 +273,10 @@ const AdminLayout = ({
                   </ListItemText>
                 )}
                 {item.to === '/administrators'?<div style={{width: '100%', height: '23px', color:'white',paddingTop:'1px', marginLeft:'120px'}}
-                    onClick={() => { 
-                      setShowAdminCollapse(!showAdminCollapse); 
-                      setUpDwon(!updown);
-                      }}>
-                       {updown?<KeyboardArrowDownIcon/>:<ChevronRightIcon/>}
+                    onClick={() => {
+                      setDropDown();
+                    }}>
+                    {updown?<KeyboardArrowDownIcon/>:<ChevronRightIcon/>}
                      </div>:''}
                     
               </ListItem>

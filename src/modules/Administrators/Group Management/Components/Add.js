@@ -19,12 +19,12 @@ const Add = ({ setClosePopUp }) => {
                 <div className="AddMainDiv">
                     <div className="AddInnerDiv">
                         <div className="Heading">
-                            Add
+                            {t('processAdd')}
                             <div className="AddcrossHeading"> <CloseIcon onClick={() => { setClosePopUp(false) }} style={{ cursor: 'pointer' }} /> </div>
                         </div>
                         <div className="popupmodelspacingarea">
                             <div className="AddDepartmentDiv">
-                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>Department Name </strong></label>
+                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processDepartmentName')}</strong></label>
                                 <TextField
                                     className="AddDepartmentTextfield"
                                     name="noticeNoUse"
@@ -33,7 +33,7 @@ const Add = ({ setClosePopUp }) => {
                                 />
                             </div>
                             <div className="AddDepartmentDiv">
-                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>Upper Department </strong></label>
+                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processUpperDepartment')}</strong></label>
                                 <Select
                                     className="AdddropDown"
                                     value={Department}
@@ -49,7 +49,7 @@ const Add = ({ setClosePopUp }) => {
                                 </Select>
                             </div>
                             <div className="AddRemarkDiv">
-                                <label className="AddRemark"> <strong style={{ color: 'rgb(70, 68, 68)' }}>Remark </strong></label>
+                                <label className="AddRemark"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processRemark')}</strong></label>
                                 <textarea className="AddTextarea" ></textarea>
                             </div>
                             <div className="AddButtonDiv">

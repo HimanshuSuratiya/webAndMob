@@ -17,9 +17,9 @@ const OtherPage = () => {
 
     const columnConfig = [
         {
-            id: "_Client",
-            fieldName: "_Client",
-            label: t("processClient"),
+            id: "_Printer_Modal",
+            fieldName: "_Printer_Modal",
+            label: t("processPrinterModel"),
             canSort: true,
             render: (Rows) => (
                 <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -149,154 +149,13 @@ const OtherPage = () => {
             />,
 
         },
-        {
-            id: 2,
-            Client: 'ALL',
-            Toner: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Fuser: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Developer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            OPC: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Transfer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Other: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-
-        },
-        {
-            id: 3,
-            Client: 'ALL',
-            Toner: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Fuser: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Developer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            OPC: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Transfer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Other: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-
-        },
-        {
-            id: 4,
-            Client: 'ALL',
-            Toner: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Fuser: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Developer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            OPC: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Transfer: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-            Other: <TextField
-                style={{ width: '70%', padding: '0px' }}
-                name="noticeUsageLevel"
-                variant="outlined"
-                defaultValue={10}
-                size="small"
-            />,
-
-        },
     ];
 
     const columnConfig2 = [
         {
-            id: "_Client",
-            fieldName: "_Client",
-            label: t("processClient"),
+            id: "_Printer_Modal",
+            fieldName: "_Printer_Modal",
+            label: t("processPrinterModel"),
             canSort: true,
             render: (Rows2) => (
                 <Typography variant="body1" style={{ textAlign: "center" }}>
@@ -333,18 +192,6 @@ const OtherPage = () => {
             id: 1,
             Client: 'ALL',
             Min: 0,
-            Max: 0,
-        },
-        {
-            id: 2,
-            Client: 'ALL',
-            Min: 5,
-            Max: 3,
-        },
-        {
-            id: 3,
-            Client: 'ALL',
-            Min: 2,
             Max: 0,
         },
     ]
@@ -486,12 +333,12 @@ const OtherPage = () => {
                 <br />
                 <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >{t('processModelConsumableThreshold')}</h1>
                 <Paper elevation={4} style={{ marginTop: '20px' }}>
-                    <Grid columns={columnConfig} rows={Rows} />
+                    <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
                 </Paper>
                 <br />
                 <h1 style={{ fontSize: '22px', color: '#7a5a5a' }} >{t('processModelUsageThreshold')}</h1>
                 <Paper elevation={4} style={{ marginTop: '20px' }}>
-                    <Grid columns={columnConfig2} rows={Rows2} />
+                    <Grid hasSelection={false} columns={columnConfig2} rows={Rows2} />
                 </Paper>
             </Paper>
         </>
