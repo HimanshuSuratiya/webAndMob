@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import clsx from 'clsx';
 import Loader from './loader';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -13,10 +13,11 @@ import TablePagination from '@material-ui/core/TablePagination';
 import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import NoRecords from 'assets/images/no-data.svg';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 import useStyles from './style';
 
-const noop = () => {};
+const noop = () => {
+};
 
 const defaultState = {
   selectedRows: [],
@@ -28,40 +29,40 @@ const mapSortDirection = {
 };
 
 const Grid = ({
-  columns = [],
-  rows= [],
-  order = [],
-  orderBy = [],
-  pageSize = 5,
-  pageNumber = 1,
-  totalRows = 0,
-  hasSelection = true,
-  filterConfig = {},
-  isLoading = false,
-  hidePagination = false,
-  hideNoRecordImage= false,
-  onPageSizeChange = noop,
-  onPageNumberChange = noop,
-  onSortChange = noop,
-  onSelectionChange = noop,
-  onReady = noop,
-  hasSecondLabel=false,
-  tableId='',
-  passedClasses={}
-}) => {
-  const { t } = useTranslation();
-  const classes =  useStyles();
+                columns = [],
+                rows = [],
+                order = [],
+                orderBy = [],
+                pageSize = 5,
+                pageNumber = 1,
+                totalRows = 0,
+                hasSelection = true,
+                filterConfig = {},
+                isLoading = false,
+                hidePagination = false,
+                hideNoRecordImage = false,
+                onPageSizeChange = noop,
+                onPageNumberChange = noop,
+                onSortChange = noop,
+                onSelectionChange = noop,
+                onReady = noop,
+                hasSecondLabel = false,
+                tableId = '',
+                passedClasses = {}
+              }) => {
+  const {t} = useTranslation();
+  const classes = useStyles();
   const [state, setState] = useState(defaultState);
 
-  if(state.selectedRows.length === 0){
+  if (state.selectedRows.length === 0) {
     localStorage.removeItem('SelectRow');
   }
   const handleSelectAllChange = evt => {
-    const { checked } = evt.currentTarget;
+    const {checked} = evt.currentTarget;
     const selectedRows = checked ? rows.map(row => row.id) : [];
     console.log('selectedAllRows')
     console.log(selectedRows)
-    localStorage.setItem('SelectRow',JSON.stringify(selectedRows))
+    localStorage.setItem('SelectRow', JSON.stringify(selectedRows))
     onSelectionChange(selectedRows);
     setState(prevState => ({
       ...prevState,
@@ -75,7 +76,7 @@ const Grid = ({
       existingSelectionIndex === -1 ? selectedRows.push(rowId) : selectedRows.splice(existingSelectionIndex, 1);
       console.log('selectedRows')
       console.log(selectedRows)
-      localStorage.setItem('SelectRow',JSON.stringify(selectedRows))
+      localStorage.setItem('SelectRow', JSON.stringify(selectedRows))
       onSelectionChange(selectedRows);
       return {
         ...prevState,
@@ -88,7 +89,7 @@ const Grid = ({
     const newOrder = order === 'A' ? 'D' : 'A';
     const column = columns.find(column => column.id === columnId);
     // (column.id=="insertDt")?alert("test"):alert('fales');
-      onSortChange(column, newOrder);
+    onSortChange(column, newOrder);
   };
 
   const handlePageChange = (evt, pageNumber) => {
@@ -103,17 +104,17 @@ const Grid = ({
   const createSelectionHandler = rowId => evt => handleSelection(rowId, evt);
 
   if (isLoading) {
-    return <Loader columns={columns.length} />
+    return <Loader columns={columns.length}/>
   }
 
   onReady({
-    resetSelection: () => setState(prevState => ({ ...prevState, selectedRows: [] })),
-    setSelection: selectedRows => setState(prevState => ({ ...prevState, selectedRows})),
+    resetSelection: () => setState(prevState => ({...prevState, selectedRows: []})),
+    setSelection: selectedRows => setState(prevState => ({...prevState, selectedRows})),
     getSelection: state.selectedRows,
   })
   return (
     <div className={classes.root}>
-      <TableContainer className={clsx(classes.container,passedClasses.container)}>
+      <TableContainer className={clsx(classes.container, passedClasses.container)}>
         <Table id={tableId} stickyHeader>
           <TableHead>
             <TableRow className={classes.row}>
@@ -137,19 +138,19 @@ const Grid = ({
                         root: classes.sortLabel
                       }}
                       key={column.id}
-                       //active={orderBy === column.id}
-                       //direction={orderBy === column.id ? mapSortDirection[order] : 'asc'}
-                      onClick={()=>handleSortClick(column.id)}
+                      //active={orderBy === column.id}
+                      //direction={orderBy === column.id ? mapSortDirection[order] : 'asc'}
+                      onClick={() => handleSortClick(column.id)}
 
                     >
                       {column.label}
                       {orderBy === column.id ? (
-                        <span className='ml-2'>
-                          <i className={`fas fa-caret-${order === 'D' ? 'down': 'up'}`} style={{ fontSize: 14 }}></i>
+                          <span className='ml-2'>
+                          <i className={`fas fa-caret-${order === 'D' ? 'down' : 'up'}`} style={{fontSize: 14}}></i>
                         </span>
-                      ) :
+                        ) :
 
-                        <span className='ml-2'><i className="fas fa-sort" style={{ fontSize: 14 }}></i></span>
+                        <span className='ml-2'><i className="fas fa-sort" style={{fontSize: 14}}></i></span>
                       }
 
 
@@ -162,10 +163,11 @@ const Grid = ({
                     align={'center'}
                     padding={column.disablePadding ? 'none' : 'default'}
                     sortDirection={orderBy === column.id ? order : false}
-                    className={clsx(classes.tableCell,passedClasses.tableCell, column.headerClasss)}
+                    className={clsx(classes.tableCell, passedClasses.tableCell, column.headerClasss)}
                   >
                     <Tooltip title={column.tooltip || column.label} placement='top-start'>
-                      <Typography variant='body1' className='text-bold' className={clsx('',classes.fontboldsize) }>{content}</Typography>
+                      <Typography variant='body1' className='text-bold'
+                                  className={clsx('', classes.fontboldsize)}>{content}</Typography>
 
                     </Tooltip>
 
@@ -173,93 +175,93 @@ const Grid = ({
                 )
               })}
             </TableRow>
-            {hasSecondLabel &&(
-            <TableRow className={classes.row}>
-            {columns.map(column => {
-              const content = <span>{column.secondLabel || '0'}</span>;
+            {hasSecondLabel && (
+              <TableRow className={classes.row}>
+                {columns.map(column => {
+                  const content = <span>{column.secondLabel || '0'}</span>;
 
-              return (
-                <TableCell
-                  key={column.id}
-                  align={column.numeric ? 'right' : 'left'}
-                  padding={column.disablePadding ? 'none' : 'default'}
-                  className={clsx(classes.tableCell)}
-                >
-                  <Tooltip title={column.tooltip || column.label} placement='top-start'>
+                  return (
+                    <TableCell
+                      key={column.id}
+                      align={column.numeric ? 'right' : 'left'}
+                      padding={column.disablePadding ? 'none' : 'default'}
+                      className={clsx(classes.tableCell)}
+                    >
+                      <Tooltip title={column.tooltip || column.label} placement='top-start'>
 
-                    <Typography variant='body1' className='text-bold '> {content}</Typography>
-                  </Tooltip>
-                </TableCell>
+                        <Typography variant='body1' className='text-bold '> {content}</Typography>
+                      </Tooltip>
+                    </TableCell>
 
-              )
+                  )
 
-            })}
-          </TableRow>
+                })}
+              </TableRow>
 
             )}
 
           </TableHead>
           <TableBody>
             <>
-            {(!isLoading && rows.length === 0 && !hideNoRecordImage) && (
-               <TableCell colSpan={columns.length + 1} className='align-center'>
-                {/* <img alt='No Records Found' src={NoRecords} height={400} /> */}
+              {(!isLoading && rows.length === 0 && !hideNoRecordImage) && (
+                <TableCell colSpan={columns.length + 1} className='align-center'>
+                  {/* <img alt='No Records Found' src={NoRecords} height={400} /> */}
                   <Typography variant='body1' className='text-bold'>
                     {t('noDataFound')}!
 
                   </Typography>
                 </TableCell>
-            )}
+              )}
 
-            {rows.map((row, rowIndex) => {
-              const selectionHandler = createSelectionHandler(row.id)
-              let content = <></>;
-              if (rows.render) {
-                content = rows.render();
-              } else {
-                const labelId = `table-checkbox-${rowIndex}`;
-                content = (
-                  <>
-                    {hasSelection && (
-                      <TableCell padding='checkbox'>
-                        <Checkbox
-                          color='primary'
-                          checked={state.selectedRows.indexOf(row.id) !== -1}
-                          onChange={selectionHandler}
-                          inputProps={{'aria-label': labelId}}
-                        />
-                      </TableCell>
-                    )}
-                    {columns.map((column, columnIndex) => {
-                      let content = <span>{row[column.field]?.toString() || ''}</span>;
-                      if (column.render) {
-                        content = column.render(row)
-                      }
-                      return (
-                        <TableCell
-                          key={`${column.label || 'grid-column'}-${columnIndex}${row.id}`}
-                          className={clsx(classes.tableCell,passedClasses.tableCell, column.headerClasss)}
-                        >
-
-                          <Tooltip title={row[column.field] || ''} placement='top-start'>
-                            <Typography variant='body1' className={clsx('',classes.fontsin)}>{content} </Typography>
-                          </Tooltip>
+              {rows.map((row, rowIndex) => {
+                const selectionHandler = createSelectionHandler(row.id)
+                let content = <></>;
+                if (rows.render) {
+                  content = rows.render();
+                } else {
+                  const labelId = `table-checkbox-${rowIndex}`;
+                  content = (
+                    <>
+                      {hasSelection && (
+                        <TableCell padding='checkbox'>
+                          <Checkbox
+                            color='primary'
+                            checked={state.selectedRows.indexOf(row.id) !== -1}
+                            onChange={selectionHandler}
+                            inputProps={{'aria-label': labelId}}
+                          />
                         </TableCell>
-                      )
-                    })}
-                  </>
+                      )}
+                      {columns.map((column, columnIndex) => {
+                        let content = <span>{row[column.field]?.toString() || ''}</span>;
+                        if (column.render) {
+                          content = column.render(row)
+                        }
+                        return (
+                          <TableCell
+                            key={`${column.label || 'grid-column'}-${columnIndex}${row.id}`}
+                            className={clsx(classes.tableCell, passedClasses.tableCell, column.headerClasss)}
+                          >
+
+                            <Tooltip title={row[column.field] || ''} placement='top-start'>
+                              <Typography variant='body1' className={clsx('', classes.fontsin)}>{content} </Typography>
+                            </Tooltip>
+                          </TableCell>
+                        )
+                      })}
+                    </>
+                  )
+                }
+                return (
+                  <TableRow
+                    hover
+                    key={row.id}
+                    className={classes.row}
+                  >
+                    {content}
+                  </TableRow>
                 )
-              }
-              return (
-                <TableRow
-                  hover
-                  key={row.id}
-                  className={classes.row}
-                >
-                  {content}
-                </TableRow>
-              )
-            })}
+              })}
             </>
           </TableBody>
         </Table>

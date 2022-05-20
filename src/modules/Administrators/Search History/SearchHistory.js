@@ -1,11 +1,19 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React, {useState} from "react";
+import {useTranslation} from "react-i18next";
 import Typography from "@material-ui/core/Typography";
-import { Grid } from "shared/components";
+import {Grid} from "shared/components";
 import Paper from "@material-ui/core/Paper";
+import SearchResult from "../Printer Search/Components/SearchResult";
+
+const TypographyWithClick = ({children, onClick}) => {
+  return <Typography variant="body1" style={{textAlign: "center"}} onClick={onClick}>
+    {children}
+  </Typography>
+}
 
 const SearchHistory = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
+  const [showSearchResult, setShowSearchResult] = useState(false)
 
   const Rows = [
     {
@@ -62,9 +70,7 @@ const SearchHistory = () => {
       label: t("processNo"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
-          {Rows.sNo}
-        </Typography>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.sNo}</TypographyWithClick>
       ),
     },
     {
@@ -73,9 +79,7 @@ const SearchHistory = () => {
       label: t("processSearchDate"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
-          {Rows.searchDate}
-        </Typography>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.searchDate}</TypographyWithClick>
       ),
     },
     {
@@ -84,9 +88,9 @@ const SearchHistory = () => {
       label: t("processRegistration"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
           {Rows.registrationIp}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -95,9 +99,9 @@ const SearchHistory = () => {
       label: t("processNormalDetected"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
           {Rows.normalDetected}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -106,9 +110,9 @@ const SearchHistory = () => {
       label: t("processAbnormalDetected"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
           {Rows.abnormalDetected}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -117,9 +121,9 @@ const SearchHistory = () => {
       label: t("processNotDetected"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
           {Rows.notDetectedNo}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -128,21 +132,25 @@ const SearchHistory = () => {
       label: t("processStatus"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
           {Rows.StatusId}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
   ];
 
   return (
     <>
-      <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("sidebarSearchHistory")}</Typography>
-      </div>
-      <Paper elevation={4}>
-        <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
-      </Paper>
+      {showSearchResult
+        ? <SearchResult/>
+        : <>
+          <div className="d-flex f-align-center f-justify-between mb-8">
+            <Typography variant="h4">{t("sidebarSearchHistory")}</Typography>
+          </div>
+          <Paper elevation={4}>
+            <Grid hasSelection={false} columns={columnConfig} rows={Rows}/>
+          </Paper>
+        </>}
     </>
   );
 };
