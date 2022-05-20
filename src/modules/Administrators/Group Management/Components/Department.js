@@ -6,9 +6,11 @@ import { useTranslation } from "react-i18next";
 import TextField from "@material-ui/core/TextField";
 import { Grid } from "shared/components";
 import Typography from "@material-ui/core/Typography";
+import Add from '../Components/Add';
 
 const Department = () => {
   const [Department, setDepartment] = useState(0);
+  const [popUp, setPopUp] = useState(false)
   const { t } = useTranslation();
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
@@ -116,7 +118,7 @@ const Department = () => {
           size="small"
         />
         <div className="DepartmentBtnDiv"></div>
-        <Button variant="contained" className="AddBtn btn" color="primary"
+        <Button variant="contained" className="AddBtn btn" color="primary" onClick={() => { setPopUp(true) }}
         >{t('processAdd')}</Button>
         <Button variant="contained" className="DeleteBtn btn" color="primary"
         >{t('processDelete')} </Button>
@@ -130,6 +132,7 @@ const Department = () => {
       <Paper>
         <Grid columns={columnConfig} rows={Rows} />
       </Paper>
+      {popUp ? <Add setClosePopUp={setPopUp} /> : ''}
     </>
   );
 };

@@ -22,8 +22,8 @@ ul.tabBtn li:last-child {
 }
 
 .tabBtn li.active a {
-  border-bottom: 2px solid #007bff;
-  color: #007bff;
+  border-bottom: 2px solid #757575;
+  color: #757575;
 }
 
 .tabDepartment {
@@ -33,7 +33,6 @@ ul.tabBtn li:last-child {
 .tabTree {
   width: 100%;
   color: white;
-  background-color: #000;
 }
 
 .topDivDepartment {
@@ -79,6 +78,7 @@ ul.tabBtn li:last-child {
 .btn {
   width: 9%;
   margin: 1px !important;
+  background-color: #757575 !important;
 }
 
 .btn:hover {
@@ -88,19 +88,25 @@ ul.tabBtn li:last-child {
 
 /* Add Css */
 .AddMainDiv {
-  height: 450px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  z-index: 9999;
 }
 
 .AddInnerDiv {
-  margin: 15px 0px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  position: relative;
-  height: 95%;
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
   width: 53%;
+  position: relative;
 }
 
 .Heading {
@@ -109,7 +115,7 @@ ul.tabBtn li:last-child {
   padding-left: 20px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: #007bff;
+  background-color: #757575;
   font-size: 32px;
   font-weight: 500;
   display: flex;
@@ -125,13 +131,13 @@ ul.tabBtn li:last-child {
   right: 20px;
   border-radius: 3px;
   display: flex;
-  color: rgb(70, 68, 68);
+  color: rgb(0, 98, 204);
   justify-content: center;
   align-items: center;
 }
 
 .AddDepartmentDiv {
-  margin-top: 10px;
+  margin-top: 25px;
   height: 50px;
   width: 100%;
   display: flex;
@@ -140,17 +146,17 @@ ul.tabBtn li:last-child {
 }
 
 .AddDepartmentName {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .AddDepartmentTextfield {
   margin-left: 30px !important;
-  width: 62%;
+  width: 73%;
 }
 
 .AdddropDown {
-  margin-left: 28px !important;
-  width: 62%;
+  margin-left: 30px !important;
+  width: 73%;
 }
 
 .AdddropDown .MuiOutlinedInput-input {
@@ -163,15 +169,15 @@ ul.tabBtn li:last-child {
 }
 
 .AddTextarea {
-  margin-left: 120px !important;
-  height: 130px;
-  width: 62%;
+  margin-left: 105px !important;
+  height: 100px;
+  width: 73%;
   margin-top: 5px;
   border-radius: 5px;
 }
 
 .AddRemarkDiv {
-  margin-top: 10px;
+  margin-top: 25px;
   height: 140px;
   width: 100%;
   display: flex;
@@ -180,16 +186,44 @@ ul.tabBtn li:last-child {
 
 .AddButtonDiv {
   margin-top: 10px;
-  height: 50px;
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 17px;
+  width: 100%;
+  text-align: right;
 }
 
 .Addpagebtn {
-  margin-left: 2px !important;
-  width: 98% !important;
+  margin-left: 25px !important;
+  background-color: #757575 !important;
+  width: 15% !important;
+}
+
+.Addpagebtn:hover {
+  background-color: rgb(4, 54, 107) !important;
+  color: white;
+}
+
+/* Tree Css */
+.accordianList {
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+
+.accordianList .menList {
+  list-style: none;
+  display: block;
+}
+
+.accordianList .menList li a {
+  padding: 5px 20px;
+  border: 1px solid #aaa;
+  display: block;
+  margin: 4px 0;
+  border-radius: 3px;
+}
+
+.hideList {
+  display: none;
+}
+
+.accordianList .menList li ul {
+  list-style: none;
 }
