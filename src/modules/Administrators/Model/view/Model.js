@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ModelTable from '../Components/ModelTable';
 import { Button } from "@material-ui/core"
-import DetailedModelInformation from '../Components/DetailedModelInformation';
-import OtherPage from "../Components/OtherPage";
+import ModelInfo from '../Components/ModelInfo';
+import MoreDetailInfo from "../Components/MoreDetailInfo";
 
 const Model = () => {
     const [page, setPage] = useState(1);
@@ -17,14 +17,14 @@ const Model = () => {
         if (page === 2) {
             return (
                 <>
-                    <DetailedModelInformation />
+                    <ModelInfo />
                 </>
             )
         }
         if (page === 3){
             return(
                 <>
-                    <OtherPage/>
+                    <MoreDetailInfo/>
                 </>
             )
         }

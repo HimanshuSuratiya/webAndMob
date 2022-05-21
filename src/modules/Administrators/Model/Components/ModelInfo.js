@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import PrinterImage from "../Image/printer1.png";
 import "../view/style.css";
 
-const DetailedModelInformation = () => {
+const ModelInfo = () => {
   const { t } = useTranslation();
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("Detailed Model Information")}</Typography>
+        <Typography variant="h4">{t("Model Info")}</Typography>
       </div>
       <Paper>
         <table class="table tableBordered ">
@@ -70,4 +70,4 @@ const DetailedModelInformation = () => {
   );
 };
 
-export default DetailedModelInformation;
+export default ModelInfo;

@@ -4,10 +4,17 @@ import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+import MoreDetailInfo from "./MoreDetailInfo";
 
+const TypographyWithClick = ({ children, onClick }) => {
+    return <Typography variant="body1" style={{ textAlign: "center" }} onClick={onClick}>
+        {children}
+    </Typography>
+}
 
 const ModelTable = () => {
     const { t } = useTranslation();
+    const [showSearchResult, setShowSearchResult] = useState(false)
     const columnConfig = [
         {
             id: "_Type",
@@ -15,9 +22,8 @@ const ModelTable = () => {
             label: t("processType"),
             canSort: true,
             render: (Rows) => (
-                <Typography variant="body1" style={{ textAlign: "center" }}>
-                    {Rows.Type}
-                </Typography>
+                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Type}</TypographyWithClick>
+
             ),
         },
         {
@@ -26,9 +32,7 @@ const ModelTable = () => {
             label: t("processName"),
             canSort: true,
             render: (Rows) => (
-                <Typography variant="body1" style={{ textAlign: "center" }}>
-                    {Rows.Name}
-                </Typography>
+                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Name}</TypographyWithClick>
             ),
         },
         {
@@ -37,9 +41,7 @@ const ModelTable = () => {
             label: t("processManufacturer"),
             canSort: true,
             render: (Rows) => (
-                <Typography variant="body1" style={{ textAlign: "center" }}>
-                    {Rows.Manufacturer}
-                </Typography>
+                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Manufacturer}</TypographyWithClick>
             ),
         },
         {
@@ -48,9 +50,7 @@ const ModelTable = () => {
             label: t("processNoOfPriners"),
             canSort: true,
             render: (Rows) => (
-                <Typography variant="body1" style={{ textAlign: "center" }}>
-                    {Rows.Noofprinters}
-                </Typography>
+                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Noofprinters}</TypographyWithClick>
             ),
         },
         {
@@ -131,12 +131,17 @@ const ModelTable = () => {
     ];
     return (
         <>
-            <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("Model Table")}</Typography>
-            </div>
-            <Paper elevation={4}>
-                <Grid columns={columnConfig} rows={Rows} />
-            </Paper>
+            {showSearchResult
+                ? <MoreDetailInfo />
+                : <>
+                    <div className="d-flex f-align-center f-justify-between mb-8">
+                        <Typography variant="h4">{t("Model Table")}</Typography>
+                    </div>
+                    <Paper elevation={4}>
+                        <Grid columns={columnConfig} rows={Rows} />
+                    </Paper>
+                </>
+            }
         </>
     );
 };
