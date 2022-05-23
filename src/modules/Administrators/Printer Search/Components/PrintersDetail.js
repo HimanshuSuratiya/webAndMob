@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../view/style.css";
+import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../view/style.css";
+import '../view/Groupstyle.css'
 import Select from "@material-ui/core/Select";
 import { Button, MenuItem, Paper } from "@material-ui/core";
 import { useTranslation } from "react-i18next";

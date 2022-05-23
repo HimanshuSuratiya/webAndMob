@@ -4,7 +4,7 @@ import Tree from "../Components/Tree";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
-import '../view/style.css'
+import '../view/Groupstyle.css'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 

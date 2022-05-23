@@ -3,7 +3,7 @@ import { Paper } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import "../view/style.css"
+import '../view/Groupstyle.css'
 
 const Tree = () => {
   const [firstlishowHide, setFirstlishowHide] = useState(false);

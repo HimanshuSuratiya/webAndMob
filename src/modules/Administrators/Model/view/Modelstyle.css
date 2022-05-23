@@ -61,3 +61,11 @@
     margin-top: 2px;
     height: 30px;
 }
+
+.TextRight div input {
+    text-align: right !important;
+}
+
+.MuiTableCell-body p {
+    text-align: right !important;
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
-import "../view/style.css";
+import "../view/Modelstyle.css";
 import { Grid } from "shared/components";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
@@ -118,6 +118,7 @@ const MoreDetailInfo = () => {
         style={{ width: '70%' }}
         name="noticeUsageLevel"
         variant="outlined"
+        className="TextRight"
         value={toner}
         size="small"
         type={'number'}
@@ -133,6 +134,7 @@ const MoreDetailInfo = () => {
         style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
+        className="TextRight"
         value={fuser}
         size="small"
         type={'number'}
@@ -147,6 +149,7 @@ const MoreDetailInfo = () => {
       Developer: <TextField
         style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
+        className="TextRight"
         variant="outlined"
         value={developer}
         size="small"
@@ -163,6 +166,7 @@ const MoreDetailInfo = () => {
         style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
+        className="TextRight"
         value={opc}
         size="small"
         type={'number'}
@@ -177,6 +181,7 @@ const MoreDetailInfo = () => {
       Transfer: <TextField
         style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
+        className="TextRight"
         variant="outlined"
         value={transfer}
         size="small"
@@ -192,6 +197,7 @@ const MoreDetailInfo = () => {
       Other: <TextField
         style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
+        className="TextRight"
         variant="outlined"
         value={other}
         size="small"
@@ -252,6 +258,7 @@ const MoreDetailInfo = () => {
         style={{ width: '30%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
+        className="TextRight"
         value={min}
         size="small"
         type={'number'}
@@ -266,6 +273,7 @@ const MoreDetailInfo = () => {
       Max: <TextField
         style={{ width: '30%', padding: '0px' }}
         name="noticeUsageLevel"
+        className="TextRight"
         variant="outlined"
         value={max}
         size="small"
@@ -284,7 +292,7 @@ const MoreDetailInfo = () => {
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("More Detail Info")}</Typography>
+        <Typography variant="h4">{t("processMoreDetailInfo")}</Typography>
       </div>
       <Paper>
         <table class="table tableBordered other-page-table-main">

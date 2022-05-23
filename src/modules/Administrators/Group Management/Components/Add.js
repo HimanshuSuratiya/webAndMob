@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../view/style.css";
+import '../view/Groupstyle.css'
 import Paper from "@material-ui/core/Paper";
 import CloseIcon from "@material-ui/icons/Close";
 import TextField from "@material-ui/core/TextField";

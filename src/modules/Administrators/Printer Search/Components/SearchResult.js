@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {Button} from "@material-ui/core";
 import {Grid} from "shared/components";
-import "../view/style.css";
+import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
 import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";

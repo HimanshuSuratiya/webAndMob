@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./style.css";
+import "../view/PrinterSearchstyle.css";
 import IPAddress from "../Components/IPAddress";
 import SearchResult from "../Components/SearchResult";
 import RegisterPrinter from "../Components/RegisterPrinter";

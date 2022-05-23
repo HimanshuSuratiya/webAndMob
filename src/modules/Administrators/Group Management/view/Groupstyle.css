@@ -114,7 +114,7 @@ ul.tabBtn li:last-child {
   padding-left: 20px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: #757575;
+  background-color: #007bff;
   font-size: 32px;
   font-weight: 500;
   display: flex;
@@ -130,7 +130,7 @@ ul.tabBtn li:last-child {
   right: 20px;
   border-radius: 3px;
   display: flex;
-  color: rgb(0, 98, 204);
+  color: #7e1515;
   justify-content: center;
   align-items: center;
 }
@@ -145,17 +145,23 @@ ul.tabBtn li:last-child {
 }
 
 .AddDepartmentName {
+  width: 25%;
   font-size: 18px;
 }
 
 .AddDepartmentTextfield {
   margin-left: 30px !important;
-  width: 73%;
+  width: 65%;
+}
+
+.AddUpperDepartment {
+  font-size: 18px;
+  width: 25%;
 }
 
 .AdddropDown {
   margin-left: 30px !important;
-  width: 73%;
+  width: 65%;
 }
 
 .AdddropDown .MuiOutlinedInput-input {
@@ -165,12 +171,13 @@ ul.tabBtn li:last-child {
 .AddRemark {
   margin-top: 10px;
   font-size: 20px;
+  width: 20%;
 }
 
 .AddTextarea {
-  margin-left: 105px !important;
+  margin-left: 69px !important;
   height: 100px;
-  width: 73%;
+  width: 65%;
   margin-top: 5px;
   border-radius: 5px;
 }
@@ -190,9 +197,10 @@ ul.tabBtn li:last-child {
 }
 
 .Addpagebtn {
-  margin-left: 25px !important;
-  background-color: #757575 !important;
+  margin-left: 5px !important;
+  background-color: #007bff !important;
   width: 15% !important;
+  margin-right: 15px !important;
 }
 
 .Addpagebtn:hover {

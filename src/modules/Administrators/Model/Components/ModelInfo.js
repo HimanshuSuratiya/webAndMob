@@ -3,14 +3,14 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import PrinterImage from "../Image/printer1.png";
-import "../view/style.css";
+import "../view/Modelstyle.css";
 
 const ModelInfo = () => {
   const { t } = useTranslation();
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("Model Info")}</Typography>
+        <Typography variant="h4">{t("processModelInfo")}</Typography>
       </div>
       <Paper>
         <table class="table tableBordered ">
