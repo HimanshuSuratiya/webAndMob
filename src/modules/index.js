@@ -23,6 +23,7 @@ import DataProcessModule from "./data-process";
 import SearchHistory from './Administrators/Search History/SearchHistory';
 import PrinterSearch from "./Administrators/Printer Search/view/PrinterSearch";
 import Model from "./Administrators/Model/view/Model";
+import License from "./Administrators/License Management/view/License";
 import GroupManagement from "./Administrators/Group Management/view/GroupManagement";
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
@@ -43,6 +44,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import FindReplaceIcon from '@material-ui/icons/FindReplace';
 import SearchIcon from '@material-ui/icons/Search';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import {
   Backdrop,
   Button,
@@ -315,6 +317,11 @@ const AppModule = () => {
             icon: <GroupAddIcon className="color-white" />,
             label: t("sidebarGroupManagement"),
           },
+          {
+            to: "/license-management",
+            icon: <AssignmentIcon className="color-white" />,
+            label: t("License Management"),
+          },
         ]
     },
   ];
@@ -469,6 +476,7 @@ const AppModule = () => {
               <Route path="/search-history" component={SearchHistory} />
               <Route path="/printer-search" component={PrinterSearch} />
               <Route path="/model" component={Model} />
+              <Route path="/license-management" component={License} />
               <Route
                 path="/oktalk"
                 render={(props) => (

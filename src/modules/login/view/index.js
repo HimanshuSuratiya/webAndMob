@@ -298,7 +298,7 @@ const ViewLogin = ({ history }) => {
         </div>
 
       </Paper>
-      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / 16 May 2022 5:35 PM</p>
+      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / 23 May 2022 3:02 PM</p>
 
     </div>
   )

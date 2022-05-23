@@ -104,22 +104,18 @@ ul.tabBtn li:last-child {
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 53%;
+  width: 40%;
   position: relative;
 }
 
 .Heading {
   height: 65px;
-  margin: 0px;
   padding-left: 20px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  background-color: #007bff;
   font-size: 32px;
   font-weight: 500;
   display: flex;
   align-items: center;
-  color: white;
+  color: rgba(0, 0, 0, 0.87);
   position: relative;
 }
 
@@ -130,27 +126,45 @@ ul.tabBtn li:last-child {
   right: 20px;
   border-radius: 3px;
   display: flex;
-  color: #7e1515;
+  color: #757575;
   justify-content: center;
   align-items: center;
 }
 
 .AddDepartmentDiv {
-  margin-top: 25px;
+  margin-top: 10px;
   height: 50px;
-  width: 100%;
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .AddDepartmentName {
-  width: 25%;
+  width: 98%;
   font-size: 18px;
+  padding-left: 15px;
+}
+
+.RemarkDiv {
+  margin-top: 30px;
+  margin-left: 15px;
+  height: 125px;
+  width: 92%;
+  display: flex;
+  justify-content: center;
+}
+
+.RemarkTextfield {
+  width: 100% !important;
+  border-radius: 5px;
+  font-size: 17px;
+  padding: 5px 10px;
 }
 
 .AddDepartmentTextfield {
-  margin-left: 30px !important;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
   width: 65%;
 }
 
@@ -160,8 +174,7 @@ ul.tabBtn li:last-child {
 }
 
 .AdddropDown {
-  margin-left: 30px !important;
-  width: 65%;
+  width: 94% !important;
 }
 
 .AdddropDown .MuiOutlinedInput-input {
@@ -175,36 +188,28 @@ ul.tabBtn li:last-child {
 }
 
 .AddTextarea {
-  margin-left: 69px !important;
+  margin-left: 145px !important;
   height: 100px;
   width: 65%;
   margin-top: 5px;
   border-radius: 5px;
 }
 
-.AddRemarkDiv {
-  margin-top: 25px;
-  height: 140px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .AddButtonDiv {
-  margin-top: 10px;
+  margin-top: 70px;
   width: 100%;
   text-align: right;
+  padding-right: 20px;
 }
 
 .Addpagebtn {
-  margin-left: 5px !important;
   background-color: #007bff !important;
-  width: 15% !important;
-  margin-right: 15px !important;
+  width: 18% !important;
+  margin-right: 5px !important;
 }
 
 .Addpagebtn:hover {
-  background-color: rgb(4, 54, 107) !important;
+  background-color: gray !important;
   color: white;
 }
 

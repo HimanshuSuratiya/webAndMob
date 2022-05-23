@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
 import { useTranslation } from "react-i18next";
 import { Button, MenuItem } from "@material-ui/core";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const Add = ({ setClosePopUp }) => {
     const [Department, setDepartment] = useState(0);
@@ -24,39 +25,45 @@ const Add = ({ setClosePopUp }) => {
                         </div>
                         <div className="popupmodelspacingarea">
                             <div className="AddDepartmentDiv">
-                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processDepartmentName')}</strong></label>
                                 <TextField
                                     className="AddDepartmentTextfield"
+                                    fullWidth
                                     name="noticeNoUse"
                                     variant="outlined"
                                     size="small"
+                                    label={t("Department Name")}
                                 />
                             </div>
                             <div className="AddDepartmentDiv">
-                                <label className="AddDepartmentName"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processUpperDepartment')}</strong></label>
-                                <Select
-                                    className="AdddropDown"
-                                    value={Department}
-                                    onChange={updateDepartment}
-                                    displayEmpty
+                                <TextField
+                                    className="AddDepartmentTextfield"
+                                    fullWidth
+                                    name="noticeNoUse"
                                     variant="outlined"
-                                >
-                                    <MenuItem value={0}>{t("processSelect")}</MenuItem>
-                                    <MenuItem value={1}>1</MenuItem>
-                                    <MenuItem value={2}>2</MenuItem>
-                                    <MenuItem value={3}>3</MenuItem>
-                                    <MenuItem value={4}>4</MenuItem>
-                                </Select>
+                                    size="small"
+                                    label={t("Upper Department")}
+                                />
                             </div>
-                            <div className="AddRemarkDiv">
-                                <label className="AddRemark"> <strong style={{ color: 'rgb(70, 68, 68)' }}>{t('processRemark')}</strong></label>
-                                <textarea className="AddTextarea" ></textarea>
+                            <div className="RemarkDiv">
+                                <TextareaAutosize
+                                    className="RemarkTextfield"
+                                    aria-label="minimum height"
+                                    minRows={8}
+                                    placeholder="Remark"
+                                    style={{ width: 200 }}
+                                />
                             </div>
                             <div className="AddButtonDiv">
-                                <Button variant="contained" className="AddCloseBtn Addpagebtn" color="primary"
-                                >{t('Close')} </Button>
-                                <Button variant="contained" className="AddaddBtn Addpagebtn" color="primary"
-                                >{t('processAdd')}</Button>
+                                <Button className="mr-4">
+                                    {t('settingsCancel')}
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    disabled={false}
+                                >
+                                    {t('usersAdd')}
+                                </Button>
                             </div>
                         </div>
                     </div>
