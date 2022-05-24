@@ -1,7 +1,7 @@
 .mainDivLicense {
-    height: auto;
+    height: 500px;
     width: 100%;
-    /* background-color: rgb(233, 237, 237); */
+    padding: 18px;
 }
 
 .StatusDiv {
@@ -11,50 +11,115 @@
     width: 100%;
 }
 
-.Status {
-    width: 30%;
-    margin-left: 20px;
-    font-weight: 500;   
-    font-size: 20px;
-    color: black;
-}
-
 .StatusTextfield {
-    width: 50%;
-}
-
-.StatusTextfield .MuiOutlinedInput-inputMarginDense {
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+    width: 43%;
 }
 
 .return {
     color: #007bff;
-    width: 10%;
-    margin-left: 53px !important;
+    width: 12%;
+    color: white;
+    margin-left: 52px !important;
 }
 
 .Applicationkey {
-    margin-top: 15px;
+    margin-top: 24px;
     height: 35px;
     align-items: center;
     display: flex;
     width: 100%;
 }
 
-.ExpireDateDiv {
+.TextfieldDiv {
     height: 35px;
-    margin-top: 15px;
+    margin-top: 24px;
     align-items: center;
     display: flex;
     width: 100%;
 }
 
-.ExpireDateTextfield {
-    width: 65%;
+.Textfield {
+    width: 60%;
 }
 
-.ExpireDateTextfield .MuiOutlinedInput-inputMarginDense {
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+.BtnDiv {
+    margin-top: 24px;
+    width: 55%;
+    justify-content: end;
+    display: flex;
+}
+
+/* PopUp Css */
+.keypopUpDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    width: 100%;
+    height: 100%;
+    z-index: 1212;
+    display: inline-flex;
+}
+
+.keypopUpInnerDiv {
+    height: auto;
+    width: 45%;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    position: relative;
+}
+
+.keypopUpHeading {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    padding-left: 24px;
+    justify-content: space-between;
+}
+
+.keypopUpcross {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    width: 28px;
+    color: #007bff;
+    margin-right: 20px;
+}
+
+.inputKey {
+    margin-top: 25px;
+    height: 50px;
+    width: 100%;
+}
+
+.keyTextfield {
+    margin-left: 19px !important;
+    width: 90% !important;
+}
+
+.inputKeybtn {
+    margin-top: 15px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    padding-right: 24px;
+}
+
+.keybtnpopup {
+    margin-right: 5px !important;
 }

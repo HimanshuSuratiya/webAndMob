@@ -140,8 +140,8 @@ ul.tabBtn li:last-child {
   justify-content: center;
 }
 
-.AddDepartmentName {
-  width: 98%;
+.AddUpperDepartmentDiv {
+  width: 100%;
   font-size: 18px;
   padding-left: 15px;
 }
@@ -173,28 +173,6 @@ ul.tabBtn li:last-child {
   width: 25%;
 }
 
-.AdddropDown {
-  width: 94% !important;
-}
-
-.AdddropDown .MuiOutlinedInput-input {
-  padding: 11px 14px;
-}
-
-.AddRemark {
-  margin-top: 10px;
-  font-size: 20px;
-  width: 20%;
-}
-
-.AddTextarea {
-  margin-left: 145px !important;
-  height: 100px;
-  width: 65%;
-  margin-top: 5px;
-  border-radius: 5px;
-}
-
 .AddButtonDiv {
   margin-top: 70px;
   width: 100%;
@@ -202,15 +180,9 @@ ul.tabBtn li:last-child {
   padding-right: 20px;
 }
 
-.Addpagebtn {
-  background-color: #007bff !important;
-  width: 18% !important;
-  margin-right: 5px !important;
-}
-
-.Addpagebtn:hover {
-  background-color: gray !important;
-  color: white;
+.upperDepartmentlabel {
+  padding-left: 17px;
+  font-size: 16px;
 }
 
 /* Tree Css */

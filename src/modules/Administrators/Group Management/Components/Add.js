@@ -10,6 +10,7 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const Add = ({ setClosePopUp }) => {
     const [Department, setDepartment] = useState(0);
+    const [popUp, setPopUp] = useState(false)
     const { t } = useTranslation();
     const updateDepartment = (event) => {
         setDepartment(event.target.value);
@@ -34,15 +35,22 @@ const Add = ({ setClosePopUp }) => {
                                     label={t("Department Name")}
                                 />
                             </div>
-                            <div className="AddDepartmentDiv">
-                                <TextField
-                                    className="AddDepartmentTextfield"
-                                    fullWidth
-                                    name="noticeNoUse"
+                            <label className="upperDepartmentlabel"><strong style={{ color: 'rgba(0, 0, 0, 0.87)' }}>{t("processUpperDepartment")}</strong></label>
+                            <div className="AddUpperDepartmentDiv">
+                                <Select
+                                    value={Department}
+                                    onChange={updateDepartment}
+                                    displayEmpty
                                     variant="outlined"
-                                    size="small"
-                                    label={t("Upper Department")}
-                                />
+                                    style={{ height: "44px", width: "94%" }}
+                                >
+                                    <MenuItem value={0}>{t("processSelect")}</MenuItem>
+                                    <MenuItem value={1}>1</MenuItem>
+                                    <MenuItem value={2}>2</MenuItem>
+                                    <MenuItem value={3}>3</MenuItem>
+                                    <MenuItem value={4}>4</MenuItem>
+                                    <MenuItem value={5}>5</MenuItem>
+                                </Select>
                             </div>
                             <div className="RemarkDiv">
                                 <TextareaAutosize

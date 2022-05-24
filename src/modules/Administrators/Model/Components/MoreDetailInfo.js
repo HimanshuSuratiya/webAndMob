@@ -42,7 +42,7 @@ const MoreDetailInfo = () => {
       label: t("processToner"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{ textAlign: "right" }}>
           {Rows.Toner}
         </Typography>
       ),
@@ -53,7 +53,7 @@ const MoreDetailInfo = () => {
       label: t("processFuser"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{ textAlign: "right" }}>
           {Rows.Fuser}
         </Typography>
       ),
@@ -64,7 +64,7 @@ const MoreDetailInfo = () => {
       label: t("processDeveloper"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{ textAlign: "right" }}>
           {Rows.Developer}
         </Typography>
       ),
@@ -76,7 +76,7 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "center" }}>
+          <Typography variant="body1" style={{ textAlign: "right" }}>
             {Rows.OPC}
           </Typography>
         </>
@@ -89,7 +89,7 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "center" }}>
+          <Typography variant="body1" style={{ textAlign: "right" }}>
             {Rows.Transfer}
           </Typography>
         </>
@@ -102,7 +102,7 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "center" }}>
+          <Typography variant="body1" style={{ textAlign: "right" }}>
             {Rows.Other}
           </Typography>
         </>
@@ -232,7 +232,7 @@ const MoreDetailInfo = () => {
       label: t("processMin"),
       canSort: true,
       render: (Rows2) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{ textAlign: "right" }}>
           {Rows2.Min}
         </Typography>
       ),
@@ -243,7 +243,7 @@ const MoreDetailInfo = () => {
       label: t("processMax"),
       canSort: true,
       render: (Rows2) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <Typography variant="body1" style={{ textAlign: "right" }}>
           {Rows2.Max}
         </Typography>
       ),
