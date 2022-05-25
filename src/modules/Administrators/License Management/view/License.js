@@ -6,8 +6,10 @@ import "./Licensestyle.css";
 import TextField from "@material-ui/core/TextField";
 import { Button, MenuItem } from "@material-ui/core";
 import ImportKeypopUp from "../Components/ImportKeypopup";
+import DeleteKey from "../Components/DeleteKey";
 
 const defaultState = {
+    status: 'License Activated',
     key: '',
     setActivation: 'none',
     createDownload: true,
@@ -16,9 +18,11 @@ const defaultState = {
 const License = () => {
     const [state, setState] = useState(defaultState)
     const [popUp, setPopUp] = useState(false)
+    const [importKey, setImportKey] = useState(false)
+    const [deleteKeyPopUp, setDeleteKeyPopUp] = useState(false)
     const { t } = useTranslation();
     const Data = {
-        status: 'License Activated',
+        status: `${state.status}`,
         ApplicationKey: `${state.key}`,
         ExpireDate: '2023-12-24',
         CustomerDisplayName: 'TEST11',
@@ -32,6 +36,7 @@ const License = () => {
             key: 'MPYB6-Y2PG2-KJJB7-8MMRJ-PQR6Y-JHJTM-JHJTM',
             setActivation: 'block',
             createDownload: false,
+            status: 'Demo License',
         }));
     }
 
@@ -51,8 +56,9 @@ const License = () => {
                             value={Data.status}
                             label={t("Status")}
                         />
-                        <Button variant="contained" className="return" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
-                        >{t('Activate')} </Button>
+                        {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="return" color="primary" style={{ display: `${state.setActivation}` }}
+                        >{t('Return')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
+                        >{t('Activate')} </Button>}
                     </div>
                     <div className="Applicationkey">
                         <TextField
@@ -63,9 +69,10 @@ const License = () => {
                             value={Data.ApplicationKey}
                             label={t("Application Key")}
                         />
-                        {state.createDownload ? <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
+                        {importKey ? '' : (state.createDownload ? <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
                         >{t('Create')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
-                        >{t('Download')} </Button>}
+                        >{t('Download')} </Button>)
+                        }
                     </div>
                     <div className="TextfieldDiv">
                         <TextField
@@ -124,7 +131,8 @@ const License = () => {
                     </div>
                 </div>
             </Paper>
-            {popUp ? <ImportKeypopUp setClosePopUp={setPopUp} /> : ''}
+            {popUp ? <ImportKeypopUp setClosePopUp={setPopUp} setImportKeybtn={setImportKey} /> : ''}
+            {deleteKeyPopUp ? <DeleteKey removeDeleteKeyPopUp={setDeleteKeyPopUp} /> : ''}
         </>
     );
 };

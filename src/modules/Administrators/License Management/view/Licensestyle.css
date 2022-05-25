@@ -49,7 +49,7 @@
     display: flex;
 }
 
-/* PopUp Css */
+/* Import Key PopUp Css */
 .keypopUpDiv {
     width: 100%;
     display: flex;
@@ -122,4 +122,57 @@
 
 .keybtnpopup {
     margin-right: 5px !important;
+}
+
+/* Deletekey Popup Css */
+.DeleteKeyUpperDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.DeleteKeyIconDIv {
+    height: 130px;
+    width: 26%;
+    border-radius: 50px;
+}
+
+.textDiv {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.textDiv h5 {
+    margin: 0px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 26px;
+}
+
+.textDivp {
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.textDivp p {
+    margin: 0px;
+    font-size: 16px;
+    color: rgb(54, 53, 53);
+}
+
+.DeleteKeyBtndiv {
+    margin-top: 20px;
+    height: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.DeleteBtn {
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+    width: 25% !important;
 }

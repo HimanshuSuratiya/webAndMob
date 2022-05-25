@@ -4,8 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from '@material-ui/icons/Search';
+import "../view/Licensestyle.css";
 
-const ImportKeypopUp = ({ setClosePopUp }) => {
+const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
     return (
         <>
             <div className='keypopUpDiv'>
@@ -65,8 +66,8 @@ const ImportKeypopUp = ({ setClosePopUp }) => {
                         />
                     </div>
                     <div className='inputKeybtn'>
-                        <Button variant="contained" className="keybtnpopup" color="primary">{'Close'} </Button>
-                        <Button variant="contained" className="keybtnpopup" color="primary">{'Import'} </Button>
+                        <Button onClick={() => { setClosePopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'Close'} </Button>
+                        <Button onClick={() => { setImportKeybtn(true); setClosePopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'Import'} </Button>
                     </div>
                 </div>
             </div>
