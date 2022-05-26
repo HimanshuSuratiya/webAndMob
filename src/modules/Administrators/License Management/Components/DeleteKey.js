@@ -10,18 +10,18 @@ const DeleteKey = ({ removeDeleteKeyPopUp }) => {
                 <div className='keypopUpInnerDiv'>
                     <div className="DeleteKeyUpperDiv">
                         <div className='DeleteKeyIconDIv'>
-                            <ErrorOutlineOutlinedIcon style={{ height: '100%', width: '100%', color: 'rgba(0, 0, 0, 0.87)' }} />
+                            <ErrorOutlineOutlinedIcon style={{ height: '100%', width: '100%', color: '#f44336' }} />
                         </div>
                     </div>
                     <div className="textDiv">
-                        <h5>Are You Sure</h5>
+                        <h5 style={{textAlign:'center'}}>Are You Sure</h5>
                     </div>
                     <div className="textDivp">
-                        <p>You Will not be able to use the application anymore!</p>
+                        <p style={{textAlign:'center'}}>You Will not be able to use the application anymore!</p>
                     </div>
                     <div className='DeleteKeyBtndiv'>
-                        <Button onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteBtn" color="primary">{'No, cancil it!'} </Button>
-                        <Button onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteBtn" color="primary">{'Yes, I am sure!'} </Button>
+                        <Button style={{ textTransform: 'none' , backgroundColor:"#d5d5d5"}} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteKeyBtn" color="primary">{'Cancel'} </Button>
+                        <Button style={{ textTransform: 'none' ,backgroundColor:'#f44336'}} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteKeyBtn" color="primary">{'OK'} </Button>
                     </div>
                 </div>
             </div>

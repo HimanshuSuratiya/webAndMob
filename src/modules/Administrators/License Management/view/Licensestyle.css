@@ -1,178 +1,179 @@
 .mainDivLicense {
-    height: 500px;
-    width: 100%;
-    padding: 18px;
+  height: 500px;
+  width: 100%;
+  padding: 18px;
 }
 
 .StatusDiv {
-    height: 35px;
-    align-items: center;
-    display: flex;
-    width: 100%;
+  height: 35px;
+  align-items: center;
+  display: flex;
+  width: 100%;
 }
 
 .StatusTextfield {
-    width: 43%;
+  width: 43%;
 }
 
 .return {
-    color: #007bff;
-    width: 12%;
-    color: white;
-    margin-left: 52px !important;
+  color: #007bff;
+  width: 12%;
+  color: white;
+  margin-left: 52px !important;
 }
 
 .Applicationkey {
-    margin-top: 24px;
-    height: 35px;
-    align-items: center;
-    display: flex;
-    width: 100%;
+  margin-top: 24px;
+  height: 35px;
+  align-items: center;
+  display: flex;
+  width: 100%;
 }
 
 .TextfieldDiv {
-    height: 35px;
-    margin-top: 24px;
-    align-items: center;
-    display: flex;
-    width: 100%;
+  height: 35px;
+  margin-top: 24px;
+  align-items: center;
+  display: flex;
+  width: 100%;
 }
 
 .Textfield {
-    width: 60%;
+  width: 60%;
 }
 
 .BtnDiv {
-    margin-top: 24px;
-    width: 55%;
-    justify-content: end;
-    display: flex;
+  margin-top: 24px;
+  width: 55%;
+  justify-content: end;
+  display: flex;
 }
 
 /* Import Key PopUp Css */
 .keypopUpDiv {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    width: 100%;
-    height: 100%;
-    z-index: 1212;
-    display: inline-flex;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  width: 100%;
+  height: 100%;
+  z-index: 1212;
+  display: inline-flex;
 }
 
 .keypopUpInnerDiv {
-    height: auto;
-    width: 45%;
-    background-color: #fff;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    width: 40%;
-    position: relative;
+  height: auto;
+  width: 45%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
 }
 
 .keypopUpHeading {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    width: 100%;
-    color: rgba(0, 0, 0, 0.87);
-    padding-left: 24px;
-    justify-content: space-between;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  padding-left: 24px;
+  justify-content: space-between;
 }
 
 .keypopUpcross {
-    height: 28px;
-    display: flex;
-    align-items: center;
-    width: 28px;
-    color: #007bff;
-    margin-right: 20px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  width: 28px;
+  color: #007bff;
+  margin-right: 20px;
 }
 
 .inputKey {
-    margin-top: 25px;
-    height: 50px;
-    width: 100%;
+  margin-top: 25px;
+  height: 50px;
+  width: 100%;
 }
 
 .keyTextfield {
-    margin-left: 19px !important;
-    width: 90% !important;
+  margin-left: 19px !important;
+  width: 90% !important;
 }
 
 .inputKeybtn {
-    margin-top: 15px;
-    height: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    padding-right: 24px;
+  margin-top: 15px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  padding-right: 24px;
 }
 
 .keybtnpopup {
-    margin-right: 5px !important;
+  margin-right: 5px !important;
 }
 
 /* Deletekey Popup Css */
 .DeleteKeyUpperDiv {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .DeleteKeyIconDIv {
-    height: 130px;
-    width: 26%;
-    border-radius: 50px;
+  height: 130px;
+  width: 26%;
+  border-radius: 50px;
 }
 
 .textDiv {
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .textDiv h5 {
-    margin: 0px;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 26px;
+  margin: 0px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 26px;
 }
 
 .textDivp {
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .textDivp p {
-    margin: 0px;
-    font-size: 16px;
-    color: rgb(54, 53, 53);
+  margin: 0px;
+  font-size: 16px;
+  color: rgb(54, 53, 53);
 }
 
 .DeleteKeyBtndiv {
-    margin-top: 20px;
-    height: 40px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
+  margin-top: 20px;
+  height: 40px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-.DeleteBtn {
-    margin-right: 20px !important;
-    margin-left: 20px !important;
-    width: 25% !important;
+.DeleteKeyBtn {
+  margin-right: 20px !important;
+  margin-left: 20px !important;
+  width: 25% !important;
+  color: black !important;
+  font-weight: bold !important;
 }
