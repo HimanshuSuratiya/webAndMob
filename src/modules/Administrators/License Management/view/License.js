@@ -47,32 +47,37 @@ const License = () => {
             </div>
             <Paper>
                 <div className="mainDivLicense">
-                    <div className="StatusDiv">
-                        <TextField
-                            className="StatusTextfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.status}
-                            label={t("Status")}
-                        />
-                        {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="return" color="primary" style={{ display: `${state.setActivation}` }}
-                        >{t('Return')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
-                        >{t('Activate')} </Button>}
-                    </div>
-                    <div className="Applicationkey">
-                        <TextField
-                            className="StatusTextfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.ApplicationKey}
-                            label={t("Application Key")}
-                        />
-                        {importKey ? '' : (state.createDownload ? <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
-                        >{t('Create')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
-                        >{t('Download')} </Button>)
-                        }
+                    <div className="statusandapplicationInput">
+                        <div className="statusandappTextfield">
+                            <TextField
+                                className="StatusTextfield"
+                                name="noticeNoUse"
+                                variant="outlined"
+                                size="small"
+                                value={Data.status}
+                                label={t("Status")}
+                            />
+
+                            <TextField
+                                className="StatusTextfield margnTop"
+                                name="noticeNoUse"
+                                variant="outlined"
+                                size="small"
+                                value={Data.ApplicationKey}
+                                label={t("Application Key")}
+                            />
+                        </div>
+                        <div className="statusandappBtn">
+                            <div className="createBtnHeight">
+                            {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="return" color="primary" style={{ display: `${state.setActivation}` }}
+                            >{t('Return')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
+                            >{t('Activate')} </Button>}
+                            </div>
+                            {importKey ? '' : (state.createDownload ? <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
+                            >{t('Create')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
+                            >{t('Download')} </Button>)
+                            }
+                        </div>
                     </div>
                     <div className="TextfieldDiv">
                         <TextField

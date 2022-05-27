@@ -12,7 +12,7 @@ const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
             <div className='keypopUpDiv'>
                 <div className='keypopUpInnerDiv'>
                     <div className='keypopUpHeading'>
-                        <h1>Import</h1>
+                        Import
                         <div className='keypopUpcross'> <CloseIcon onClick={() => { setClosePopUp(false) }} style={{ cursor: 'pointer' }} /> </div>
                     </div>
                     <div className='inputKey'>
@@ -65,7 +65,7 @@ const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
                             }}
                         />
                     </div>
-                    <div className='inputKeybtn'>
+                    <div className='importButtonDivalign'>
                         <Button onClick={() => { setClosePopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'Close'} </Button>
                         <Button onClick={() => { setImportKeybtn(true); setClosePopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'Import'} </Button>
                     </div>

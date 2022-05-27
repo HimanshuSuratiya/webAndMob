@@ -1,6 +1,6 @@
 .mainDivLicense {
   height: 500px;
-  width: 100%;
+  width: 65%;
   padding: 18px;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .StatusTextfield {
-  width: 43%;
+  width: 100%;
 }
 
 .return {
@@ -39,7 +39,7 @@
 }
 
 .Textfield {
-  width: 60%;
+  width: 100%;
 }
 
 .BtnDiv {
@@ -83,11 +83,25 @@
   height: 30px;
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  width: 100%;
+  margin-top: 10px;
+  margin-left: 19px !important;
+  width: 90% !important;
   color: rgba(0, 0, 0, 0.87);
-  padding-left: 24px;
   justify-content: space-between;
+  padding-left: 3px;
+  font-size: 32px;
+  font-weight: 500;
+  position: relative;
+}
+
+.importButtonDivalign {
+  justify-content: right;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 19px !important;
+  width: 90% !important;
 }
 
 .keypopUpcross {
@@ -95,8 +109,7 @@
   display: flex;
   align-items: center;
   width: 28px;
-  color: #007bff;
-  margin-right: 20px;
+  color: #757575;
 }
 
 .inputKey {
@@ -176,4 +189,25 @@
   width: 25% !important;
   color: black !important;
   font-weight: bold !important;
+}
+
+.statusandapplicationInput {
+  display: flex;
+}
+
+.statusandappTextfield {
+  width: 100%;
+}
+
+.statusandappBtn button {
+  width: 120px;
+  height: 39px;
+}
+
+.margnTop {
+  margin-top: 18px !important;
+}
+
+.createBtnHeight {
+  height: 60px;
 }

@@ -305,8 +305,13 @@ const ViewOKTalk = ({
   const getFormattedDate = (date) => {
     const dateString = new Date(date)
     const today = moment();
-    const yesterday = moment().subtract(1, 'days');
-     
+    var ActualDay = '';
+    const TodayDate = new Date().getDate();
+    const runningMonth = new Date().getMonth();
+    const ReceiveDate = new Date(date).getDate();
+    const receiveMonth = new Date(date).getMonth();
+    const Day = new Date(date).getDay();
+    const diffrentDays = TodayDate - ReceiveDate
     if (today.isSame(dateString, 'day')) {
       if (lang === 'ko') {
         return moment(date).format("a h:mm").replace('pm', '오후').replace('am', '오전');
@@ -314,8 +319,29 @@ const ViewOKTalk = ({
         return moment(date).format("a h:mm");
       }
     }
-    if (yesterday.isSame(dateString, 'day')) {
-      return t('chatYesterday');
+    if (diffrentDays <= 6 && diffrentDays >= 0 && runningMonth === receiveMonth) {
+      if (Day === 0) {
+        ActualDay = 'Sun';
+      }
+      else if (Day === 1) {
+        ActualDay = 'Mon';
+      }
+      else if (Day === 2) {
+        ActualDay = 'Tue';
+      }
+      else if (Day === 3) {
+        ActualDay = 'Wed';
+      }
+      else if (Day === 4) {
+        ActualDay = 'Thu';
+      }
+      else if (Day === 5) {
+        ActualDay = 'Fri';
+      }
+      else if (Day === 6) {
+        ActualDay = 'Sat';
+      }
+      return (ActualDay)
     }
     return moment(date).format("YYYY-MM-DD");
   };
@@ -323,7 +349,7 @@ const ViewOKTalk = ({
     <>
       <Paper elevation={4} className={clsx(classes.talkWrapper)}>
       <div className={clsx('d-flex f-justify-between h-100',classes.chatprrinfo)}>
-          <div className={clsx('w-25 h-100', state.printerListClassQuery==true?classes.membersWrapper:classes.hideMembersWrapper)} >
+          <div style={{width:'28%'}} className={clsx('h-100', state.printerListClassQuery==true?classes.membersWrapper:classes.hideMembersWrapper)} >
             <div className={clsx('d-flex f-align-center', classes.searchWrapper)}>
               <Paper elevation={1} className={clsx('w-100 m-3 d-flex' , classes.searchWrapper_bar)}>
                 <IconButton className='p-2' >
