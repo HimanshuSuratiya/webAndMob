@@ -14,14 +14,14 @@ const DeleteKey = ({ removeDeleteKeyPopUp }) => {
                         </div>
                     </div>
                     <div className="textDiv">
-                        <h5 style={{textAlign:'center'}}>Are You Sure</h5>
+                        <h5 style={{ textAlign: 'center' }}>Are You Sure</h5>
                     </div>
                     <div className="textDivp">
-                        <p style={{textAlign:'center'}}>You Will not be able to use the application anymore!</p>
+                        <p style={{ textAlign: 'center' }}>You Will not be able to use the application anymore!</p>
                     </div>
                     <div className='DeleteKeyBtndiv'>
-                        <Button style={{ textTransform: 'none' , backgroundColor:"#d5d5d5"}} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteKeyBtn" color="primary">{'Cancel'} </Button>
-                        <Button style={{ textTransform: 'none' ,backgroundColor:'#f44336'}} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup DeleteKeyBtn" color="primary">{'OK'} </Button>
+                        <Button style={{ backgroundColor: "#d5d5d5", color: 'black', fontWeight: 'bold', textTransform: 'none' }} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'Cancel'} </Button>
+                        <Button style={{ backgroundColor: '#f44336', color: 'black', fontWeight: 'bold', textTransform: 'none' }} onClick={() => { removeDeleteKeyPopUp(false) }} variant="contained" className="keybtnpopup" color="primary">{'OK'} </Button>
                     </div>
                 </div>
             </div>

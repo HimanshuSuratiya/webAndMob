@@ -101,7 +101,7 @@ ul.tabBtn li:last-child {
 
 .AddInnerDiv {
   margin: 70px auto;
-  padding: 20px;
+  height: 82%;
   background: #fff;
   border-radius: 5px;
   width: 40%;
@@ -109,20 +109,33 @@ ul.tabBtn li:last-child {
 }
 
 .Heading {
-  height: 65px;
-  padding-left: 20px;
+  height: 50px;
+  margin-top: 20px;
+  padding: 10px 0px 10px 30px !important;
   font-size: 32px;
   font-weight: 500;
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.87);
-  position: relative;
+}
+
+.AddDepartmentDiv{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.AddDepartmentTextfield{
+  width: 90% !important;
 }
 
 .AddcrossHeading {
+  padding-right: 8px;
   position: absolute;
   height: 30px;
-  width: 30px;
+  width: 20px;
   right: 20px;
   border-radius: 3px;
   display: flex;
@@ -131,58 +144,43 @@ ul.tabBtn li:last-child {
   align-items: center;
 }
 
-.AddDepartmentDiv {
-  margin-top: 10px;
-  height: 50px;
-  width: 98%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.upperDepartmentlabel {
+  padding-left: 28px;
+  font-size: 16px;
+} 
 
 .AddUpperDepartmentDiv {
-  width: 100%;
   font-size: 18px;
-  padding-left: 15px;
+  padding-left: 10px;
+  width: 98%;
+  display: flex;
+  justify-content: center;
 }
 
 .RemarkDiv {
   margin-top: 30px;
-  margin-left: 15px;
-  height: 125px;
-  width: 92%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .RemarkTextfield {
-  width: 100% !important;
+  width: 90% !important;
   border-radius: 5px;
   font-size: 17px;
   padding: 5px 10px;
 }
 
-.AddDepartmentTextfield {
-  margin-left: 15px !important;
-  margin-right: 15px !important;
-  width: 65%;
-}
-
-.AddUpperDepartment {
-  font-size: 18px;
-  width: 25%;
-}
-
 .AddButtonDiv {
-  margin-top: 70px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   width: 100%;
   text-align: right;
-  padding-right: 20px;
+  padding: 0 5%;
 }
 
-.upperDepartmentlabel {
-  padding-left: 17px;
-  font-size: 16px;
+.AddButtonDiv button{
+  width: 18% !important;
 }
 
 /* Tree Css */

@@ -72,7 +72,7 @@
   background-color: #fff;
   border-radius: 10px;
   margin: 70px auto;
-  padding: 20px;
+  padding: 20px 0px;
   background: #fff;
   border-radius: 5px;
   width: 40%;
@@ -87,8 +87,8 @@
   margin-left: 19px !important;
   width: 90% !important;
   color: rgba(0, 0, 0, 0.87);
+  padding: 10px 10px 10px 15px;
   justify-content: space-between;
-  padding-left: 3px;
   font-size: 32px;
   font-weight: 500;
   position: relative;
@@ -99,21 +99,21 @@
   height: 30px;
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: 19px !important;
   width: 90% !important;
 }
 
 .keypopUpcross {
-  height: 28px;
+  height: 26px;
   display: flex;
-  align-items: center;
-  width: 28px;
+  width: 24px;
   color: #757575;
 }
 
 .inputKey {
   margin-top: 25px;
+  padding: 0 10px;
   height: 50px;
   width: 100%;
 }
@@ -133,7 +133,9 @@
 }
 
 .keybtnpopup {
-  margin-right: 5px !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  width: 20% !important;
 }
 
 /* Deletekey Popup Css */
@@ -176,11 +178,13 @@
 }
 
 .DeleteKeyBtndiv {
-  margin-top: 20px;
-  height: 40px;
-  display: flex;
-  width: 100%;
   justify-content: center;
+  height: 30px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 19px !important;
+  width: 90% !important;
 }
 
 .DeleteKeyBtn {

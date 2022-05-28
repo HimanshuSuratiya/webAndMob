@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import PrintIcon from '@material-ui/icons/Print';
 import { AppContext } from 'shared/contexts';
 import Badge from '@material-ui/core/Badge';
-import { IconButton, InputBase } from '@material-ui/core';
+import { IconButton, InputBase ,Divider} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import MessageBox from '../message-box';
 import ImagePreview from '../image-preview';
@@ -438,6 +438,7 @@ const ViewOKTalk = ({
                 }
                 return true;
               }).map(device => (
+                <>
                 <div
                   className={clsx('d-flex f-align-center p-4 pt-2 pb-2 c-pointer',classes.printerList, {
                     [classes.activePrinter]: device.deviceInfoId === state.deviceInfoId
@@ -482,9 +483,9 @@ const ViewOKTalk = ({
                   <div className={clsx('ml-2 bordernew_line',classes.chatlist)}>
                     <div className='d-flex f-align-center f-justify-between'>
                     <Tooltip title={`${device.endCustomerName} `} placement='top-right'>
-                      <Typography  variant='body1'  noWrap>{device.endCustomerName}</Typography>
+                      <Typography   variant='body1'  noWrap>{device.endCustomerName}</Typography>
                       </Tooltip>
-                      {device.chatDate && <Typography variant='body2' noWrap>{getFormattedDate(device.chatDate)}</Typography>}
+                      {device.chatDate && <Typography style={{minWidth: '70px', textAlign:'right'}} variant='body2' noWrap>{getFormattedDate(device.chatDate)}</Typography>}
                     </div>
                     <div className='d-flex f-align-center f-justify-between'>
                       <Tooltip title={`${device.displayName}(${device.deviceSerial})`} placement='top-right'>
@@ -496,6 +497,8 @@ const ViewOKTalk = ({
                     </div>
                   </div>
               </div>
+              <Divider style={{margin:'0', marginLeft:'20px',marginRight:'10px'}}/>
+              </>
               ))}
             </div>
           </div>
