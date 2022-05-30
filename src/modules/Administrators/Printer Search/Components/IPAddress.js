@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
-import {Button, MenuItem} from "@material-ui/core";
+import { Button, MenuItem } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -13,13 +13,13 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 const ipRegex =
   /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-const IPAddress = ({setPage}) => {
+const IPAddress = ({ setPage }) => {
   const [Department, setDepartment] = useState(0);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
   const [endIpError, setEndIpError] = useState(false);
-  const [firstTextfield ,setFirstTextfield] = useState('');
-  const [secondTextfield ,setSecondTextfield] = useState('');
+  const [firstTextfield, setFirstTextfield] = useState('');
+  const [secondTextfield, setSecondTextfield] = useState('');
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
@@ -45,8 +45,8 @@ const IPAddress = ({setPage}) => {
             <MenuItem value={4}>4</MenuItem>
           </Select>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>
           <label className="startIplabel">
             {t("processStartIp")}
@@ -58,7 +58,7 @@ const IPAddress = ({setPage}) => {
             className="textField"
             size="small"
             label="IP Address"
-            helperText={(startIpError?"IP Address is required.":'')}
+            helperText={(startIpError ? "IP Address is required." : '')}
             // pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
@@ -75,14 +75,14 @@ const IPAddress = ({setPage}) => {
                       color: startIpError ? "red" : "#35b803",
                     }}
                   >
-                    {startIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
+                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
         </div>
-        <br/>
+        <br />
         <div>
           <label className="EndIplabel">
             {t("processEndIp")}
@@ -95,7 +95,7 @@ const IPAddress = ({setPage}) => {
             color="yellow"
             size="small"
             label="IP Address"
-            helperText={(endIpError?"IP Address is required.":'')}
+            helperText={(endIpError ? "IP Address is required." : '')}
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setEndIpError(!isIpCorrect);
@@ -111,7 +111,7 @@ const IPAddress = ({setPage}) => {
                       color: endIpError ? "red" : "#35b803",
                     }}
                   >
-                    {endIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
+                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
@@ -119,8 +119,8 @@ const IPAddress = ({setPage}) => {
           />
         </div>
         <Button variant="contained" className="searchBtn" color="primary"
-                disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError)?false:true}
-                onClick={() => setPage(2)}>
+          disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError) ? false : true}
+          onClick={() => { { setPage(0); setTimeout(() => { setPage(2) }, 1500); } }}>
           {t("processSearchBtn")}
         </Button>
       </Paper>

@@ -1,39 +1,47 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../view/PrinterSearchstyle.css";
 import IPAddress from "../Components/IPAddress";
 import SearchResult from "../Components/SearchResult";
 import RegisterPrinter from "../Components/RegisterPrinter";
 import PrintersDetail from "../Components/PrintersDetail";
-import {Button} from "@material-ui/core";
+import Loading from "../Components/Loading";
+import { Button } from "@material-ui/core";
 
 const PrinterSearch = () => {
   const [page, setPage] = useState(1);
   const setPagefun = () => {
+    if (page === 0) {
+      return (
+        <>
+          <Loading />
+        </>
+      )
+    }
     if (page === 1) {
       return (
         <>
-          <IPAddress setPage={setPage}/>
+          <IPAddress setPage={setPage} />
         </>
       );
     }
     if (page === 2) {
       return (
         <>
-          <SearchResult setPage={setPage}/>
+          <SearchResult setPage={setPage} />
         </>
       );
     }
     if (page === 3) {
       return (
         <>
-          <RegisterPrinter/>
+          <RegisterPrinter />
         </>
       );
     }
     if (page === 4) {
       return (
         <>
-          <PrintersDetail/>
+          <PrintersDetail />
         </>
       );
     }
