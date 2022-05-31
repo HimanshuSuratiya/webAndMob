@@ -497,7 +497,7 @@ const ViewOKTalk = ({
                     </div>
                   </div>
               </div>
-              <Divider style={{margin:'0', marginLeft:'20px',marginRight:'10px'}}/>
+              <Divider style={{margin:'0', marginLeft:'55px',marginRight:'10px'}}/>
               </>
               ))}
             </div>

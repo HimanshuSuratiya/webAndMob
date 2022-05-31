@@ -8,11 +8,16 @@ import { useTranslation } from "react-i18next";
 import { Button, MenuItem } from "@material-ui/core";
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { Divider } from '@material-ui/core';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography';
+import { DialogActions, DialogContent, FormControlLabel, Checkbox, IconButton } from '@material-ui/core';
+import useStyles from '../../../users/form/style';
 
 const Add = ({ setClosePopUp }) => {
     const [Department, setDepartment] = useState(0);
     const [popUp, setPopUp] = useState(false)
     const { t } = useTranslation();
+    const classes = useStyles();
     const updateDepartment = (event) => {
         setDepartment(event.target.value);
     };
@@ -21,29 +26,32 @@ const Add = ({ setClosePopUp }) => {
             <Paper>
                 <div className="AddMainDiv">
                     <div className="AddInnerDiv">
-                        <div className="Heading">
-                            Add
-                            <div className="AddcrossHeading"> <CloseIcon onClick={() => { setClosePopUp(false) }} style={{ cursor: 'pointer' }} /> </div>
-                        </div>
-                        <Divider style={{ margin: '10px 0' }} />
-                        <div className="AddDepartmentDiv">
+                        <DialogTitle>
+                            <div className="d-flex f-align-center f-justify-between">
+                                <Typography variant="h5">
+                                    {t("Add")}
+                                </Typography>
+                                <IconButton>
+                                    <CloseIcon onClick={() => { setClosePopUp(false) }} />
+                                </IconButton>
+                            </div>
+                        </DialogTitle>
+                        <Divider />
+                        <DialogContent className="mt-4">
                             <TextField
-                                className="AddDepartmentTextfield"
+                                style={{ marginBottom: '10px' }}
                                 fullWidth
-                                name="noticeNoUse"
+                                label={t('processDepartmentName')}
+                                name="email"
                                 variant="outlined"
-                                size="small"
-                                label={t("Department Name")}
                             />
-                        </div>
-                        <label className="upperDepartmentlabel"><strong style={{ color: 'rgba(0, 0, 0, 0.87)' }}>{t("processUpperDepartment")}</strong></label>
-                        <div className="AddUpperDepartmentDiv">
+                            <label className="AddCustomLabel"><strong style={{ color: 'rgba(0, 0, 0, 0.87)' }}>{t("processUpperDepartment")}</strong></label>
                             <Select
                                 value={Department}
                                 onChange={updateDepartment}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "44px", width: "94%" }}
+                                style={{ height: "56px", width: "100%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={1}>1</MenuItem>
@@ -52,18 +60,16 @@ const Add = ({ setClosePopUp }) => {
                                 <MenuItem value={4}>4</MenuItem>
                                 <MenuItem value={5}>5</MenuItem>
                             </Select>
-                        </div>
-                        <div className="RemarkDiv">
                             <TextareaAutosize
-                                className="RemarkTextfield"
+                                style={{ width: '100%', marginTop: '30px', borderRadius: '5px', fontSize: '14px' }}
                                 aria-label="minimum height"
                                 minRows={7}
                                 placeholder="Remark"
-                                style={{ width: 200 }}
                             />
-                        </div>
-                        <div className="AddButtonDiv">
-                                <Button onClick={() => { setClosePopUp(false) }} style={{backgroundColor:'#e0e0e0'}} className="mr-4">
+                        </DialogContent>
+                        <DialogActions>
+                            <div className="p-4" style={{ position: 'absolute', bottom: '0px' }}>
+                                <Button style={{ backgroundColor: '#e0e0e0' }} disabled={false} className="mr-4">
                                     {t('settingsCancel')}
                                 </Button>
                                 <Button
@@ -74,6 +80,7 @@ const Add = ({ setClosePopUp }) => {
                                     {t('usersAdd')}
                                 </Button>
                             </div>
+                        </DialogActions>
                     </div>
                 </div>
             </Paper>
