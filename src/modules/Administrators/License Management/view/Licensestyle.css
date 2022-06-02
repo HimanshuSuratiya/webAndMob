@@ -4,6 +4,27 @@
   padding: 18px;
 }
 
+.statusandapplicationInput {
+  display: flex;
+}
+
+.statusandappTextfield {
+  width: 100%;
+}
+
+.statusandappBtn button {
+  width: 120px;
+  height: 39px;
+}
+
+.margnTop {
+  margin-top: 18px !important;
+}
+
+.createBtnHeight {
+  height: 60px;
+}
+
 .StatusDiv {
   height: 35px;
   align-items: center;
@@ -51,10 +72,28 @@
 
 /* Import Key PopUp Css */
 .keypopUpDiv {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  width: 100.2%;
+  height: 100%;
+  z-index: 1212;
+  display: inline-flex;
+}
+
+.keypopUpInnerDiv {
+  margin: 33px auto;
+  height: 89%;
+  background: #fff;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+}
+
+/* Deletekey Popup Css */
+.DeletekeypopUpDiv {
   position: fixed;
   top: 0;
   left: 0;
@@ -66,83 +105,20 @@
   display: inline-flex;
 }
 
-.keypopUpInnerDiv {
-  height: auto;
-  width: 45%;
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 70px auto;
-  padding: 20px 0px;
+.DeletekeypopUpInnerDiv {
+  margin: auto;
+  height: 43%;
   background: #fff;
   border-radius: 5px;
   width: 40%;
   position: relative;
 }
 
-.keypopUpHeading {
-  height: 30px;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-left: 19px !important;
-  width: 90% !important;
-  color: rgba(0, 0, 0, 0.87);
-  padding: 10px 10px 10px 15px;
-  justify-content: space-between;
-  font-size: 32px;
-  font-weight: 500;
-  position: relative;
-}
-
-.importButtonDivalign {
-  justify-content: right;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
-  margin-left: 19px !important;
-  width: 90% !important;
-}
-
-.keypopUpcross {
-  height: 26px;
-  display: flex;
-  width: 24px;
-  color: #757575;
-}
-
-.inputKey {
-  margin-top: 25px;
-  padding: 0 10px;
-  height: 50px;
-  width: 100%;
-}
-
-.keyTextfield {
-  margin-left: 19px !important;
-  width: 90% !important;
-}
-
-.inputKeybtn {
-  margin-top: 15px;
-  height: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: right;
-  padding-right: 24px;
-}
-
-.keybtnpopup {
-  margin-right: 10px !important;
-  margin-left: 10px !important;
-  width: 20% !important;
-}
-
-/* Deletekey Popup Css */
 .DeleteKeyUpperDiv {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 12px;
 }
 
 .DeleteKeyIconDIv {
@@ -173,7 +149,7 @@
 
 .textDivp p {
   margin: 0px;
-  font-size: 16px;
+  font-size: 17px;
   color: rgb(54, 53, 53);
 }
 
@@ -195,23 +171,6 @@
   font-weight: bold !important;
 }
 
-.statusandapplicationInput {
-  display: flex;
-}
-
-.statusandappTextfield {
-  width: 100%;
-}
-
-.statusandappBtn button {
-  width: 120px;
-  height: 39px;
-}
-
-.margnTop {
-  margin-top: 18px !important;
-}
-
-.createBtnHeight {
-  height: 60px;
+.DeleteKeyBtndiv button span.MuiButton-label {
+  line-height: 1.8 !important;
 }
