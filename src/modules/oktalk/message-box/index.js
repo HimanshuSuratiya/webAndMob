@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, createRef } from "react";
+import {useEffect, useRef, useState} from "react";
 import clsx from 'clsx';
 import ChatItem from '../chat-item';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from "./style";
 import moment from 'moment';
 import VisibilitySensor from 'react-visibility-sensor';
-import { useTranslation } from 'react-i18next';
+import {useTranslation} from 'react-i18next';
 
 
 const defaultState = {
@@ -15,27 +15,28 @@ const defaultState = {
   onBottom: false,
 };
 
-const noop = () => {};
+const noop = () => {
+};
 
 const MessageBox = ({
-  isFetchingMessages = false,
-  isFetchingOldMessages = false,
-  deviceInfoId = null,
-  messageList = [],
-  totalMessages = 0,
-  previewImage = noop,
-  onScrollTop = noop,
-  onDelete = noop,
-  changeClassNameForMediaquery1,
-  userDisplayname,
-  userPrinterDesignation,
-  customerName,
-  refMeas,
-  setRefMeas
-}) => {
-  const { t } = useTranslation();
+                      isFetchingMessages = false,
+                      isFetchingOldMessages = false,
+                      deviceInfoId = null,
+                      messageList = [],
+                      totalMessages = 0,
+                      previewImage = noop,
+                      onScrollTop = noop,
+                      onDelete = noop,
+                      changeClassNameForMediaquery1,
+                      userDisplayname,
+                      userPrinterDesignation,
+                      customerName,
+                      refMeas,
+                      setRefMeas
+                    }) => {
+  const {t} = useTranslation();
   const classes = useStyles();
-  const [state, setState]= useState(defaultState);
+  const [state, setState] = useState(defaultState);
   const messageBoxRef = useRef(null);
   const messageBoxEndRef = useRef(null);
 
@@ -44,22 +45,19 @@ const MessageBox = ({
   };
 
   const handleScroll = (evt) => {
-    const { scrollTop } = evt.currentTarget;
+    const {scrollTop} = evt.currentTarget;
     if (scrollTop === 0) {
       onScrollTop();
     }
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      scrollToBotom()
-    }, 1200);
+    scrollToBotom()
   }, [state.bottomMessageId])
 
   useEffect(() => {
-    if(refMeas)
-    {
-     scrollToBotom();
+    if (refMeas) {
+      scrollToBotom();
     }
     const messageBoxElem = messageBoxRef?.current;
     messageBoxElem.onscroll = handleScroll;
@@ -77,13 +75,12 @@ const MessageBox = ({
     }
 
 
-
     if (messageList.length && state.topMessaageId && state.bottomMessageId) {
       //scrollToBotom();
       const topChat = document.getElementById(`chatid-${state.topMessaageId}`);
 
       const filterMessages = messageList.filter(message => message?.type !== 'day');
-      
+
       if (filterMessages[0]?.typeOfList === 1) {
         topChat?.scrollIntoView(true);
         setRefMeas(false);
@@ -108,53 +105,56 @@ const MessageBox = ({
   }, [messageList]);
   return (
 
-    <div className={clsx('h-100', classes.messageBox)} ref={messageBoxRef} >
-         {isFetchingMessages ? (
-        <div className='d-flex f-align-center f-justify-center h-100'>
-          <CircularProgress />
-        </div>
-      ) : 
+    <div className={clsx('h-100', classes.messageBox)} ref={messageBoxRef}>
+      {isFetchingMessages ? (
+          <div className='d-flex f-align-center f-justify-center h-100'>
+            <CircularProgress/>
+          </div>
+        ) :
         <>
           {!deviceInfoId && (
-            <div className={clsx('d-flex f-align-center f-justify-center h-100',classes.hidetextmobile)}>
+            <div className={clsx('d-flex f-align-center f-justify-center h-100', classes.hidetextmobile)}>
               <Typography variant='h5'>
                 {t('selectPrinterChat')}
               </Typography>
             </div>
           )}
-    
-    <div className={clsx('',classes.main_heading)}>
-    <div className={clsx('',classes.main_heading)}>
-  <img onClick={  changeClassNameForMediaquery1 } src="https://itdevelopmentservices.com/foodsandlogistics/wp-content/uploads/2021/12/new-logo.png" className={clsx('hide_ondesktop',classes.arrowds)}></img>
- <div className={clsx('',classes.username_title1)}>
-  <h2 className={clsx('',classes.username_title)}>{customerName}</h2>
-  <p className={clsx('',classes.username_title2)}>{userPrinterDesignation}</p>
-</div>
-</div>
-</div>
+
+          <div className={clsx('', classes.main_heading)}>
+            <div className={clsx('', classes.main_heading)}>
+              <img onClick={changeClassNameForMediaquery1}
+                   src="https://itdevelopmentservices.com/foodsandlogistics/wp-content/uploads/2021/12/new-logo.png"
+                   className={clsx('hide_ondesktop', classes.arrowds)}></img>
+              <div className={clsx('', classes.username_title1)}>
+                <h2 className={clsx('', classes.username_title)}>{customerName}</h2>
+                <p className={clsx('', classes.username_title2)}>{userPrinterDesignation}</p>
+              </div>
+            </div>
+          </div>
 
 
           {deviceInfoId && !isFetchingMessages && !messageList.length && (
             <div className='d-flex f-align-center f-justify-center h-100'>
-            <Typography variant='h5'>
-              {t('chatNoMemo')}
-            </Typography>
-          </div>
+              <Typography variant='h5'>
+                {t('chatNoMemo')}
+              </Typography>
+            </div>
           )}
           <div>
             {!!isFetchingOldMessages && (
               <div className='d-flex f-align-center f-justify-center mt-2'>
-                <CircularProgress />
+                <CircularProgress/>
               </div>
             )}
             {deviceInfoId && messageList.map((message = {}, index) => (
               message?.type === 'day' ? (
                 <div
-                  className={clsx('d-flex f-justify-center p-4', classes.dateWrapper10) }
+                  className={clsx('d-flex f-justify-center p-4', classes.dateWrapper10)}
                 >
-                <Typography style={{ color: '#616161' }} variant='caption'>{moment(message.date, 'DD-MM-YYYY').format("YYYY-MM-DD")}</Typography>
-              </div>
-              ): (
+                  <Typography style={{color: '#616161'}}
+                              variant='caption'>{moment(message.date, 'DD-MM-YYYY').format("YYYY-MM-DD")}</Typography>
+                </div>
+              ) : (
                 <ChatItem
                   position={message?.from === 'me' ? 'right' : 'left'}
                   text={message?.data}
@@ -165,10 +165,11 @@ const MessageBox = ({
                   previewImage={previewImage}
                   isFetchingMessages={isFetchingMessages}
                   onDelete={onDelete}
+                  onImageLoad={scrollToBotom}
                 />
               )
             ))}
-            <VisibilitySensor onChange={(onBottom) => setState(prevState => ({ ...prevState, onBottom }))} scrollCheck>
+            <VisibilitySensor onChange={(onBottom) => setState(prevState => ({...prevState, onBottom}))} scrollCheck>
               <div ref={messageBoxEndRef} style={{visibility: 'none'}}></div>
             </VisibilitySensor>
           </div>
