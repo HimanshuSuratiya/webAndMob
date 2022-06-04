@@ -99,7 +99,7 @@ const AdminLayout = ({
 
   });
   const [showAdminCollapse, setShowAdminCollapse] = useState(false)
-  const [updown,setUpDwon] = useState(false)
+  const [updown, setUpDwon] = useState(false)
   const setDropDown = () => {
     setShowAdminCollapse(!showAdminCollapse);
     setUpDwon(!updown);
@@ -197,50 +197,54 @@ const AdminLayout = ({
           }}
         >
           <ListItem button>
-           <ListItemIcon>
-             <AcUnitIcon className="color-white" />
-           </ListItemIcon>
-           {state.open && (
-             <ListItemText>
-               <Typography variant="h5" className="color-white">
-                 {getTokenData().partnerName}
-               </Typography>
-             </ListItemText>
-           )}
+            <ListItemIcon>
+              <AcUnitIcon className="color-white"/>
+            </ListItemIcon>
+            {state.open && (
+              <ListItemText>
+                <Typography variant="h5" className="color-white">
+                  {getTokenData().partnerName}
+                </Typography>
+              </ListItemText>
+            )}
           </ListItem>
-          <Divider className={classes.divider} />
+          <Divider className={classes.divider}/>
           <ListItem
-           className="pl-2"
-           button
-           onClick={() => {
-             history.push(`/profile`);
-           }}
+            className="pl-2"
+            button
+            onClick={() => {
+              history.push(`/profile`);
+            }}
           >
-           <Avatar
-             className={classes.avtarImage}
-             src={avatar || `${config.frontendUrl}/${getTokenData().avatar}`}
-           />
-           {state.open && (
-             <ListItemText className="pl-6">
-               <Tooltip
-                 title={localStorage.getItem("probe-email")}
-                 placement="top-start"
-               >
-                 <Typography variant="body1" className="color-white" noWrap>
-                   {localStorage.getItem("probe-name")}
-                 </Typography>
-               </Tooltip>
-             </ListItemText>
-           )}
+            <Avatar
+              className={classes.avtarImage}
+              src={avatar || `${config.frontendUrl}/${getTokenData().avatar}`}
+            />
+            {state.open && (
+              <ListItemText className="pl-6">
+                <Tooltip
+                  title={localStorage.getItem("probe-email")}
+                  placement="top-start"
+                >
+                  <Typography variant="body1" className="color-white" noWrap>
+                    {localStorage.getItem("probe-name")}
+                  </Typography>
+                </Tooltip>
+              </ListItemText>
+            )}
           </ListItem>
-          <Divider className={classes.divider} />
+          <Divider className={classes.divider}/>
           {sidebarElements.map((item) => (
             <>
               <ListItem
-                onClick={() => {if(item.to === '/administrators'){setDropDown()}}}
+                onClick={() => {
+                  if (item.to === '/administrators') {
+                    setDropDown()
+                  }
+                }}
                 component={NavLink}
-                activeClassName={classes.activeListItem}
-                to={item.to}
+                activeClassName={item.to === '/administrators' ? classes.activeListItemAdmin : classes.activeListItem}
+                to={item.to === '/administrators' ? '/printer-search' : item.to}
                 key={item.lable}
               >
                 {!state.open ? (
@@ -272,17 +276,20 @@ const AdminLayout = ({
                     </div>
                   </ListItemText>
                 )}
-                {item.to === '/administrators'?<div style={{width: '100%', height: '23px', color:'white',paddingTop:'1px', marginLeft:'120px'}}
-                    onClick={() => {
-                      setDropDown();
-                    }}>
-                    {updown?<KeyboardArrowDownIcon/>:<ChevronRightIcon/>}
-                     </div>:''}
-                    
+                {item.to === '/administrators' ?
+                  <div style={{width: '100%', height: '23px', color: 'white', paddingTop: '1px', marginLeft: '120px'}}
+                       onClick={() => {
+                         setDropDown();
+                       }}>
+                    {updown ? <KeyboardArrowDownIcon/> : <ChevronRightIcon/>}
+                  </div> : ''}
+
               </ListItem>
-              {item.to === '/administrators'?
-              <Collapse style={{backgroundColor:'#4b4f52',borderBottomLeftRadius:'10px', borderBottomRightRadius:'10px'}} in={showAdminCollapse} timeout="auto" unmountOnExit>
-                  {item.administratorSubArray.map((items)=>{
+              {item.to === '/administrators' ?
+                <Collapse
+                  style={{backgroundColor: '#4b4f52', borderBottomLeftRadius: '10px', borderBottomRightRadius: '10px'}}
+                  in={showAdminCollapse} timeout="auto" unmountOnExit>
+                  {item.administratorSubArray.map((items) => {
                     return (
                       <>
                         <ListItem
@@ -292,15 +299,15 @@ const AdminLayout = ({
                           key={items.lable}
                         >
                           {!state.open ? (
-                          <Badge
-                            badgeContent={items.count}
-                            color={"secondary"}
-                            className="mb-1"
-                          >
-                            <ListItemIcon className={classes.listIcon}>
-                              {items.icon}
-                            </ListItemIcon>
-                          </Badge>
+                            <Badge
+                              badgeContent={items.count}
+                              color={"secondary"}
+                              className="mb-1"
+                            >
+                              <ListItemIcon className={classes.listIcon}>
+                                {items.icon}
+                              </ListItemIcon>
+                            </Badge>
                           ) : (
                             <ListItemIcon>{items.icon}</ListItemIcon>
                           )}
@@ -311,38 +318,38 @@ const AdminLayout = ({
                                   {items.label}
                                 </Typography>
                                 {parseInt(item?.count) > 0 && (
-                                <Badge
-                                  badgeContent={items.count}
-                                  color={"secondary"}
-                                  className="mb-1"
-                                />
+                                  <Badge
+                                    badgeContent={items.count}
+                                    color={"secondary"}
+                                    className="mb-1"
+                                  />
                                 )}
                               </div>
-                          </ListItemText>
+                            </ListItemText>
                           )}
                         </ListItem>
                       </>
-                    )  
+                    )
                   })}
-              </Collapse>:''}
+                </Collapse> : ''}
             </>
           ))}
           <ListItem
-           button
-           onClick={() => {
-             window.open("https://pf.kakao.com/_xmExnIC", "_blank");
-           }}
+            button
+            onClick={() => {
+              window.open("https://pf.kakao.com/_xmExnIC", "_blank");
+            }}
           >
-           <ListItemIcon>
-             <ContactSupportIcon className="color-white" />
-           </ListItemIcon>
-           {state.open && (
-             <ListItemText>
-               <Typography variant="body1" className="color-white">
-                 {t("sidebarContact")}
-               </Typography>
-             </ListItemText>
-           )}
+            <ListItemIcon>
+              <ContactSupportIcon className="color-white"/>
+            </ListItemIcon>
+            {state.open && (
+              <ListItemText>
+                <Typography variant="body1" className="color-white">
+                  {t("sidebarContact")}
+                </Typography>
+              </ListItemText>
+            )}
           </ListItem>
         </List>
       </Drawer>
