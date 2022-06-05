@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
-import { Button, MenuItem } from "@material-ui/core";
+import {Button, MenuItem} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -13,13 +13,28 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 const ipRegex =
   /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-const IPAddress = ({ setPage }) => {
+const IPAddress = ({setPage}) => {
   const [Department, setDepartment] = useState(0);
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
   const [endIpError, setEndIpError] = useState(false);
+  const [firstSecondPartError, setFirstSecondPartError] = useState(false);
   const [firstTextfield, setFirstTextfield] = useState('');
   const [secondTextfield, setSecondTextfield] = useState('');
+  const checkSecondIpWRTFirstIp = (ip) => {
+    const firstIP = firstTextfield
+    const secondIp = ip
+    const firstIPArr = firstIP.split('.')
+    const secondIPArr = secondIp.split('.')
+
+    const isFirstPartSame = firstIPArr[0] === secondIPArr[0]
+    const isSecondPartSame = firstIPArr[1] === secondIPArr[1]
+    const isThirdPartGreater = firstIPArr[2] <= secondIPArr[2]
+    const isForthPartCorrect = firstIPArr[2] < secondIPArr[2] || (firstIPArr[2] === secondIPArr[2] && firstIPArr[3] < secondIPArr[3])
+    const isAllOk = isFirstPartSame && isSecondPartSame && isThirdPartGreater && isForthPartCorrect
+    return isAllOk
+  }
+  
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
@@ -45,8 +60,8 @@ const IPAddress = ({ setPage }) => {
             <MenuItem value={4}>4</MenuItem>
           </Select>
         </div>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <div>
           <label className="startIplabel">
             {t("processStartIp")}
@@ -75,29 +90,31 @@ const IPAddress = ({ setPage }) => {
                       color: startIpError ? "red" : "#35b803",
                     }}
                   >
-                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    {startIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
         </div>
-        <br />
+        <br/>
         <div>
           <label className="EndIplabel">
             {t("processEndIp")}
             <strong>(*)</strong>
           </label>
           <TextField
-            error={endIpError}
+            error={endIpError || firstSecondPartError}
             variant="outlined"
             className="textField"
             color="yellow"
             size="small"
             label="IP Address"
-            helperText={(endIpError ? "IP Address is required." : '')}
+            helperText={(endIpError ? "IP Address is required." : firstSecondPartError ? 'Make sure first 2 parts are same and end IP is greater' : '')}
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
+              const isSecondIpCorrect = checkSecondIpWRTFirstIp(e.target.value)
+              setFirstSecondPartError(!isSecondIpCorrect)
               setEndIpError(!isIpCorrect);
               setSecondTextfield(e.target.value)
             }}
@@ -111,7 +128,7 @@ const IPAddress = ({ setPage }) => {
                       color: endIpError ? "red" : "#35b803",
                     }}
                   >
-                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    {endIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
                   </div>
                 </InputAdornment>
               ),
@@ -119,8 +136,15 @@ const IPAddress = ({ setPage }) => {
           />
         </div>
         <Button variant="contained" className="searchBtn" color="primary"
-          disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError) ? false : true}
-          onClick={() => { { setPage(0); setTimeout(() => { setPage(2) }, 1500); } }}>
+                disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError) ? false : true}
+                onClick={() => {
+                  {
+                    setPage(0);
+                    setTimeout(() => {
+                      setPage(2)
+                    }, 1500);
+                  }
+                }}>
           {t("processSearchBtn")}
         </Button>
       </Paper>
