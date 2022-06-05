@@ -65,8 +65,8 @@ class CustomizedListItem extends React.Component {
   render() {
     const {doc} = this.props;
     return (
-      <div style={{backgroundColor: 'grey'}}>
-        <ListItem button key={doc.id} onClick={this.handleClick}>
+      <div>
+        <ListItem style={{color:'black', border:'1px solid gray', margin:'3px 3px 3px 0px', borderRadius:'4px'}} button key={doc.id} onClick={this.handleClick}>
           <ListItemText primary={doc.name}/>
           {doc.list && (this.state.open ? <ExpandLess/> : <ExpandMore/>)}
         </ListItem>
@@ -81,14 +81,13 @@ class CustomizedListItem extends React.Component {
             {doc.list.map((subDoc) => {
               return (
                 subDoc.list ? <CustomizedListItemChild subDoc={subDoc}/> :
-                  <ListItem button key={subDoc.id}>
+                  <ListItem style={{color:'black', border:'1px solid gray', margin:'3px 3px 3px 0px', borderRadius:'4px'}} button key={subDoc.id}>
                     <ListItemText key={subDoc.id} primary={subDoc.name}/>
                   </ListItem>
               );
             })}
           </List>
         </Collapse>}
-        <Divider/>
       </div>
     );
   }
@@ -113,8 +112,8 @@ class CustomizedListItemChild extends React.Component {
   render() {
     const {subDoc} = this.props;
     return (
-      <div style={{backgroundColor: 'grey'}}>
-        <ListItem button key={subDoc.id} onClick={this.handleClick}>
+      <div >
+        <ListItem style={{color:'black', border:'1px solid gray', margin:'3px 3px 3px 0px', borderRadius:'4px'}} button key={subDoc.id} onClick={this.handleClick}>
           <ListItemText primary={subDoc.name}/>
           {subDoc.list && (this.state.open ? <ExpandLess/> : <ExpandMore/>)}
         </ListItem>
@@ -128,14 +127,13 @@ class CustomizedListItemChild extends React.Component {
           <List component="li" disablePadding key={subDoc.id}>
             {subDoc.list.map((item) => {
               return (
-                item.list ? <CustomizedListItem doc={item}/> : <ListItem button key={item.id}>
+                item.list ? <CustomizedListItem doc={item}/> : <ListItem style={{color:'black', border:'1px solid gray', margin:'3px 3px 3px 0px', borderRadius:'4px'}} button key={item.id}>
                   <ListItemText key={item.id} primary={item.name}/>
                 </ListItem>
               );
             })}
           </List>
         </Collapse>}
-        <Divider/>
       </div>
     );
   }

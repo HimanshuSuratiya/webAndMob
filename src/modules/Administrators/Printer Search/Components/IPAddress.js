@@ -4,14 +4,14 @@ import Typography from "@material-ui/core/Typography";
 import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
-import {Button, MenuItem} from "@material-ui/core";
+import {Button, Checkbox, MenuItem} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 const ipRegex =
-  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-4]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 const IPAddress = ({setPage}) => {
   const [Department, setDepartment] = useState(0);
@@ -26,7 +26,6 @@ const IPAddress = ({setPage}) => {
     const secondIp = ip
     const firstIPArr = firstIP.split('.')
     const secondIPArr = secondIp.split('.')
-
     const isFirstPartSame = firstIPArr[0] === secondIPArr[0]
     const isSecondPartSame = firstIPArr[1] === secondIPArr[1]
     const isThirdPartGreater = firstIPArr[2] <= secondIPArr[2]
@@ -74,7 +73,6 @@ const IPAddress = ({setPage}) => {
             size="small"
             label="IP Address"
             helperText={(startIpError ? "IP Address is required." : '')}
-            // pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$"
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setStartIpError(!isIpCorrect);
@@ -134,6 +132,7 @@ const IPAddress = ({setPage}) => {
               ),
             }}
           />
+           <span style={{color :'red'}}><Checkbox color="primary"/> <span style={{color:'rgba(0, 0, 0, 0.87)', fontSize:'16px', fontWeight:'bold'}}>Auto</span></span>
         </div>
         <Button variant="contained" className="searchBtn" color="primary"
                 disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError) ? false : true}
