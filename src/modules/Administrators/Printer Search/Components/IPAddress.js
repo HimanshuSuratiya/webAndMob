@@ -9,11 +9,12 @@ import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { Link } from "react-router-dom";
 
-const ipRegex =
-  /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-4]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+const ipRegex =/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-4]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
-const IPAddress = ({setPage}) => {
+const noop = () => { };
+const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
   const [Department, setDepartment] = useState(0);
   const {t} = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
@@ -134,18 +135,13 @@ const IPAddress = ({setPage}) => {
           />
            <span style={{color :'red'}}><Checkbox color="primary"/> <span style={{color:'rgba(0, 0, 0, 0.87)', fontSize:'16px', fontWeight:'bold'}}>Auto</span></span>
         </div>
-        <Button variant="contained" className="searchBtn" color="primary"
-                disabled={(firstTextfield.length && secondTextfield.length && !endIpError && !startIpError) ? false : true}
-                onClick={() => {
-                  {
-                    setPage(0);
-                    setTimeout(() => {
-                      setPage(2)
-                    }, 1500);
-                  }
-                }}>
-          {t("processSearchBtn")}
-        </Button>
+        <Link to={`${match.path}/search-result`}>
+          <Button variant="contained" className="searchBtn" color="primary"
+            disabled={(firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true}
+          >
+            {t("processSearchBtn")}
+          </Button>
+        </Link>
       </Paper>
     </>
   );

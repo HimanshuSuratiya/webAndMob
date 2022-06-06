@@ -5,9 +5,12 @@ import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
 import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
+import { useHistory } from "react-router-dom";
 
-const SearchResult = ({setPage}) => {
+const noop = () => { };
+const SearchResult = ({ match, getUnassignDeviceCount = noop }) => {
   const {t} = useTranslation();
+  const history = useHistory()
   const columnConfig = [
     {
       id: "s_No",
@@ -132,10 +135,10 @@ const SearchResult = ({setPage}) => {
     if(SelectedRows === null){}
     else{
       if(SelectedRows.length === 1){
-        setPage(3)
+        history.push(`${match.path}/register-printer`)
       }
       if(SelectedRows.length >= 2){
-        setPage(4)
+        history.push(`${match.path}/printers-detail`)
       }
     }
   }

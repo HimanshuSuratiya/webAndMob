@@ -321,7 +321,7 @@ const MoreDetailInfo = () => {
                   onChange={updateDepartment}
                   displayEmpty
                   variant="outlined"
-                  style={{ height: "29px", width: "20%" }}
+                  style={{ height: "40px", width: "20%" }}
                 >
                   <MenuItem value={0}>{t("processSelect")}</MenuItem>
                   <MenuItem value={'MONO LASER'}>MONO LASER</MenuItem>
@@ -355,10 +355,9 @@ const MoreDetailInfo = () => {
                 <Button variant="contained" className="browserBtn" color="primary"
                 > Browser </Button>
                 <br />
-                <a style={{ fontSize: '14px' }}>-Filename can be alphanumeric characters,'-' and '-'</a>
+                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-'</a>
                 <br />
-                <input type="checkbox" />
-                Use Default Printer Driver
+                <p style={{margin:'0px',padding:'0px'}}> <input type="checkbox" /> Use Default Printer Driver</p>
               </td>
             </tr>
             <tr>
@@ -393,10 +392,8 @@ const MoreDetailInfo = () => {
                 <Button variant="contained" className="browserBtn" color="primary"
                 > Browser </Button>
                 <br />
-                <input type="checkbox" />
-                Date Existing Image
-                <br />
-                <a style={{ fontSize: '14px' }}>-Filename can be alphanumeric characters,'-' and '-', image size
+                <p style={{margin:'0px',padding:'0px', marginTop:'2px'}}> <input type="checkbox" /> Date Existing Image </p>
+                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-', image size
                   shuld be less then </a>
               </td>
             </tr>
@@ -416,20 +413,18 @@ const MoreDetailInfo = () => {
                 <Button variant="contained" className="browserBtn" color="primary"
                 > Browser </Button>
                 <br />
-                <input type="checkbox" />
-                Date Existing Image
-                <br />
-                <a style={{ fontSize: '14px' }}>-Filename can be alphanumeric characters,'-' and '-', 65x65
+                <p style={{margin:'0px',padding:'0px', marginTop:'2px'}}> <input type="checkbox" /> Date Existing Image </p>
+                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-', 65x65
                   pixle image size is appropriate. </a>
               </td>
             </tr>
           </tbody>
         </table>
-        <h1 style={{ fontSize: '22px', color: '#7a5a5a' }}>{t('processModelConsumableThreshold')}</h1>
+        <h1 style={{ fontSize: '22px', color: '#7a5a5a' , marginLeft:'5px'}}>{t('processModelConsumableThreshold')}</h1>
         <Paper elevation={4} style={{ marginTop: '20px' }}>
           <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
         </Paper>
-        <h1 style={{ fontSize: '22px', color: '#7a5a5a' }}>{t('processModelUsageThreshold')}</h1>
+        <h1 style={{ fontSize: '22px', color: '#7a5a5a' , marginLeft:'5px'}}>{t('processModelUsageThreshold')}</h1>
         <Paper elevation={4} style={{ marginTop: '20px' }}>
           <Grid hasSelection={false} columns={columnConfig2} rows={Rows2} />
         </Paper>

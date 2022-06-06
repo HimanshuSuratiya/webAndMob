@@ -1,41 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import ModelTable from '../Components/ModelTable';
 import { Button } from "@material-ui/core"
 import ModelInfo from '../Components/ModelInfo';
 import MoreDetailInfo from "../Components/MoreDetailInfo";
+import { Route, Redirect, Switch, Link } from "react-router-dom";
 
-const Model = () => {
-    const [page, setPage] = useState(1);
-    const updatePage = () => {
-        if (page === 1) {
-            return (
-                <>
-                    <ModelTable />
-                </>
-            )
-        }
-        if (page === 2) {
-            return (
-                <>
-                    <ModelInfo />
-                </>
-            )
-        }
-        if (page === 3){
-            return(
-                <>
-                    <MoreDetailInfo/>
-                </>
-            )
-        }
-    }
+const noop = () => { };
+const Model = ({ match, getUnassignDeviceCount = noop }) => {
     return (
         <>
-            {updatePage()}
+            <Switch>
+                <Route exact path={match.path} render={props => <ModelTable getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
+                <Route exact path={`${match.path}/model-info`} render={props => <ModelInfo getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
+                <Route exact path={`${match.path}/model-detailed-info`} render={props => <MoreDetailInfo getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
+                <Redirect to="/" />
+            </Switch>
             <div style={{ marginTop: '10px' }}>
-                <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" onClick={() => { setPage(1) }}>Paga 1</Button>
-                <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" onClick={() => { setPage(2) }}>Paga 2</Button>
-                <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" onClick={() => { setPage(3) }}>Paga 3</Button>
+                <Link to={`${match.path}`}>
+                    <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 1</Button>
+                </Link>
+                <Link to={`${match.path}/model-info`}>
+                    <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 2</Button>
+                </Link>
+                <Link to={`${match.path}/model-detailed-info`}>
+                    <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 3</Button>
+                </Link>
             </div>
         </>
     );

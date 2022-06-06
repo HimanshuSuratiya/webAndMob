@@ -13,8 +13,6 @@
     vertical-align: top;
 }
 
-
-
 .printer1Img img {
     width: 120px;
     padding: 5px;
@@ -48,24 +46,16 @@
 
 .imageFullsize li:first-child {
     border-left: none;
-
-}
-
-.other-page-table-main .MuiOutlinedInput-inputMarginDense {
-    padding-top: 7px;
-    padding-bottom: 8px;
 }
 
 .other-page-table-main .browserBtn {
     margin-left: 15px;
-    margin-top: 2px;
-    height: 30px;
 }
 
 .TextRight div input {
     text-align: right !important;
 }
 
-/* .MuiTableCell-body p {
-    text-align: right !important;
-} */
+td button {
+    height: 38px !important;
+}

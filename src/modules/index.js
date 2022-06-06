@@ -1,18 +1,8 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  useHistory,
-} from "react-router-dom";
-
+import {BrowserRouter as Router,Route,Redirect,Switch,Link,useHistory,} from "react-router-dom";
 import clsx from "clsx";
 import useStyles from "./style";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import { ToastContainer, toast } from 'react-toastify';
-//import 'react-toastify/dist/ReactToastify.css';
 import { StylesGlobal } from "shared";
 import { AdminLayout } from "shared/components";
 import LoginModule from "./login";
@@ -45,12 +35,7 @@ import FindReplaceIcon from '@material-ui/icons/FindReplace';
 import SearchIcon from '@material-ui/icons/Search';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import {
-  Backdrop,
-  Button,
-  CircularProgress,
-  Typography,
-} from "@material-ui/core";
+import {Backdrop,Button,CircularProgress,Typography,} from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { getTokenData, removeTokenData } from "utils";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
@@ -426,12 +411,58 @@ const AppModule = () => {
               }
             >
               <ProbeNotice />
-              {/* <Route path='/new-printers' component={NewPrintersModule} />
-              <Route path='/waiting-printers' component={WaitingPrintersModule} /> */}
               <Route
                 path="/new-printers"
                 render={(props) => (
                   <NewPrintersModule
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/printer-search"
+                render={(props) => (
+                  <PrinterSearch
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/search-history"
+                render={(props) => (
+                  <SearchHistory
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/model"
+                render={(props) => (
+                  <Model
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/group-management"
+                render={(props) => (
+                  <GroupManagement
                     getUnassignDeviceCount={() => {
                       GetUnassignDeviceCount();
                       GetWaitDeviceCount();
@@ -472,10 +503,6 @@ const AppModule = () => {
               <Route path="/settings" component={SettingsModule} />
               <Route path="/profile" component={ProfileModule} />
               <Route path="/administrators" component={PrinterSearch} />
-              <Route path="/group-management" component={GroupManagement}/>
-              <Route path="/search-history" component={SearchHistory} />
-              <Route path="/printer-search" component={PrinterSearch} />
-              <Route path="/model" component={Model} />
               <Route path="/license-management" component={License} />
               <Route
                 path="/oktalk"

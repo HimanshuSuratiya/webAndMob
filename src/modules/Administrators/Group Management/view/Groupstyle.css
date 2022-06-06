@@ -21,7 +21,7 @@ ul.tabBtn li:last-child {
   display: block;
 }
 
-.tabBtn li.active a {
+.active {
   border-bottom: 2px solid #757575;
   color: #757575;
 }

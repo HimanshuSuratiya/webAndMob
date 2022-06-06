@@ -1,156 +1,21 @@
-import React, {useState} from "react";
-import {useTranslation} from "react-i18next";
-import Typography from "@material-ui/core/Typography";
-import {Grid} from "shared/components";
-import Paper from "@material-ui/core/Paper";
+import React from "react";
 import SearchResult from "../Printer Search/Components/SearchResult";
+import Tabel from "./Components/Table";
+import { Route, Redirect, Switch, Link } from "react-router-dom";
+import PrintersDetail from "../Printer Search/Components/PrintersDetail";
+import RegisterPrinter from "../Printer Search/Components/RegisterPrinter";
 
-const TypographyWithClick = ({children, onClick}) => {
-  return <Typography variant="body1" style={{textAlign: "center"}} onClick={onClick}>
-    {children}
-  </Typography>
-}
-
-const SearchHistory = () => {
-  const {t} = useTranslation();
-  const [showSearchResult, setShowSearchResult] = useState(false)
-
-  const Rows = [
-    {
-      sNo: 1,
-      searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192.168.1.101 ~ 192.168.1.234",
-      normalDetected: 1,
-      abnormalDetected: 10,
-      notDetectedNo: "Complete",
-      StatusId: "	Complete",
-    },
-    {
-      sNo: 2,
-      searchDate: "09-05-2022 12:33:15 AM",
-      registrationIp: "192.168.3.401 ~ 192.178.7.234",
-      normalDetected: 3,
-      abnormalDetected: 25,
-      notDetectedNo: "InComplete",
-      StatusId: "InComplete",
-    },
-    {
-      sNo: 3,
-      searchDate: "16-06-2022 02:53:15 PM",
-      registrationIp: "192.268.1.101 ~ 192.768.1.333",
-      normalDetected: 65,
-      abnormalDetected: 8,
-      notDetectedNo: "Complete",
-      StatusId: "	Complete",
-    },
-    {
-      sNo: 4,
-      searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192.368.1.312 ~ 192.182.6.347",
-      normalDetected: 23,
-      abnormalDetected: 34,
-      notDetectedNo: "Complete",
-      StatusId: "	InComplete",
-    },
-    {
-      sNo: 5,
-      searchDate: "06-04-2022 11:53:15 AM",
-      registrationIp: "192.178.9.101 ~ 192.368.2.334",
-      normalDetected: 0,
-      abnormalDetected: 75,
-      notDetectedNo: "InComplete",
-      StatusId: "	Complete",
-    },
-  ];
-
-  const columnConfig = [
-    {
-      id: "s_No",
-      fieldName: "s_No",
-      label: t("processNo"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.sNo}</TypographyWithClick>
-      ),
-    },
-    {
-      id: "search_Date",
-      fieldName: "search_Date",
-      label: t("processSearchDate"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.searchDate}</TypographyWithClick>
-      ),
-    },
-    {
-      id: "registration_Ip",
-      field: "registration_Ip",
-      label: t("processRegistration"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
-          {Rows.registrationIp}
-        </TypographyWithClick>
-      ),
-    },
-    {
-      id: "detected_No",
-      field: "detected_No",
-      label: t("processNormalDetected"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
-          {Rows.normalDetected}
-        </TypographyWithClick>
-      ),
-    },
-    {
-      id: "detected_No",
-      field: "detected_No",
-      label: t("processAbnormalDetected"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
-          {Rows.abnormalDetected}
-        </TypographyWithClick>
-      ),
-    },
-    {
-      id: "notDetected_No",
-      fieldName: "notDetected_No",
-      label: t("processNotDetected"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
-          {Rows.notDetectedNo}
-        </TypographyWithClick>
-      ),
-    },
-    {
-      id: "Status_Id",
-      fieldName: "Status_Id",
-      label: t("processStatus"),
-      canSort: true,
-      render: (Rows) => (
-        <TypographyWithClick onClick={() => setShowSearchResult(true)}>
-          {Rows.StatusId}
-        </TypographyWithClick>
-      ),
-    },
-  ];
-
+const noop = () => {};
+const SearchHistory = ({ match, getUnassignDeviceCount = noop }) => {
   return (
     <>
-      {showSearchResult
-        ? <SearchResult/>
-        : <>
-          <div className="d-flex f-align-center f-justify-between mb-8">
-            <Typography variant="h4">{t("sidebarSearchHistory")}</Typography>
-          </div>
-          <Paper elevation={4}>
-            <Grid hasSelection={false} columns={columnConfig} rows={Rows}/>
-          </Paper>
-        </>}
+      <Switch>
+        <Route exact path={match.path} render={props => <Tabel getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
+        <Route exact path={`${match.path}/search-result`}render={props => <SearchResult getUnassignDeviceCount={getUnassignDeviceCount} {...props} />}/>
+        <Route exact path={`${match.path}/search-result/register-printer`}render={props => <RegisterPrinter getUnassignDeviceCount={getUnassignDeviceCount} {...props} />}/>
+        <Route exact path={`${match.path}/search-result/printers-detail`}render={props => <PrintersDetail getUnassignDeviceCount={getUnassignDeviceCount} {...props} />}/>
+        <Redirect to="/" />
+      </Switch>
     </>
   );
 };

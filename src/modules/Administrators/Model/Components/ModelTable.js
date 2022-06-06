@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid } from "shared/components";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
-import MoreDetailInfo from "./MoreDetailInfo";
+import { Route } from "react-router-dom";
 
 const TypographyWithClick = ({ children, onClick }) => {
     return <Typography variant="body1" style={{ textAlign: "center" }} onClick={onClick}>
@@ -12,9 +12,9 @@ const TypographyWithClick = ({ children, onClick }) => {
     </Typography>
 }
 
-const ModelTable = () => {
+const noop = () => { };
+const ModelTable = ({ match, getUnassignDeviceCount = noop }) => {
     const { t } = useTranslation();
-    const [showSearchResult, setShowSearchResult] = useState(false)
     const columnConfig = [
         {
             id: "_Type",
@@ -22,8 +22,11 @@ const ModelTable = () => {
             label: t("processType"),
             canSort: true,
             render: (Rows) => (
-                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Type}</TypographyWithClick>
-
+                <Route render={({ history }) => (
+                    <TypographyWithClick onClick={() => { history.push(`${match.path}/model-detailed-info`) }}>
+                        {Rows.Type}
+                    </TypographyWithClick>
+                )} />
             ),
         },
         {
@@ -32,7 +35,11 @@ const ModelTable = () => {
             label: t("processName"),
             canSort: true,
             render: (Rows) => (
-                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Name}</TypographyWithClick>
+                <Route render={({ history }) => (
+                    <TypographyWithClick onClick={() => { history.push(`${match.path}/model-detailed-info`) }}>
+                        {Rows.Name}
+                    </TypographyWithClick>
+                )} />
             ),
         },
         {
@@ -41,7 +48,11 @@ const ModelTable = () => {
             label: t("processManufacturer"),
             canSort: true,
             render: (Rows) => (
-                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Manufacturer}</TypographyWithClick>
+                <Route render={({ history }) => (
+                    <TypographyWithClick onClick={() => { history.push(`${match.path}/model-detailed-info`) }}>
+                        {Rows.Manufacturer}
+                    </TypographyWithClick>
+                )} />
             ),
         },
         {
@@ -50,7 +61,11 @@ const ModelTable = () => {
             label: t("processNoOfPriners"),
             canSort: true,
             render: (Rows) => (
-                <TypographyWithClick onClick={() => setShowSearchResult(true)}>{Rows.Noofprinters}</TypographyWithClick>
+                <Route render={({ history }) => (
+                    <TypographyWithClick onClick={() => { history.push(`${match.path}/model-detailed-info`) }}>
+                        {Rows.Noofprinters}
+                    </TypographyWithClick>
+                )} />
             ),
         },
         {
@@ -60,16 +75,19 @@ const ModelTable = () => {
             canSort: true,
             render: (Rows) => (
                 <>
-                    <Typography variant="body1" style={{ textAlign: "center", backgroundColor: '', display: 'flex', justifyContent: 'center' }}>
-                        {Rows.DownloadDriver}
-                        <div style={{ height: 22, width: 25, marginLeft: '7px', cursor: 'pointer' }}>
-                            <CloudDownloadIcon />
-                        </div>
-                    </Typography>
+                    <Route render={({ history }) => (
+                        <Typography variant="body1" style={{ textAlign: "center", backgroundColor: '', display: 'flex', justifyContent: 'center' }}>
+                            {Rows.DownloadDriver}
+                            <div style={{ height: 22, width: 25, marginLeft: '7px', cursor: 'pointer' }}>
+                                <CloudDownloadIcon />
+                            </div>
+                        </Typography>
+                    )} />
                 </>
             ),
         },
     ];
+
 
     const Rows = [
         {
@@ -131,17 +149,12 @@ const ModelTable = () => {
     ];
     return (
         <>
-            {showSearchResult
-                ? <MoreDetailInfo />
-                : <>
-                    <div className="d-flex f-align-center f-justify-between mb-8">
-                        <Typography variant="h4">{t("Model Table")}</Typography>
-                    </div>
-                    <Paper elevation={4}>
-                        <Grid columns={columnConfig} rows={Rows} />
-                    </Paper>
-                </>
-            }
+            <div className="d-flex f-align-center f-justify-between mb-8">
+                <Typography variant="h4">{t("Model Table")}</Typography>
+            </div>
+            <Paper elevation={4}>
+                <Grid columns={columnConfig} rows={Rows} />
+            </Paper>
         </>
     );
 };
