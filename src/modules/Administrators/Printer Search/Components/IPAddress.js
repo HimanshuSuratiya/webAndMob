@@ -1,22 +1,23 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
-import {Button, Checkbox, MenuItem} from "@material-ui/core";
+import { Button, Checkbox, MenuItem } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import InfoIcon from "@material-ui/icons/Info";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { Link } from "react-router-dom";
+import Items from "./Items";
 
-const ipRegex =/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-4]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-4]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 const noop = () => { };
 const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
   const [Department, setDepartment] = useState(0);
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [startIpError, setStartIpError] = useState(false);
   const [endIpError, setEndIpError] = useState(false);
   const [firstSecondPartError, setFirstSecondPartError] = useState(false);
@@ -34,7 +35,18 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
     const isAllOk = isFirstPartSame && isSecondPartSame && isThirdPartGreater && isForthPartCorrect
     return isAllOk
   }
-  
+
+  const fetchData = () => {
+    return fetch("http://ep20210201.iptime.org:38765/gateway/printer-discovery/printers/collect",
+      {
+        method: 'GET',
+        mode: 'no-cors',
+        headers: {
+          'Authorization': 'Basic ZXBzb2Z0OlByaW50ZXJEaXNjb3Zlcnkh'
+        }
+      });
+  }
+
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
@@ -60,8 +72,8 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
             <MenuItem value={4}>4</MenuItem>
           </Select>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>
           <label className="startIplabel">
             {t("processStartIp")}
@@ -89,14 +101,14 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
                       color: startIpError ? "red" : "#35b803",
                     }}
                   >
-                    {startIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
+                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
         </div>
-        <br/>
+        <br />
         <div>
           <label className="EndIplabel">
             {t("processEndIp")}
@@ -127,21 +139,22 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
                       color: endIpError ? "red" : "#35b803",
                     }}
                   >
-                    {endIpError ? <InfoIcon/> : <CheckCircleOutlineIcon/>}
+                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
                   </div>
                 </InputAdornment>
               ),
             }}
           />
-           <span style={{color :'red'}}><Checkbox color="primary"/> <span style={{color:'rgba(0, 0, 0, 0.87)', fontSize:'16px', fontWeight:'bold'}}>Auto</span></span>
+          <span style={{ color: 'red' }}><Checkbox color="primary" /> <span style={{ color: 'rgba(0, 0, 0, 0.87)', fontSize: '16px', fontWeight: 'bold' }}>Auto</span></span>
         </div>
-        <Link to={`${match.path}/search-result`}>
-          <Button variant="contained" className="searchBtn" color="primary"
-            disabled={(firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true}
-          >
-            {t("processSearchBtn")}
-          </Button>
-        </Link>
+        {/* <Link to={`${match.path}/search-result`}> */}
+        <Button variant="contained" className="searchBtn" color="primary"
+          disabled={(firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData() }}
+        >
+          {t("processSearchBtn")}
+        </Button>
+        {/* </Link> */}
+        <Items />
       </Paper>
     </>
   );
