@@ -1,0 +1,86 @@
+/* Server Settings */
+.ServerMainDiv {
+    height: 270px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.ServerMainInnerDiv {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ServerInnerDivs {
+    align-items: center;
+    display: flex;
+    height: 40px;
+    margin: 3px 0px;
+    width: 100%;
+}
+
+.ServerInnerDivs strong {
+    padding-left: 8px;
+    color: black;
+    font-size: 16px;
+    width: 22%;
+}
+
+/* SMPTSettings CSS */
+.ServerInnerDivs .MuiOutlinedInput-inputMarginDense {
+    padding-top: 7.5px;
+    padding-bottom: 8.0px;
+}
+
+.RightDiv {
+    height: 100%;
+    width: 46%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.RightDivTextLeft {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.RightDiv label {
+    padding: 4.2px 25px 4.2px 5px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.RightDivButton {
+    height: 100%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: rgb(224, 224, 224) !important;
+}
+
+/* SystemErrorNotificationSetting Css */
+.checkBoxDiv {
+    width: 100%;
+}
+
+.CheckBoxServerMainDiv {
+    height: 240px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.checkBoxServerMainInnerDiv {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

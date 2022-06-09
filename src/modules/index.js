@@ -52,6 +52,8 @@ import Badge from "@material-ui/core/Badge";
 import { useIdleTimer } from "react-idle-timer";
 import ProbeNotice from "./probe-notice";
 import NaverLogin from "./naver-login";
+import DnsIcon from '@material-ui/icons/Dns';
+import ServerConfiguration from "./Administrators/Server Configuration/view/ServerConfiguration";
 
 const Socket = new W3CWebSocket(config.socketUrl);
 
@@ -307,6 +309,11 @@ const AppModule = () => {
             icon: <AssignmentIcon className="color-white" />,
             label: t("License Management"),
           },
+          {
+            to: "/server-configuration",
+            icon: <DnsIcon className="color-white" />,
+            label: t("Server Configuration"),
+          },
         ]
     },
   ];
@@ -503,6 +510,7 @@ const AppModule = () => {
               <Route path="/settings" component={SettingsModule} />
               <Route path="/profile" component={ProfileModule} />
               <Route path="/administrators" component={PrinterSearch} />
+              <Route path="/server-configuration" component={ServerConfiguration} />
               <Route path="/license-management" component={License} />
               <Route
                 path="/oktalk"
