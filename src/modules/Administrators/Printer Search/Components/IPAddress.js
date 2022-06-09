@@ -23,6 +23,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
   const [firstSecondPartError, setFirstSecondPartError] = useState(false);
   const [firstTextfield, setFirstTextfield] = useState('');
   const [secondTextfield, setSecondTextfield] = useState('');
+  const [showPaperAndData, setShowPaperAndData] = useState(false);
   const checkSecondIpWRTFirstIp = (ip) => {
     const firstIP = firstTextfield
     const secondIp = ip
@@ -89,7 +90,8 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
             onChange={(e) => {
               const isIpCorrect = ipRegex.test(e.target.value);
               setStartIpError(!isIpCorrect);
-              setFirstTextfield(e.target.value)
+              setFirstTextfield(e.target.value);
+              setShowPaperAndData(false);
             }}
             InputProps={{
               endAdornment: (
@@ -127,7 +129,8 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
               const isSecondIpCorrect = checkSecondIpWRTFirstIp(e.target.value)
               setFirstSecondPartError(!isSecondIpCorrect)
               setEndIpError(!isIpCorrect);
-              setSecondTextfield(e.target.value)
+              setSecondTextfield(e.target.value);
+              setShowPaperAndData(false);
             }}
             InputProps={{
               endAdornment: (
@@ -149,12 +152,12 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         </div>
         {/* <Link to={`${match.path}/search-result`}> */}
         <Button variant="contained" className="searchBtn" color="primary"
-          disabled={(firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData() }}
+          disabled={(!showPaperAndData && firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData(); setShowPaperAndData(!showPaperAndData); }}
         >
           {t("processSearchBtn")}
         </Button>
         {/* </Link> */}
-        <Items />
+        <Items setShowPaperAndData={showPaperAndData}/>
       </Paper>
     </>
   );
