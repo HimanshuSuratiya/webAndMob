@@ -37,11 +37,12 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
     return isAllOk
   }
 
-  const fetchData = () => {
-    return fetch("http://ep20210201.iptime.org:38765/gateway/printer-discovery/printers/collect",
+  const fetchData = (firstIPAddress, secondIPAddress) => {
+    return fetch(`http://ep20210201.iptime.org:38765/gateway/printer-discovery/printers/collect-ip?startip=${firstIPAddress}&endip=${secondIPAddress}`,
       {
         method: 'GET',
         mode: 'no-cors',
+        credentials: 'include',
         headers: {
           'Authorization': 'Basic ZXBzb2Z0OlByaW50ZXJEaXNjb3Zlcnkh'
         }
@@ -152,7 +153,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         </div>
         {/* <Link to={`${match.path}/search-result`}> */}
         <Button variant="contained" className="searchBtn" color="primary"
-          disabled={(!showPaperAndData && firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData(); setShowPaperAndData(!showPaperAndData); }}
+          disabled={(!showPaperAndData && firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData(firstTextfield, secondTextfield); setShowPaperAndData(!showPaperAndData); }}
         >
           {t("processSearchBtn")}
         </Button>

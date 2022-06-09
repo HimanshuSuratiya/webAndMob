@@ -14,7 +14,7 @@ const Items = ({ setShowPaperAndData }) => {
         setShowSearching(true);
         setTimeout(() => {
             setShowSearching(false);
-        }, 1200);
+        }, 2000);
     }, [listItems])
 
     const onConnected = () => {
@@ -23,7 +23,7 @@ const Items = ({ setShowPaperAndData }) => {
 
     const onMessageReceived = (msg) => {
         console.log(msg.message);
-        setListItems(listItems.concat(msg.message));
+        setListItems(listItems.concat(msg));
     }
     
     return (
@@ -36,9 +36,11 @@ const Items = ({ setShowPaperAndData }) => {
                 onMessage={msg => onMessageReceived(msg)}
                 debug={false}
             />
-            {setShowPaperAndData && !listItems ?
+            {setShowPaperAndData && (listItems.length == 0 ? false : true) ?
                 <>
-                    {showSearching && <LinearProgress style={{ height: '10px', marginTop: '10px', borderRadius: '5px' }} />}
+                    <div style={{ margin: '20px 0px ' }}>
+                        {showSearching && <LinearProgress style={{ height: '10px', marginTop: '10px', borderRadius: '5px' }} />}
+                    </div>
                     <Paper className="MuiPaper-elevation4" style={{ maxHeight: '260px', overflow: 'auto', marginTop: '25px' }}>
                         <ul style={{ padding: '0px' }}>
                             {listItems.map(listitem => (

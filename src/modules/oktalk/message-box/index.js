@@ -37,6 +37,7 @@ const MessageBox = ({
   const {t} = useTranslation();
   const classes = useStyles();
   const [state, setState] = useState(defaultState);
+  const [bottomOneTime, setBottomOneTime] = useState(true);
   const messageBoxRef = useRef(null);
   const messageBoxEndRef = useRef(null);
 
@@ -52,8 +53,21 @@ const MessageBox = ({
   };
 
   useEffect(() => {
-    scrollToBotom()
+    if(bottomOneTime === false){
+      setTimeout(() => {
+        setBottomOneTime(true)
+      }, 100);
+    }
   }, [state.bottomMessageId])
+
+  const setBottomOnImageLoad = () => {
+    if(bottomOneTime){
+      setTimeout(() => {
+        scrollToBotom();
+        setBottomOneTime(false)
+      }, 100);
+    }
+  }
 
   useEffect(() => {
     if (refMeas) {
@@ -165,7 +179,7 @@ const MessageBox = ({
                   previewImage={previewImage}
                   isFetchingMessages={isFetchingMessages}
                   onDelete={onDelete}
-                  onImageLoad={scrollToBotom}
+                  onImageLoad={setBottomOnImageLoad}
                 />
               )
             ))}
