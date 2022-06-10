@@ -102,7 +102,7 @@ const ServerSettings = () => {
                             </Select>
                         </div>
                         <div className="RightDivButton">
-                            <Button variant="contained" style={{ width: '10%' }}
+                            <Button variant="contained" style={{ width: '10%',margin:'8px 0px 0px 0px' }}
                             >
                                 {t("Save")}
                             </Button>

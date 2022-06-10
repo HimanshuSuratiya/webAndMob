@@ -32,7 +32,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
     const isFirstPartSame = firstIPArr[0] === secondIPArr[0]
     const isSecondPartSame = firstIPArr[1] === secondIPArr[1]
     const isThirdPartGreater = firstIPArr[2] <= secondIPArr[2]
-    const isForthPartCorrect = firstIPArr[2] < secondIPArr[2] || (firstIPArr[2] === secondIPArr[2] && firstIPArr[3] < secondIPArr[3])
+    const isForthPartCorrect = firstIPArr[2] < secondIPArr[2] || (firstIPArr[2] === secondIPArr[2] && firstIPArr[3] <= secondIPArr[3])
     const isAllOk = isFirstPartSame && isSecondPartSame && isThirdPartGreater && isForthPartCorrect
     return isAllOk
   }

@@ -54,6 +54,7 @@ import ProbeNotice from "./probe-notice";
 import NaverLogin from "./naver-login";
 import DnsIcon from '@material-ui/icons/Dns';
 import ServerConfiguration from "./Administrators/Server Configuration/view/ServerConfiguration";
+import AgentConfiguration from "./Administrators/Agent Configuration/view/AgentConfiguration";
 
 const Socket = new W3CWebSocket(config.socketUrl);
 
@@ -314,6 +315,11 @@ const AppModule = () => {
             icon: <DnsIcon className="color-white" />,
             label: t("Server Configuration"),
           },
+          {
+            to: "/agent-configuration",
+            icon: <DnsIcon className="color-white" />,
+            label: t("Agent Configuration"),
+          },
         ]
     },
   ];
@@ -511,6 +517,7 @@ const AppModule = () => {
               <Route path="/profile" component={ProfileModule} />
               <Route path="/administrators" component={PrinterSearch} />
               <Route path="/server-configuration" component={ServerConfiguration} />
+              <Route path="/agent-configuration" component={AgentConfiguration} />
               <Route path="/license-management" component={License} />
               <Route
                 path="/oktalk"

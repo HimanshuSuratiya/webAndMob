@@ -41,18 +41,12 @@ const SystemErrorNotificationSetting = () => {
                                 <h3 style={{ padding: '5px 0px 0px 20px', }}>( Hour  )</h3>
                             </div>
                         </div>
-                        <div className="ServerInnerDivs">
-                            <strong >{t('Notification Type')}</strong>
-                            <TextField
-                                style={{ width: '30%', padding: '0px' }}
-                                name="noticeUsageLevel"
-                                variant="outlined"
-                                size="small"
-                            />
-                        </div>
-                        <div className="ServerInnerDivs">
-                            <div className="checkBoxDiv">
-                                <Checkbox color="primary" style={{ paddingLeft: '5px' }} /> <label><strong> Database Disconnected </strong></label>
+                        <div style={{ height: '300px', width: '100%', display: 'flex' }}>
+                            <div className="checkBoxServerInnerDivs">
+                                <strong >{t('Notification Type')}</strong>
+                            </div>
+                            <div className="checkboxDiv">
+                                <Checkbox color="primary" /> <label><strong> Database Disconnected </strong></label>
                                 <Checkbox color="primary" /> <label><strong> License Expired </strong></label>
                                 <Checkbox color="primary" /> <label><strong> Process Stopped </strong></label>
                                 <Checkbox color="primary" /> <label><strong> No Billing Information </strong></label>
@@ -60,7 +54,7 @@ const SystemErrorNotificationSetting = () => {
                             </div>
                         </div>
                         <div className="RightDivButton">
-                            <Button variant="contained" style={{ width: '10%' }}
+                            <Button variant="contained" style={{ width: '10%', margin: '0px 0px 10px 0px' }}
                             >
                                 {t("Save")}
                             </Button>
