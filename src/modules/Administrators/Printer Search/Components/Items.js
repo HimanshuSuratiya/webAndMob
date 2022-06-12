@@ -12,9 +12,11 @@ const Items = ({ setShowPaperAndData }) => {
 
     useEffect(() => {
         setShowSearching(true);
-        setTimeout(() => {
-            setShowSearching(false);
-        }, 2000);
+        if (listItems.length > 0) {
+            if (listItems[listItems.length - 1].message === "Collection end") {
+                setShowSearching(false)
+            }
+        }
     }, [listItems])
 
     const onConnected = () => {
