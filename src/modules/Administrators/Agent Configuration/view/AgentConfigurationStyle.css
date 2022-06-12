@@ -1,14 +1,14 @@
 /* CollectorThreadPool */
 .AgentCollectorMainDiv {
-    height: 100px;
+    height: 110px;
     width: 100%;
 }
 
 .AgentCollectorInnerDivs {
     align-items: center;
     display: flex;
-    height: 50px;
-    margin-top: 15px;
+    height: 60px;
+    padding: 20px 0px;
     width: 100%;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .SNMPSettingMainDiv {
-    height: 600px;
+    height: 690px;
     width: 100%;
 }
 
@@ -37,7 +37,7 @@
     align-items: center;
     display: flex;
     height: 40px;
-    margin: 3px 0px;
+    margin: 10px 0px;
     width: 100%;
 }
 

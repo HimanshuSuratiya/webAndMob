@@ -8,11 +8,22 @@ import { Button, MenuItem } from "@material-ui/core";
 
 const ServerSettings = () => {
     const { t } = useTranslation();
-    const [Department, setDepartment] = useState(0);
-    const updateDepartment = (event) => {
-        setDepartment(event.target.value);
+     const [manageCycle, setManageCycle] = useState({
+        fault: '0',
+        usage: '0',
+        consumable: '0',
+        dbBackup: '0',
+        index: '0',
+    });
+    const selectManage = (event) => {
+        const { value, name } = event.target;
+        setManageCycle((prevValue) => {
+            return {
+                ...prevValue,
+                [name]: value,
+            }
+        })
     };
-
     return (
         <>
             <div className="d-flex f-align-center f-justify-between mb-8">
@@ -24,11 +35,12 @@ const ServerSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('Fault Manage Cycle')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                onChange={selectManage}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                name="fault"
+                                value={manageCycle.fault}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'1'}>1</MenuItem>
@@ -40,11 +52,12 @@ const ServerSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('Usage Manage Cycle')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                onChange={selectManage}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                name="usage"
+                                value={manageCycle.usage}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'1'}>1</MenuItem>
@@ -56,11 +69,12 @@ const ServerSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('Consumable Manage Cycle')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                onChange={selectManage}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                name="consumable"
+                                value={manageCycle.consumable}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'1'}>1</MenuItem>
@@ -72,11 +86,12 @@ const ServerSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('DB Backup Manage Cycle')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                onChange={selectManage}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                name="dbBackup"
+                                value={manageCycle.dbBackup}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'1'}>1</MenuItem>
@@ -88,11 +103,12 @@ const ServerSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('Index Rebuild Manage Cycle')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                onChange={selectManage}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                name="index"
+                                value={manageCycle.index}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'1'}>1</MenuItem>
@@ -102,7 +118,7 @@ const ServerSettings = () => {
                             </Select>
                         </div>
                         <div className="RightDivButton">
-                            <Button variant="contained" style={{ width: '10%',margin:'8px 0px 0px 0px' }}
+                            <Button variant="contained" style={{ width: '10%',margin:'7px 0px 0px 0px' }}
                             >
                                 {t("Save")}
                             </Button>

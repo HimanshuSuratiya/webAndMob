@@ -1,13 +1,13 @@
 /* Server Settings */
 .ServerMainDiv {
-    height: 270px;
+    height: 320px;
     width: 100%;
     display: flex;
     align-items: center;
 }
 
 .ServerMainInnerDiv {
-    height: 250px;
+    height: 310px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@
     align-items: center;
     display: flex;
     height: 40px;
-    margin: 3px 0px;
+    margin: 6px 0px;
     width: 100%;
 }
 
@@ -30,17 +30,21 @@
 }
 
 /* SMPTSettings CSS */
-.ServerInnerDivs .MuiOutlinedInput-inputMarginDense {
-    padding-top: 7.5px;
-    padding-bottom: 8.0px;
-}
-
 .RightDiv {
     height: 100%;
     width: 46%;
     display: flex;
     align-items: center;
     justify-content: end;
+}
+
+.SMPTRightDivButton{
+    height: 100%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: rgb(224, 224, 224) !important;
 }
 
 .RightDivTextLeft {
@@ -56,18 +60,18 @@
     border: 1px solid gray;
 }
 
-.RightDivButton {
+/* .RightDivButton {
     height: 100%;
     width: 98%;
     display: flex;
     align-items: center;
     justify-content: end;
     color: rgb(224, 224, 224) !important;
-}
+} */
 
 /* SystemErrorNotificationSetting Css */
 .CheckBoxServerMainDiv {
-    height: 220px;
+    height: 230px;
     width: 100%;
     display: flex;
     align-items: center;

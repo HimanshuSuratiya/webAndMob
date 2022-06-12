@@ -9,11 +9,20 @@ import "../view/AgentConfigurationStyle.css"
 
 const AgentSNMPSetting = () => {
     const { t } = useTranslation();
-    const [Department, setDepartment] = useState(0);
-    const updateDepartment = (event) => {
-        setDepartment(event.target.value);
+    const [snmpSetting, setSnmpSetting] = useState({
+        Security: '0',
+        Authentication: '0',
+        Privacy: '0',
+    });
+    const selectSNMPSetting = (event) => {
+        const { value, name } = event.target;
+        setSnmpSetting((prevValue) => {
+            return {
+                ...prevValue,
+                [name]: value,
+            }
+        })
     };
-
     return (
         <>
             <div className="d-flex f-align-center f-justify-between mb-8">
@@ -111,11 +120,12 @@ const AgentSNMPSetting = () => {
                     <div className="SNMPSettingInnerDivs">
                         <strong >{t('SNMP v3 Security Mode')}</strong>
                         <Select
-                            value={Department}
-                            onChange={updateDepartment}
+                            value={snmpSetting.Security}
+                            name="Security"
+                            onChange={selectSNMPSetting}
                             displayEmpty
                             variant="outlined"
-                            style={{ height: "35px", width: "30%" }}
+                            style={{ height: "40px", width: "30%" }}
                         >
                             <MenuItem value={0}>{t("processSelect")}</MenuItem>
                             <MenuItem value={'Anonymous'}>Anonymous</MenuItem>
@@ -127,11 +137,12 @@ const AgentSNMPSetting = () => {
                     <div className="SNMPSettingInnerDivs">
                         <strong >{t('SNMP v3 Authentication Algorithm')}</strong>
                         <Select
-                            value={Department}
-                            onChange={updateDepartment}
+                            value={snmpSetting.Authentication}
+                            name="Authentication"
+                            onChange={selectSNMPSetting}
                             displayEmpty
                             variant="outlined"
-                            style={{ height: "35px", width: "30%" }}
+                            style={{ height: "40px", width: "30%" }}
                         >
                             <MenuItem value={0}>{t("processSelect")}</MenuItem>
                             <MenuItem value={'Anonymous'}>Anonymous</MenuItem>
@@ -152,11 +163,12 @@ const AgentSNMPSetting = () => {
                     <div className="SNMPSettingInnerDivs">
                         <strong >{t('SNMP v3 Privacy Algorithm')}</strong>
                         <Select
-                            value={Department}
-                            onChange={updateDepartment}
+                            value={snmpSetting.Privacy}
+                            name="Privacy"
+                            onChange={selectSNMPSetting}
                             displayEmpty
                             variant="outlined"
-                            style={{ height: "35px", width: "30%" }}
+                            style={{ height: "40px", width: "30%" }}
                         >
                             <MenuItem value={0}>{t("processSelect")}</MenuItem>
                             <MenuItem value={'Anonymous'}>Anonymous</MenuItem>

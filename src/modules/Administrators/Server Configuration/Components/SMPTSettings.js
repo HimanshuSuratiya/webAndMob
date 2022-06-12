@@ -9,9 +9,9 @@ import { Button, Checkbox, MenuItem } from "@material-ui/core";
 
 const SMPTSettings = () => {
     const { t } = useTranslation();
-    const [Department, setDepartment] = useState(0);
-    const updateDepartment = (event) => {
-        setDepartment(event.target.value);
+    const [Authentication, setAuthentication] = useState(0);
+    const updateAuthentication = (event) => {
+        setAuthentication(event.target.value);
     };
 
     return (
@@ -44,11 +44,11 @@ const SMPTSettings = () => {
                         <div className="ServerInnerDivs">
                             <strong >{t('Authentication')}</strong>
                             <Select
-                                value={Department}
-                                onChange={updateDepartment}
+                                value={Authentication}
+                                onChange={updateAuthentication}
                                 displayEmpty
                                 variant="outlined"
-                                style={{ height: "35px", width: "30%" }}
+                                style={{ height: "40px", width: "30%" }}
                             >
                                 <MenuItem value={0}>{t("processSelect")}</MenuItem>
                                 <MenuItem value={'Anonymous'}>Anonymous</MenuItem>
@@ -60,7 +60,7 @@ const SMPTSettings = () => {
                                 <Checkbox color="primary" />
                                 <label><strong> SSL Port *</strong></label>
                                 <TextField
-                                    style={{ width: '30%', padding: '0px', marginLeft: '5px' }}
+                                    style={{ width: '20%', padding: '0px', marginLeft: '5px' }}
                                     name="noticeUsageLevel"
                                     variant="outlined"
                                     size="small"
@@ -99,8 +99,8 @@ const SMPTSettings = () => {
                                 <h3 style={{ padding: '5px 0px 0px 20px', }}>( User_id@smtp_server.com )</h3>
                             </div>
                         </div>
-                        <div className="RightDivButton">
-                            <Button variant="contained" style={{ width: '10%' }}
+                        <div className="SMPTRightDivButton">
+                            <Button variant="contained" style={{ width: '10%' , margin: '7px 0px 0px 0px'}}
                             >
                                 {t("Save")}
                             </Button>
