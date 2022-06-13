@@ -1,4 +1,4 @@
-import React, { useEffect , useState } from "react";
+import React, { useEffect , useState , useRef} from "react";
 import SockJsClient from 'react-stomp';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -9,6 +9,7 @@ const Items = ({ setShowPaperAndData }) => {
     const list = [];
     const [listItems, setListItems] = useState(list);
     const [showSearching, setShowSearching] = useState(false);
+    const boxRef = useRef(null);
 
     useEffect(() => {
         setShowSearching(true);
@@ -28,6 +29,10 @@ const Items = ({ setShowPaperAndData }) => {
         setListItems(listItems.concat(msg));
     }
     
+    const scrollToBottom = () => {
+        boxRef?.current?.scrollIntoView({behavior:'smooth'});
+    }
+
     return (
         <div>
             <SockJsClient
@@ -35,7 +40,7 @@ const Items = ({ setShowPaperAndData }) => {
                 topics={['/topic/message']}
                 onConnect={onConnected}
                 onDisconnect={console.log("Disconnected!")}
-                onMessage={msg => onMessageReceived(msg)}
+                onMessage={msg => {scrollToBottom(); onMessageReceived(msg)}}
                 debug={false}
             />
             {setShowPaperAndData && (listItems.length == 0 ? false : true) ?
@@ -54,6 +59,7 @@ const Items = ({ setShowPaperAndData }) => {
                                 </li>
                             ))}
                         </ul>
+                        <div ref={boxRef} style={{height:'30px'}}/>
                     </Paper>
                 </> : ''
             }

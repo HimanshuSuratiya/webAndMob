@@ -8,7 +8,7 @@ import { Button, MenuItem } from "@material-ui/core";
 
 const ServerSettings = () => {
     const { t } = useTranslation();
-     const [manageCycle, setManageCycle] = useState({
+    const [manageCycle, setManageCycle] = useState({
         fault: '0',
         usage: '0',
         consumable: '0',

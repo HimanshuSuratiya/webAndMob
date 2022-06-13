@@ -485,6 +485,30 @@ const AppModule = () => {
                 )}
               />
               <Route
+                path="/server-configuration"
+                render={(props) => (
+                  <ServerConfiguration
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/agent-configuration"
+                render={(props) => (
+                  <AgentConfiguration
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
                 path="/waiting-printers"
                 render={(props) => (
                   <WaitingPrintersModule
@@ -516,8 +540,6 @@ const AppModule = () => {
               <Route path="/settings" component={SettingsModule} />
               <Route path="/profile" component={ProfileModule} />
               <Route path="/administrators" component={PrinterSearch} />
-              <Route path="/server-configuration" component={ServerConfiguration} />
-              <Route path="/agent-configuration" component={AgentConfiguration} />
               <Route path="/license-management" component={License} />
               <Route
                 path="/oktalk"

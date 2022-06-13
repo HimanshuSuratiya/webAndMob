@@ -11,7 +11,6 @@ import { Route, Redirect, Switch, Link } from "react-router-dom";
 
 const noop = () => { };
 const GroupManagement = ({ match, getUnassignDeviceCount = noop }) => {
-  const [active, setActive] = useState(0);
   const { t } = useTranslation();
   return (
     <>
@@ -21,12 +20,12 @@ const GroupManagement = ({ match, getUnassignDeviceCount = noop }) => {
       <Paper>
         <ul className='tabBtn'>
           <li >
-            <Link className={active === 0 ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => { setActive(0) }}>
+            <Link className={window.location.pathname === `${match.path}` ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <AccountCircleOutlinedIcon />{t('processDepartment')}
             </Link>
           </li>
           <li >
-            <Link className={active === 1 ? 'active' : ''} to={`${match.path}/tree`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} onClick={() => { setActive(1) }}>
+            <Link className={window.location.pathname === `${match.path}/tree` ? 'active' : ''} to={`${match.path}/tree`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <EventNoteIcon /> {t('processTree')}
             </Link>
           </li>
