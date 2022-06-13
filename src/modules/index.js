@@ -18,6 +18,8 @@ import GroupManagement from "./Administrators/Group Management/view/GroupManagem
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
+import AgentMonitoring from "./Administrators/Agent Monitoring/view/AgentMonitoring";
+import SystemLog from "./Administrators/System Log/view/SystemLog";
 import OKTalkModule from "./oktalk";
 import WaitingPrintersModule from "./waiting-printers";
 import SettingsModule from "./settings";
@@ -320,6 +322,16 @@ const AppModule = () => {
             icon: <DnsIcon className="color-white" />,
             label: t("Agent Configuration"),
           },
+          {
+            to: "/agent-monitoring",
+            icon: <DnsIcon className="color-white" />,
+            label: t("Agent Monitoring"),
+          },
+          {
+            to: "/system-log",
+            icon: <DnsIcon className="color-white" />,
+            label: t("System Log"),
+          },
         ]
     },
   ];
@@ -500,6 +512,30 @@ const AppModule = () => {
                 path="/agent-configuration"
                 render={(props) => (
                   <AgentConfiguration
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/agent-monitoring"
+                render={(props) => (
+                  <AgentMonitoring
+                    getUnassignDeviceCount={() => {
+                      GetUnassignDeviceCount();
+                      GetWaitDeviceCount();
+                    }}
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+                path="/system-log"
+                render={(props) => (
+                  <SystemLog
                     getUnassignDeviceCount={() => {
                       GetUnassignDeviceCount();
                       GetWaitDeviceCount();

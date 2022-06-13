@@ -243,7 +243,7 @@ const AdminLayout = ({
                   }
                 }}
                 component={NavLink}
-                activeClassName={item.to === '/administrators' ? classes.activeListItemAdmin : classes.activeListItem}
+                activeClassName={item.to === '/administrators' ? '' : classes.activeListItem}
                 to={item.to === '/administrators' ? '/printer-search' : item.to}
                 key={item.lable}
               >
