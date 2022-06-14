@@ -4,8 +4,10 @@ import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
 import { Button, Checkbox, MenuItem } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-const Client = () => {
+const noop = () => { };
+const Client = ({ match, getUnassignDeviceCount = noop }) => {
     const { t } = useTranslation();
     const [client, setClient] = useState({
         first: '0',
@@ -54,7 +56,9 @@ const Client = () => {
                             <MenuItem value={'12'}>12</MenuItem>
                             <MenuItem value={'18'}>18</MenuItem>
                         </Select>
-                        <Button variant="contained">Search</Button>
+                        <Link to={`${match.path}/process-management`}>
+                            <Button variant="contained">Search</Button>
+                        </Link>
                     </div>
                     <div className="otherDiv" >
                         <Checkbox color="primary" style={{ padding: '0px 0px' }} />

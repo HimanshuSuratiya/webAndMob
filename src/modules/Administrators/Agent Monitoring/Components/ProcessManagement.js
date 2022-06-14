@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography";
 import { Grid } from "shared/components";
 import Paper from "@material-ui/core/Paper";
-import { Route } from 'react-router-dom';
 import PausePresentationIcon from '@material-ui/icons/PausePresentation';
 
 const ProcessManagement = () => {
@@ -122,14 +121,12 @@ const ProcessManagement = () => {
             canSort: true,
             render: (Rows) => (
                 <>
-                    <Route render={({ history }) => (
-                        <Typography variant="body1" style={{ textAlign: "center", backgroundColor: '', display: 'flex', justifyContent: 'center' }}>
-                            {Rows.execution}
-                            <div style={{ height: 22, width: 25, marginLeft: '7px', cursor: 'pointer' }}>
-                                <PausePresentationIcon />
-                            </div>
-                        </Typography>
-                    )} />
+                    <Typography variant="body1" style={{ textAlign: "center", backgroundColor: '', display: 'flex', justifyContent: 'center' }}>
+                        {Rows.execution}
+                        <div style={{ height: 22, width: 25, marginLeft: '7px', cursor: 'pointer' }}>
+                            <PausePresentationIcon />
+                        </div>
+                    </Typography>
                 </>
             ),
         },

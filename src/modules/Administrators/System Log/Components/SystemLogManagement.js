@@ -122,7 +122,7 @@ const SystemLogManagement = () => {
     return (
         <>
             <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("Process Management")}</Typography>
+                <Typography variant="h4">{t("System Log Management")}</Typography>
             </div>
             <Paper elevation={4}>
                 <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
