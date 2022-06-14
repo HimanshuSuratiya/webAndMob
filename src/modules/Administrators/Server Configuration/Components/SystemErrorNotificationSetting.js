@@ -46,7 +46,7 @@ const SystemErrorNotificationSetting = () => {
                                 <strong >{t('Notification Type')}</strong>
                             </div>
                             <div className="checkboxDiv">
-                                <Checkbox color="primary" /> <label><strong> Database Disconnected </strong></label>
+                                <Checkbox style={{padding:'0px'}} color="primary" /> <label><strong> Database Disconnected </strong></label>
                                 <Checkbox color="primary" /> <label><strong> License Expired </strong></label>
                                 <Checkbox color="primary" /> <label><strong> Process Stopped </strong></label>
                                 <Checkbox color="primary" /> <label><strong> No Billing Information </strong></label>

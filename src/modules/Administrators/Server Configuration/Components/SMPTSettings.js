@@ -9,9 +9,9 @@ import { Button, Checkbox, MenuItem } from "@material-ui/core";
 
 const SMPTSettings = () => {
     const { t } = useTranslation();
-    const [Authentication, setAuthentication] = useState(0);
-    const updateAuthentication = (event) => {
-        setAuthentication(event.target.value);
+    const [secure, setSecure] = useState(0);
+    const updateSecure = (event) => {
+        setSecure(event.target.value);
     };
 
     return (
@@ -20,90 +20,92 @@ const SMPTSettings = () => {
                 <Typography variant="h4">{t("SMTP Setting")}</Typography>
             </div>
             <Paper elevation={4}>
-                <div className="ServerMainDiv">
-                    <div className="ServerMainInnerDiv">
-                        <div className="ServerInnerDivs">
-                            <strong >{t('SMTP Server IP * ')}</strong>
+                <div className="SMPTServerMainDiv">
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('Email Server * ')}</strong>
+                        <TextField
+                            className="textfield"
+                            style={{ width: '70%', padding: '0px' }}
+                            name="noticeUsageLevel"
+                            variant="outlined"
+                            size="small"
+                            defaultValue={'mail.myepsoft.com'}
+                        />
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('ID')}</strong>
+                        <TextField
+                            className="textfield"
+                            style={{ width: '70%', padding: '0px' }}
+                            name="noticeUsageLevel"
+                            variant="outlined"
+                            size="small"
+                            defaultvalue={'developer7@myepsoft.com'}
+                        />
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('Password')}</strong>
+                        <div className="passwordDiv">
                             <TextField
-                                style={{ width: '30%', padding: '0px' }}
+                                type="password"
+                                className="passwordTextField textfield"
                                 name="noticeUsageLevel"
                                 variant="outlined"
                                 size="small"
+                                defaultValue={'HimanshuSuratiya'}
                             />
-                            <div className="RightDiv">
-                                <label> <strong>SMPT Server Port *</strong></label>
-                                <TextField
-                                    style={{ width: '20%', padding: '0px', marginLeft: '5px' }}
-                                    name="noticeUsageLevel"
-                                    variant="outlined"
-                                    size="small"
-                                    defaultValue={25}
-                                />
-                            </div>
-                        </div>
-                        <div className="ServerInnerDivs">
-                            <strong >{t('Authentication')}</strong>
-                            <Select
-                                value={Authentication}
-                                onChange={updateAuthentication}
-                                displayEmpty
-                                variant="outlined"
-                                style={{ height: "40px", width: "30%" }}
-                            >
-                                <MenuItem value={0}>{t("processSelect")}</MenuItem>
-                                <MenuItem value={'Anonymous'}>Anonymous</MenuItem>
-                                <MenuItem value={'6'}>6</MenuItem>
-                                <MenuItem value={'12'}>12</MenuItem>
-                                <MenuItem value={'18'}>18</MenuItem>
-                            </Select>
-                            <div className="RightDiv">
-                                <Checkbox color="primary" />
-                                <label><strong> SSL Port *</strong></label>
-                                <TextField
-                                    style={{ width: '20%', padding: '0px', marginLeft: '5px' }}
-                                    name="noticeUsageLevel"
-                                    variant="outlined"
-                                    size="small"
-                                    defaultValue={465}
-                                />
-                            </div>
-                        </div>
-                        <div className="ServerInnerDivs">
-                            <strong >{t('ID')}</strong>
                             <TextField
-                                style={{ width: '30%', padding: '0px' }}
+                                type="password"
+                                className="passwordTextField textfield"
                                 name="noticeUsageLevel"
                                 variant="outlined"
                                 size="small"
+                                defaultValue={'HimanshuSuratiya'}
                             />
                         </div>
-                        <div className="ServerInnerDivs">
-                            <strong >{t('Password')}</strong>
-                            <TextField
-                                style={{ width: '30%', padding: '0px' }}
-                                name="noticeUsageLevel"
-                                variant="outlined"
-                                size="small"
-                            />
-                        </div>
-                        <div className="ServerInnerDivs">
-                            <strong >{t('Sender Address * ')}</strong>
-                            <TextField
-                                style={{ width: '30%', padding: '0px' }}
-                                name="noticeUsageLevel"
-                                variant="outlined"
-                                size="small"
-                                defaultValue={'Himanshu@gmail.com'}
-                            />
-                            <div className="RightDivTextLeft">
-                                <h3 style={{ padding: '5px 0px 0px 20px', }}>( User_id@smtp_server.com )</h3>
-                            </div>
-                        </div>
-                        <div className="SMPTRightDivButton">
-                            <Button variant="contained" style={{ width: '10%' , margin: '7px 0px 0px 0px'}}
-                            >
-                                {t("Save")}
-                            </Button>
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('Default sender email * ')}</strong>
+                        <TextField
+                            className="textfield"
+                            style={{ width: '70%', padding: '0px' }}
+                            name="noticeUsageLevel"
+                            variant="outlined"
+                            size="small"
+                            defaultvalue={'developer7@myepsoft.com'}
+                        />
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('Secure Type * ')}</strong>
+                        <Select
+                            className="textfield"
+                            value={secure}
+                            onChange={updateSecure}
+                            displayEmpty
+                            variant="outlined"
+                            style={{ height: "40px", width: "70%" }}
+                        >
+                            <MenuItem value={0}>{t("processSelect")}</MenuItem>
+                            <MenuItem value={1}>SSL</MenuItem>
+                            <MenuItem value={2}>TLS</MenuItem>
+                        </Select>
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('Port Number * ')}</strong>
+                        <TextField
+                            className="textfield"
+                            style={{ width: '70%', padding: '0px' }}
+                            name="noticeUsageLevel"
+                            variant="outlined"
+                            size="small"
+                            defaultValue={465}
+                        />
+                    </div>
+                    <div className="SMPTInnerDivs">
+                        <strong >{t('')}</strong>
+                        <div className="passwordDiv">
+                            <Button variant="contained" >Test</Button>
+                            <Button variant="contained" >Save</Button>
                         </div>
                     </div>
                 </div>

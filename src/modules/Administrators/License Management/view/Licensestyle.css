@@ -70,6 +70,23 @@
   display: flex;
 }
 
+.StatusTextfield {
+  width: 100%;
+  background-color: #f5f6f8;
+}
+
+.StatusTextfield input {
+  color: #495057;
+}
+
+.Textfield{
+  background-color: #f5f6f8;
+}
+
+.Textfield input {
+  color: #495057;
+}
+
 /* Import Key PopUp Css */
 .keypopUpDiv {
   position: fixed;

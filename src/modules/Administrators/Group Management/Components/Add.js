@@ -69,7 +69,7 @@ const Add = ({ setClosePopUp }) => {
                         </DialogContent>
                         <DialogActions>
                             <div className="p-4" style={{ position: 'absolute', bottom: '0px' }}>
-                                <Button style={{ backgroundColor: '#e0e0e0' }} disabled={false} className="mr-4">
+                                <Button style={{ backgroundColor: '#e0e0e0' }} disabled={false} className="mr-4" onClick={() => { setClosePopUp(false) }}>
                                     {t('settingsCancel')}
                                 </Button>
                                 <Button
