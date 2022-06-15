@@ -31,7 +31,7 @@ const AgentSNMPSetting = () => {
             <Paper style={{ paddingBottom: '8px' }} elevation={4}>
                 <div className="SNMPSettingMainDiv">
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Version')}</strong>
+                        <p >{t('SNMP Version')}</p>
                         <form>
                             <input type="radio" id="html" name="fav_language" value="HTML" />
                             <label style={{ fontSize: '16px' }} for="html">SNMPv1/v2</label>
@@ -40,7 +40,7 @@ const AgentSNMPSetting = () => {
                         </form>
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Port')}</strong>
+                        <p >{t('SNMP Port')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -50,7 +50,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Community')}</strong>
+                        <p >{t('SNMP Community')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -60,7 +60,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Collecting Retries')}</strong>
+                        <p >{t('SNMP Collecting Retries')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -70,7 +70,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Collecting Timeout')}</strong>
+                        <p >{t('SNMP Collecting Timeout')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -80,7 +80,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Search Retries')}</strong>
+                        <p >{t('SNMP Search Retries')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -90,7 +90,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP Search Timeout')}</strong>
+                        <p >{t('SNMP Search Timeout')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -100,7 +100,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Context Name')}</strong>
+                        <p >{t('SNMP v3 Context Name')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -109,7 +109,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Username')}</strong>
+                        <p >{t('SNMP v3 Username')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -118,7 +118,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Security Mode')}</strong>
+                        <p >{t('SNMP v3 Security Mode')}</p>
                         <Select
                             value={snmpSetting.Security}
                             name="Security"
@@ -135,7 +135,7 @@ const AgentSNMPSetting = () => {
                         </Select>
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Authentication Algorithm')}</strong>
+                        <p >{t('SNMP v3 Authentication Algorithm')}</p>
                         <Select
                             value={snmpSetting.Authentication}
                             name="Authentication"
@@ -152,7 +152,7 @@ const AgentSNMPSetting = () => {
                         </Select>
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Authentication Key(for HMAC)')}</strong>
+                        <p >{t('SNMP v3 Authentication Key(for HMAC)')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"
@@ -161,7 +161,7 @@ const AgentSNMPSetting = () => {
                         />
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Privacy Algorithm')}</strong>
+                        <p >{t('SNMP v3 Privacy Algorithm')}</p>
                         <Select
                             value={snmpSetting.Privacy}
                             name="Privacy"
@@ -178,7 +178,7 @@ const AgentSNMPSetting = () => {
                         </Select>
                     </div>
                     <div className="SNMPSettingInnerDivs">
-                        <strong >{t('SNMP v3 Privacy Key(for IV)')}</strong>
+                        <p >{t('SNMP v3 Privacy Key(for IV)')}</p>
                         <TextField
                             style={{ width: '30%', padding: '0px' }}
                             name="noticeUsageLevel"

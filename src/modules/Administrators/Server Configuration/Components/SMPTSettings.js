@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import "../view/ServerStyle.css";
 import Select from "@material-ui/core/Select";
-import { Button, Checkbox, MenuItem } from "@material-ui/core";
+import { Button, MenuItem } from "@material-ui/core";
 
 const SMPTSettings = () => {
     const { t } = useTranslation();
