@@ -12,7 +12,7 @@ const ModelInfo = () => {
       <div className="d-flex f-align-center f-justify-between mb-8">
         <Typography variant="h4">{t("processModelInfo")}</Typography>
       </div>
-      <Paper>
+      <Paper elevation={4}>
         <table class="table tableBordered ">
           <tbody>
             <tr>

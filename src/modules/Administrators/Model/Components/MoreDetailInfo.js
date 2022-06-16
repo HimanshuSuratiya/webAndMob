@@ -294,7 +294,7 @@ const MoreDetailInfo = () => {
       <div className="d-flex f-align-center f-justify-between mb-8">
         <Typography variant="h4">{t("processMoreDetailInfo")}</Typography>
       </div>
-      <Paper>
+      <Paper elevation={4}>
         <table class="table tableBordered other-page-table-main">
           <tbody>
             <tr>

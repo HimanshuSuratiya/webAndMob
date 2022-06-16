@@ -45,7 +45,7 @@ const License = () => {
             <div className="d-flex f-align-center f-justify-between mb-8">
                 <Typography variant="h4">{t("License")}</Typography>
             </div>
-            <Paper>
+            <Paper elevation={4}>
                 <div className="mainDivLicense">
                     <div className="statusandapplicationInput">
                         <div className="statusandappTextfield">

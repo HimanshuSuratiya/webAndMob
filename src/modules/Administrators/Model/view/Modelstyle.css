@@ -59,3 +59,16 @@
 td button {
     height: 38px !important;
 }
+
+.TextRight div input {
+    text-align: right !important;
+}
+
+.TextRight input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.TextRight input[type=number] {
+  -moz-appearance: textfield;
+}

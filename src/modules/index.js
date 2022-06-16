@@ -18,7 +18,6 @@ import GroupManagement from "./Administrators/Group Management/view/GroupManagem
 import PrintersModule from "./printers";
 import NewPrintersModule from "./new-printers";
 import SummaryModule from "./summary";
-import AgentMonitoring from "./Administrators/Agent Monitoring/view/AgentMonitoring";
 import SystemLog from "./Administrators/System Log/view/SystemLog";
 import OKTalkModule from "./oktalk";
 import WaitingPrintersModule from "./waiting-printers";
@@ -57,6 +56,8 @@ import NaverLogin from "./naver-login";
 import DnsIcon from '@material-ui/icons/Dns';
 import ServerConfiguration from "./Administrators/Server Configuration/view/ServerConfiguration";
 import AgentConfiguration from "./Administrators/Agent Configuration/view/AgentConfiguration";
+import Agent from "./Administrators/Agent/view/Agent";
+
 
 const Socket = new W3CWebSocket(config.socketUrl);
 
@@ -323,9 +324,9 @@ const AppModule = () => {
             label: t("Agent Configuration"),
           },
           {
-            to: "/agent-monitoring",
+            to: "/agent",
             icon: <DnsIcon className="color-white" />,
-            label: t("Agent Monitoring"),
+            label: t("Agent"),
           },
           {
             to: "/system-log",
@@ -521,9 +522,9 @@ const AppModule = () => {
                 )}
               />
               <Route
-                path="/agent-monitoring"
+                path="/agent"
                 render={(props) => (
-                  <AgentMonitoring
+                  <Agent
                     getUnassignDeviceCount={() => {
                       GetUnassignDeviceCount();
                       GetWaitDeviceCount();

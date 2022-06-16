@@ -1,0 +1,84 @@
+.pauseBtn {
+    color: rgba(0, 0, 0, 0.87);
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    background-color: #e0e0e0 !important;
+}
+
+.resumeBtn {
+    color: white !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    background-color: rgb(0, 98, 204) !important;
+}
+
+.deleteBtn {
+    color: white !important;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    background-color: #f44336 !important;
+}
+
+.AgentTextRight div input {
+    text-align: right !important;
+}
+
+.AgentTextRight input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.AgentTextRight input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.AgentTextField div input {
+    padding: 12.5px 5px;
+}
+
+
+/* AssignGroup Css */
+.divideParentDiv {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.divideDiv {
+    height: 310px;
+    width: 48%;
+    margin: 5px 5px;
+}
+
+.innerDivs {
+    height: 48px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-left: 25px;
+}
+
+.innerDivs p {
+    color: #495057;
+    font-size: 17px;
+    font-weight: 600;
+    width: 65%;
+}
+
+.innerDivs strong {
+    padding-left: 15px;
+    color: black;
+    font-size: 18px;
+    width: 65%;
+}
+
+.AgentAddDiv {
+    width: 38%;
+    height: 40px;
+}
+
+.AgentDeleteDiv {
+    margin-left: 43% !important;
+    width: 25%;
+    height: 40px;
+}

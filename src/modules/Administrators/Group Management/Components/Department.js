@@ -129,7 +129,7 @@ const Department = () => {
       </div>
       <br />
       <br />
-      <Paper>
+      <Paper elevation={4}>
         <Grid columns={columnConfig} rows={Rows} />
       </Paper>
       {popUp ? <Add setClosePopUp={setPopUp} /> : ''}
