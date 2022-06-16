@@ -155,7 +155,7 @@ const ClientRegionBranchPrinter = ({ match, getUnassignDeviceCount = noop }) => 
                         </Select>
                     </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'right', paddingRight: '48px' }} >
+                <div className="viewBtn">
                     <Link to={`${match.path}/system-log-management`}>
                         <Button style={{ marginBottom: '8px' }} variant="contained">View</Button>
                     </Link>

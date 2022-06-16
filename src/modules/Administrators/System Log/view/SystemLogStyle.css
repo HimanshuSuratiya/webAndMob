@@ -44,3 +44,15 @@
     font-size: 16px;
     padding: 0px 0px 0px 10px;
 }
+
+.viewBtn{
+    height: 45px;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: rgb(224, 224, 224) !important;
+    position: relative;
+    bottom: 7px;
+    right: 18px;
+}

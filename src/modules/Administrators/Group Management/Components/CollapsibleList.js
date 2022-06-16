@@ -4,7 +4,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
 
 
@@ -31,6 +30,31 @@ const data = [
     ]
   },
   {id: 3, name: 'Level 1 c'},
+  {id: 4, name: 'Level 1 d', list: [
+    {id: 1, name: 'Level 2 a'},
+    {id: 2, name: 'Level 2 b'},
+    {id: 3, name: 'Level 2 c' , list: [
+      {id: 1, name: 'Level 3 a'},
+      {id: 2, name: 'Level 3 b'},
+      {id: 3, name: 'Level 3 c'},
+      {id: 4, name: 'Level 3 d'},
+      {id: 5, name: 'Level 3 e'},
+      {id: 6, name: 'Level 3 f', list: [
+        {id: 1, name: 'Level 4 a'},
+        {id: 2, name: 'Level 4 b' , list: [
+          {id: 1, name: 'Level 5 a'},
+          {id: 2, name: 'Level 5 b'},
+          {id: 3, name: 'Level 5 c'},
+          {id: 4, name: 'Level 5 d'}
+        ]},
+        {id: 3, name: 'Level 4 c'},
+        {id: 4, name: 'Level 4 d' , list: [
+          {id: 1, name: 'Level 5 a'},
+          {id: 2, name: 'Level 5 b'}
+        ]}
+      ]}
+    ]}
+  ]}
 ]
 
 export default class CollapsibleList extends React.Component {
