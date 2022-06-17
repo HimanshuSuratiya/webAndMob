@@ -65,20 +65,42 @@
     width: 65%;
 }
 
-.innerDivs strong {
+.TextNameDesignName{
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    width: 16.2%;
+    border-right: 2px solid rgb(15, 15, 15);
+}
+
+.TextNameDesignIP{
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    width: 16.2%;
+    font-weight: bold;
+    border-right: 2px solid rgb(15, 15, 15);
+}
+
+.TextNameDesignHostName{
     padding-left: 15px;
     color: black;
     font-size: 18px;
-    width: 65%;
+    width: 50%;
+    font-weight: bold;
 }
 
 .AgentAddDiv {
     width: 38%;
     height: 40px;
+    font-weight: bold !important;
 }
 
 .AgentDeleteDiv {
-    margin-left: 43% !important;
+    margin-left: 42% !important;
     width: 25%;
     height: 40px;
+    background-color: #f44336 !important;
+    color: white !important;
 }

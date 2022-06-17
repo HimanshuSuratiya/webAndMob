@@ -25,6 +25,8 @@ import useStyles from './style';
 import { getTokenData } from 'utils';
 import { useTranslation } from 'react-i18next';
 import { AppContext } from 'shared/contexts';
+import KeyIcon from '@mui/icons-material/Key';
+import PasswordIcon from '@mui/icons-material/Password';
 
 const noop = () => {};
 const defaultState = {
@@ -247,6 +249,29 @@ const Form = ({
               InputProps={{ endAdornment: <EmailIcon /> }}
             />
           )}
+            <TextField
+            fullWidth
+            label={t('Password')}
+            variant="outlined"
+            type="password"
+            name='password'
+            value={''}
+            error={state.errors.email.trim()}
+            helperText={state.errors.email}
+            onChange={handleChange}
+            InputProps={{ endAdornment: <PasswordIcon /> }}
+            />
+            <TextField
+            fullWidth
+            label={t('Confirm Password')}
+            variant="outlined"
+            type="password"
+            name='confirmPassword'
+            value={''}
+            onChange={handleChange}
+            helperText={state.errors.email}
+            InputProps={{ endAdornment: <KeyIcon /> }}
+            />
           <TextField
             fullWidth
             label={t('usersMobile Number')}

@@ -6,9 +6,13 @@
   "dependencies": {
     "@devexpress/dx-react-core": "^3.0.2",
     "@devexpress/dx-react-grid": "^3.0.2",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
     "@mui/x-data-grid": "^5.7.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
