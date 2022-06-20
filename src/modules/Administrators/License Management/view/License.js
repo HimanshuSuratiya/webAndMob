@@ -4,9 +4,10 @@ import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import "./Licensestyle.css";
 import TextField from "@material-ui/core/TextField";
-import { Button, MenuItem } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import ImportKeypopUp from "../Components/ImportKeypopup";
 import DeleteKey from "../Components/DeleteKey";
+import { Divider } from '@material-ui/core';
 
 const defaultState = {
     status: 'License Activated',
@@ -42,98 +43,88 @@ const License = () => {
 
     return (
         <>
-            <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("License")}</Typography>
+            <div className='d-flex f-align-center f-justify-between mb-8'>
+                <Typography variant='h4'>
+                    {t('License')}
+                </Typography>
             </div>
-            <Paper elevation={4}>
-                <div className="mainDivLicense">
-                    <div className="statusandapplicationInput">
-                        <div className="statusandappTextfield">
-                            <TextField
-                                className="StatusTextfield"
-                                name="noticeNoUse"
-                                variant="outlined"
-                                size="small"
-                                value={Data.status}
-                                label={t("Status")}
-                            />
-
-                            <TextField
-                                className="StatusTextfield margnTop"
-                                name="noticeNoUse"
-                                variant="outlined"
-                                size="small"
-                                value={Data.ApplicationKey}
-                                label={t("Application Key")}
-                            />
-                        </div>
-                        <div className="statusandappBtn">
-                            <div className="createBtnHeight">
-                            {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="return" color="primary" style={{ display: `${state.setActivation}` }}
-                            >{t('Return')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
-                            >{t('Activate')} </Button>}
-                            </div>
-                            {importKey ? '' : (state.createDownload ? <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
-                            >{t('Create')} </Button> : <Button variant="contained" className="return" color="primary" onClick={() => createKey()}
-                            >{t('Download')} </Button>)
-                            }
-                        </div>
-                    </div>
-                    <div className="TextfieldDiv">
+            <Paper elevation={4} className='p-4'>
+                <div className='wraplayout'>
+                    <div style={{ height: 'auto', width: '100%' }}>
                         <TextField
-                            className="Textfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.ExpireDate}
-                            label={t("Expire Date")}
+                            name='noticeNoUse'
+                            style={{ width: '70%' }}
+                            variant='outlined'
+                            size='small'
+                            label={t('Status')}
+                            value={Data.status}
                         />
-                    </div>
-                    <div className="TextfieldDiv">
+                        {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="LicenseBtn" color="primary" style={{ display: `${state.setActivation}` }}
+                        >{t('Return')} </Button> : <Button variant="contained" className="LicenseBtn" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
+                        >{t('Activate')} </Button>}
                         <TextField
-                            className="Textfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.CustomerDisplayName}
-                            label={t("Customer Display Name * ")}
+                            name='noticeNoUse'
+                            variant='outlined'
+                            className='mt-6'
+                            style={{ width: '70%' }}
+                            size='small'
+                            label={t('Application Key')}
+                            value={Data.ApplicationKey}
                         />
+                        {importKey ? '' : (state.createDownload ? <Button variant="contained" className="mt-6 LicenseBtn" color="primary" onClick={() => createKey()}
+                        >{t('Create')} </Button> : <Button variant="contained" className="mt-6 LicenseBtn" color="primary" onClick={() => createKey()}
+                        >{t('Download')} </Button>)
+                        }
                     </div>
-                    <div className="TextfieldDiv">
-                        <TextField
-                            className="Textfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.Email}
-                            label={t("Email * ")}
-                        />
-                    </div>
-                    <div className="TextfieldDiv">
-                        <TextField
-                            className="Textfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.Contact}
-                            label={t("Contact * ")}
-                        />
-                    </div>
+                    <TextField
+                        name='noticeNoUse'
+                        className='mt-6'
+                        fullWidth
+                        variant='outlined'
+                        size='small'
+                        label={t('Expire Date')}
+                        value={Data.ExpireDate}
+                    />
+                    <TextField
+                        name="noticeNoUse"
+                        className='mt-6'
+                        fullWidth
+                        variant="outlined"
+                        size="small"
+                        value={Data.CustomerDisplayName}
+                        label={t("Customer Display Name * ")}
+                    />
+                    <TextField
+                        name="noticeNoUse"
+                        className='mt-6'
+                        fullWidth
+                        variant="outlined"
+                        size="small"
+                        value={Data.Email}
+                        label={t("Email * ")}
+                    />
+                    <TextField
+                        name="noticeNoUse"
+                        className='mt-6'
+                        fullWidth
+                        variant="outlined"
+                        size="small"
+                        value={Data.Contact}
+                        label={t("Contact * ")}
+                    />
                     <br />
-                    <hr style={{ margin: '0px 0px' }} />
-                    <h5 style={{ fontSize: '15px' }} className="label">{t("Funtions / Options Subjects")}</h5>
-                    <div className="TextfieldDiv">
-                        <TextField
-                            className="Textfield"
-                            name="noticeNoUse"
-                            variant="outlined"
-                            size="small"
-                            value={Data.NoofDevices}
-                            label={t("No of Devices")}
-                        />
-                    </div>
-                    <div className="BtnDiv">
-                    </div>
+                    <br />
+                    <Divider />
+                    <h5 style={{ fontSize: '15px', margin: '8px 0px' }}>{t("Funtions / Options Subjects")}</h5>
+                    <TextField
+                        name="noticeNoUse"
+                        className='mt-4'
+                        fullWidth
+                        variant="outlined"
+                        size="small"
+                        value={Data.NoofDevices}
+                        label={t("No of Devices")}
+                    />
                 </div>
             </Paper>
             {popUp ? <ImportKeypopUp setClosePopUp={setPopUp} setImportKeybtn={setImportKey} /> : ''}

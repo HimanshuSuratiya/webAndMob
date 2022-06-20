@@ -1,193 +1,43 @@
-.mainDivLicense {
-  height: 500px;
-  width: 65%;
-  padding: 18px;
-}
-
-.statusandapplicationInput {
-  display: flex;
-}
-
-.statusandappTextfield {
-  width: 100%;
-}
-
-.statusandappBtn button {
-  width: 120px;
-  height: 39px;
-}
-
-.margnTop {
-  margin-top: 18px !important;
-}
-
-.createBtnHeight {
-  height: 60px;
-}
-
-.StatusDiv {
-  height: 35px;
-  align-items: center;
-  display: flex;
-  width: 100%;
-}
-
-.StatusTextfield {
-  width: 100%;
-}
-
-.return {
-  color: #007bff;
-  width: 12%;
-  color: white;
-  margin-left: 52px !important;
-}
-
-.Applicationkey {
-  margin-top: 24px;
-  height: 35px;
-  align-items: center;
-  display: flex;
-  width: 100%;
-}
-
-.TextfieldDiv {
-  height: 35px;
-  margin-top: 24px;
-  align-items: center;
-  display: flex;
-  width: 100%;
-}
-
-.Textfield {
-  width: 100%;
-}
-
-.BtnDiv {
-  margin-top: 24px;
-  width: 55%;
-  justify-content: end;
-  display: flex;
-}
-
-.StatusTextfield {
-  width: 100%;
-  background-color: #f5f6f8;
-}
-
-.StatusTextfield input {
-  color: #495057;
-}
-
-.Textfield{
-  background-color: #f5f6f8;
-}
-
-.Textfield input {
-  color: #495057;
+/* Main Css */
+.LicenseBtn {
+  min-width: 25% !important;
+  width: 25%;
+  float: right;
+  padding: 7px 5px !important;
 }
 
 /* Import Key PopUp Css */
-.keypopUpDiv {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  width: 100.2%;
+.setWidth {
   height: 100%;
-  z-index: 1212;
-  display: inline-flex;
-}
-
-.keypopUpInnerDiv {
-  margin: 33px auto;
-  height: 89%;
-  background: #fff;
-  border-radius: 5px;
-  width: 40%;
-  position: relative;
+  max-width: 550px !important;
+  width: 100%;
+  margin: 100px;
 }
 
 /* Deletekey Popup Css */
-.DeletekeypopUpDiv {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  width: 100%;
-  height: 100%;
-  z-index: 1212;
-  display: inline-flex;
-}
-
-.DeletekeypopUpInnerDiv {
-  margin: auto;
-  height: 43%;
-  background: #fff;
-  border-radius: 5px;
-  width: 40%;
-  position: relative;
-}
-
-.DeleteKeyUpperDiv {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-}
-
-.DeleteKeyIconDIv {
-  height: 130px;
-  width: 26%;
-  border-radius: 50px;
-}
-
-.textDiv {
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.textDiv h5 {
-  margin: 0px;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 26px;
-}
-
-.textDivp {
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.textDivp p {
-  margin: 0px;
-  font-size: 17px;
-  color: rgb(54, 53, 53);
-}
-
-.DeleteKeyBtndiv {
-  justify-content: center;
-  height: 30px;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  margin-left: 19px !important;
-  width: 90% !important;
-}
-
 .DeleteKeyBtn {
-  margin-right: 20px !important;
-  margin-left: 20px !important;
+  margin-right: 5% !important;
+  margin-left: 5% !important;
   width: 25% !important;
   color: black !important;
   font-weight: bold !important;
 }
 
-.DeleteKeyBtndiv button span.MuiButton-label {
-  line-height: 1.8 !important;
+.iconDiv {
+  height: 100px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.HeadingDiv {
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
+}
+
+.paraDiv {
+  margin-top: 10px;
+  height: 50px;
+  font-size: 16px;
+  width: 100%;
 }

@@ -16,51 +16,55 @@ const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
     return (
         <>
             <Paper>
-                <div className='keypopUpDiv'>
-                    <div className='keypopUpInnerDiv'>
-                        <DialogTitle>
-                            <div className="d-flex f-align-center f-justify-between">
-                                <Typography variant="h5">
-                                    {t("Import")}
-                                </Typography>
-                                <IconButton>
-                                    <CloseIcon onClick={() => { setClosePopUp(false) }} />
-                                </IconButton>
-                            </div>
-                        </DialogTitle>
-                        <Divider />
-                        <DialogContent className="mt-4">
-                            <TextField
-                                style={{ marginBottom: '24px' }}
-                                fullWidth
-                                label={t('License Key')}
-                                name="email"
-                                variant="outlined"
-                                InputProps={{ endAdornment: <SearchIcon /> }}
-                            />
-                            <TextField
-                                fullWidth
-                                label={t('License Key')}
-                                name="email"
-                                variant="outlined"
-                                InputProps={{ endAdornment: <SearchIcon /> }}
-                            />
-                        </DialogContent>
-                        <DialogActions>
-                            <div className="p-4" style={{ position: 'absolute', bottom: '0px' }}>
-                                <Button style={{ backgroundColor: '#e0e0e0' }} onClick={() => { setClosePopUp(false) }} disabled={false} className="mr-4">
-                                    {t('Close')}
-                                </Button>
-                                <Button
-                                    onClick={() => { setImportKeybtn(true); setClosePopUp(false) }}
-                                    variant="contained"
-                                    color="primary"
-                                    disabled={false}
-                                >
-                                    {t('Import')}
-                                </Button>
-                            </div>
-                        </DialogActions>
+                <div style={{ position: 'fixed', zIndex: '1300', inset: '0px' }}>
+                    <div className="MuiBackdrop-root">
+                        <div className="MuiDialog-container MuiDialog-scrollPaper" style={{ width: '100%', height: '100%'}}>
+                            <div style={{ height: '560px' }} className="MuiPaper-root MuiDialog-paper MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded setWidth">
+                                <DialogTitle>
+                                    <div className="d-flex f-align-center f-justify-between">
+                                        <Typography variant="h5">
+                                            {t("Import")}
+                                        </Typography>
+                                        <IconButton>
+                                            <CloseIcon onClick={() => { setClosePopUp(false) }} />
+                                        </IconButton>
+                                    </div>
+                                </DialogTitle>
+                                <Divider />
+                                <DialogContent className="mt-4">
+                                    <TextField
+                                        style={{ marginBottom: '24px' }}
+                                        fullWidth
+                                        label={t('License Key')}
+                                        name="email"
+                                        variant="outlined"
+                                        InputProps={{ endAdornment: <SearchIcon /> }}
+                                    />
+                                    <TextField
+                                        fullWidth
+                                        label={t('License Key')}
+                                        name="email"
+                                        variant="outlined"
+                                        InputProps={{ endAdornment: <SearchIcon /> }}
+                                    />
+                                </DialogContent>
+                                <DialogActions>
+                                    <div className="p-4" >
+                                        <Button style={{ backgroundColor: '#e0e0e0' }} onClick={() => { setClosePopUp(false) }} disabled={false} className="mr-4">
+                                            {t('Close')}
+                                        </Button>
+                                        <Button
+                                            onClick={() => { setImportKeybtn(true); setClosePopUp(false) }}
+                                            variant="contained"
+                                            color="primary"
+                                            disabled={false}
+                                        >
+                                            {t('Import')}
+                                        </Button>
+                                    </div>
+                                </DialogActions>
+                             </div>
+                        </div>
                     </div>
                 </div>
             </Paper>

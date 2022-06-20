@@ -26,15 +26,6 @@ ul.tabBtn li:last-child {
   color: #757575;
 }
 
-.tabDepartment {
-  width: 100%;
-}
-
-.tabTree {
-  width: 100%;
-  color: white;
-}
-
 .topDivDepartment {
   display: flex;
   align-items: center;
@@ -87,25 +78,10 @@ ul.tabBtn li:last-child {
 }
 
 /* Add Css */
-.AddMainDiv {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  width: 100.2%;
+.setWidth{
   height: 100%;
-  z-index: 1212;
-  display: inline-flex;
-}
-
-.AddInnerDiv {
-  margin: 33px auto;
-  height: 89%;
-  background: #fff;
-  border-radius: 5px;
-  width: 40%;
-  position: relative;
+  max-width: 550px !important;
+  width: 100%;
 }
 
 .AddCustomLabel {
