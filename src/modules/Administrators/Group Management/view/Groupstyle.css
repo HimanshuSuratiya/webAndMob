@@ -26,26 +26,32 @@ ul.tabBtn li:last-child {
   color: #757575;
 }
 
-.topDivDepartment {
+/* Department Css */
+.DepartMainDiv {
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+
+.DepartField {
   display: flex;
   align-items: center;
-  height: 40px;
-  width: 100%;
+
+  height: auto;
+  width: 50%;
 }
 
-.departmentTextfield {
-  width: 18%;
-  padding-left: 8px !important;
+.commonTextPadding {
+  font-size: 17px;
+  padding-left: 12px;
+  color: black;
 }
 
-.departmentTextfield .MuiOutlinedInput-inputMarginDense {
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
-}
-
-.DepartmentBtnDiv {
-  height: 90%;
-  width: 21%;
+.DepartButtons {
+  height: auto;
+  width: 50%;
+  display: flex;
+  justify-content: end;
 }
 
 .AddBtn {
@@ -67,7 +73,7 @@ ul.tabBtn li:last-child {
 }
 
 .btn {
-  width: 9%;
+  width: 15%;
   margin: 1px !important;
   background-color: #757575 !important;
 }
@@ -77,8 +83,35 @@ ul.tabBtn li:last-child {
   color: white;
 }
 
+@media only screen and (max-width:870px) {
+  .DepartMainDiv {
+    display: inherit;
+    width: 100%;
+  }
+
+  .DepartField {
+    width: 100%;
+  }
+
+  .DepartButtons {
+    margin-top: 2px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .commonTextPadding {
+    padding: 3px;
+    margin-left: 2%;
+    font-size: 15px;
+  }
+
+  .btn{
+    width: 25%;
+  }
+}
+
 /* Add Css */
-.setWidth{
+.setWidth {
   height: 100%;
   max-width: 550px !important;
   width: 100%;
@@ -111,7 +144,7 @@ ul.tabBtn li:last-child {
 .hideList {
   display: none;
 }
-s
-.accordianList .menList li ul {
+
+s .accordianList .menList li ul {
   list-style: none;
 }

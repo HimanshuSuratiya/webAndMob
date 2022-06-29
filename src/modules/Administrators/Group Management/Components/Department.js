@@ -94,38 +94,41 @@ const Department = () => {
   ];
   return (
     <>
-      <div className="topDivDepartment">
-        <a style={{ fontSize: '17px', color: 'black', paddingLeft: '14px' }}>{t('processShow')}</a>
-        <Select
-          value={Department}
-          onChange={updateDepartment}
-          displayEmpty
-          variant="outlined"
-          style={{ height: "28px", marginLeft: '10px', width: "7%" }}
-        >
-          <MenuItem value={0}>{t("20")}</MenuItem>
-          <MenuItem value={'50'}>50</MenuItem>
-          <MenuItem value={'100'}>100</MenuItem>
-          <MenuItem value={'200'}>200</MenuItem>
-        </Select>
-        <a style={{ fontSize: '17px', color: 'black', paddingLeft: '10px' }}>{t('processEntries')}</a>
-        <a style={{ fontSize: '17px', color: 'black', paddingLeft: '10px', marginLeft: '10px' }}>{t('processSearch')}</a>
-        <TextField
-          className="departmentTextfield"
-          name="noticeUsageLevel"
-          variant="outlined"
-          defaultValue={""}
-          size="small"
-        />
-        <div className="DepartmentBtnDiv"></div>
-        <Button variant="contained" className="AddBtn btn" color="primary" onClick={() => { setPopUp(true) }}
-        >{t('processAdd')}</Button>
-        <Button variant="contained" className="DeleteBtn btn" color="primary"
-        >{t('processDelete')} </Button>
-        <Button variant="contained" className="ImportBtn btn" color="primary"
-        >{t('processImport')}</Button>
-        <Button variant="contained" className="ExportBtn btn" color="primary"
-        >{t('processExport')} </Button>
+      <div className="DepartMainDiv">
+        <div className="DepartField">
+          <a className="commonTextPadding">{t('processShow')}</a>
+          <Select
+            value={Department}
+            onChange={updateDepartment}
+            displayEmpty
+            variant="outlined"
+            style={{ height: "28px", marginLeft: '2px', width: "30%" }}
+          >
+            <MenuItem value={0}>{t("20")}</MenuItem>
+            <MenuItem value={'50'}>50</MenuItem>
+            <MenuItem value={'100'}>100</MenuItem>
+            <MenuItem value={'200'}>200</MenuItem>
+          </Select>
+          <a className="commonTextPadding">{t('processEntries')}</a>
+          <a className="commonTextPadding">{t('processSearch')}</a>
+          <TextField
+            style={{ width: '40%', minWidth: '80px' }}
+            name="noticeUsageLevel"
+            variant="outlined"
+            defaultValue={""}
+            size="small"
+          />
+        </div>
+        <div className="DepartButtons" >
+          <Button variant="contained" className="AddBtn btn" color="primary" onClick={() => { setPopUp(true) }}
+          >{t('processAdd')}</Button>
+          <Button variant="contained" className="DeleteBtn btn" color="primary"
+          >{t('processDelete')} </Button>
+          <Button variant="contained" className="ImportBtn btn" color="primary"
+          >{t('processImport')}</Button>
+          <Button variant="contained" className="ExportBtn btn" color="primary"
+          >{t('processExport')} </Button>
+        </div>
       </div>
       <br />
       <br />

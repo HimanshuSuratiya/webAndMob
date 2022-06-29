@@ -36,50 +36,37 @@ const PrintersDetail = () => {
             <MenuItem value={4}>4</MenuItem>
             <MenuItem value={5}>5</MenuItem>
           </Select>
-          <label className="formlabel">{t("processLocation")}</label>
+          <label className="formlabel mt-4">{t("processLocation")}</label>
           <TextField
             name="noticeUsageLevel"
             fullWidth
             variant="outlined"
             size="small"
           />
-          <label
-            style={{
-              fontWeight: "bold",
-              fontSize: "16px",
-              marginTop: "12px",
-              display: "block",
-            }}
-          >
-            {t("processContract")}
-          </label>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ width: "48%" }}>
-              <label className="formlabel" style={{ display: "block" }}>
-                {t("processStartDate")}
-              </label>
-              <TextField
-                name="noticeNoUse"
-                variant="outlined"
-                fullWidth
-                type="date"
-                size="small"
-              />
-            </div>
-            <div style={{ width: "48%" }}>
-              <label className="formlabel" style={{ display: "block" }}>
-                {t("processEndDate")}
-              </label>
-              <TextField
-                name="noticeNoUse"
-                variant="outlined"
-                fullWidth
-                type="date"
-                size="small"
-              />
-            </div>
+          <label style={{ fontWeight: "bold", fontSize: "18px", display: "block" }} className="formlabel mt-4">{t("processContract")}</label>
+          <div className="mt-2" style={{ height: '25px', width: '100%', display: 'flex' }}>
+            <label className="formlabel" style={{ display: "block", width: '55%' }}>
+              {t("processStartDate")}
+            </label>
+            <label className="formlabel" style={{ display: "block", width: '45%' }}>
+              {t("processEndDate")}
+            </label>
           </div>
-          <label className="formlabel">{t("processMemo")}</label>
+          <TextField
+            name="noticeNoUse"
+            variant="outlined"
+            style={{ width: '45%', marginRight: '10%' }}
+            type="date"
+            size="small"
+          />
+          <TextField
+            name="noticeNoUse"
+            variant="outlined"
+            style={{ width: '45%' }}
+            type="date"
+            size="small"
+          />
+          <label className="formlabel mt-4">{t("Memo")}</label>
           <TextField
             name="noticeNoUse"
             className="mt-2"
@@ -91,9 +78,8 @@ const PrintersDetail = () => {
           <div className="d-flex f-align-center pt-5">
             <Button
               fullWidth
-              className="mr-10"
+              className="mr-10 Btn-Color"
               size="large"
-              color="primary"
               variant="contained"
             >
               {t("settingsSave")}
