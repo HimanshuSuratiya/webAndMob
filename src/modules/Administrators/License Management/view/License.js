@@ -8,6 +8,7 @@ import { Button } from "@material-ui/core";
 import ImportKeypopUp from "../Components/ImportKeypopup";
 import DeleteKey from "../Components/DeleteKey";
 import { Divider } from '@material-ui/core';
+import "../../../../shared/Shared.css";
 
 const defaultState = {
     status: 'License Activated',
@@ -53,26 +54,26 @@ const License = () => {
                     <div style={{ height: 'auto', width: '100%' }}>
                         <TextField
                             name='noticeNoUse'
-                            style={{ width: '70%' }}
+                            style={{ width: '70%' , backgroundColor:'#f5f6f8'}}
                             variant='outlined'
                             size='small'
                             label={t('Status')}
                             value={Data.status}
                         />
-                        {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="LicenseBtn" color="primary" style={{ display: `${state.setActivation}` }}
-                        >{t('Return')} </Button> : <Button variant="contained" className="LicenseBtn" color="primary" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
+                        {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="LicenseBtn Btn-Color" style={{ display: `${state.setActivation}` }}
+                        >{t('Return')} </Button> : <Button variant="contained" className="LicenseBtn Btn-Color" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
                         >{t('Activate')} </Button>}
                         <TextField
                             name='noticeNoUse'
                             variant='outlined'
                             className='mt-6'
-                            style={{ width: '70%' }}
+                            style={{ width: '70%' , backgroundColor:'#f5f6f8'}}
                             size='small'
                             label={t('Application Key')}
                             value={Data.ApplicationKey}
                         />
-                        {importKey ? '' : (state.createDownload ? <Button variant="contained" className="mt-6 LicenseBtn" color="primary" onClick={() => createKey()}
-                        >{t('Create')} </Button> : <Button variant="contained" className="mt-6 LicenseBtn" color="primary" onClick={() => createKey()}
+                        {importKey ? '' : (state.createDownload ? <Button variant="contained" className="mt-6 LicenseBtn Btn-Color" onClick={() => createKey()}
+                        >{t('Create')} </Button> : <Button variant="contained" className="mt-6 LicenseBtn Btn-Color" onClick={() => createKey()}
                         >{t('Download')} </Button>)
                         }
                     </div>
@@ -81,12 +82,14 @@ const License = () => {
                         className='mt-6'
                         fullWidth
                         variant='outlined'
+                        style={{backgroundColor:'#f5f6f8'}}
                         size='small'
                         label={t('Expire Date')}
                         value={Data.ExpireDate}
                     />
                     <TextField
                         name="noticeNoUse"
+                        style={{backgroundColor:'#f5f6f8'}}
                         className='mt-6'
                         fullWidth
                         variant="outlined"
@@ -98,6 +101,7 @@ const License = () => {
                         name="noticeNoUse"
                         className='mt-6'
                         fullWidth
+                        style={{backgroundColor:'#f5f6f8'}}
                         variant="outlined"
                         size="small"
                         value={Data.Email}
@@ -107,6 +111,7 @@ const License = () => {
                         name="noticeNoUse"
                         className='mt-6'
                         fullWidth
+                        style={{backgroundColor:'#f5f6f8'}}
                         variant="outlined"
                         size="small"
                         value={Data.Contact}
@@ -120,6 +125,7 @@ const License = () => {
                         name="noticeNoUse"
                         className='mt-4'
                         fullWidth
+                        style={{backgroundColor:'#f5f6f8'}}
                         variant="outlined"
                         size="small"
                         value={Data.NoofDevices}

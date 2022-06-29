@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { IconButton, Divider } from '@material-ui/core';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Paper from "@material-ui/core/Paper";
+import "../../../../shared/Shared.css";
 
 const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
     const { t } = useTranslation();
@@ -56,7 +57,7 @@ const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
                                         <Button
                                             onClick={() => { setImportKeybtn(true); setClosePopUp(false) }}
                                             variant="contained"
-                                            color="primary"
+                                            className='Btn-Color'
                                             disabled={false}
                                         >
                                             {t('Import')}
