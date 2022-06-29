@@ -28,7 +28,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import $ from 'jquery';
 import { Grid } from "shared/components";
-
+import "../../../shared/Shared.css";
 import { useTranslation } from "react-i18next";
 
 const UsagePageComponent = ({
@@ -157,7 +157,7 @@ const UsagePageComponent = ({
               label: classes.detailButtonLabel,
             }}
           >
-            <Typography variant="button" className="pt-2 pb-2">
+            <Typography variant="button" className="pt-2 pb-2 Text-Color">
               {t("summaryDetail")}
             </Typography>
           </Button>

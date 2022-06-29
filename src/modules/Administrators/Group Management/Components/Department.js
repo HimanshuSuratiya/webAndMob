@@ -7,6 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import { Grid } from "shared/components";
 import Typography from "@material-ui/core/Typography";
 import Add from '../Components/Add';
+import "../../../../shared/Shared.css";
 
 const Department = () => {
   const [Department, setDepartment] = useState(0);
@@ -112,7 +113,7 @@ const Department = () => {
           <a className="commonTextPadding">{t('processEntries')}</a>
           <a className="commonTextPadding">{t('processSearch')}</a>
           <TextField
-            style={{ width: '40%', minWidth: '80px' }}
+            style={{ width: '45%', minWidth: '80px' }}
             name="noticeUsageLevel"
             variant="outlined"
             defaultValue={""}
@@ -120,14 +121,8 @@ const Department = () => {
           />
         </div>
         <div className="DepartButtons" >
-          <Button variant="contained" className="AddBtn btn" color="primary" onClick={() => { setPopUp(true) }}
-          >{t('processAdd')}</Button>
-          <Button variant="contained" className="DeleteBtn btn" color="primary"
-          >{t('processDelete')} </Button>
-          <Button variant="contained" className="ImportBtn btn" color="primary"
-          >{t('processImport')}</Button>
-          <Button variant="contained" className="ExportBtn btn" color="primary"
-          >{t('processExport')} </Button>
+          <Button variant="contained" className="btn mr-2 Btn-Color" onClick={() => { setPopUp(true) }}>{t('processAdd')}</Button>
+          <Button variant="contained" className="btn Btn-Color" >{t('processDelete')} </Button>
         </div>
       </div>
       <br />

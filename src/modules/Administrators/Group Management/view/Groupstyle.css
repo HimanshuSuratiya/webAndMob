@@ -36,7 +36,6 @@ ul.tabBtn li:last-child {
 .DepartField {
   display: flex;
   align-items: center;
-
   height: auto;
   width: 50%;
 }
@@ -54,33 +53,8 @@ ul.tabBtn li:last-child {
   justify-content: end;
 }
 
-.AddBtn {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-}
-
-.ExportBtn {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-}
-
-.DeleteBtn {
-  border-radius: 0px !important;
-}
-
-.ImportBtn {
-  border-radius: 0px !important;
-}
-
 .btn {
-  width: 15%;
-  margin: 1px !important;
-  background-color: #757575 !important;
-}
-
-.btn:hover {
-  background-color: rgb(4, 54, 107) !important;
-  color: white;
+  width: 18%;
 }
 
 @media only screen and (max-width:870px) {
@@ -96,7 +70,7 @@ ul.tabBtn li:last-child {
   .DepartButtons {
     margin-top: 2px;
     width: 100%;
-    justify-content: center;
+    justify-content: right;
   }
 
   .commonTextPadding {
@@ -106,9 +80,22 @@ ul.tabBtn li:last-child {
   }
 
   .btn{
-    width: 25%;
+    margin-top: 5px !important;
+    width: 15%;
   }
 }
+
+@media only screen and (max-width:414px) {
+  .DepartButtons {
+    margin-top: 2px;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .btn{
+    width: 100%;
+  }
+}
+
 
 /* Add Css */
 .setWidth {

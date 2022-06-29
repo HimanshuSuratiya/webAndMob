@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Service from "../../service";
-import {
-  Typography,
-  Button,
-  Paper,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Dialog,
-  IconButton,
-  Divider,
-} from "@material-ui/core";
+import {Typography,Button,Paper,DialogActions,DialogContent,DialogTitle, Dialog,IconButton,Divider,} from "@material-ui/core";
 import { Grid } from "shared/components";
 import { writeXLSFile, getToday, getTime } from "utils";
 import { useTranslation } from "react-i18next";
 import TextField from "@material-ui/core/TextField";
 import CloseIcon from "@material-ui/icons/Close";
 import useStyles from "./style";
+import "../../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -173,9 +164,8 @@ const ShowSaveReport = ({ deviceInfoId }) => {
       <div className="d-flex f-justify-end">
         <Button
           variant="contained"
-          color="primary"
           onClick={() => exportToExcel()}
-          className="mb-4 mr-4"
+          className="mb-4 mr-4 Btn-Color"
         >
           {t("userPageexport")}
         </Button>
@@ -192,14 +182,13 @@ const ShowSaveReport = ({ deviceInfoId }) => {
         </div>
         <Button
           variant="contained"
-          color="primary"
           onClick={() =>
             setState((prevState) => ({
               ...prevState,
               isSendingEmail: true,
             }))
           }
-          className="mb-4 "
+          className="mb-4 Btn-Color"
         >
           {t("userPageSend report mail")}
         </Button>
@@ -270,9 +259,8 @@ const ShowSaveReport = ({ deviceInfoId }) => {
               {t("summaryclose")}
             </Button>
             <Button
-              color="primary"
               variant="contained"
-              className="mr-2 mt-2 mb-2"
+              className="mr-2 mt-2 mb-2 Btn-Color"
               onClick={sendEmail}
             >
               {t("settingSave")}

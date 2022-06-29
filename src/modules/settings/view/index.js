@@ -125,7 +125,7 @@ const ViewSettings = ({ history }) => {
           <TextField
             name='noticeNoEmail'
             fullWidth
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             variant='outlined'
             size='small'
             label={t('settingsWarningDuration')}
@@ -134,7 +134,7 @@ const ViewSettings = ({ history }) => {
           />
           <TextField
             name='noticeUsageLevel'
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             className='mt-6'
             fullWidth
             variant='outlined'
@@ -147,7 +147,7 @@ const ViewSettings = ({ history }) => {
             name='noticeNoUse'
             className='mt-6'
             fullWidth
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             variant='outlined'
             size='small'
             label={t('settingsNoUsage')}
@@ -157,7 +157,7 @@ const ViewSettings = ({ history }) => {
           <TextField
             name='deviceDeletePeriod'
             className='mt-6'
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             fullWidth
             variant='outlined'
             size='small'
@@ -168,7 +168,7 @@ const ViewSettings = ({ history }) => {
           <TextField
             name='defaultEmail'
             className='mt-6'
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             fullWidth
             variant='outlined'
             size='small'
@@ -181,7 +181,7 @@ const ViewSettings = ({ history }) => {
           <TextField
             name='additionalEmail'
             className='mt-6'
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             fullWidth
             variant='outlined'
             size='small'
@@ -194,7 +194,7 @@ const ViewSettings = ({ history }) => {
           <TextField
             name='partnerName'
             className='mt-6'
-            style={{backgroundColor:'f5f6f8'}}
+            style={{backgroundColor:'#f5f6f8'}}
             fullWidth
             variant='outlined'
             size='small'
@@ -204,22 +204,22 @@ const ViewSettings = ({ history }) => {
           />
           <div className='d-flex f-align-center pt-5'>
             <Button
+              variant='outlined'
               fullWidth
-              className='mr-10 Btn-Color'
+              className='mr-10'
+              size='large'
+              onClick={() => history.push('/notice')}
+            >
+              {t('settingsCancel')}
+            </Button>
+            <Button
+              fullWidth
+              className='ml-10 Btn-Color'
               size='large'
               variant='contained'
               onClick={handleSubmit}
             >
               {t('settingsSave')}
-            </Button>
-            <Button
-              variant='outlined'
-              fullWidth
-              className='ml-10'
-              size='large'
-              onClick={() => history.push('/notice')}
-            >
-              {t('settingsCancel')}
             </Button>
           </div>
         </div>

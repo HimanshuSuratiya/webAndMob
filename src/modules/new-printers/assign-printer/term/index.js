@@ -23,7 +23,7 @@ import Term from "./term";
 import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import "../../../../shared/Shared.css";
 
 let timeout = null;
 const defaultState = {

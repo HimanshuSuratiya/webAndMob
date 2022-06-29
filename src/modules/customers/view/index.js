@@ -23,6 +23,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import { Grid } from 'shared/components';
 import $ from 'jquery';
 import { useTranslation } from 'react-i18next'
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -108,7 +109,7 @@ const ViewCustomers = ({ match }) => {
       fieldName: 'company_name',
       label: t('customerrCustomer Name'),
       render: row => (
-        <Typography variant='body1' className={clsx('text-bold c-pointer', classes.colorLink)}
+        <Typography variant='body1' className={clsx('text-bold c-pointer Text-Color', classes.colorLink)}
         onClick={() => {
           history.push(`/customers/${row.endCustomerId}`);
         }}

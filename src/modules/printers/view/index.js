@@ -12,13 +12,8 @@ import Select from "@material-ui/core/Select";
 import { useTranslation } from "react-i18next";
 import useStyles from "./style";
 import $ from "jquery";
-import {
-  formatDate,
-  daysBetween,
-  writeXLSFile,
-  getToday,
-  getTime,
-} from "utils";
+import {formatDate,daysBetween,writeXLSFile,getToday,getTime,} from "utils";
+import "../../../shared/Shared.css";
 import { Grid } from "shared/components";
 
 const defaultState = {
@@ -33,10 +28,6 @@ const defaultState = {
   order: null,
   orderBy: null,
 };
-
-
-
-
 
 const ViewPrinters = ({ match, history }) => {
   const search = useLocation().search;
@@ -230,7 +221,7 @@ const ViewPrinters = ({ match, history }) => {
       canSort: true,
       render: (row) => (
         <Link
-        
+          className="Text-Color"
           component={NavLink}
           to={`/printers/${row.endCustomerId}/device/${row?.deviceInfoId}/last-updated-at/${row?.lastUpdateDt}`}
         >
@@ -311,7 +302,7 @@ const ViewPrinters = ({ match, history }) => {
       label: t('printerDelta'),
       canSort: true,
       render: (row) => (
-        <Typography variant="body1" className={clsx("color-text-link align-right")}>
+        <Typography variant="body1" className={clsx("Text-Color align-right")}>
           {row.totalDeltaPage ? new Intl.NumberFormat('en-US').format(row.totalDeltaPage) : ''}
         </Typography>
       ),
@@ -333,7 +324,7 @@ const ViewPrinters = ({ match, history }) => {
       label: t('printerDelta'),
       canSort: true,
       render: (row) => (
-        <Typography variant="body1" className={clsx("color-text-link align-right")}>
+        <Typography variant="body1" className={clsx("Text-Color align-right")}>
           {row.colorDeltaPage ? new Intl.NumberFormat('en-US').format(row.colorDeltaPage) : ''}
         </Typography>
       ),
@@ -355,7 +346,7 @@ const ViewPrinters = ({ match, history }) => {
       label: t('printerDelta'),
       canSort: true,
       render: (row) => (
-        <Typography variant="body1" className={clsx("color-text-link right-align")}>
+        <Typography variant="body1" className={clsx("Text-Color align-right")}>
           {row.monoDeltaPage ? new Intl.NumberFormat('en-US').format(row.monoDeltaPage) : ''}
         </Typography>
       ),
@@ -403,8 +394,7 @@ const ViewPrinters = ({ match, history }) => {
           </FormControl>
           <Button
             variant="contained"
-            className="ml-4 w-25"
-            color="primary"
+            className="ml-4 w-25 Btn-Color"
             onClick={() => exportToExcel()}
           >
             {t('printerExcel')}

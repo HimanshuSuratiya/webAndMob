@@ -24,6 +24,7 @@ import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import config from 'config';
+import "../../../shared/Shared.css";
 
 let timeout = null;
 const defaultState = {
@@ -253,7 +254,7 @@ const UsagePage = ({ match }) => {
             setState((prevState) => ({ ...prevState, isAdding: true }))
           }
         >
-          <AddCircleIcon className={classes.colorLink} />
+          <AddCircleIcon className={`${classes.colorLink} Add-Btn`} />
         </IconButton>
         <Typography variant="body1">{t('summaryAdd')}</Typography>
       </div>
@@ -268,11 +269,10 @@ const UsagePage = ({ match }) => {
               />
             </div>
             <Button
-              color="primary"
               component="label"
               htmlFor="printers-input-field"
               variant="text"
-              className="bold-font mt-1"
+              className="bold-font mt-1 Logout-Color"
             >
               Edit
             </Button>
@@ -442,14 +442,14 @@ const UsagePage = ({ match }) => {
               <Button
                 style={{wordBreak:'keep-all'}}
                 variant="text"
-                className={classes.colorLink}
-                startIcon={<FormatListBulletedIcon className={classes.colorLink} />}
+                className={`${classes.colorLink} Text-Color`}
+                startIcon={<FormatListBulletedIcon className={`${classes.colorLink} Text-Color`} />}
                 onClick={() =>
                   setState((prevState) => ({ ...prevState, showTerm: true }))
                 }
               >
                 {t('breakDown')}
-              </Button>
+              </Button>``
             </div>
           </div>
           <TextField
@@ -474,8 +474,7 @@ const UsagePage = ({ match }) => {
           </Button>
           <Button
             variant="contained"
-            color="primary"
-            className="mb-8"
+            className="mb-8 Btn-Color"
             onClick={handleSave}
           >
             {t('summarySave')}
@@ -528,8 +527,7 @@ const UsagePage = ({ match }) => {
               </Button>
               <Button
                 variant="contained"
-                color="primary"
-                className="mr-2 mt-2 mb-2"
+                className="mr-2 mt-2 mb-2 Btn-Color"
                 onClick={handleSubmit}
               >
                 {t('summarySave')}

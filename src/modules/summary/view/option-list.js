@@ -19,14 +19,8 @@ import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 import CloseIcon from "@material-ui/icons/Close";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import {
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControlLabel,
-  Checkbox,
-} from "@material-ui/core";
+import "../../../shared/Shared.css";
+import {  Dialog,DialogActions,DialogContent,DialogTitle,FormControlLabel,Checkbox,} from "@material-ui/core";
 import { useTranslation } from 'react-i18next';
 import { CenterFocusStrong } from "@material-ui/icons";
 
@@ -312,7 +306,6 @@ const ViewSummary = () => {
           {t('dashboardOption list')}
         </Typography>
         <Button
-          color="primary"
           variant="contained"
           onClick={() => {
             setState((prevState) => ({
@@ -321,7 +314,7 @@ const ViewSummary = () => {
             }));
             serviceKeyClone = state.serviceKey;
           }}
-          className="ml-10"
+          className="ml-10 Btn-Color"
         >
           {t('dashboardSelect type')}
         </Button>
@@ -395,9 +388,8 @@ const ViewSummary = () => {
               {t('dashboardClose')}
             </Button>
             <Button
-              color="primary"
               variant="contained"
-              className="mr-2 mt-2 mb-2"
+              className="mr-2 mt-2 mb-2 Btn-Color"
               onClick={() => {
                 setState((prevState) => ({
                   ...prevState,

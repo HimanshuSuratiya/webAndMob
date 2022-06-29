@@ -48,27 +48,94 @@
     border-left: none;
 }
 
-.other-page-table-main .browserBtn {
-    margin-left: 15px;
-}
-
-.TextRight div input {
-    text-align: right !important;
-}
-
 td button {
     height: 38px !important;
 }
 
+/* New Style More Detailed Info */
+.textfieldStyle {
+    min-width: 170px !important;
+    width: 30%;
+}
+
+.textfieldStyle .MuiOutlinedInput-input {
+    padding: 10.5px 12px;
+}
+
+strong {
+    font-size: 16px;
+    color: black;
+}
+
+.other-page-table-main .browserBtn {
+    margin-left: 15px;
+    width: 120px;
+}
+
+.textClass {
+    font-size: 16px;
+    margin: 0px;
+}
+
+.textfieldStyleAnother {
+    width: 50%;
+}
+
+.Heading {
+    font-size: 22px;
+    color: #7a5a5a;
+    margin-left: 5px;
+}
+
+.Rowfield {
+    width: 70%;
+    min-width: 40px !important;
+}
+
+.Rowfield .MuiOutlinedInput-input {
+    padding: 10.5px 8px;
+}
+
+.Rowfield input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.Rowfield input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .TextRight div input {
     text-align: right !important;
 }
 
-.TextRight input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+@media only screen and (max-width:570px) {
+    .other-page-table-main .browserBtn {
+        margin-top: 5px;
+        margin-left: 0px;
+        width: 40%;
+        min-width: 80px;
+    }
 
-.TextRight input[type=number] {
-  -moz-appearance: textfield;
+    .textClass {
+        font-size: 14px;
+    }
+
+    .textfieldStyleAnother {
+        width: 100%;
+        min-width: 170px !important;
+    }
+
+    strong {
+        font-size: 14px;
+    }
+
+    .Heading {
+        font-size: 18px;
+    }
+
+    .Rowfield {
+        min-width: 40px !important;
+        padding-right: 10px;
+    }
 }

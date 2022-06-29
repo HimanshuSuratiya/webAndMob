@@ -7,6 +7,7 @@ import { Grid } from "shared/components";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import { Button, MenuItem } from "@material-ui/core";
+import "../../../../shared/Shared.css";
 
 const MoreDetailInfo = () => {
   const { t } = useTranslation();
@@ -115,10 +116,9 @@ const MoreDetailInfo = () => {
       id: 1,
       PrinterModal: 'ALL',
       Toner: <TextField
-        style={{ width: '70%' }}
+        className="Rowfield TextRight"
         name="noticeUsageLevel"
         variant="outlined"
-        className="TextRight"
         value={toner}
         size="small"
         type={'number'}
@@ -131,10 +131,9 @@ const MoreDetailInfo = () => {
         }
       />,
       Fuser: <TextField
-        style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
-        className="TextRight"
+        className="Rowfield TextRight"
         value={fuser}
         size="small"
         type={'number'}
@@ -147,9 +146,8 @@ const MoreDetailInfo = () => {
         }
       />,
       Developer: <TextField
-        style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
-        className="TextRight"
+        className="Rowfield TextRight"
         variant="outlined"
         value={developer}
         size="small"
@@ -163,10 +161,9 @@ const MoreDetailInfo = () => {
         }
       />,
       OPC: <TextField
-        style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
-        className="TextRight"
+        className="Rowfield TextRight"
         value={opc}
         size="small"
         type={'number'}
@@ -179,9 +176,8 @@ const MoreDetailInfo = () => {
         }
       />,
       Transfer: <TextField
-        style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
-        className="TextRight"
+        className="Rowfield TextRight"
         variant="outlined"
         value={transfer}
         size="small"
@@ -195,9 +191,8 @@ const MoreDetailInfo = () => {
         }
       />,
       Other: <TextField
-        style={{ width: '70%', padding: '0px' }}
         name="noticeUsageLevel"
-        className="TextRight"
+        className="Rowfield TextRight"
         variant="outlined"
         value={other}
         size="small"
@@ -210,7 +205,6 @@ const MoreDetailInfo = () => {
         }
         }
       />,
-
     },
   ];
 
@@ -255,10 +249,9 @@ const MoreDetailInfo = () => {
       id: 1,
       Client: 'ALL',
       Min: <TextField
-        style={{ width: '30%', padding: '0px' }}
         name="noticeUsageLevel"
         variant="outlined"
-        className="TextRight"
+        className="Rowfield TextRight"
         value={min}
         size="small"
         type={'number'}
@@ -271,9 +264,8 @@ const MoreDetailInfo = () => {
         }
       />,
       Max: <TextField
-        style={{ width: '30%', padding: '0px' }}
         name="noticeUsageLevel"
-        className="TextRight"
+        className="Rowfield TextRight"
         variant="outlined"
         value={max}
         size="small"
@@ -299,11 +291,11 @@ const MoreDetailInfo = () => {
           <tbody>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processManufacturer')}</strong>
+                <strong >{t('processManufacturer')}</strong>
               </td>
               <td>
                 <TextField
-                  style={{ width: '30%', padding: '0px' }}
+                  className="textfieldStyle"
                   name="noticeUsageLevel"
                   variant="outlined"
                   defaultValue={"Samsung Electronics"}
@@ -313,15 +305,16 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processModelType')}</strong>
+                <strong >{t('processModelType')}</strong>
               </td>
               <td>
                 <Select
                   value={Department}
+                  style={{ minWidth: '120px' }}
+                  className="textfieldStyle"
                   onChange={updateDepartment}
                   displayEmpty
                   variant="outlined"
-                  style={{ height: "40px", width: "20%" }}
                 >
                   <MenuItem value={0}>{t("processSelect")}</MenuItem>
                   <MenuItem value={'MONO LASER'}>MONO LASER</MenuItem>
@@ -336,33 +329,32 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processSupplyType')}</strong>
+                <strong >{t('processSupplyType')}</strong>
               </td>
               <td></td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processDriver')}</strong>
+                <strong >{t('processDriver')}</strong>
               </td>
               <td>
                 <TextField
-                  style={{ width: '50%', padding: '0px' }}
+                  className="textfieldStyleAnother"
                   name="noticeUsageLevel"
                   variant="outlined"
                   defaultValue={""}
                   size="small"
                 />
-                <Button variant="contained" className="browserBtn" color="primary"
-                > Browser </Button>
+                <Button variant="contained" className="browserBtn Btn-Color"> Browser </Button>
                 <br />
-                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-'</a>
+                <a className="textClass" >-Filename can be alphanumeric characters,'-' and '-'</a>
                 <br />
-                <p style={{margin:'0px',padding:'0px'}}> <input type="checkbox" /> Use Default Printer Driver</p>
+                <p className="textClass" > <input type="checkbox" /> Use Default Printer Driver</p>
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processDescription')}</strong>
+                <strong >{t('processDescription')}</strong>
               </td>
               <td>
                 <TextField
@@ -376,55 +368,52 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td rowspan="2">
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processImage')}</strong>
+                <strong >{t('processImage')}</strong>
               </td>
               <td>
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processFull-Size')}</strong>
+                <strong >{t('processFull-Size')}</strong>
               </td>
               <td>
                 <TextField
-                  style={{ width: '50%', padding: '0px' }}
+                  className="textfieldStyleAnother"
                   name="noticeUsageLevel"
                   variant="outlined"
                   defaultValue={""}
                   size="small"
                 />
-                <Button variant="contained" className="browserBtn" color="primary"
-                > Browser </Button>
+                <Button variant="contained" className="browserBtn Btn-Color"> Browser </Button>
                 <br />
-                <p style={{margin:'0px',padding:'0px', marginTop:'2px'}}> <input type="checkbox" /> Date Existing Image </p>
-                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-', image size
+                <p className="textClass"> <input type="checkbox" /> Date Existing Image </p>
+                <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', image size
                   shuld be less then </a>
               </td>
             </tr>
             <tr>
               <td>
-                <strong style={{ color: "black", fontSize: "16px" }}>{t('processReduced-Size')}</strong>
+                <strong >{t('processReduced-Size')}</strong>
               </td>
-
               <td>
                 <TextField
-                  style={{ width: '50%', padding: '0px' }}
+                  className="textfieldStyleAnother"
                   name="noticeUsageLevel"
                   variant="outlined"
                   defaultValue={""}
                   size="small"
                 />
-                <Button variant="contained" className="browserBtn" color="primary"
-                > Browser </Button>
+                <Button variant="contained" className="browserBtn Btn-Color"> Browser </Button>
                 <br />
-                <p style={{margin:'0px',padding:'0px', marginTop:'2px'}}> <input type="checkbox" /> Date Existing Image </p>
-                <a style={{ fontSize: '16px', marginTop:'5px' }}>-Filename can be alphanumeric characters,'-' and '-', 65x65
+                <p className="textClass"> <input type="checkbox" /> Date Existing Image </p>
+                <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', 65x65
                   pixle image size is appropriate. </a>
               </td>
             </tr>
           </tbody>
         </table>
-        <h1 style={{ fontSize: '22px', color: '#7a5a5a' , marginLeft:'5px'}}>{t('processModelConsumableThreshold')}</h1>
+        <h1 className="Heading">{t('processModelConsumableThreshold')}</h1>
         <Paper elevation={4} style={{ marginTop: '20px' }}>
           <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
         </Paper>
-        <h1 style={{ fontSize: '22px', color: '#7a5a5a' , marginLeft:'5px'}}>{t('processModelUsageThreshold')}</h1>
+        <h1 className="Heading">{t('processModelUsageThreshold')}</h1>
         <Paper elevation={4} style={{ marginTop: '20px' }}>
           <Grid hasSelection={false} columns={columnConfig2} rows={Rows2} />
         </Paper>

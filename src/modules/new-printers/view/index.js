@@ -5,7 +5,6 @@ import Service from "../service";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
-
 import { DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import Paper from "@material-ui/core/Paper";
@@ -14,13 +13,14 @@ import Typography from "@material-ui/core/Typography";
 import useStyles from "./style";
 import { useTranslation } from "react-i18next";
 import { getTokenData } from 'utils';
-
 import { Grid } from "shared/components";
 import { Dialog } from "@material-ui/core";
 import { AppContext } from "shared/contexts";
 import { SharedService } from "../../../services";
 import { SortingState } from '@devexpress/dx-react-grid';
 import $ from 'jquery';
+import "../../../shared/Shared.css";
+
 const printerState = [
   { label: "All", value: "A" },
   { label: "Normal", value: "N" },
@@ -146,8 +146,7 @@ const ViewNewPrinters = ({ match, getUnassignDeviceCount = noop }) => {
               <Button
 
                 variant="contained"
-                className="mr-2"
-                color="primary"
+                className="mr-2 Btn-Color"
                 onClick={() => {
                   history.push(
                     `${match.path}/assign-printers/${row.deviceInfoId}`
@@ -360,8 +359,7 @@ const ViewNewPrinters = ({ match, getUnassignDeviceCount = noop }) => {
             </Button>
             <Button
               variant="contained"
-              color="primary"
-              className="mr-2 mt-2 mb-2"
+              className="mr-2 mt-2 mb-2 Btn-Color"
               onClick={handleWaitingConfirm}
             >
               {t("newPrinterStandby")}

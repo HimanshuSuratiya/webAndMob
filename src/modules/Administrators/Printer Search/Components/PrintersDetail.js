@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Select from "@material-ui/core/Select";
 import { Button, MenuItem } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
+import "../../../../shared/Shared.css";
 
 const PrintersDetail = () => {
   const [Department, setDepartment] = useState(0);
@@ -76,16 +77,16 @@ const PrintersDetail = () => {
             label={t("Test to memo")}
           />
           <div className="d-flex f-align-center pt-5">
+            <Button variant="outlined" fullWidth className="mr-10" size="large">
+              {t("settingsCancel")}
+            </Button>
             <Button
               fullWidth
-              className="mr-10 Btn-Color"
+              className="ml-10 Btn-Color"
               size="large"
               variant="contained"
             >
               {t("settingsSave")}
-            </Button>
-            <Button variant="outlined" fullWidth className="ml-10" size="large">
-              {t("settingsCancel")}
             </Button>
           </div>
         </div>

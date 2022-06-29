@@ -6,21 +6,18 @@ import Service from "../service";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
-
 import { getTokenData } from "utils";
-
 import { DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./style";
-
 import { Grid } from "shared/components";
 import { Dialog } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-
 import { AppContext } from "shared/contexts";
 import { SharedService } from "../../../services";
+import "../../../shared/Shared.css";
 import $ from "jquery";
 const printerState = [
   { label: "All", value: "A" },
@@ -148,8 +145,7 @@ const ViewNewPrinters = ({ match }) => {
             <div className="d-flex">
               <Button
                 variant="contained"
-                className={clsx("mr-2", classes.btnprinter)}
-                color="primary"
+                className={clsx("mr-2 Btn-Color", classes.btnprinter)}
                 onClick={() => {
                   history.push(
                     `${match.path}/assign-printers/${row.deviceInfoId}`

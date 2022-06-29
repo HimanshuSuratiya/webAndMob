@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import { Grid } from "shared/components";
 import Service from "../../service";
 import { toast } from "react-toastify";
+import "../../../../shared/Shared.css";
 
 const noop = () => {};
 
@@ -119,7 +120,7 @@ const Term = ({
         <div className="d-flex f-justify-start">
           <Button
             variant="outlined"
-            className="mr-4 mt-2 mb-2 bg-primary color-white"
+            className="mr-4 mt-2 mb-2 color-white Btn-Color"
             onClick={onClose}
           >
             {t('summaryclose')}

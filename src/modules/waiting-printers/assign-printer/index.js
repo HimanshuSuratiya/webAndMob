@@ -18,7 +18,7 @@ import Divider from "@material-ui/core/Divider";
 import { getTokenData } from "utils";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import "../../../shared/Shared.css";
 
 let timeout = null;
 const defaultState = {
@@ -162,7 +162,7 @@ const AssignPrinters = ({ match, getWaitDeviceCount = noop }) => {
               }
               
             >
-              <AddCircleIcon className={classes.colorLink} />
+              <AddCircleIcon className={`${classes.colorLink} Add-Btn`} />
             </IconButton>
             <Typography variant="body1">{t("summaryAdd")}</Typography>
           </div>
@@ -258,8 +258,7 @@ const AssignPrinters = ({ match, getWaitDeviceCount = noop }) => {
           </Button>
           <Button
             variant="contained"
-            color="primary"
-            className="mb-8"
+            className="mb-8 Btn-Color"
             onClick={handleAssignPrinter}
           >
             {t("summarySave")}
@@ -324,8 +323,7 @@ const AssignPrinters = ({ match, getWaitDeviceCount = noop }) => {
             </Button>
             <Button
               variant="contained"
-              className="mr-2 mt-2 mb-2"
-              color="primary"
+              className="mr-2 mt-2 mb-2 Btn-Color"
               onClick={handleAddCompanyName}
             >
               {t("summaryAdd")}

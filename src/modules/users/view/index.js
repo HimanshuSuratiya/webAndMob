@@ -18,10 +18,10 @@ import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import useStyles from './style';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-
 import { Grid } from 'shared/components';
 import Form from '../form';
 import { useTranslation } from 'react-i18next';
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -91,7 +91,7 @@ const ViewUsers = () => {
       label: t('usersemail'),
       render: row => (
         <Typography
-          variant='body1' className={clsx('text-bold c-pointer', classes.colorLink)}
+          variant='body1' className={clsx('text-bold c-pointer Text-Color', classes.colorLink)}
           onClick={() => {
             setState(prevState => ({
               ...prevState,

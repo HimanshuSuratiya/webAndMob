@@ -27,6 +27,7 @@ import $ from 'jquery';
 import { Grid } from "shared/components";
 import {useTranslation} from 'react-i18next';
 import { AppContext } from 'shared/contexts';
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -86,7 +87,7 @@ const ViewCustomers = ({ match }) => {
       render: (row) => (
         <Typography
           variant="body1"
-          className={clsx("text-bold c-pointer color-text-link")}
+          className={clsx("text-bold c-pointer Text-Color")}
           onClick={() => {
             history.push(
               `/printers/${row.endCustomerId}/device/${row?.deviceInfoId}/last-updated-at/${row?.lastUpdateDt}`
@@ -208,8 +209,7 @@ const ViewCustomers = ({ match }) => {
         </Button>
         <Button
           variant="contained"
-          color="primary"
-          className="ml-4"
+          className="ml-4 Btn-Color"
           onClick={() => {
             handleSave();
           }}

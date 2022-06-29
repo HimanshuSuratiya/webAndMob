@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import { getDateObject, getTokenData } from "utils";
 import Service from "../service";
 import Button from "@material-ui/core/Button";
-
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import { useTranslation } from "react-i18next";
@@ -24,8 +23,7 @@ import moment from "moment";
 import AddCircleSharpIcon from '@material-ui/icons/AddCircleSharp';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import Term from "modules/printers/equipment-modification/term";
-
-
+import "../../../shared/Shared.css";
 let timeout = null;
 const defaultState = {
   companyName: "",
@@ -202,7 +200,7 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
                 setState((prevState) => ({ ...prevState, isFormOpen: true }))
               }
             >
-              <AddCircleIcon className={classes.colorLink} />
+              <AddCircleIcon className={`${classes.colorLink} Add-Btn`} />
             </IconButton>
             <Typography variant="body1">{t("summaryAdd")}</Typography>
           </div>
@@ -361,8 +359,8 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
               <Button
                 style={{wordBreak:'keep-all'}}
                 variant="text"
-                className={classes.colorLink}
-                startIcon={<FormatListBulletedIcon className={classes.colorLink} />}
+                className={`${classes.colorLink} Text-Color`}
+                startIcon={<FormatListBulletedIcon className={`${classes.colorLink} Text-Color`} />}
                 onClick={() =>
                   setState((prevState) => ({ ...prevState, showTerm: true }))
                 }
@@ -393,8 +391,7 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
           </Button>
           <Button
             variant="contained"
-            color="primary"
-            className="mb-8"
+            className="mb-8 Btn-Color"
             onClick={handleAssignPrinter}
           >
             {t("summarySave")}
@@ -459,8 +456,7 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
             </Button>
             <Button
               variant="contained"
-              className="mr-2 mt-2 mb-2"
-              color='primary'
+              className="mr-2 mt-2 mb-2 Btn-Color"
               onClick={handleAddCompanyName}
             >
               {t("summaryAdd")}

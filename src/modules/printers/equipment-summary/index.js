@@ -13,14 +13,13 @@ import Divider from "@material-ui/core/Divider";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import { useTranslation } from "react-i18next";
-
 import { AppContext } from 'shared/contexts';
 import { SharedService } from '../../../services';
-
 import UsagePageComponent from "./usage-page";
 import TrayComponent from "./tray";
 import DeviceConsumableLevel from "./device-consumable";
 import { getTokenData } from "utils";
+import "../../../shared/Shared.css";
 
 const defaultState = {
   isDeleting: false,
@@ -266,8 +265,7 @@ const EquipmentSummary = ({ match }) => {
         <div className="d-flex flex-column">
           <Button
             variant="contained"
-            color="primary"
-            className="pl-1 pr-1"
+            className="pl-1 pr-1 Btn-Color"
             onClick={() => {
               history.push(
                 `/printers/equipment-modification/${match.params.deviceId}`
@@ -353,7 +351,7 @@ const EquipmentSummary = ({ match }) => {
                 <i class="far fa-bell"></i>
               </span>
             </div>
-            <Typography variant="h6" className="color-text-link ml-4 mt-2">
+            <Typography variant="h6" className="Text-Color ml-4 mt-2">
               {t("summaryevent")}
             </Typography>
           </div>
@@ -379,7 +377,7 @@ const EquipmentSummary = ({ match }) => {
                 <i class="far fa-comments"></i>
               </span>
             </div>
-            <Typography variant="h6" className="color-text-link ml-4 mt-2">
+            <Typography variant="h6" className="Text-Color ml-4 mt-2">
               {t("summarymemo")}
             </Typography>
           </div>
@@ -405,7 +403,7 @@ const EquipmentSummary = ({ match }) => {
                 <i class="far fa-chart-bar"></i>
               </span>
             </div>
-            <Typography variant="h6" className="color-text-link ml-4 mt-2">
+            <Typography variant="h6" className="Text-Color ml-4 mt-2">
               {t("summaryreport")}
             </Typography>
           </div>

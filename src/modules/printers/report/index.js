@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Service from "../service";
-import {
-  Typography,
-  Button,
-} from "@material-ui/core";
+import { Typography, Button,} from "@material-ui/core";
 import {  BarChart } from "shared/components";
-
 import AdvanveSearch from "./advance-search";
 import { useTranslation } from 'react-i18next';
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -112,9 +109,8 @@ const ReportComponent = ({ match }) => {
           <div className="d-flex f-justify-center mt-4">
             <Button
               variant="contained"
-              color="primary"
               size='large'
-              className='pl-10 pr-10'
+              className='pl-10 pr-10 Btn-Color'
               onClick={() => {
                 setState((prevState) => ({
                   ...prevState,

@@ -27,6 +27,7 @@ import { useTranslation } from 'react-i18next';
 import { AppContext } from 'shared/contexts';
 import KeyIcon from '@mui/icons-material/Key';
 import PasswordIcon from '@mui/icons-material/Password';
+import "../../../shared/Shared.css";
 
 const noop = () => {};
 const defaultState = {
@@ -322,7 +323,7 @@ const Form = ({
             {!entry ? (
               <Button
                 variant="contained"
-                color="primary"
+                className='Btn-Color'
                 disabled={false}
                 onClick={handleSubmit}
               >
@@ -355,7 +356,7 @@ const Form = ({
                 {entry?.status !== "4" && (
                   <Button
                     variant="contained"
-                    color="primary"
+                    className='Btn-Color'
                     disabled={false}
                     onClick={handleEdit}
                   >

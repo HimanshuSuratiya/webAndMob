@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import {useTranslation} from "react-i18next";
 import Paper from "@material-ui/core/Paper";
 import { useHistory } from "react-router-dom";
+import "../../../../shared/Shared.css";
 
 const noop = () => { };
 const SearchResult = ({ match, getUnassignDeviceCount = noop }) => {
@@ -154,7 +155,7 @@ const SearchResult = ({ match, getUnassignDeviceCount = noop }) => {
       <div className="divBtn">
         <Button
           variant="contained"
-          color="primary"
+          className="Btn-Color"
           style={{marginRight: "20px"}}
           type="submit"
           onClick={()=>{findSelectedRow()}}

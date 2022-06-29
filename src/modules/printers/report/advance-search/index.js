@@ -1,13 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { toast } from "react-toastify";
 import Service from "../../service";
-import {
-  Typography,
-  Button,
-  Paper,
-  FormControlLabel,
-  Checkbox,
-} from "@material-ui/core";
+import {Typography,Button,Paper,FormControlLabel,Checkbox,} from "@material-ui/core";
 import { Grid, BarChart, Datepicker } from "shared/components";
 import { writeXLSFile, getToday, getTime, getDateObject } from "utils";
 import InfoIcon from "@material-ui/icons/Info";
@@ -250,16 +244,14 @@ const AdvanveSearch = ({ deviceInfo, deviceInfoId,endCustomerName='' ,displayNam
             <div className="ml-8">
               <Button
                 variant="contained"
-                color="primary"
-                className="mr-2"
+                className="mr-2 Btn-Color"
                 onClick={() => exportToExcel()}
               >
                 {t('userPageExcel')}
               </Button>
               <Button
                 variant="contained"
-                color="primary"
-                className="mr-2"
+                className="mr-2 Btn-Color"
                 onClick={() => {
                   SaveReport();
                 }}
@@ -268,7 +260,7 @@ const AdvanveSearch = ({ deviceInfo, deviceInfoId,endCustomerName='' ,displayNam
               </Button>
               <Button
                 variant="contained"
-                color="primary"
+                className="Btn-Color"
                 onClick={() => {
                   setState((prevState) => ({
                     ...prevState,
@@ -290,14 +282,13 @@ const AdvanveSearch = ({ deviceInfo, deviceInfoId,endCustomerName='' ,displayNam
                   viewMode: "D",
                 }));
               }}
-              className="mr-2"
+              className="mr-2 Btn-Color"
             >
               {t('userPageglance')}
             </Button>
             <Button
               variant="contained"
-              color={state.viewMode == "M" ? "primary" : ""}
-              className="mr-2"
+              className={state.viewMode == "M" ? "Btn-Color mr-2" : "mr-2"}
               onClick={() => {
                 setState((prevState) => ({
                   ...prevState,
@@ -309,7 +300,7 @@ const AdvanveSearch = ({ deviceInfo, deviceInfoId,endCustomerName='' ,displayNam
             </Button>
             <Button
               variant="contained"
-              color={state.viewMode == "Y" ? "primary" : ""}
+              className={state.viewMode == "Y" ? "Btn-Color" : ""}
               onClick={() => {
                 setState((prevState) => ({
                   ...prevState,

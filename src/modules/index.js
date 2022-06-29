@@ -57,6 +57,7 @@ import DnsIcon from '@material-ui/icons/Dns';
 import ServerConfiguration from "./Administrators/Server Configuration/view/ServerConfiguration";
 import AgentConfiguration from "./Administrators/Agent Configuration/view/AgentConfiguration";
 import Agent from "./Administrators/Agent/view/Agent";
+import "../shared/Shared.css";
 
 
 const Socket = new W3CWebSocket(config.socketUrl);
@@ -92,8 +93,7 @@ const Logout = () => {
 
   return (
     <Button
-      className="text-bold ml-2"
-      color="primary"
+      className="text-bold ml-2 Logout-Color"
       startIcon={<ExitToAppIcon />}
       onClick={() => {
         if (window.gapi) {

@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { Grid, Datepicker } from "shared/components";
 import $ from 'jquery';
 import { useTranslation } from "react-i18next";
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -191,8 +192,7 @@ const exportToExcel =async () => {
           />
           <Button
             variant="contained"
-            className="ml-4 w-25"
-            color="primary"
+            className="ml-4 w-25 Btn-Color"
             onClick={() => exportToExcel()}
           >
            {t('userPageExcel')}

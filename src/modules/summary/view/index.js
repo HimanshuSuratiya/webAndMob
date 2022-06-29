@@ -14,6 +14,7 @@ import OptionList from "./option-list";
 import useStyles from "./style";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import "../../../shared/Shared.css";
 
 const defaultState = {
   entries: [],
@@ -387,7 +388,7 @@ const ViewSummary = () => {
                   <div className='pr-2'>
                     <Typography
                       variant="body2"
-                      className="color-text-link c-pointer ml-2"
+                      className="Text-Color c-pointer ml-2"
                       onClick={() => {
                         history.push(
                           `/summary/device-list/${bookmark.endCustomerId}`

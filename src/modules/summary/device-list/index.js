@@ -14,6 +14,7 @@ import BuildIcon from "@material-ui/icons/Build";
 import useStyles from "./style";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import "../../../shared/Shared.css";
 
 const defaultState = {
   isFetching: false,
@@ -34,7 +35,7 @@ const DeviceList = ({ match }) => {
       render: (row) => (
         <Typography
           variant="body1"
-          className={clsx("color-text-link c-pointer")}
+          className={clsx("Text-Color c-pointer align-right")}
           onClick={() => {
             history.push(
               `/printers/${row.endCustomerId}/device/${row?.deviceInfoId}/last-updated-at/${row?.lastUpdateDt}`

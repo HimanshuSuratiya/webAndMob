@@ -79,7 +79,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         <div>
           <label className="startIplabel">
             {t("processStartIp")}
-            <strong>(*)</strong>
+            <strong style={{color:'red'}}>(*)</strong>
           </label>
           <TextField
             error={startIpError}
@@ -115,7 +115,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         <div>
           <label className="EndIplabel">
             {t("processEndIp")}
-            <strong>(*)</strong>
+            <strong style={{color:'red'}}>(*)</strong>
           </label>
           <TextField
             error={endIpError || firstSecondPartError}

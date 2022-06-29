@@ -29,6 +29,7 @@ import StarOutlineIcon from "@material-ui/icons/StarOutline";
 import $ from "jquery";
 import { Grid, DoughnutComponent } from "shared/components";
 import { useTranslation } from "react-i18next";
+import "../../../shared/Shared.css";
 
 let chartIndex = 0;
 let chartIdHeader = "toner_";
@@ -217,7 +218,7 @@ const DeviceConsumableLevel = ({
             label: classes.detailButtonLabel,
           }}
         >
-          <Typography variant="button" className="pt-2 pb-2">
+          <Typography variant="button" className="pt-2 pb-2 Text-Color">
             {t("summaryDetail")}
           </Typography>
         </Button>

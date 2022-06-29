@@ -15,6 +15,7 @@ import DonutLargeIcon from "@material-ui/icons/DonutLarge";
 import { AppContext } from "shared/contexts";
 import Avatar from "@material-ui/core/Avatar";
 import config from 'config';
+import "../../../shared/Shared.css";
 
 const defaultState = {
   email: "",
@@ -160,11 +161,10 @@ console.log(state.profileImage, 'profileImage')
               />
             </div>
             <Button
-              color="primary"
               component="label"
               htmlFor="file-input-field"
               variant="text"
-              className="bold-font mt-1"
+              className="bold-font mt-1 Logout-Color"
             >
               Edit
             </Button>
@@ -196,7 +196,7 @@ console.log(state.profileImage, 'profileImage')
             error={state.errors.name.trim()}
             helperText={state.errors.name}
             onChange={handleChange}
-            InputProps={{ endAdornment: <PersonIcon /> }}
+            InputProps={{ endAdornment: <PersonIcon className="Icon-Color"/> }}
           />
           <TextField
             fullWidth
@@ -207,7 +207,7 @@ console.log(state.profileImage, 'profileImage')
             error={state.errors.mobile.trim()}
             helperText={state.errors.mobile}
             onChange={handleChange}
-            InputProps={{ endAdornment: <PhoneIphoneIcon /> }}
+            InputProps={{ endAdornment: <PhoneIphoneIcon className="Icon-Color"/> }}
           />
           <TextField
             disabled
@@ -225,11 +225,11 @@ console.log(state.profileImage, 'profileImage')
               fullWidth
               // className='mr-10'
               size="large"
-              color="primary"
+              className="Btn-Color"
               variant="contained"
               onClick={handleSubmit}
             >
-              {t("settingsSave")}
+              {t("settingSave")}
             </Button>
             {/* <Button
               variant='outlined'
