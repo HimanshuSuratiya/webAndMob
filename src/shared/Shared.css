@@ -1,0 +1,28 @@
+.Btn-Color {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+.Btn-Color:hover {
+    background-color: #0069d9 !important;
+}
+
+.Text-Color {
+    color: #007bff !important;
+}
+
+.Text-Color:hover {
+    color: #0056b3 !important;
+}
+
+.Icon-Color {
+    color: rgba(0, 0, 0, 0.38) !important;
+}
+
+.Add-Btn {
+    color: #007bff !important;
+}
+
+.Add-Btn:hover {
+    color: #0069d9 !important;
+}

@@ -6,6 +6,8 @@ import { Button } from "@material-ui/core";
 import AddIcon from '@material-ui/icons/Add';
 import BackupTableIcon from '@mui/icons-material/BackupTable';
 import "../view/AgentStyle.css";
+import DepartmentSearch from "./DepartmentSearch";
+import "../../../../shared/Shared.css";
 
 const AssignGroup = () => {
     const [popUp, setPopUp] = useState(false)
@@ -17,72 +19,101 @@ const AssignGroup = () => {
             </div>
             <Paper elevation={4}>
                 <div className="divideParentDiv">
-                    <div className="divideDiv">
-                        <div className="innerDivs"></div>
-                        <div className="innerDivs" style={{ borderRadius: '5px', backgroundColor: '#e0e0e0' }}>
-                            <div className="TextNameDesignName"> Name </div>
-                            <div className="TextNameDesignIP"> IP </div>
-                            <div className="TextNameDesignHostName"> HostName </div>
+                    <div className="divideDiv1">
+                        <div className="innerDivs">
+                            <BackupTableIcon />
+                            <p style={{ marginLeft: '12px' }}>Agent</p>
                         </div>
-                        <div className="innerDivs" style={{ border: '1px solid gray', borderRadius: '5px' }}>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                        </div>
-                        <div className="innerDivs" style={{ border: '1px solid gray', borderRadius: '5px' }}>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
+                        <div class="agent-table-main-area">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th class="ip-border-main-area">IP</th>
+                                        <th>Hostname</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Selexp</td>
+                                        <td>Selexp</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Selexp</td>
+                                        <td>Selexp</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div className="divideDiv">
+                    <div className="divideDiv2">
                         <div className="innerDivs">
                             <BackupTableIcon />
                             <p style={{ marginLeft: '12px' }}>Assigned Department</p>
                             <Button
-                                className="AgentAddDiv"
+                                className="AgentAddDiv Btn-Color"
                                 variant="contained"
-                                onClick={() => { setPopUp(true) }}
+                                onClick={() => { setPopUp(!popUp) }}
                             >
                                 <AddIcon />
                                 Add
                             </Button>
                         </div>
-                        <div className="innerDivs" style={{ borderRadius: '5px', backgroundColor: '#e0e0e0' }}>
-                            <div className="TextNameDesignName"> ID </div>
-                            <div className="TextNameDesignIP"> Name </div>
-                        </div>
-                        <div className="innerDivs" style={{ border: '1px solid gray', borderRadius: '5px' }}>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <Button
-                                className="AgentDeleteDiv"
-                                variant="contained"
-                            >
-                                Delete
-                            </Button>
-                        </div>
-                        <div className="innerDivs" style={{ border: '1px solid gray', borderRadius: '5px' }}>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Selexp &nbsp;</p>
-                            <Button
-                                className="AgentDeleteDiv"
-                                variant="contained"
-                            >
-                                Delete
-                            </Button>
-                        </div>
-                        <div className="innerDivs" style={{ borderRadius: '5px', backgroundColor: '#e0e0e0', height: '60px' }}>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Admin &nbsp;</p>
-                            <p style={{ width: '15%', marginLeft: '5px', display: 'flex', height: '100%', alignItems: 'center', borderRight: '2px solid gray' }}> &nbsp; Admin &nbsp;</p>
-                            <Button
-                                className="AgentDeleteDiv"
-                                variant="contained"
-                            >
-                                Delete
-                            </Button>
+                        <div class="agent-table-main-area SecondDiv">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th class="ip-border-main-area-2">Name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Selexp</td>
+                                        <td>Selexp</td>
+                                        <td className="btntd">
+                                            <Button
+                                                className="AgentDeleteDiv"
+                                                variant="contained"
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Selexp</td>
+                                        <td>Selexp</td>
+                                        <td className="btntd">
+                                            <Button
+                                                className="AgentDeleteDiv"
+                                                variant="contained"
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                    <tr >
+                                        <td>Group C</td>
+                                        <td>Group C</td>
+                                        <td className="btntd">
+                                            <Button
+                                                className="AgentDeleteDiv"
+                                                variant="contained"
+                                            >
+                                                Delete
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </Paper>
+            {popUp ? <DepartmentSearch setClosePopUp={setPopUp}/> : ''}
         </>
     );
 };

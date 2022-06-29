@@ -5,26 +5,31 @@ import SMPTSettings from "../Components/SMPTSettings";
 import SystemErrorNotificationSetting from "../Components/SystemErrorNotificationSetting";
 import { Route, Redirect, Switch, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "./ServerStyle.css";
+import Typography from "@material-ui/core/Typography";
 
 const noop = () => { };
 const ServerConfiguration = ({ match, getUnassignDeviceCount = noop }) => {
     const { t } = useTranslation();
     return (
         <>
+            <div className="d-flex f-align-center f-justify-between mb-8">
+                <Typography variant="h4">{t("Servers")}</Typography>
+            </div>
             <Paper>
-                <ul className='tabBtn'>
+                <ul className='ServerTab'>
                     <li >
-                        <Link className={window.location.pathname === `${match.path}` ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+                        <Link className={window.location.pathname === `${match.path}` ? 'active ellipsis' : 'ellipsis'} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
                             {t('Server Settings')}
                         </Link>
                     </li>
                     <li >
-                        <Link className={window.location.pathname === `${match.path}/smpt-Settings` ? 'active' : ''} to={`${match.path}/smpt-Settings`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+                        <Link className={window.location.pathname === `${match.path}/smpt-Settings` ? 'active ellipsis' : 'ellipsis'} to={`${match.path}/smpt-Settings`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
                             {t('SMPT Settings')}
                         </Link>
                     </li>
                     <li >
-                        <Link className={window.location.pathname === `${match.path}/system-error-notification-setting` ? 'active' : ''} to={`${match.path}/system-error-notification-setting`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Link className={window.location.pathname === `${match.path}/system-error-notification-setting` ? 'active ellipsis' : 'ellipsis'} to={`${match.path}/system-error-notification-setting`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             {t('System Error Notification Settings')}
                         </Link>
                     </li>

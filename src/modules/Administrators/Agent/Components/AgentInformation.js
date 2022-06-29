@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import "../view/AgentStyle.css";
+import "../../../../shared/Shared.css";
 
 const AgentInformation = () => {
     const { t } = useTranslation();
@@ -173,7 +174,7 @@ const AgentInformation = () => {
                         <Button
                             style={{ margin: '0px 6px' }}
                             variant="contained"
-                            className="resumeBtn"
+                            className="Btn-Color"
                         >
                             {t('Resume')}
                         </Button>
@@ -193,7 +194,7 @@ const AgentInformation = () => {
     return (
         <>
             <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("Agent Information Detail")}</Typography>
+                <Typography variant="h4">{t("Agent List")}</Typography>
             </div>
             <Paper elevation={4}>
                 <Grid hasSelection={true} columns={columnConfig} rows={Rows} />
