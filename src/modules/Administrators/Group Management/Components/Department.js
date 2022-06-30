@@ -99,11 +99,12 @@ const Department = () => {
         <div className="DepartField">
           <a className="commonTextPadding">{t('processShow')}</a>
           <Select
+            className="FirstDropDown"
             value={Department}
             onChange={updateDepartment}
             displayEmpty
             variant="outlined"
-            style={{ height: "28px", marginLeft: '2px', width: "30%" }}
+            style={{ height: "40px", marginLeft: '2px', minWidth:'70px' }}
           >
             <MenuItem value={0}>{t("20")}</MenuItem>
             <MenuItem value={'50'}>50</MenuItem>
@@ -113,7 +114,8 @@ const Department = () => {
           <a className="commonTextPadding">{t('processEntries')}</a>
           <a className="commonTextPadding">{t('processSearch')}</a>
           <TextField
-            style={{ width: '45%', minWidth: '80px' }}
+            style={{marginLeft:'4px'}}
+            className="SearchTextField"
             name="noticeUsageLevel"
             variant="outlined"
             defaultValue={""}

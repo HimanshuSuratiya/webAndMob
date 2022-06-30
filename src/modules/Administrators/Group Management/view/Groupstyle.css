@@ -37,7 +37,7 @@ ul.tabBtn li:last-child {
   display: flex;
   align-items: center;
   height: auto;
-  width: 50%;
+  width: 70%;
 }
 
 .commonTextPadding {
@@ -48,29 +48,77 @@ ul.tabBtn li:last-child {
 
 .DepartButtons {
   height: auto;
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: end;
 }
 
 .btn {
-  width: 18%;
+  min-width: 100px !important;
 }
 
-@media only screen and (max-width:870px) {
+.SearchTextField .MuiInputBase-input{
+  min-width: 300px !important;
+  height: 40px;
+}
+
+.FirstDropDown .MuiOutlinedInput-input {
+  padding: 10px 14px;
+}
+
+.SearchTextField .MuiOutlinedInput-inputMarginDense {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+@media only screen and (max-width:1150px) {
+  .DepartField {
+    height: 40px;
+    width: 70%;
+  }
+
+  .DepartButtons{
+    height: 40px;
+    width: 30%;
+    display: flex;
+    justify-content: end;
+  }
+  
+  .btn{
+    min-width: 80px !important;
+  }
+
+  .SearchTextField .MuiInputBase-input{
+    width: 50% !important;
+    min-width: 200px !important;
+  }
+}
+
+@media only screen and (max-width:830px) {
   .DepartMainDiv {
     display: inherit;
     width: 100%;
   }
 
+  .DepartButtons {
+    margin-top: 11px;
+    width: 100%;
+    justify-content: right;
+    height: 40px;
+  }
+
   .DepartField {
+    height: 40px;
     width: 100%;
   }
 
-  .DepartButtons {
-    margin-top: 2px;
+  .SearchTextField{
     width: 100%;
-    justify-content: right;
+  }
+
+  .SearchTextField .MuiInputBase-input{
+    width: 100% !important;
+    min-width: 10px !important;
   }
 
   .commonTextPadding {
@@ -80,22 +128,21 @@ ul.tabBtn li:last-child {
   }
 
   .btn{
-    margin-top: 5px !important;
     width: 15%;
   }
 }
 
-@media only screen and (max-width:414px) {
+@media only screen and (max-width:427px) {
   .DepartButtons {
-    margin-top: 2px;
+    margin-top: 11px;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: end;
   }
+  
   .btn{
-    width: 100%;
+    width: 31%;
   }
 }
-
 
 /* Add Css */
 .setWidth {

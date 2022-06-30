@@ -155,19 +155,18 @@ const SearchResult = ({ match, getUnassignDeviceCount = noop }) => {
       <div className="divBtn">
         <Button
           variant="contained"
-          className="Btn-Color"
-          style={{marginRight: "20px"}}
-          type="submit"
-          onClick={()=>{findSelectedRow()}}
-        >
-          {t("processRegisterBtn")}
-        </Button>
-        <Button
-          variant="contained"
           style={{marginRight: "20px", backgroundColor:'#f44336' ,color:'white'}}
           type="submit"
         >
           {t("processDeleteBtn")}
+        </Button>
+        <Button
+          variant="contained"
+          className="Btn-Color"
+          type="submit"
+          onClick={()=>{findSelectedRow()}}
+        >
+          {t("processRegisterBtn")}
         </Button>
       </div>
     </>
