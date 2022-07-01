@@ -58,107 +58,109 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         <Typography variant="h4">{t("sidebarPrinterSearch")}</Typography>
       </div>
       <Paper elevation={4} className="p-4">
-        <div>
-          <label className="agent">{t("processagent")}</label>
-          <Select
-            className="dropDown"
-            value={Department}
-            onChange={updateDepartment}
-            displayEmpty
-            variant="outlined"
-          >
-            <MenuItem value={0}>{t("processSelect")}</MenuItem>
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-          </Select>
+        <div className="agent-label-select-main-area">
+          <div className="agent-label-select-box-area">
+            <label className="agent">{t("processagent")}</label>
+            <Select
+              className="dropDown"
+              value={Department}
+              onChange={updateDepartment}
+              displayEmpty
+              variant="outlined"
+            >
+              <MenuItem value={0}>{t("processSelect")}</MenuItem>
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+            </Select>
+          </div>
         </div>
-        <br />
-        <br />
-        <div>
-          <label className="startIplabel">
-            {t("processStartIp")}
-            <strong style={{color:'red'}}>(*)</strong>
-          </label>
-          <TextField
-            error={startIpError}
-            variant="outlined"
-            className="textField"
-            size="small"
-            label="IP Address"
-            helperText={(startIpError ? "IP Address is required." : '')}
-            onChange={(e) => {
-              const isIpCorrect = ipRegex.test(e.target.value);
-              setStartIpError(!isIpCorrect);
-              setFirstTextfield(e.target.value);
-              setShowPaperAndData(false);
-            }}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <div
-                    style={{
-                      width: 15,
-                      height: 22,
-                      color: startIpError ? "red" : "#35b803",
-                    }}
-                  >
-                    {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
-                  </div>
-                </InputAdornment>
-              ),
-            }}
-          />
+        <div className="startip-label-input-main-area">
+          <div className="startip-label-input-box-area">
+            <label className={`${startIpError ? 'paddingBottom' : ''} startIplabel`}>{t("processStartIp")}<span style={{ color: 'red' }}> (*)</span></label>
+            <TextField
+              error={startIpError}
+              variant="outlined"
+              className="textField"
+              size="small"
+              label="IP Address"
+              helperText={(startIpError ? "IP Address is required." : '')}
+              onChange={(e) => {
+                const isIpCorrect = ipRegex.test(e.target.value);
+                setStartIpError(!isIpCorrect);
+                setFirstTextfield(e.target.value);
+                setShowPaperAndData(false);
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <div
+                      style={{
+                        width: 15,
+                        height: 22,
+                        color: startIpError ? "red" : "#35b803",
+                      }}
+                    >
+                      {startIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    </div>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </div>
         </div>
-        <br />
-        <div>
-          <label className="EndIplabel">
-            {t("processEndIp")}
-            <strong style={{color:'red'}}>(*)</strong>
-          </label>
-          <TextField
-            error={endIpError || firstSecondPartError}
-            variant="outlined"
-            className="textField"
-            color="yellow"
-            size="small"
-            label="IP Address"
-            helperText={(endIpError ? "IP Address is required." : firstSecondPartError ? 'Make sure first 2 parts are same and end IP is greater' : '')}
-            onChange={(e) => {
-              const isIpCorrect = ipRegex.test(e.target.value);
-              const isSecondIpCorrect = checkSecondIpWRTFirstIp(e.target.value)
-              setFirstSecondPartError(!isSecondIpCorrect)
-              setEndIpError(!isIpCorrect);
-              setSecondTextfield(e.target.value);
-              setShowPaperAndData(false);
-            }}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <div
-                    style={{
-                      width: 15,
-                      height: 22,
-                      color: endIpError ? "red" : "#35b803",
-                    }}
-                  >
-                    {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
-                  </div>
-                </InputAdornment>
-              ),
-            }}
-          />
-          <span style={{ color: 'red' }}><Checkbox color="primary" /> <span style={{ color: 'rgba(0, 0, 0, 0.87)', fontSize: '16px', fontWeight: 'bold' }}>Auto</span></span>
+        <div className="endip-label-input-main-area">
+          <div className="endip-label-input-box-area">
+            <label className={`${endIpError || firstSecondPartError ? 'paddingBottom' : ''} EndIplabel`}>{t("processEndIp")}<span style={{ color: 'red' }}> (*)</span> </label>
+            <TextField
+              error={endIpError || firstSecondPartError}
+              variant="outlined"
+              className="textField"
+              color="yellow"
+              size="small"
+              label="IP Address"
+              helperText={(endIpError ? "IP Address is required." : firstSecondPartError ? 'Make sure first 2 parts are same and end IP is greater' : '')}
+              onChange={(e) => {
+                const isIpCorrect = ipRegex.test(e.target.value);
+                const isSecondIpCorrect = checkSecondIpWRTFirstIp(e.target.value)
+                setFirstSecondPartError(!isSecondIpCorrect)
+                setEndIpError(!isIpCorrect);
+                setSecondTextfield(e.target.value);
+                setShowPaperAndData(false);
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <div
+                      style={{
+                        width: 15,
+                        height: 22,
+                        color: endIpError ? "red" : "#35b803",
+                      }}
+                    >
+                      {endIpError ? <InfoIcon /> : <CheckCircleOutlineIcon />}
+                    </div>
+                  </InputAdornment>
+                ),
+              }}
+            />
+            <span style={{ color: 'red' }}><Checkbox color="primary" /> <span style={{ color: 'rgba(0, 0, 0, 0.87)', fontSize: '16px', fontWeight: 'bold' }}>Auto</span></span>
+          </div>
         </div>
-        {/* <Link to={`${match.path}/search-result`}> */}
-        <Button variant="contained" className="searchBtn" color="primary"
-          disabled={(!showPaperAndData && firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData(firstTextfield, secondTextfield); setShowPaperAndData(!showPaperAndData); }}
-        >
-          {t("processSearchBtn")}
-        </Button>
-        {/* </Link> */}
-        <Items setShowPaperAndData={showPaperAndData}/>
+        <div className="agent-start-end-smbtbtn-area">
+          <label className="EndIplabel">{t("")}</label>
+          <div className="smbt-btn-area">
+            {/* <Link to={`${match.path}/search-result`}> */}
+            <Button variant="contained" className="searchBtn" color="primary"
+              disabled={(!showPaperAndData && firstTextfield.length && !firstSecondPartError && secondTextfield.length && !endIpError && !startIpError) ? false : true} onClick={() => { fetchData(firstTextfield, secondTextfield); setShowPaperAndData(!showPaperAndData); }}
+            >
+              {t("processSearchBtn")}
+            </Button>
+            {/* </Link> */}
+          </div>
+        </div>
+        <Items setShowPaperAndData={showPaperAndData} />
       </Paper>
     </>
   );
