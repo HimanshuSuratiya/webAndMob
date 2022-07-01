@@ -290,47 +290,38 @@ const AppModule = () => {
         administratorSubArray: [
           {
             to: "/printer-search",
-            icon: <SearchIcon className="color-white" />,
             label: t("sidebarPrinterSearch"),
           },
           {
             to: "/search-history",
-            icon: <FindReplaceIcon className="color-white" />,
             label: t("sidebarSearchHistory"),
           },
           {
             to: "/model",
-            icon: <FindReplaceIcon className="color-white" />,
             label: t("sidebarModel"),
           },
           {
             to: "/group-management",
-            icon: <GroupAddIcon className="color-white" />,
             label: t("sidebarGroupManagement"),
           },
           {
             to: "/license-management",
-            icon: <AssignmentIcon className="color-white" />,
             label: t("License Management"),
           },
           {
             to: "/server-configuration",
-            icon: <DnsIcon className="color-white" />,
             label: t("Server Configuration"),
           },
           {
             to: "/agent-configuration",
-            icon: <DnsIcon className="color-white" />,
             label: t("Agent Configuration"),
           },
           {
             to: "/agent",
-            icon: <DnsIcon className="color-white" />,
             label: t("Agent"),
           },
           {
             to: "/system-log",
-            icon: <DnsIcon className="color-white" />,
             label: t("System Log"),
           },
         ]
@@ -370,12 +361,10 @@ const AppModule = () => {
               sidebarElements={sidebarElements}
               headerElements={
                 <div
-                  className="d-flex f-align-center mr-10 top_hideno1"
-                  className={clsx(" top_hideno1", classes.top_hideno1)}
+                  className={`${clsx(" top_hideno1", classes.top_hideno1)} d-flex f-align-center mr-10 top_hideno1`}
                 >
                   <div
-                    className="d-flex f-align-center mr-10 top_hideno1"
-                    className={clsx("top_hideno1 ", classes.top_hideno1)}
+                    className={`${clsx("top_hideno1", classes.top_hideno1)} d-flex f-align-center mr-10 top_hideno1`}
                   >
                     <FormControl>
                       <Select

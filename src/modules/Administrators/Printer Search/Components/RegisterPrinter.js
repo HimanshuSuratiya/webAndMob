@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
 import Paper from "@material-ui/core/Paper";
-import Select from "@material-ui/core/Select";
 import { Button, MenuItem } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import "../../../../shared/Shared.css"; 
+import "../../../../shared/Shared.css";
+import { Divider } from '@material-ui/core';
 
 const RegisterPrinter = () => {
-  const [Department, setDepartment] = useState(0);
   const { t } = useTranslation();
-
-  const updateDepartment = (event) => {
-    setDepartment(event.target.value);
-  };
 
   return (
     <>
@@ -22,60 +17,81 @@ const RegisterPrinter = () => {
         <Typography variant="h4">{t("processRegisterPrinter")}</Typography>
       </div>
       <Paper elevation={4} className="p-4">
-        <div className="wraplayout">
-          <label className="formlabel">{t("processDepartmentName")}</label>
-          <Select
-            value={Department}
-            onChange={updateDepartment}
-            displayEmpty
-            variant="outlined"
-            style={{ height: "44px", width: "100%" }}
-          >
-            <MenuItem value={0}>{t("processSelect")}</MenuItem>
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={5}>5</MenuItem>
-          </Select>
-          <label className="formlabel mt-4">{t("processLocation")}</label>
-          <TextField
-            name="noticeUsageLevel"
-            fullWidth
-            variant="outlined"
-            size="small"
-          />
-          <label className="formlabel mt-4">{t("processPrinterinformation")}</label>
+        <div className='wraplayout'>
           <TextField
             name="noticeNoUse"
             fullWidth
             variant="outlined"
             size="small"
-            label={t("Brother MFC-LS700DW services")}
+            label={t("Printer Model")}
+            value="Brother MFC-LS700DW services"
           />
-          <div className="mt-4" style={{ height: '25px', width: '100%', display: 'flex' }}>
-            <label className="formlabel" style={{ display: "block", width: '55%' }}>
-              {t("processStartDate")}
-            </label>
-            <label className="formlabel" style={{ display: "block", width: '45%' }}>
-              {t("processEndDate")}
-            </label>
+          <TextField
+            name="noticeNoUse"
+            className='mt-6'
+            fullWidth
+            variant="outlined"
+            size="small"
+            label={t("Serial Number")}
+            value="RJF9800293"
+          />
+          <Divider className="mt-6" />
+          <div className="mt-6" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <TextField
+              name='noticeNoUse'
+              style={{ width: '80%' }}
+              fullWidth
+              variant='outlined'
+              size='small'
+              label={t('Department Name')}
+            />
+            <Button style={{ minWidth: '90px', marginLeft: '5px' }} className="Btn-Color" variant="contained">Select</Button>
           </div>
           <TextField
             name="noticeNoUse"
+            className='mt-6'
+            fullWidth
+            variant="outlined"
+            size="small"
+            label={t("Location")}
+          />
+          <TextField
+            name="noticeNoUse"
+            fullWidth
+            className="mt-6"
+            variant="outlined"
+            size="small"
+            label={t("Printer Information")}
+            value="Brother MFC-LS700DW services"
+          />
+          <Divider className="mt-6" />
+          <TextField
+            name="noticeNoUse"
+            className="mt-6"
             variant="outlined"
             style={{ width: '45%', marginRight: '10%' }}
             type="date"
+            label={t("Start of contract")}
             size="small"
           />
-           <TextField
+          <TextField
             name="noticeNoUse"
+            className="mt-6"
             variant="outlined"
             style={{ width: '45%' }}
             type="date"
+            label={t("Contract Termination")}
             size="small"
           />
-          <div className="d-flex f-align-center pt-5">
+          <TextField
+            name="noticeNoUse"
+            fullWidth
+            className="mt-6"
+            variant="outlined"
+            size="small"
+            label={t("Memo")}
+          />
+          <div className="d-flex f-align-center mt-6">
             <Button variant="outlined" fullWidth className="mr-10" size="large">
               {t("settingsCancel")}
             </Button>

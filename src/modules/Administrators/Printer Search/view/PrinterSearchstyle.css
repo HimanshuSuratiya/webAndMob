@@ -99,3 +99,8 @@
   text-align: right;
   margin: 15px 0px 0px 0px;
 }
+
+.divBtn{
+  display: flex;
+  justify-content: right;
+}
