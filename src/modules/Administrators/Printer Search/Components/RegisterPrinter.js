@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../view/PrinterSearchstyle.css";
 import Typography from "@material-ui/core/Typography";
 import { useTranslation } from "react-i18next";
@@ -7,9 +7,29 @@ import { Button, MenuItem } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import "../../../../shared/Shared.css";
 import { Divider } from '@material-ui/core';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+
+const EndDefaultDate = () => {
+  const currentyear = new Date().getFullYear();
+  const newAddDate = new Date()
+  newAddDate.setFullYear(currentyear + 1)
+  return newAddDate
+}
 
 const RegisterPrinter = () => {
+  const [startContract, setStartContract] = useState(new Date());
+  const [endcontract, setEndContract] = useState(EndDefaultDate());
   const { t } = useTranslation();
+
+  const handleChange = (newValue: Date | null) => {
+    setStartContract(newValue);
+  };
+
+  const handleChangeEnd = (newValue: Date | null) => {
+    setEndContract(newValue)
+  };
 
   return (
     <>
@@ -64,25 +84,27 @@ const RegisterPrinter = () => {
             label={t("Printer Information")}
             value="Brother MFC-LS700DW services"
           />
-          <Divider className="mt-6" />
-          <TextField
-            name="noticeNoUse"
-            className="mt-6"
-            variant="outlined"
-            style={{ width: '45%', marginRight: '10%' }}
-            type="date"
-            label={t("Start of contract")}
-            size="small"
-          />
-          <TextField
-            name="noticeNoUse"
-            className="mt-6"
-            variant="outlined"
-            style={{ width: '45%' }}
-            type="date"
-            label={t("Contract Termination")}
-            size="small"
-          />
+          <Divider className="mt-6 mb-6" />
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DesktopDatePicker
+                label={t("Start of contract")}
+                inputFormat="MM/dd/yyyy"
+                value={startContract}
+                onChange={handleChange}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DesktopDatePicker
+                label={t("Contract Termination")}
+                inputFormat="MM/dd/yyyy"
+                value={endcontract}
+                onChange={handleChangeEnd}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </div>
           <TextField
             name="noticeNoUse"
             fullWidth
