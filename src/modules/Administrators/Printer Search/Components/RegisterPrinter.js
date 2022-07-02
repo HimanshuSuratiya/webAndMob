@@ -10,6 +10,7 @@ import { Divider } from '@material-ui/core';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
+import SelectedDepartment from "./SelectedDepartment";
 
 const EndDefaultDate = () => {
   const currentyear = new Date().getFullYear();
@@ -21,6 +22,7 @@ const EndDefaultDate = () => {
 const RegisterPrinter = () => {
   const [startContract, setStartContract] = useState(new Date());
   const [endcontract, setEndContract] = useState(EndDefaultDate());
+  const [popUp, setPopUp] = useState(false)
   const { t } = useTranslation();
 
   const handleChange = (newValue: Date | null) => {
@@ -65,7 +67,7 @@ const RegisterPrinter = () => {
               size='small'
               label={t('Department Name')}
             />
-            <Button style={{ minWidth: '90px', marginLeft: '5px' }} className="Btn-Color" variant="contained">Select</Button>
+            <Button style={{ minWidth: '90px', marginLeft: '5px' }} className="Btn-Color" variant="contained" onClick={() => { setPopUp(!popUp) }}>Select</Button>
           </div>
           <TextField
             name="noticeNoUse"
@@ -128,6 +130,7 @@ const RegisterPrinter = () => {
           </div>
         </div>
       </Paper>
+      {popUp ? <SelectedDepartment setClosePopUp={setPopUp}/> : ''}
     </>
   );
 };

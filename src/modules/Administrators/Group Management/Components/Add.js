@@ -28,7 +28,7 @@ const Add = ({ setClosePopUp }) => {
                                 <DialogTitle>
                                     <div className="d-flex f-align-center f-justify-between">
                                         <Typography variant="h5">
-                                            {t("Add")}
+                                            {t("Modify")}
                                         </Typography>
                                         <IconButton>
                                             <CloseIcon onClick={() => { setClosePopUp(false) }} />
@@ -76,7 +76,7 @@ const Add = ({ setClosePopUp }) => {
                                             color="primary"
                                             disabled={false}
                                         >
-                                            {t('usersAdd')}
+                                            {t('Modify')}
                                         </Button>
                                     </div>
                                 </DialogActions>
