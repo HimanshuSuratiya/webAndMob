@@ -153,7 +153,7 @@ const ModelTable = ({ match, getUnassignDeviceCount = noop }) => {
                 <Typography variant="h4">{t("Model Table")}</Typography>
             </div>
             <Paper elevation={4}>
-                <Grid columns={columnConfig} rows={Rows} />
+                <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
             </Paper>
         </>
     );

@@ -62,9 +62,10 @@ td button {
     padding: 10.5px 12px;
 }
 
-strong {
-    font-size: 16px;
+.para {
+    font-size: 18px;
     color: black;
+    margin: 0px !important;
 }
 
 .other-page-table-main .browserBtn {
@@ -84,7 +85,10 @@ strong {
 .Heading {
     font-size: 22px;
     color: #7a5a5a;
-    margin-left: 5px;
+}
+
+.removeBottom div {
+    margin-bottom: 0px !important;
 }
 
 .Rowfield {
@@ -126,7 +130,7 @@ strong {
         min-width: 170px !important;
     }
 
-    strong {
+    .para {
         font-size: 14px;
     }
 

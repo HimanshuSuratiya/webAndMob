@@ -8,13 +8,24 @@ import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import { Button, MenuItem } from "@material-ui/core";
 import "../../../../shared/Shared.css";
+import PrinterImage from "../Image/printer1.png";
 
 const MoreDetailInfo = () => {
   const { t } = useTranslation();
-  const [Department, setDepartment] = useState(0);
-  const updateDepartment = (event) => {
-    setDepartment(event.target.value);
+  const [ModelType, setModelType] = useState(0);
+  const [SupplyType, setSupplyType] = useState(0);
+  const [PaperSize, setPaperSize] = useState(0);
+  const updateModelType = (event) => {
+    setModelType(event.target.value);
   };
+
+  const updateSupplyType = (event) => {
+    setSupplyType(event.target.value);
+  }
+
+  const updatePaperSize = (event) => {
+    setPaperSize(event.target.value);
+  }
 
   const [toner, setToner] = useState(0)
   const [fuser, setFuser] = useState(0)
@@ -284,58 +295,85 @@ const MoreDetailInfo = () => {
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("processMoreDetailInfo")}</Typography>
+        <Typography variant="h4">{t("Detail Info")}</Typography>
       </div>
-      <Paper elevation={4}>
+      <Paper evaluation={4}>
         <table class="table tableBordered other-page-table-main">
           <tbody>
             <tr>
               <td colspan="2">
-                <strong >{t('processManufacturer')}</strong>
+                <p className="para">{t('processManufacturer')}</p>
               </td>
               <td>
                 <TextField
                   className="textfieldStyle"
                   name="noticeUsageLevel"
                   variant="outlined"
-                  defaultValue={"Samsung Electronics"}
+                  value="Samsung Electronics"
                   size="small"
                 />
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong >{t('processModelType')}</strong>
+                <p className="para">{t('processModelType')}</p>
               </td>
               <td>
                 <Select
-                  value={Department}
+                  value={ModelType}
                   style={{ minWidth: '120px' }}
                   className="textfieldStyle"
-                  onChange={updateDepartment}
+                  onChange={updateModelType}
                   displayEmpty
                   variant="outlined"
                 >
                   <MenuItem value={0}>{t("processSelect")}</MenuItem>
-                  <MenuItem value={'MONO LASER'}>MONO LASER</MenuItem>
-                  <MenuItem value={'COLOR LASER'}>COLOR LASER</MenuItem>
-                  <MenuItem value={'MONO MFP'}>MONO MFP</MenuItem>
-                  <MenuItem value={'COLOR MFP'}>COLOR MFP</MenuItem>
-                  <MenuItem value={'PHOTO'}>PHOTO</MenuItem>
-                  <MenuItem value={'MONO INKJET'}>MONO INKJET</MenuItem>
-                  <MenuItem value={'COLOR INKJET'}>COLOR INKJET</MenuItem>
+                  <MenuItem value={'COLOR'}>COLOR</MenuItem>
+                  <MenuItem value={'MONO'}>MONO</MenuItem>
                 </Select>
               </td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong >{t('processSupplyType')}</strong>
+                <p className="para">{t('Support Paper Size')}</p>
               </td>
-              <td></td>
+              <td>
+                <Select
+                  value={PaperSize}
+                  style={{ minWidth: '120px' }}
+                  className="textfieldStyle"
+                  onChange={updatePaperSize}
+                  displayEmpty
+                  variant="outlined"
+                >
+                  <MenuItem value={0}>{t("processSelect")}</MenuItem>
+                  <MenuItem value={'A3'}>A3</MenuItem>
+                  <MenuItem value={'A4'}>A4</MenuItem>
+                </Select>
+              </td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong >{t('processDriver')}</strong>
+                <p className="para">{t('processSupplyType')}</p>
+              </td>
+              <td>
+                <Select
+                  value={SupplyType}
+                  style={{ minWidth: '120px' }}
+                  className="textfieldStyle"
+                  onChange={updateSupplyType}
+                  displayEmpty
+                  variant="outlined"
+                >
+                  <MenuItem value={0}>{t("processSelect")}</MenuItem>
+                  <MenuItem value={'TONOR'}>TONOR</MenuItem>
+                  <MenuItem value={'INK'}>INK</MenuItem>
+                </Select>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p className="para">{t('processDriver')}</p>
               </td>
               <td>
                 <TextField
@@ -354,7 +392,7 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td colspan="2">
-                <strong >{t('processDescription')}</strong>
+                <p className="para">{t('processDescription')}</p>
               </td>
               <td>
                 <TextField
@@ -368,10 +406,10 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td rowspan="2">
-                <strong >{t('processImage')}</strong>
+                <p className="para">{t('processImage')}</p>
               </td>
               <td>
-                <strong >{t('processFull-Size')}</strong>
+                <p className="para">{t('processFull-Size')}</p>
               </td>
               <td>
                 <TextField
@@ -390,33 +428,39 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td>
-                <strong >{t('processReduced-Size')}</strong>
+                <p className="para">{t('processReduced-Size')}</p>
               </td>
-              <td>
-                <TextField
-                  className="textfieldStyleAnother"
-                  name="noticeUsageLevel"
-                  variant="outlined"
-                  defaultValue={""}
-                  size="small"
-                />
-                <Button variant="contained" className="browserBtn Btn-Color"> Browser </Button>
-                <br />
-                <p className="textClass"> <input type="checkbox" /> Date Existing Image </p>
-                <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', 65x65
-                  pixle image size is appropriate. </a>
+              <td style={{ display: 'flex', justifyContent: "space-between", alignItems:'center' }}>
+                <div>
+                  <TextField
+                    className="textfieldStyleAnother"
+                    style={{width:'64%'}}
+                    name="noticeUsageLevel"
+                    variant="outlined"
+                    defaultValue={""}
+                    size="small"
+                  />
+                  <Button variant="contained" className="browserBtn Btn-Color"> Browser </Button>
+                  <br />
+                  <p className="textClass"> <input type="checkbox" /> Date Existing Image </p>
+                  <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', 65x65
+                    pixle image size is appropriate. </a>
+                </div>
+                <div style={{ height: 'auto', width: '12%'}}>
+                  <img style={{width:'100%'}} src={PrinterImage} />
+                </div>
               </td>
             </tr>
           </tbody>
         </table>
-        <h1 className="Heading">{t('processModelConsumableThreshold')}</h1>
-        <Paper elevation={4} style={{ marginTop: '20px' }}>
-          <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
-        </Paper>
-        <h1 className="Heading">{t('processModelUsageThreshold')}</h1>
-        <Paper elevation={4} style={{ marginTop: '20px' }}>
-          <Grid hasSelection={false} columns={columnConfig2} rows={Rows2} />
-        </Paper>
+      </Paper>
+      <h1 className="Heading mt-5">{t('processModelConsumableThreshold')}</h1>
+      <Paper className='removeBottom' elevation={4} style={{ marginTop: '20px' }}>
+        <Grid hasSelection={false} columns={columnConfig} rows={Rows} />
+      </Paper>
+      <h1 className="Heading mt-5">{t('processModelUsageThreshold')}</h1>
+      <Paper elevation={4} style={{ marginTop: '20px' }}>
+        <Grid hasSelection={false} columns={columnConfig2} rows={Rows2} />
       </Paper>
     </>
   );

@@ -10,41 +10,41 @@ const ModelInfo = () => {
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("processModelInfo")}</Typography>
+        <Typography variant="h4">{t("Short Info")}</Typography>
       </div>
       <Paper elevation={4}>
         <table class="table tableBordered ">
           <tbody>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black" , fontSize:"16px"}}>{t('processModelType')}</strong>
+                <p className="para">{t('processModelType')}</p>
               </td>
               <td>COLOR MONO</td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processSupplyType')}</strong>
+                <p className="para">{t('processSupplyType')}</p>
               </td>
               <td>LASER OR INK</td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processDriver')}</strong>
+                <p className="para">{t('processDriver')}</p>
               </td>
               <td>NEED TO BE UPLOADED FILE</td>
             </tr>
             <tr>
               <td colspan="2">
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processDescription')}</strong>
+                <p className="para">{t('processDescription')}</p>
               </td>
               <td></td>
             </tr>
             <tr>
               <td rowspan="2">
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processImage')}</strong>
+                <p className="para">{t('processImage')}</p>
               </td>
               <td>
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processFull-Size')}</strong>
+                <p className="para" >{t('processFull-Size')}</p>
               </td>
               <td>
                 <div class="printer1Img">
@@ -54,9 +54,8 @@ const ModelInfo = () => {
             </tr>
             <tr>
               <td>
-                <strong style={{ color: "black" ,fontSize:"16px"}}>{t('processReduced-Size')}</strong>
+                <p className="para">{t('processReduced-Size')}</p>
               </td>
-
               <td>
                 <div class="reducedsize">
                   <img src={PrinterImage} />

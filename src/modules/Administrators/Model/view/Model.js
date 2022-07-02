@@ -16,14 +16,8 @@ const Model = ({ match, getUnassignDeviceCount = noop }) => {
                 <Redirect to="/" />
             </Switch>
             <div style={{ marginTop: '10px' }}>
-                <Link to={`${match.path}`}>
-                    <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 1</Button>
-                </Link>
                 <Link to={`${match.path}/model-info`}>
                     <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 2</Button>
-                </Link>
-                <Link to={`${match.path}/model-detailed-info`}>
-                    <Button style={{ marginLeft: '10px' }} variant="outlined" color="primary" >page 3</Button>
                 </Link>
             </div>
         </>
