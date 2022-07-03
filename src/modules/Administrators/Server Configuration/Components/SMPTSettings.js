@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import "../view/ServerStyle.css";
 import Select from "@material-ui/core/Select";
 import { Button, MenuItem } from "@material-ui/core";
+import "../../../../shared/Shared.css";
 
 const SMPTSettings = () => {
     const { t } = useTranslation();
@@ -21,8 +22,8 @@ const SMPTSettings = () => {
             </div>
             <Paper elevation={4}>
                 <div className="SMPTServerMainDiv">
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('Email Server * ')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Email Server * ')}</p>
                         <TextField
                             className="textfield"
                             style={{ width: '70%', padding: '0px' }}
@@ -32,8 +33,8 @@ const SMPTSettings = () => {
                             defaultValue={'mail.myepsoft.com'}
                         />
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('ID')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('ID')}</p>
                         <TextField
                             className="textfield"
                             style={{ width: '70%', padding: '0px' }}
@@ -43,8 +44,8 @@ const SMPTSettings = () => {
                             defaultvalue={'developer7@myepsoft.com'}
                         />
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('Password')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Password')}</p>
                         <div className="passwordDiv">
                             <TextField
                                 type="password"
@@ -64,8 +65,8 @@ const SMPTSettings = () => {
                             />
                         </div>
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('Default sender email * ')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Default sender email * ')}</p>
                         <TextField
                             className="textfield"
                             style={{ width: '70%', padding: '0px' }}
@@ -75,23 +76,23 @@ const SMPTSettings = () => {
                             defaultvalue={'developer7@myepsoft.com'}
                         />
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('Secure Type * ')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Secure Type * ')}</p>
                         <Select
                             className="textfield"
                             value={secure}
                             onChange={updateSecure}
                             displayEmpty
                             variant="outlined"
-                            style={{ height: "40px", width: "70%" }}
+                            style={{ height: "45px", width: "70%" }}
                         >
                             <MenuItem value={0}>{t("processSelect")}</MenuItem>
                             <MenuItem value={1}>SSL</MenuItem>
                             <MenuItem value={2}>TLS</MenuItem>
                         </Select>
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('Port Number * ')}</strong>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Port Number * ')}</p>
                         <TextField
                             className="textfield"
                             style={{ width: '70%', padding: '0px' }}
@@ -101,11 +102,11 @@ const SMPTSettings = () => {
                             defaultValue={465}
                         />
                     </div>
-                    <div className="SMPTInnerDivs">
-                        <strong >{t('')}</strong>
+                    <div className="SMPTInnerDivs mt-3 mb-3">
+                        <p >{t('')}</p>
                         <div className="passwordDiv">
-                            <Button variant="contained" >Test</Button>
-                            <Button variant="contained" >Save</Button>
+                            <Button variant="contained" className="SMPT-Btn Test-Color">Test</Button>
+                            <Button variant="contained" className="SMPT-Btn Btn-Color">Save</Button>
                         </div>
                     </div>
                 </div>

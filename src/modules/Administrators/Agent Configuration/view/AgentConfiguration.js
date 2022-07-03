@@ -4,6 +4,7 @@ import PollingCycle from "../Components/PollingCycle";
 import { Route, Redirect, Switch, Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import { useTranslation } from "react-i18next";
+import "./AgentConfigurationStyle.css";
 
 const noop = () => { };
 const AgentConfiguration = ({ match, getUnassignDeviceCount = noop }) => {
@@ -11,7 +12,7 @@ const AgentConfiguration = ({ match, getUnassignDeviceCount = noop }) => {
     return (
         <>
             <Paper>
-                <ul className='tabBtn'>
+                <ul className='AgentConfi'>
                     <li >
                         <Link className={window.location.pathname === `${match.path}` ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}} >
                             {t('Polling Cycle')}

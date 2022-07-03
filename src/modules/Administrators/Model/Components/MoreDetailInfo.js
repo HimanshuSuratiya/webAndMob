@@ -431,7 +431,7 @@ const MoreDetailInfo = () => {
                 <p className="para">{t('processReduced-Size')}</p>
               </td>
               <td style={{ display: 'flex', justifyContent: "space-between", alignItems:'center' }}>
-                <div>
+                <div style={{width:'78%'}}>
                   <TextField
                     className="textfieldStyleAnother"
                     style={{width:'64%'}}

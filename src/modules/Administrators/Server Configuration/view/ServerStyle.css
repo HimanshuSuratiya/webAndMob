@@ -13,7 +13,7 @@
 }
 
 .ServerSettingDiv p {
-    padding-left: 2%;
+    padding-left: 1.8%;
     color: black;
     font-size: 17px;
     width: 30%;
@@ -34,7 +34,9 @@
 /* Tabs Css */
 .ServerTab {
     padding: 0;
+    height: 60px;
     list-style: none;
+    align-items: center;
     display: flex;
 }
 
@@ -48,10 +50,10 @@ ul.ServerTab li:last-child {
 }
 
 .ServerTab li a {
-    padding: 8px 20px;
+    padding: 17px 20px;
     color: #000;
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
     height: 100%;
     display: block;
 }
@@ -139,7 +141,6 @@ ul.ServerTab li:last-child {
 
 /* SMPTSettings CSS */
 .SMPTServerMainDiv {
-    height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -148,17 +149,18 @@ ul.ServerTab li:last-child {
 }
 
 .SMPTInnerDivs {
-    height: 45px;
+    height: 46px;
+    /* background-color: red; */
     width: 100%;
     align-items: center;
     display: flex;
-    margin: 5px 0px;
 }
 
-.SMPTInnerDivs strong {
+.SMPTInnerDivs p {
     padding-left: 20px;
     color: #495057;
-    font-size: 16px;
+    margin: 0px;
+    font-size: 17px;
     width: 25%;
 }
 
@@ -168,6 +170,7 @@ ul.ServerTab li:last-child {
 
 .textfield input {
     color: #495057;
+    height: 24px;
 }
 
 .passwordDiv {
@@ -227,6 +230,10 @@ ul.ServerTab li:last-child {
     padding: 0px;
     margin: 0px;
     display: inline-block;
+}
+
+.SMPT-Btn{
+    height: 90%;
 }
 
 /* Common Css */

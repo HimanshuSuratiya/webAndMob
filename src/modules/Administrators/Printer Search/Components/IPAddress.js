@@ -38,7 +38,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
   }
 
   const fetchData = (firstIPAddress, secondIPAddress) => {
-    return fetch(`http://ep20210201.iptime.org:38765/gateway/printer-discovery/printers/collect-ip?startip=${firstIPAddress}&endip=${secondIPAddress}`,
+    return fetch(`https://ep20210201.iptime.org:38765/gateway/printer-discovery/printers/collect-ip?startip=${firstIPAddress}&endip=${secondIPAddress}`,
       {
         method: 'GET',
         mode: 'no-cors',

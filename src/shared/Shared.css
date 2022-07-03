@@ -36,3 +36,12 @@
     color: #0056b3 !important;
     background-color: #ffffff !important;
 }
+
+.Test-Color {
+    background-color: #153259 !important;
+    color: #fff !important;
+}
+
+.Test-Color:hover {
+    background-color: #001d44 !important;
+}

@@ -44,7 +44,7 @@ const Add = ({ setClosePopUp }) => {
                                         name="email"
                                         variant="outlined"
                                     />
-                                    <label className="AddCustomLabel"><strong style={{ color: 'rgba(0, 0, 0, 0.87)' }}>{t("processUpperDepartment")}</strong></label>
+                                    <label className="AddCustomLabel"><p style={{ color: 'rgba(0, 0, 0, 0.87)', margin:'0px', marginBottom:'2px'}}>{t("processUpperDepartment")}</p></label>
                                     <Select
                                         value={Department}
                                         onChange={updateDepartment}
