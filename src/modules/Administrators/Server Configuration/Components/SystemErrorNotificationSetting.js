@@ -7,6 +7,7 @@ import "../view/ServerStyle.css";
 import { Checkbox, Button } from "@material-ui/core";
 import Select from "@material-ui/core/Select";
 import { MenuItem } from "@material-ui/core";
+import "../../../../shared/Shared.css";
 
 const SystemErrorNotificationSetting = () => {
     const { t } = useTranslation();
@@ -72,6 +73,12 @@ const SystemErrorNotificationSetting = () => {
                                 <Checkbox style={{ padding: '0px' }} color="primary" /> <label><p style={{ paddingLeft: '8px' }}> License Expired </p></label>
                             </div>
                         </div>
+                    </div>
+                    <div className="ButtonDiv">
+                        <Button className="Btn-Color" variant="contained" style={{ width: '10%' }}
+                        >
+                            {t("Save")}
+                        </Button>
                     </div>
                 </div>
             </Paper>

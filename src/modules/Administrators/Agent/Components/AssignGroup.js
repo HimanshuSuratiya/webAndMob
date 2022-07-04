@@ -8,6 +8,8 @@ import BackupTableIcon from '@mui/icons-material/BackupTable';
 import "../view/AgentStyle.css";
 import DepartmentSearch from "./DepartmentSearch";
 import "../../../../shared/Shared.css";
+import Tooltip from '@material-ui/core/Tooltip';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const AssignGroup = () => {
     const [popUp, setPopUp] = useState(false)
@@ -75,36 +77,43 @@ const AssignGroup = () => {
                                         <td>Selexp</td>
                                         <td>Selexp</td>
                                         <td className="btntd">
-                                            <Button
-                                                className="AgentDeleteDiv"
-                                                variant="contained"
-                                            >
-                                                Delete
-                                            </Button>
+                                            <Tooltip title="Delete" placement='top-start'>
+                                                <Button
+                                                    className="AgentDeleteDiv"
+                                                    variant="contained"
+                                                >
+                                                    <DeleteForeverIcon />
+                                                </Button>
+                                            </Tooltip>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Selexp</td>
                                         <td>Selexp</td>
                                         <td className="btntd">
-                                            <Button
-                                                className="AgentDeleteDiv"
-                                                variant="contained"
-                                            >
-                                                Delete
-                                            </Button>
+                                            <Tooltip title="Delete" placement='top-start'>
+                                                <Button
+                                                    className="AgentDeleteDiv"
+                                                    variant="contained"
+                                                >
+                                                    <DeleteForeverIcon />
+                                                </Button>
+                                            </Tooltip>
                                         </td>
                                     </tr>
                                     <tr >
                                         <td>Group C</td>
                                         <td>Group C</td>
                                         <td className="btntd">
-                                            <Button
-                                                className="AgentDeleteDiv"
-                                                variant="contained"
-                                            >
-                                                Delete
-                                            </Button>
+                                            <Tooltip title="Delete" placement='top-start'>
+                                                <Button
+                                                    title="Delete"
+                                                    className="AgentDeleteDiv"
+                                                    variant="contained"
+                                                >
+                                                    <DeleteForeverIcon />
+                                                </Button>
+                                            </Tooltip>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -113,7 +122,7 @@ const AssignGroup = () => {
                     </div>
                 </div>
             </Paper>
-            {popUp ? <DepartmentSearch setClosePopUp={setPopUp}/> : ''}
+            {popUp ? <DepartmentSearch setClosePopUp={setPopUp} /> : ''}
         </>
     );
 };

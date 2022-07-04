@@ -32,7 +32,7 @@ const AgentInformation = () => {
                 style={{ width: '100%' }}
                 name="noticeUsageLevel"
                 variant="outlined"
-                className="AgentTextRight"
+                className="AgentTextRight AgentTextField"
                 size="small"
                 type="number"
                 defaultValue={10} />
@@ -59,7 +59,7 @@ const AgentInformation = () => {
                 style={{ width: '100%', }}
                 name="noticeUsageLevel"
                 variant="outlined"
-                className="AgentTextRight"
+                className="AgentTextRight AgentTextField"
                 size="small"
                 type="number"
                 defaultValue={30} />
