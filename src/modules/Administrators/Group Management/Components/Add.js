@@ -11,6 +11,7 @@ import { Divider } from '@material-ui/core';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography';
 import { DialogActions, DialogContent, IconButton } from '@material-ui/core';
+import "../../../../shared/Shared.css";
 
 const Add = ({ setClosePopUp }) => {
     const [Department, setDepartment] = useState(0);
@@ -72,8 +73,8 @@ const Add = ({ setClosePopUp }) => {
                                             {t('settingsCancel')}
                                         </Button>
                                         <Button
+                                            className="Btn-Color"
                                             variant="contained"
-                                            color="primary"
                                             disabled={false}
                                         >
                                             {t('Modify')}

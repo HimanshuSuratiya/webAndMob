@@ -124,7 +124,7 @@ const Department = () => {
         </div>
         <div className="DepartButtons" >
           <Button variant="contained" className="btn mr-2 Btn-Color" onClick={() => { setPopUp(true) }}>{t('processAdd')}</Button>
-          <Button variant="contained" className="btn Btn-Color" >{t('processDelete')} </Button>
+          <Button variant="contained" className="btn Delete-Btn" >{t('processDelete')} </Button>
         </div>
       </div>
       <br />

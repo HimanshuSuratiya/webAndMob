@@ -344,7 +344,6 @@ const UsagePage = ({ match }) => {
               />
             )}
           />
-
           <Typography variant="body1" className="mt-4">
             {state.displayName || "display name"}
           </Typography>
@@ -370,6 +369,24 @@ const UsagePage = ({ match }) => {
             value={state.printerInformation}
             className="mb-8"
             onChange={handleChange}
+          />
+          <TextField
+            fullWidth
+            size='small'
+            label={t('IP Address')}
+            name="IPAddress"
+            variant="outlined"
+            defaultValue='192.10.10.10'
+            className="mb-8"
+          />
+          <TextField
+            fullWidth
+            size='small'
+            label={t('Host Name')}
+            name="IPAddress"
+            variant="outlined"
+            value="Admin"
+            className="mb-8"
           />
           <div className='pb-4'>
           <Typography variant='body1' className='text-bold'>{t('summaryPrinterContract')}</Typography>

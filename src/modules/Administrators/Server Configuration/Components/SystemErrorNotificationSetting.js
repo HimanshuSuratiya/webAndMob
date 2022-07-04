@@ -1,4 +1,4 @@
-import React, {useState}from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
@@ -21,64 +21,56 @@ const SystemErrorNotificationSetting = () => {
                 <Typography variant="h4">{t("System Error Notification Setting")}</Typography>
             </div>
             <Paper elevation={4}>
-                <div className="CheckBoxServerMainDiv">
-                    <div className="checkBoxServerMainInnerDiv">
-                        <div className="ServerInnerDivs">
-                            <p >{t('Manager in charge')}</p>
-                            <TextField
-                                style={{ width: '30%', padding: '0px' }}
-                                name="noticeUsageLevel"
-                                variant="outlined"
-                                size="small"
-                            />
-                            <div style={{ width: '25%' }}>
-                                <p style={{ padding: '5px 0px 0px 20px', width: '100%' }}> User_id@smtp_server.com </p>
-                            </div>
+                <div className="SMPTServerMainDiv">
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Manager in charge')}</p>
+                        <TextField
+                            className="Errortextfield"
+                            style={{ width: '30%', padding: '0px', height: '40px' }}
+                            name="noticeUsageLevel"
+                            variant="outlined"
+                            size="small"
+                        />
+                        <div style={{ width: '25%' }}>
+                            <p style={{ paddingLeft: '10px', width: '100%' }}> User_id@smtp_server.com </p>
                         </div>
-                        <div className="ServerInnerDivs">
-                            <p >{t('Period')}</p>
-                            <Select
-                                onChange={selectMonth}
-                                displayEmpty
-                                variant="outlined"
-                                value={month}
-                                style={{ height: "40px", width: "30%" }}
-                            >
-                                <MenuItem value={0}>{t("processSelect")}</MenuItem>
-                                <MenuItem value={1}>1</MenuItem>
-                                <MenuItem value={2}>2</MenuItem>
-                                <MenuItem value={3}>3</MenuItem>
-                                <MenuItem value={4}>4</MenuItem>
-                                <MenuItem value={5}>5</MenuItem>
-                                <MenuItem value={6}>6</MenuItem>
-                                <MenuItem value={7}>7</MenuItem>
-                                <MenuItem value={8}>8</MenuItem>
-                                <MenuItem value={9}>9</MenuItem>
-                                <MenuItem value={10}>10</MenuItem>
-                                <MenuItem value={11}>11</MenuItem>
-                                <MenuItem value={12}>12</MenuItem>
-                            </Select>
-                            <div style={{ width: '25%' }}>
-                                <p style={{ padding: '5px 0px 0px 20px', width: '100%' }}> Hour(s)</p>
-                            </div>
+                    </div>
+                    <div className="SMPTInnerDivs mt-3">
+                        <p >{t('Period')}</p>
+                        <Select
+                            onChange={selectMonth}
+                            displayEmpty
+                            variant="outlined"
+                            value={month}
+                            style={{ height: "45px", width: "30%" }}
+                        >
+                            <MenuItem value={0}>{t("processSelect")}</MenuItem>
+                            <MenuItem value={1}>1</MenuItem>
+                            <MenuItem value={2}>2</MenuItem>
+                            <MenuItem value={3}>3</MenuItem>
+                            <MenuItem value={4}>4</MenuItem>
+                            <MenuItem value={5}>5</MenuItem>
+                            <MenuItem value={6}>6</MenuItem>
+                            <MenuItem value={7}>7</MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={9}>9</MenuItem>
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={11}>11</MenuItem>
+                            <MenuItem value={12}>12</MenuItem>
+                        </Select>
+                        <div style={{ width: '25%' }}>
+                            <p style={{ paddingLeft: '10px', width: '100%' }}> Hour(s)</p>
                         </div>
-                        <div style={{ height: '300px', width: '100%', display: 'flex' }}>
-                            <div className="checkBoxServerInnerDivs">
-                                <p >{t('Notification Type')}</p>
-                            </div>
-                            <div className="checkboxDiv">
+                    </div>
+                    <div className="check-Box-main-div mt-3 mb-3">
+                        <p >{t('Notification Type')}</p>
+                        <div className="checkboxDiv">
+                            <div style={{ width: "240px", marginRight: '5px', display: 'flex' }}>
                                 <Checkbox style={{ padding: '0px' }} color="primary" /><label><p style={{ paddingLeft: '8px' }}> Database Disconnected </p></label>
-                                <Checkbox color="primary" /> <label><p> License Expired </p></label>
-                                <Checkbox color="primary" /> <label><p> Process Stopped </p></label>
-                                <Checkbox color="primary" /> <label><p> No Billing Information </p></label>
-                                <Checkbox color="primary" /> <label><p> Process Ended Abnormally </p></label>
                             </div>
-                        </div>
-                        <div className="ButtonDiv">
-                            <Button variant="contained" style={{ width: '10%'}}
-                            >
-                                {t("Save")}
-                            </Button>
+                            <div style={{ width: "240px", display: 'flex' }}>
+                                <Checkbox style={{ padding: '0px' }} color="primary" /> <label><p style={{ paddingLeft: '8px' }}> License Expired </p></label>
+                            </div>
                         </div>
                     </div>
                 </div>

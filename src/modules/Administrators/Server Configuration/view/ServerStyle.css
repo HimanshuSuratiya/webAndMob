@@ -150,7 +150,6 @@ ul.ServerTab li:last-child {
 
 .SMPTInnerDivs {
     height: 46px;
-    /* background-color: red; */
     width: 100%;
     align-items: center;
     display: flex;
@@ -191,48 +190,34 @@ ul.ServerTab li:last-child {
 }
 
 /* SystemErrorNotificationSetting Css */
-.CheckBoxServerMainDiv {
-    height: 240px;
+.check-Box-main-div {
+    height: 46px;
     width: 100%;
-    display: flex;
     align-items: center;
-}
-
-.checkBoxServerMainInnerDiv {
-    height: 218px;
-    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
 }
 
-.checkBoxServerInnerDivs {
-    display: flex;
-    height: 100%;
-    width: 28%;
-}
-
-.checkBoxServerInnerDivs p {
+.check-Box-main-div p {
     padding-left: 20px;
-    color: black;
-    margin-top: 5px;
-    font-size: 16px;
-    width: 100%;
+    color: #495057;
+    margin: 0px;
+    font-size: 17px;
+    width: 24.8%;
 }
 
 .checkboxDiv {
-    max-height: 180px !important;
-    width: 85%;
-    padding: 0px 15px 0px 0px;
+    width: 70%;
+    display: flex;
 }
 
 .checkboxDiv p {
     padding: 0px;
     margin: 0px;
     display: inline-block;
+    min-width: 230px;
 }
 
-.SMPT-Btn{
+.SMPT-Btn {
     height: 90%;
 }
 

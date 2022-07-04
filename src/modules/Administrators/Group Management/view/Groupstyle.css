@@ -71,6 +71,11 @@ ul.tabBtn li:last-child {
   padding-bottom: 0px !important;
 }
 
+.Delete-Btn {
+  background-color: #f44336 !important;
+  color: #fff !important;
+}
+
 @media only screen and (max-width:1150px) {
   .DepartField {
     height: 40px;
