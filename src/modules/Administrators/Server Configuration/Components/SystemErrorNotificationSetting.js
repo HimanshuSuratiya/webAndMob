@@ -75,7 +75,7 @@ const SystemErrorNotificationSetting = () => {
                         </div>
                     </div>
                     <div className="ButtonDiv">
-                        <Button className="Btn-Color" variant="contained" style={{ width: '10%' }}
+                        <Button className="Btn-Color" variant="contained" style={{ width: '10%', height:'40px' }}
                         >
                             {t("Save")}
                         </Button>
