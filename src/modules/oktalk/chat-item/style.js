@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
   chatMe: {
     background: '#dbf4fd',
-    // background: lightBlue[500],
+    float:'right',
     borderRadius: '8px',
     color: '#000',
     marginBottom: '21px',

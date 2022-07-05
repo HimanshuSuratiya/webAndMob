@@ -25,6 +25,7 @@ import GoogleLogin from 'react-google-login';
 import config from 'config';
 import { AppContext } from 'shared/contexts';
 import $ from 'jquery'
+import "./loginStyle.css";
 let naverLogin = null;
 const defaultState = {
   email: '',
@@ -188,119 +189,181 @@ const ViewLogin = ({ history }) => {
   const isFormValid = validate();
 
   return (
-
-    <div className={clsx('d-flex flex-column f-align-center f-justify-center', classes.loginWrapper)}>
-      <AppContextConsumer>
-        {({
-          lang,
-          setLang
-        }) => (
-
-
-          <div className='p-absolute mr-5 mt-1' style={{ top: 0, right: 0 }}>
-
-            <FormControl>
-              <Select
-                value={lang}
-                onChange={evt => setLang(evt.target.value || 'en')}
+    <>
+      {config.mode === 'ENT' ?
+        <div className={clsx('d-flex flex-column f-align-center f-justify-center', classes.loginWrapper)}>
+          <AppContextConsumer>
+            {({
+              lang,
+              setLang
+            }) => (
+              <div className='p-absolute mr-5 mt-1' style={{ top: 0, right: 0 }}>
+                <FormControl>
+                  <Select
+                    value={lang}
+                    onChange={evt => setLang(evt.target.value || 'en')}
+                  >
+                    <MenuItem value='en'>English (EN)</MenuItem>
+                    <MenuItem value='ko'>한국어 (KO)</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            )}
+          </AppContextConsumer>
+          <img style={{ margin: '15px 0px 10px 0px', }} alt='Organisation Logo' src={OrgImg} />
+          <Paper elevation={4} style={{ width: '315px', height: '190px', color: '#666' }} className={clsx('p-5 d-flex flex-column f-align-center', classes.paper)}>
+            <div style={{ display: 'none' }} class="text-center mt-3">
+              <div id="naverIdLogin"></div>
+            </div>
+            <TextField
+              fullWidth
+              label={t('loginEmail')}
+              name='email'
+              variant='outlined'
+              size='small'
+              className='mt-4 textColor'
+              error={state.errors.email.trim()}
+              helperText={state.errors.email}
+              value={state.email}
+              onChange={handleChange}
+              InputProps={{ endAdornment: <EmailIcon style={{ color: '#666' }} /> }}
+            />
+            <TextField
+              className='mt-1'
+              fullWidth
+              style={{ color: '#666' }}
+              type='password'
+              label={t('loginPassword')}
+              name='password'
+              variant='outlined'
+              size='small'
+              error={state.errors.password.trim()}
+              helperText={state.errors.password}
+              value={state.password}
+              onChange={handleChange}
+              InputProps={{ endAdornment: <LockIcon style={{ color: '#666' }} /> }}
+              onKeyPress={evt => {
+                if (evt.code === 'Enter' && isFormValid) {
+                  handleSubmit();
+                }
+              }}
+            />
+            <div className='d-flex f-justify-between w-100 checkBox-Button-Space-Area'>
+              <div className='Remember'>
+                <input type="checkbox" name="maintainLoginCheckBox" id="maintainLoginCheckBox" />
+                <input type="hidden" name="maintainLogin" id="maintainLogin" />
+                <label for="maintainLoginCheckBox" class="mb-0" data-i18n="okp.login.remember">Remember Me</label>
+              </div>
+              <Button
+                type='submit'
+                variant='contained'
+                size='small'
+                className={clsx('color-white Sign-in-Btn', classes.loginBtn)}
+                disabled={!isFormValid}
+                onClick={handleSubmit}
               >
-                <MenuItem value='en'>English (EN)</MenuItem>
-                <MenuItem value='ko'>한국어 (KO)</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        )}
-      </AppContextConsumer>
-      <img alt='Organisation Logo' src={OrgImg} />
-
-      <Paper elevation={4} className={clsx('p-10 d-flex flex-column f-align-center', classes.paper)}>
-
-        <Typography variant='body1'>{t('loginTitle')}</Typography>
-
-        <img
-          alt='Kakao CTA'
-          src={KakaoImg}
-          className='mt-4 c-pointer'
-          onClick={loginWithKakao}
-        />
-        <div class="text-center mt-3">
-          <div id="naverIdLogin"></div>
+                {t('loginSubmit')}
+              </Button>
+            </div>
+          </Paper>
+          <p style={{ marginLeft: '40px' }} className={clsx('', classes.login_info)}>Build:0.1.0 / 23 May 2022 3:02 PM</p>
+        </div> :
+        <div className={clsx('d-flex flex-column f-align-center f-justify-center', classes.loginWrapper)}>
+          <AppContextConsumer>
+            {({
+              lang,
+              setLang
+            }) => (
+              <div className='p-absolute mr-5 mt-1' style={{ top: 0, right: 0 }}>
+                <FormControl>
+                  <Select
+                    value={lang}
+                    onChange={evt => setLang(evt.target.value || 'en')}
+                  >
+                    <MenuItem value='en'>English (EN)</MenuItem>
+                    <MenuItem value='ko'>한국어 (KO)</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+            )}
+          </AppContextConsumer>
+          <img style={{ margin: '15px 0px 10px 0px', }} alt='Organisation Logo' src={OrgImg} />
+          <Paper elevation={4} style={{ width: '315px', height: '480px', color: '#666' }} className={clsx('p-5 d-flex flex-column f-align-center', classes.paper)}>
+            <Typography style={{ padding: '4px 0px' }} variant='body1'>{t('loginTitle')}</Typography>
+            <img
+              alt='Kakao CTA'
+              src={KakaoImg}
+              className='mt-4 c-pointer'
+              onClick={loginWithKakao}
+            />
+            <div class="text-center mt-3">
+              <div id="naverIdLogin"></div>
+            </div>
+            <GoogleLogin
+              className={clsx('g-signin2 mt-2 color-white', classes.googleSignInBtn)}
+              clientId={config.googleClientId}
+              buttonText={t('loginSubmit')}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
+            <Divider className='mt-4 w-100' />
+            <Typography variant='body1' className='mt-4'>{t('loginAuthentication')}</Typography>
+            <TextField
+              fullWidth
+              label={t('loginEmail')}
+              name='email'
+              variant='outlined'
+              size='small'
+              className='mt-4 textColor Removepara'
+              error={state.errors.email.trim()}
+              helperText={state.errors.email}
+              value={state.email}
+              onChange={handleChange}
+              InputProps={{ endAdornment: <EmailIcon style={{ color: '#666' }} /> }}
+            />
+            <TextField
+              className='mt-1'
+              fullWidth
+              style={{ color: '#666' }}
+              type='password'
+              label={t('loginPassword')}
+              name='password'
+              variant='outlined'
+              size='small'
+              error={state.errors.password.trim()}
+              helperText={state.errors.password}
+              value={state.password}
+              onChange={handleChange}
+              InputProps={{ endAdornment: <LockIcon style={{ color: '#666' }} /> }}
+              onKeyPress={evt => {
+                if (evt.code === 'Enter' && isFormValid) {
+                  handleSubmit();
+                }
+              }}
+            />
+            <div className='d-flex f-justify-between w-100 checkBox-Button-Space-Area'>
+              <div className='Remember'>
+                <input type="checkbox" name="maintainLoginCheckBox" id="maintainLoginCheckBox" />
+                <input type="hidden" name="maintainLogin" id="maintainLogin" />
+                <label for="maintainLoginCheckBox" class="mb-0" data-i18n="okp.login.remember">Remember Me</label>
+              </div>
+              <Button
+                type='submit'
+                variant='contained'
+                size='small'
+                className={clsx('color-white Sign-in-Btn', classes.loginBtn)}
+                disabled={!isFormValid}
+                onClick={handleSubmit}
+              >
+                {t('loginSubmit')}
+              </Button>
+            </div>
+          </Paper>
+          <p style={{ marginLeft: '40px' }} className={clsx('', classes.login_info)}>Build:0.1.0 / 23 May 2022 3:02 PM</p>
         </div>
-        <GoogleLogin
-          className={clsx('g-signin2 mt-2 color-white', classes.googleSignInBtn)}
-          clientId={config.googleClientId}
-          buttonText={t('loginSubmit')}
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-          cookiePolicy={'single_host_origin'}
-        />
-        <Divider className='mt-4 w-100' />
-        <Typography variant='body1' className='mt-4'>{t('loginAuthentication')}</Typography>
-        <TextField
-          fullWidth
-          label={t('loginEmail')}
-          name='email'
-          variant='outlined'
-          size='small'
-          className='mt-4'
-          error={state.errors.email.trim()}
-          helperText={state.errors.email}
-          value={state.email}
-          onChange={handleChange}
-          InputProps={{ endAdornment: <EmailIcon /> }}
-        />
-        <TextField
-          className='mt-1'
-          fullWidth
-          type='password'
-          label={t('loginPassword')}
-          name='password'
-          variant='outlined'
-          size='small'
-          error={state.errors.password.trim()}
-          helperText={state.errors.password}
-          value={state.password}
-          onChange={handleChange}
-          InputProps={{ endAdornment: <LockIcon /> }}
-          onKeyPress={evt => {
-            if (evt.code === 'Enter' && isFormValid) {
-              handleSubmit();
-            }
-          }}
-        />
-        <div className='d-flex f-justify-between mt-4 w-100'>
-          <div></div>
-          {/* <FormControlLabel
-            control={
-              <Checkbox
-                color='primary'
-                checked={state.remember}
-                name='remember'
-                onChange={evt => setState(prevState => ({
-                  ...prevState,
-                  remember: evt.target.checked
-                }))}
-              />
-            }
-            label={t('loginRemember')}
-          /> */}
-          <Button
-            type='submit'
-            variant='contained'
-            size='small'
-            className={clsx('color-white', classes.loginBtn)}
-            disabled={!isFormValid}
-            onClick={handleSubmit}
-          >
-            {t('loginSubmit')}
-          </Button>
-
-        </div>
-
-      </Paper>
-      <p style={{marginLeft:'40px'}} className={clsx('', classes.login_info)}>Build:0.1.0 / 23 May 2022 3:02 PM</p>
-
-    </div>
+      }
+    </>
   )
 };
 

@@ -40,6 +40,10 @@ const KAKAO_CLIENT_ID = isProd
   ? '0cbc59ebea8694425b48d638f78339f3'
   : '0cbc59ebea8694425b48d638f78339f3';
 
+const MODE = isProd
+  ? 'ENT'
+  : 'ClOUD';
+
 const config = {
   apiBaseUrl: API_BASE_URL,
   socketUrl: SOCKET_URL,
@@ -48,7 +52,8 @@ const config = {
   naverClientId: NAVER_CLIENT_ID,
   naverCallbackUrl: NAVER_CALLBACK_URL,
   frontendBaseUrl: FRONTEND_BASE_URL,
-  frontendUrl: FRONTEND_URL
+  frontendUrl: FRONTEND_URL,
+  mode: MODE,
 };
 
 export default config;

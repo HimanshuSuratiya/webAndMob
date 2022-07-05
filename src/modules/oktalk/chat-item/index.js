@@ -52,7 +52,7 @@ const ChatItem = ({
             {author}
           </Typography>
         )}
-        <Paper elevation={0} className={clsx('p-2 ml-2 p-relative', classes.chatItem, {
+        <Paper style={{width:'75%'}} elevation={0} className={clsx('p-2 ml-2 p-relative', classes.chatItem, {
           [classes.chatMe]: position === 'right'
         })}>
           {image && (
