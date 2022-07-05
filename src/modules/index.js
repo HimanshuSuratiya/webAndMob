@@ -82,7 +82,7 @@ const Logout = () => {
   function millisToMinutesAndSeconds(millis) {
     let minutes = Math.floor(millis / 60000);
     let seconds = ((millis % 60000) / 1000).toFixed(0);
-    return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+    return (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
   }
 
   useEffect(() => {
@@ -113,7 +113,7 @@ const Logout = () => {
     >
       {t("naviationLogout")}
       <div className={clsx("", useStyles().logout_time)}>
-        <p>( {millisToMinutesAndSeconds(remainingTime) == '9:60'? '10:00': millisToMinutesAndSeconds(remainingTime)} )</p>
+        <p>( {millisToMinutesAndSeconds(remainingTime) == '09:60'? '10:00': millisToMinutesAndSeconds(remainingTime)} )</p>
       </div>
     </Button>
   );
@@ -366,17 +366,6 @@ const AppModule = () => {
                   <div
                     className={`${clsx("top_hideno1", classes.top_hideno1)} d-flex f-align-center mr-10 top_hideno1`}
                   >
-                    <FormControl>
-                      <Select
-                        value={lang}
-                        onChange={(evt) => setLang(evt.target.value || "en")}
-                      >
-                        <MenuItem value="en">English (EN)</MenuItem>
-                        <MenuItem value="ko">한국어 (KO)</MenuItem>
-                      </Select>
-                    </FormControl>
-                  </div>
-
                   <Badge
                     badgeContent={pendingNotifications}
                     color="primary"
@@ -390,9 +379,21 @@ const AppModule = () => {
                         />
                       </Link>
                     ) : (
-                      <NotificationsIcon color="error" />
+                      <NotificationsIcon style={{color:`${notifications.length?'f44336':'#fff'}`}}/>
                     )}
                   </Badge>
+
+                    <FormControl>
+                      <Select
+                        value={lang}
+                        onChange={(evt) => setLang(evt.target.value || "en")}
+                      >
+                        <MenuItem value="en">English (EN)</MenuItem>
+                        <MenuItem value="ko">한국어 (KO)</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                  
                   {lang === "en" ? (
                     <Typography
                       variant="body1"

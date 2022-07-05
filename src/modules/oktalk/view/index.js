@@ -23,6 +23,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import config from 'config';
 import {NavLink, useHistory} from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const defaultState = {
   messages: [],
@@ -406,8 +407,7 @@ const ViewOKTalk = ({
                         component={NavLink}
                         to={`/printers/equipment-modification/${state.deviceInfoId}`}
                       >
-                        <img
-                          src="https://itdevelopmentservices.com/foodsandlogistics/wp-content/uploads/2021/10/settings-2.png"></img>
+                        <SettingsIcon style={{color:'#757575'}}/>
                       </Link>
                     </div>
                   </div>

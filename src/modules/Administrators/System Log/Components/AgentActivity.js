@@ -123,14 +123,14 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
                 <Typography variant="h4">{t("Agent Activity")}</Typography>
             </div>
             <Paper elevation={4}>
-                <div className="d-flex p-4" style={{ height: '90px', alignItems: 'center' }}>
+                <div className="d-flex p-4" style={{alignItems: 'center' }}>
                     <TextField
                         variant="outlined"
                         size="small"
                         placeholder={t('processSearch')}
                         InputProps={{ endAdornment: <SearchIcon /> }}
                     />
-                    <div style={{ height: '47px', marginLeft: '30px', width: '650px', display: 'flex', justifyContent: 'space-between', padding: '0px 5px', alignItems: 'center' }}>
+                    <div className="MainDateDiv" style={{ height: '47px', marginLeft: '30px', width: '650px', display: 'flex', justifyContent: 'space-between', padding: '0px 5px', alignItems: 'center' }}>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
                             <DesktopDatePicker
                                 variant="contained"
