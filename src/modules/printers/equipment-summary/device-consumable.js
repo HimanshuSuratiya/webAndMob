@@ -155,7 +155,7 @@ const DeviceConsumableLevel = ({
             {t("printersConsumables")}
           </Typography>
 
-          <label class="switch">
+          <label className={classes.switch}>
             <input
               type="checkbox"
               id="togBtn"

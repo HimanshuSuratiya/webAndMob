@@ -13,6 +13,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import "../../../../shared/Shared.css";
+import { Datepicker } from "shared/components";
 
 const EndDefaultDate = () => {
     const currentyear = new Date().getFullYear();
@@ -23,17 +24,8 @@ const EndDefaultDate = () => {
 
 const noop = () => { };
 const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
-    const { t } = useTranslation();
-    const [startContract, setStartContract] = useState(new Date());
     const [endcontract, setEndContract] = useState(EndDefaultDate());
-
-    const handleChange = (newValue: Date | null) => {
-        setStartContract(newValue);
-    };
-
-    const handleChangeEnd = (newValue: Date | null) => {
-        setEndContract(newValue)
-    };
+    const { t } = useTranslation();
 
     const Rows = [
         {
@@ -123,7 +115,7 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
                 <Typography variant="h4">{t("Agent Activity")}</Typography>
             </div>
             <Paper elevation={4}>
-                <div className="d-flex p-4" style={{alignItems: 'center' }}>
+                <div className="d-flex p-4" style={{ alignItems: 'center' }}>
                     <TextField
                         variant="outlined"
                         size="small"
@@ -131,25 +123,16 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
                         InputProps={{ endAdornment: <SearchIcon /> }}
                     />
                     <div className="MainDateDiv" style={{ height: '47px', marginLeft: '30px', width: '650px', display: 'flex', justifyContent: 'space-between', padding: '0px 5px', alignItems: 'center' }}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DesktopDatePicker
-                                variant="contained"
-                                label={t("Start Date")}
-                                inputFormat="MM/dd/yyyy"
-                                value={startContract}
-                                onChange={handleChange}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
-                        </LocalizationProvider>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <DesktopDatePicker
-                                label={t("End Date")}
-                                inputFormat="MM/dd/yyyy"
-                                value={endcontract}
-                                onChange={handleChangeEnd}
-                                renderInput={(params) => <TextField {...params} />}
-                            />
-                        </LocalizationProvider>
+                        <Datepicker
+                            className="set-default-date"
+                            label={t("Start Data")}
+                            selected={new Date()}
+                        />
+                        <Datepicker
+                            className="set-default-date"
+                            label={t("End Date")}
+                            selected={endcontract}
+                        />
                         <Button
                             variant="contained"
                             className="Btn-Color"

@@ -7,10 +7,8 @@ import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import "../../../../shared/Shared.css";
 import { Divider } from '@material-ui/core';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker'
 import SelectedDepartment from "./SelectedDepartment";
+import {Datepicker } from "shared/components";
 
 const EndDefaultDate = () => {
   const currentyear = new Date().getFullYear();
@@ -20,18 +18,9 @@ const EndDefaultDate = () => {
 }
 
 const PrintersDetail = () => {
-  const [startContract, setStartContract] = useState(new Date());
   const [endcontract, setEndContract] = useState(EndDefaultDate());
   const [popUp, setPopUp] = useState(false)
   const { t } = useTranslation();
-
-  const handleChange = (newValue: Date | null) => {
-    setStartContract(newValue);
-  };
-
-  const handleChangeEnd = (newValue: Date | null) => {
-    setEndContract(newValue)
-  };
 
   return (
     <>
@@ -61,24 +50,16 @@ const PrintersDetail = () => {
           />
           <Divider className="mt-6 mb-6" />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-                label={t("Start of contract")}
-                inputFormat="MM/dd/yyyy"
-                value={startContract}
-                onChange={handleChange}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DesktopDatePicker
-                label={t("Contract Termination")}
-                inputFormat="MM/dd/yyyy"
-                value={endcontract}
-                onChange={handleChangeEnd}
-                renderInput={(params) => <TextField {...params} />}
-              />
-            </LocalizationProvider>
+            <Datepicker
+              className="set-default-date"
+              label={t("Start of contract")}
+              selected={ new Date()}
+            />
+            <Datepicker
+              className="set-default-date"
+              label={t("Contract Termination")}
+              selected={endcontract}
+            />
           </div>
           <TextField
             name="noticeNoUse"

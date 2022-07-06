@@ -430,7 +430,7 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
         <DialogContent className="mt-4">
           <TextField
             fullWidth
-            label={t("summaryAdd company")}
+            label={t("Add New company")}
             name="name"
             variant="outlined"
             value={state.name}
