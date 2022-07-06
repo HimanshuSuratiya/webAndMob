@@ -197,6 +197,10 @@ ul.ServerTab li:last-child {
     display: flex;
 }
 
+.setHeightTextfield div input {
+    height: 24px;
+}
+
 .check-Box-main-div p {
     padding-left: 20px;
     color: #495057;

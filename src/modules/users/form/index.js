@@ -28,6 +28,7 @@ import { AppContext } from 'shared/contexts';
 import KeyIcon from '@mui/icons-material/Key';
 import PasswordIcon from '@mui/icons-material/Password';
 import "../../../shared/Shared.css";
+import config from "config";
 
 const noop = () => {};
 const defaultState = {
@@ -57,7 +58,6 @@ const Form = ({
   const classes = useStyles();
   const [state, setState] = useState(defaultState);
   const userData = getTokenData();
-
 
   useEffect(() => {
     if (entry) {
@@ -250,29 +250,34 @@ const Form = ({
               InputProps={{ endAdornment: <EmailIcon /> }}
             />
           )}
-            <TextField
-            fullWidth
-            label={t('Password')}
-            variant="outlined"
-            type="password"
-            name='password'
-            value={''}
-            error={state.errors.email.trim()}
-            helperText={state.errors.email}
-            onChange={handleChange}
-            InputProps={{ endAdornment: <PasswordIcon /> }}
-            />
-            <TextField
-            fullWidth
-            label={t('Confirm Password')}
-            variant="outlined"
-            type="password"
-            name='confirmPassword'
-            value={''}
-            onChange={handleChange}
-            helperText={state.errors.email}
-            InputProps={{ endAdornment: <KeyIcon /> }}
-            />
+          {console.log(config.mode)}
+          {config.mode == 'ENT'?
+            <>
+              <TextField
+              fullWidth
+              label={t('Password')}
+              variant="outlined"
+              type="password"
+              name='password'
+              value={''}
+              error={state.errors.email.trim()}
+              helperText={state.errors.email}
+              onChange={handleChange}
+              InputProps={{ endAdornment: <PasswordIcon /> }}
+              />
+              <TextField
+              fullWidth
+              label={t('Confirm Password')}
+              variant="outlined"
+              type="password"
+              name='confirmPassword'
+              value={''}
+              onChange={handleChange}
+              helperText={state.errors.email}
+              InputProps={{ endAdornment: <KeyIcon /> }}
+              />
+            </>
+          :''}
           <TextField
             fullWidth
             label={t('usersMobile Number')}

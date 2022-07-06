@@ -157,7 +157,7 @@ const ViewUsers = () => {
           <IconButton
             onClick={() => setState(prevState => ({ ...prevState, isFormOpen: true, }))}
           >
-            <AddCircleIcon className={classes.colorLink} />
+            <AddCircleIcon className={`${classes.colorLink} Add-Btn`} />
           </IconButton>
           <Typography variant='body1' >
             {t('usersAdd')}

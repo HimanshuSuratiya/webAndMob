@@ -19,6 +19,10 @@ import { AppContext } from "shared/contexts";
 import { SharedService } from "../../../services";
 import "../../../shared/Shared.css";
 import $ from "jquery";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import Tooltip from '@material-ui/core/Tooltip';
+
 const printerState = [
   { label: "All", value: "A" },
   { label: "Normal", value: "N" },
@@ -142,35 +146,39 @@ const ViewNewPrinters = ({ match }) => {
           return false;
         } else {
           return (
-            <div className="d-flex">
-              <Button
-                variant="contained"
-                className={clsx("mr-2 Btn-Color", classes.btnprinter)}
-                onClick={() => {
-                  history.push(
-                    `${match.path}/assign-printers/${row.deviceInfoId}`
-                  );
-                }}
-              >
-                {t("newPrinterAssignment")}
-              </Button>
-              <Button
-                variant="contained"
-                className={clsx(
-                  "mr-2 bg-danger color-white",
-                  classes.btnprinter
-                )}
-                color="secondary"
-                onClick={() => {
-                  setState((prevState) => ({
-                    ...prevState,
-                    isDeleting: true,
-                    rowBeingEdited: row,
-                  }));
-                }}
-              >
-                {t("newPrinterdelete")}
-              </Button>
+            <div className="d-flex f-justify-center">
+              <Tooltip title={t("newPrinterAssignment")} placement='top-start'>
+                <Button
+                  variant="contained"
+                  className={clsx("mr-2 Btn-Color", classes.btnprinter)}
+                  onClick={() => {
+                    history.push(
+                      `${match.path}/assign-printers/${row.deviceInfoId}`
+                    );
+                  }}
+                >
+                  <SupervisorAccountIcon/>
+                </Button>
+              </Tooltip>
+              <Tooltip title={t("newPrinterdelete")} placement='top-start'>
+                <Button
+                  variant="contained"
+                  className={clsx(
+                    "bg-danger color-white",
+                    classes.btnprinter
+                  )}
+                  color="secondary"
+                  onClick={() => {
+                    setState((prevState) => ({
+                      ...prevState,
+                      isDeleting: true,
+                      rowBeingEdited: row,
+                    }));
+                  }}
+                >
+                  <DeleteForeverIcon/>
+                </Button>
+              </Tooltip>
             </div>
           );
         }

@@ -12,7 +12,7 @@ const useStyles =  makeStyles(theme => ({
       },
 
       btnprinter:{
-        height:'25px !important',
+        height:'38px !important',
       },
      
 }));

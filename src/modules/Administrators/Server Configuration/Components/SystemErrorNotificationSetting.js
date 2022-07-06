@@ -26,7 +26,7 @@ const SystemErrorNotificationSetting = () => {
                     <div className="SMPTInnerDivs mt-3">
                         <p >{t('Manager in charge')}</p>
                         <TextField
-                            className="Errortextfield"
+                            className="Errortextfield setHeightTextfield"
                             style={{ width: '30%', padding: '0px', height: '40px' }}
                             name="noticeUsageLevel"
                             variant="outlined"

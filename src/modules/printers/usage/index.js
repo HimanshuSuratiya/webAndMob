@@ -174,7 +174,7 @@ const exportToExcel =async () => {
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
         <Typography variant="h4">{t('userPageUsage page')}</Typography>
-        <div className="d-flex f-align-center">
+        <div className="d-flex">
           <Datepicker
             label="Date"
             selected={
@@ -193,6 +193,7 @@ const exportToExcel =async () => {
           <Button
             variant="contained"
             className="ml-4 w-25 Btn-Color"
+            style={{height:'38px'}}
             onClick={() => exportToExcel()}
           >
            {t('userPageExcel')}

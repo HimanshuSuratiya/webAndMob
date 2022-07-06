@@ -519,6 +519,7 @@ const UsagePage = ({ match }) => {
             <TextField
               fullWidth
               type="text"
+              label="Add New Company"
               name="newCompany"
               className="mb-4"
               variant="outlined"

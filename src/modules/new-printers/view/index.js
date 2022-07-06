@@ -20,6 +20,10 @@ import { SharedService } from "../../../services";
 import { SortingState } from '@devexpress/dx-react-grid';
 import $ from 'jquery';
 import "../../../shared/Shared.css";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import HourglassTopIcon from '@mui/icons-material/HourglassTop';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const printerState = [
   { label: "All", value: "A" },
@@ -126,50 +130,53 @@ const ViewNewPrinters = ({ match, getUnassignDeviceCount = noop }) => {
           return false;
         } else {
           return (
-            <div className="d-flex">
-              <Button
-              style={{textAlign: "centre"}}
-                variant="contained"
-                className="mr-2"
-                color=""
-                onClick={() => {
-                  setState((prevState) => ({
-                    ...prevState,
-                    isWaitingModalOpen: true,
-                    rowBeingEdited: row,
-                  }));
-                }}
-              >
-                {t("newPrinterWaiting")}
-              </Button>
-              {/* green color button */}
-              <Button
-
-                variant="contained"
-                className="mr-2 Btn-Color"
-                onClick={() => {
-                  history.push(
-                    `${match.path}/assign-printers/${row.deviceInfoId}`
-                  );
-                }}
-              >
-                {t("newPrinterAssignment")}
-              </Button>
-
-              <Button
-                variant="contained"
-                className="mr-2 bg-danger color-white"
-                color="secondary"
-                onClick={() => {
-                  setState((prevState) => ({
-                    ...prevState,
-                    isDeleting: true,
-                    rowBeingEdited: row,
-                  }));
-                }}
-              >
-                {t("newPrinterdelete")}
-              </Button>
+            <div className="d-flex f-justify-center">
+              <Tooltip title={t("newPrinterWaiting")} placement='top-start'>
+                <Button
+                style={{textAlign: "centre"}}
+                  variant="contained"
+                  className="mr-2"
+                  color=""
+                  onClick={() => {
+                    setState((prevState) => ({
+                      ...prevState,
+                      isWaitingModalOpen: true,
+                      rowBeingEdited: row,
+                    }));
+                  }}
+                >
+                <HourglassTopIcon/>
+                </Button>
+              </Tooltip>
+              <Tooltip title={t("newPrinterAssignment")} placement='top-start'>
+                <Button
+                  variant="contained"
+                  className="mr-2 Btn-Color"
+                  onClick={() => {
+                    history.push(
+                      `${match.path}/assign-printers/${row.deviceInfoId}`
+                    );
+                  }}
+                >
+                  <SupervisorAccountIcon/>
+                </Button>
+              </Tooltip>
+              <Tooltip title={t("newPrinterdelete")} placement='top-start'>
+                <Button
+                  variant="contained"
+                  className="bg-danger color-white"
+                  color="secondary"
+                  onClick={() => {
+                    setState((prevState) => ({
+                      ...prevState,
+                      isDeleting: true,
+                      rowBeingEdited: row,
+                    }));
+                  }}
+                >
+                  <DeleteForeverIcon/>
+                </Button>
+              </Tooltip>
             </div>
           );
         }
