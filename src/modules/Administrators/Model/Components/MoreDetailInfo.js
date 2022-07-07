@@ -38,17 +38,6 @@ const MoreDetailInfo = () => {
 
   const columnConfig = [
     {
-      id: "_Printer_Modal",
-      fieldName: "_Printer_Modal",
-      label: t("processPrinterModel"),
-      canSort: true,
-      render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
-          {Rows.PrinterModal}
-        </Typography>
-      ),
-    },
-    {
       id: "_Toner",
       field: "_Toner",
       label: t("processToner"),
@@ -221,17 +210,6 @@ const MoreDetailInfo = () => {
 
   const columnConfig2 = [
     {
-      id: "_Printer_Modal",
-      fieldName: "_Printer_Modal",
-      label: t("processPrinterModel"),
-      canSort: true,
-      render: (Rows2) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
-          {Rows2.Client}
-        </Typography>
-      ),
-    },
-    {
       id: "_Min",
       field: "_Min",
       label: t("processMin"),
@@ -311,6 +289,8 @@ const MoreDetailInfo = () => {
                   variant="outlined"
                   value="Samsung Electronics"
                   size="small"
+                  disabled={true}
+                  style={{ backgroundColor: '#f5f6f8' }}
                 />
               </td>
             </tr>
@@ -405,8 +385,8 @@ const MoreDetailInfo = () => {
               </td>
             </tr>
             <tr>
-              <td rowspan="2">
-                <p className="para">{t('processImage')}</p>
+              <td rowspan="2" style={{padding:'0px', border:'none'}}>
+                <p className="para">{t('')}</p>
               </td>
               <td>
                 <p className="para">{t('processFull-Size')}</p>
@@ -430,11 +410,11 @@ const MoreDetailInfo = () => {
               <td>
                 <p className="para">{t('processReduced-Size')}</p>
               </td>
-              <td style={{ display: 'flex', justifyContent: "space-between", alignItems:'center' }}>
-                <div style={{width:'78%'}}>
+              <td style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
+                <div style={{ width: '78%' }}>
                   <TextField
                     className="textfieldStyleAnother"
-                    style={{width:'64%'}}
+                    style={{ width: '64%' }}
                     name="noticeUsageLevel"
                     variant="outlined"
                     defaultValue={""}
@@ -446,8 +426,8 @@ const MoreDetailInfo = () => {
                   <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', 65x65
                     pixle image size is appropriate. </a>
                 </div>
-                <div style={{ height: 'auto', width: '12%'}}>
-                  <img style={{width:'100%'}} src={PrinterImage} />
+                <div style={{ height: 'auto', width: '12%' }}>
+                  <img style={{ width: '100%' }} src={PrinterImage} />
                 </div>
               </td>
             </tr>

@@ -9,6 +9,7 @@ import "../../../../shared/Shared.css";
 import { Divider } from '@material-ui/core';
 import SelectedDepartment from "./SelectedDepartment";
 import {Datepicker } from "shared/components";
+import { useHistory } from "react-router-dom";
 
 const EndDefaultDate = () => {
   const currentyear = new Date().getFullYear();
@@ -20,12 +21,13 @@ const EndDefaultDate = () => {
 const PrintersDetail = () => {
   const [endcontract, setEndContract] = useState(EndDefaultDate());
   const [popUp, setPopUp] = useState(false)
+  const history = useHistory();
   const { t } = useTranslation();
 
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("processPrintersDetail")}</Typography>
+        <Typography variant="h4">{t("processRegisterPrinters")}</Typography>
       </div>
       <Paper elevation={4} className="p-4">
         <div className='wraplayout'>
@@ -70,7 +72,16 @@ const PrintersDetail = () => {
             label={t("Memo")}
           />
           <div className="d-flex f-align-center mt-6">
-            <Button variant="contained" fullWidth className="mr-10" size="large">
+            <Button 
+              variant="contained" 
+              fullWidth 
+              className="mr-10" 
+              size="large"
+              style={{height: '40.3px'}}
+              onClick={() => {
+                history.goBack();
+              }}
+            >
               {t("settingsCancel")}
             </Button>
             <Button

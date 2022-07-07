@@ -9,6 +9,7 @@ import "../../../../shared/Shared.css";
 import { Divider } from '@material-ui/core';
 import SelectedDepartment from "./SelectedDepartment";
 import {Datepicker } from "shared/components";
+import { useHistory } from "react-router-dom";
 
 const EndDefaultDate = () => {
   const currentyear = new Date().getFullYear();
@@ -20,6 +21,7 @@ const EndDefaultDate = () => {
 const RegisterPrinter = () => {
   const [endcontract, setEndContract] = useState(EndDefaultDate());
   const [popUp, setPopUp] = useState(false)
+  const history = useHistory();
   const { t } = useTranslation();
   
   return (
@@ -36,6 +38,8 @@ const RegisterPrinter = () => {
             size="small"
             label={t("Printer Model")}
             value="Brother MFC-LS700DW services"
+            style={{backgroundColor:'#f5f6f8'}}
+            disabled={true}
           />
           <TextField
             name="noticeNoUse"
@@ -45,6 +49,8 @@ const RegisterPrinter = () => {
             size="small"
             label={t("Serial Number")}
             value="RJF9800293"
+            style={{backgroundColor:'#f5f6f8'}}
+            disabled={true}
           />
           <Divider className="mt-6" />
           <div className="mt-6" style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -74,6 +80,8 @@ const RegisterPrinter = () => {
             size="small"
             label={t("Printer Information")}
             value="Brother MFC-LS700DW services"
+            style={{backgroundColor:'#f5f6f8'}}
+            disabled={true}
           />
           <Divider className="mt-6 mb-6" />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -97,7 +105,16 @@ const RegisterPrinter = () => {
             label={t("Memo")}
           />
           <div className="d-flex f-align-center mt-6">
-            <Button variant="contained" fullWidth className="mr-10" size="large">
+            <Button 
+              fullWidth 
+              className="mr-10" 
+              style={{height: '40.3px'}}
+              size="large"
+              variant="contained"
+              onClick={() => {
+                history.goBack();
+              }}
+            >
               {t("settingsCancel")}
             </Button>
             <Button

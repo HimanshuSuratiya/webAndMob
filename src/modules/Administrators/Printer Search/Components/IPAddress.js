@@ -29,10 +29,10 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
     const secondIp = ip
     const firstIPArr = firstIP.split('.')
     const secondIPArr = secondIp.split('.')
-    const isFirstPartSame = firstIPArr[0] === secondIPArr[0]
-    const isSecondPartSame = firstIPArr[1] === secondIPArr[1]
-    const isThirdPartGreater = firstIPArr[2] <= secondIPArr[2]
-    const isForthPartCorrect = firstIPArr[2] < secondIPArr[2] || (firstIPArr[2] === secondIPArr[2] && firstIPArr[3] <= secondIPArr[3])
+    const isFirstPartSame = parseInt(firstIPArr[0]) === parseInt(secondIPArr[0])
+    const isSecondPartSame = parseInt(firstIPArr[1]) === parseInt(secondIPArr[1])
+    const isThirdPartGreater = parseInt(firstIPArr[2]) <= parseInt(secondIPArr[2])
+    const isForthPartCorrect = parseInt(firstIPArr[3]) <= parseInt(secondIPArr[3])
     const isAllOk = isFirstPartSame && isSecondPartSame && isThirdPartGreater && isForthPartCorrect
     return isAllOk
   }
@@ -78,7 +78,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         </div>
         <div className="startip-label-input-main-area">
           <div className="startip-label-input-box-area">
-            <label className={`${startIpError ? 'paddingBottom' : ''} startIplabel`}>{t("processStartIp")}<span style={{ color: 'red' }}> (*)</span></label>
+            <label className={`${startIpError ? 'paddingBottom' : ''} startIplabel`}>{t("processStartIp")}<span style={{ color: 'red' }}> * </span></label>
             <TextField
               error={startIpError}
               variant="outlined"
@@ -112,7 +112,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
         </div>
         <div className="endip-label-input-main-area">
           <div className="endip-label-input-box-area">
-            <label className={`${endIpError || firstSecondPartError ? 'paddingBottom' : ''} EndIplabel`}>{t("processEndIp")}<span style={{ color: 'red' }}> (*)</span> </label>
+            <label className={`${endIpError || firstSecondPartError ? 'paddingBottom' : ''} EndIplabel`}>{t("processEndIp")}<span style={{ color: 'red' }}> * </span> </label>
             <TextField
               error={endIpError || firstSecondPartError}
               variant="outlined"
