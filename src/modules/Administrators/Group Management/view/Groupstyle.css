@@ -1,7 +1,8 @@
 .tabBtn {
   padding: 0;
+  height: 65px;
   list-style: none;
-  margin: 0px;
+  align-items: center;
   display: flex;
 }
 
@@ -18,13 +19,14 @@ ul.tabBtn li:last-child {
   padding: 8px 20px;
   color: #000;
   text-align: center;
-  font-size: 17px;
+  font-size: 20px;
+  height: 65px;
   display: block;
 }
 
 .active {
-  border-bottom: 2px solid #757575;
-  color: #757575;
+  background-color: #b8b8b8;
+  border-radius: 4px;
 }
 
 /* Department Css */
@@ -58,7 +60,7 @@ ul.tabBtn li:last-child {
   min-width: 100px !important;
 }
 
-.SearchTextField .MuiInputBase-input{
+.SearchTextField .MuiInputBase-input {
   min-width: 300px !important;
   height: 40px;
 }
@@ -83,18 +85,18 @@ ul.tabBtn li:last-child {
     width: 70%;
   }
 
-  .DepartButtons{
+  .DepartButtons {
     height: 40px;
     width: 30%;
     display: flex;
     justify-content: end;
   }
-  
-  .btn{
+
+  .btn {
     min-width: 80px !important;
   }
 
-  .SearchTextField .MuiInputBase-input{
+  .SearchTextField .MuiInputBase-input {
     width: 50% !important;
     min-width: 200px !important;
   }
@@ -118,11 +120,11 @@ ul.tabBtn li:last-child {
     width: 100%;
   }
 
-  .SearchTextField{
+  .SearchTextField {
     width: 100%;
   }
 
-  .SearchTextField .MuiInputBase-input{
+  .SearchTextField .MuiInputBase-input {
     width: 100% !important;
     min-width: 10px !important;
   }
@@ -133,7 +135,7 @@ ul.tabBtn li:last-child {
     font-size: 15px;
   }
 
-  .btn{
+  .btn {
     width: 15%;
   }
 }
@@ -144,8 +146,8 @@ ul.tabBtn li:last-child {
     width: 100%;
     justify-content: end;
   }
-  
-  .btn{
+
+  .btn {
     width: 31%;
   }
 }

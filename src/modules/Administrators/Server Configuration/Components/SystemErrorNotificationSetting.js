@@ -18,10 +18,7 @@ const SystemErrorNotificationSetting = () => {
 
     return (
         <>
-            <div style={{ marginTop: '20px' }} className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("System Error Notification Setting")}</Typography>
-            </div>
-            <Paper elevation={4}>
+            <Paper elevation={4} >
                 <div className="SMPTServerMainDiv">
                     <div className="SMPTInnerDivs mt-3">
                         <p >{t('Manager in charge')}</p>

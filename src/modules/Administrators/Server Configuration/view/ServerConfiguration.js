@@ -25,7 +25,7 @@ const ServerConfiguration = ({ match, getUnassignDeviceCount = noop }) => {
                     </li>
                     <li >
                         <Link className={window.location.pathname === `${match.path}/smpt-Settings` ? 'active ellipsis' : 'ellipsis'} to={`${match.path}/smpt-Settings`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
-                            {t('SMPT Settings')}
+                            {t('SMTP Settings')}
                         </Link>
                     </li>
                     <li >

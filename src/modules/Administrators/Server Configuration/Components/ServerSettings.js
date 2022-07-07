@@ -26,9 +26,6 @@ const ServerSettings = () => {
     };
     return (
         <>
-            <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography className="ServerSettingheading" variant="h4">{t("Database Manage Cycle (Month)")}</Typography>
-            </div>
             <Paper elevation={4} className="p-1">
                 <div className="ServerSettingDiv ">
                     <p>{t('Fault Manage Cycle')}</p>
