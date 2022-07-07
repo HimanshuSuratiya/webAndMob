@@ -383,6 +383,7 @@ const AssignPrinters = ({ match, getUnassignDeviceCount = noop }) => {
         <div className="d-flex ml-8 mr-8">
           <Button
             className="mb-8 mr-4"
+            variant="contained"
             onClick={() => {
               history.goBack();
             }}

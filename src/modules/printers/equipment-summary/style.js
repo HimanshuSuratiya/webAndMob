@@ -103,7 +103,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     width: '90px',
     height: '34px',
-    right: '-350px',
+    right: '-300px',
     top: '9px',
   },
 

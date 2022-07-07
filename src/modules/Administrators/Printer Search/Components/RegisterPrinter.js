@@ -97,7 +97,7 @@ const RegisterPrinter = () => {
             label={t("Memo")}
           />
           <div className="d-flex f-align-center mt-6">
-            <Button variant="outlined" fullWidth className="mr-10" size="large">
+            <Button variant="contained" fullWidth className="mr-10" size="large">
               {t("settingsCancel")}
             </Button>
             <Button

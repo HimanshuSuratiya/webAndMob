@@ -204,7 +204,7 @@ const ViewSettings = ({ history }) => {
           />
           <div className='d-flex f-align-center pt-5'>
             <Button
-              variant='outlined'
+              variant='contained'
               fullWidth
               className='mr-10'
               size='large'

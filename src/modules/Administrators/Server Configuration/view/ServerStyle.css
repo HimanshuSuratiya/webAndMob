@@ -34,7 +34,7 @@
 /* Tabs Css */
 .ServerTab {
     padding: 0;
-    height: 60px;
+    height: 65px;
     list-style: none;
     align-items: center;
     display: flex;
@@ -227,7 +227,7 @@ ul.ServerTab li:last-child {
 
 /* Common Css */
 .ButtonDiv {
-    height: 45px;
+    height: 60px !important;
     width: 100% !important;
     display: flex;
     align-items: center;

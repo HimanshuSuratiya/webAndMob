@@ -69,7 +69,7 @@ const AssignGroup = () => {
                                     <tr>
                                         <th>ID</th>
                                         <th class="ip-border-main-area-2">Name</th>
-                                        <th></th>
+                                        <th style={{textAlign:'center'}}>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

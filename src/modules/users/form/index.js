@@ -322,7 +322,12 @@ const Form = ({
         </DialogContent>
         <DialogActions>
           <div className="p-4">
-            <Button style={{backgroundColor:'#e0e0e0'}} disabled={false} onClick={handleClose} className="mr-4">
+            <Button 
+              disabled={false} 
+              onClick={handleClose} 
+              className="mr-4" 
+              variant="contained"
+            >
               {t('settingsCancel')}
             </Button>
             {!entry ? (

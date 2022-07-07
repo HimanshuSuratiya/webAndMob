@@ -51,7 +51,7 @@ const ImportKeypopUp = ({ setClosePopUp, setImportKeybtn }) => {
                                 </DialogContent>
                                 <DialogActions>
                                     <div className="p-4" >
-                                        <Button style={{ backgroundColor: '#e0e0e0' }} onClick={() => { setClosePopUp(false) }} disabled={false} className="mr-4">
+                                        <Button variant='contained' onClick={() => { setClosePopUp(false) }} className="mr-4">
                                             {t('Close')}
                                         </Button>
                                         <Button
