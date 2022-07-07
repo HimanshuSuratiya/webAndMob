@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,Route,Redirect,Switch,Link,useHistory,} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch, Link, useHistory, } from "react-router-dom";
 import clsx from "clsx";
 import useStyles from "./style";
 import { ToastContainer, toast } from "react-toastify";
@@ -36,7 +36,7 @@ import FindReplaceIcon from '@material-ui/icons/FindReplace';
 import SearchIcon from '@material-ui/icons/Search';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import {Backdrop,Button,CircularProgress,Typography,} from "@material-ui/core";
+import { Backdrop, Button, CircularProgress, Typography, } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { getTokenData, removeTokenData } from "utils";
 import { FormControl, MenuItem, Select } from "@material-ui/core";
@@ -58,6 +58,7 @@ import ServerConfiguration from "./Administrators/Server Configuration/view/Serv
 import AgentConfiguration from "./Administrators/Agent Configuration/view/AgentConfiguration";
 import Agent from "./Administrators/Agent/view/Agent";
 import "../shared/Shared.css";
+import 'react-nestable/dist/styles/index.css';
 
 
 const Socket = new W3CWebSocket(config.socketUrl);
@@ -113,7 +114,7 @@ const Logout = () => {
     >
       {t("naviationLogout")}
       <div className={clsx("", useStyles().logout_time)}>
-        <p>( {millisToMinutesAndSeconds(remainingTime) == '09:60'? '10:00': millisToMinutesAndSeconds(remainingTime)} )</p>
+        <p>( {millisToMinutesAndSeconds(remainingTime) == '09:60' ? '10:00' : millisToMinutesAndSeconds(remainingTime)} )</p>
       </div>
     </Button>
   );
@@ -287,44 +288,44 @@ const AppModule = () => {
       to: "/administrators",
       icon: <SupervisorAccountIcon className="color-white" />,
       label: t("sidebarAdministrators"),
-        administratorSubArray: [
-          {
-            to: "/printer-search",
-            label: t("sidebarPrinterSearch"),
-          },
-          {
-            to: "/search-history",
-            label: t("sidebarSearchHistory"),
-          },
-          {
-            to: "/model",
-            label: t("sidebarModel"),
-          },
-          {
-            to: "/group-management",
-            label: t("sidebarGroupManagement"),
-          },
-          {
-            to: "/license-management",
-            label: t("License Management"),
-          },
-          {
-            to: "/server-configuration",
-            label: t("Server Configuration"),
-          },
-          {
-            to: "/agent-configuration",
-            label: t("Agent Configuration"),
-          },
-          {
-            to: "/agent",
-            label: t("Agent"),
-          },
-          {
-            to: "/system-log",
-            label: t("System Log"),
-          },
-        ]
+      administratorSubArray: [
+        {
+          to: "/printer-search",
+          label: t("sidebarPrinterSearch"),
+        },
+        {
+          to: "/search-history",
+          label: t("sidebarSearchHistory"),
+        },
+        {
+          to: "/model",
+          label: t("sidebarModel"),
+        },
+        {
+          to: "/group-management",
+          label: t("sidebarGroupManagement"),
+        },
+        {
+          to: "/license-management",
+          label: t("License Management"),
+        },
+        {
+          to: "/server-configuration",
+          label: t("Server Configuration"),
+        },
+        {
+          to: "/agent-configuration",
+          label: t("Agent Configuration"),
+        },
+        {
+          to: "/agent",
+          label: t("Agent"),
+        },
+        {
+          to: "/system-log",
+          label: t("System Log"),
+        },
+      ]
     },
   ];
 
@@ -366,22 +367,22 @@ const AppModule = () => {
                   <div
                     className={`${clsx("top_hideno1", classes.top_hideno1)} d-flex f-align-center mr-10 top_hideno1`}
                   >
-                  <Badge
-                    badgeContent={pendingNotifications}
-                    color="primary"
-                    className="mr-6"
-                  >
-                    {pendingNotifications ? (
-                      <Link to="/oktalk">
-                        <NotificationsIcon
-                          color="error"
-                          className="c-pointer"
-                        />
-                      </Link>
-                    ) : (
-                      <NotificationsIcon style={{color:`${notifications.length?'f44336':'#fff'}`}}/>
-                    )}
-                  </Badge>
+                    <Badge
+                      badgeContent={pendingNotifications}
+                      color="primary"
+                      className="mr-6"
+                    >
+                      {pendingNotifications ? (
+                        <Link to="/oktalk">
+                          <NotificationsIcon
+                            color="error"
+                            className="c-pointer"
+                          />
+                        </Link>
+                      ) : (
+                        <NotificationsIcon style={{ color: `${notifications.length ? 'f44336' : '#fff'}` }} />
+                      )}
+                    </Badge>
 
                     <FormControl>
                       <Select
@@ -393,7 +394,7 @@ const AppModule = () => {
                       </Select>
                     </FormControl>
                   </div>
-                  
+
                   {lang === "en" ? (
                     <Typography
                       variant="body1"
@@ -403,9 +404,8 @@ const AppModule = () => {
                         classes.top_hideno1
                       )}
                     >
-                      {`${t("naviationWelcome")} ${
-                        (getTokenData() || {}).name
-                      }`}
+                      {`${t("naviationWelcome")} ${(getTokenData() || {}).name
+                        }`}
                     </Typography>
                   ) : (
                     <Typography

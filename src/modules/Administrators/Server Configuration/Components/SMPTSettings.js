@@ -27,7 +27,8 @@ const SMPTSettings = () => {
                             name="noticeUsageLevel"
                             variant="outlined"
                             size="small"
-                            defaultValue={'mail.myepsoft.com'}
+                            value={'mail.myepsoft.com'}
+                            disabled={true}
                         />
                     </div>
                     <div className="SMPTInnerDivs mt-3">
@@ -38,7 +39,8 @@ const SMPTSettings = () => {
                             name="noticeUsageLevel"
                             variant="outlined"
                             size="small"
-                            defaultvalue={'developer7@myepsoft.com'}
+                            value={'developer7@myepsoft.com'}
+                            disabled={true}
                         />
                     </div>
                     <div className="SMPTInnerDivs mt-3">
@@ -50,7 +52,8 @@ const SMPTSettings = () => {
                                 name="noticeUsageLevel"
                                 variant="outlined"
                                 size="small"
-                                defaultValue={'HimanshuSuratiya'}
+                                value={'HimanshuSuratiya'}
+                                disabled={true}
                             />
                             <TextField
                                 type="password"
@@ -58,7 +61,8 @@ const SMPTSettings = () => {
                                 name="noticeUsageLevel"
                                 variant="outlined"
                                 size="small"
-                                defaultValue={'HimanshuSuratiya'}
+                                value={'HimanshuSuratiya'}
+                                disabled={true}
                             />
                         </div>
                     </div>
@@ -70,7 +74,8 @@ const SMPTSettings = () => {
                             name="noticeUsageLevel"
                             variant="outlined"
                             size="small"
-                            defaultvalue={'developer7@myepsoft.com'}
+                            value={'developer7@myepsoft.com'}
+                            disabled={true}
                         />
                     </div>
                     <div className="SMPTInnerDivs mt-3">
@@ -82,6 +87,7 @@ const SMPTSettings = () => {
                             displayEmpty
                             variant="outlined"
                             style={{ height: "45px", width: "70%" }}
+                            disabled={true}
                         >
                             <MenuItem value={0}>{t("processSelect")}</MenuItem>
                             <MenuItem value={1}>SSL</MenuItem>
@@ -96,7 +102,8 @@ const SMPTSettings = () => {
                             name="noticeUsageLevel"
                             variant="outlined"
                             size="small"
-                            defaultValue={465}
+                            value={465}
+                            disabled={true}
                         />
                     </div>
                     <div className="SMPTInnerDivs mt-3 mb-3">
