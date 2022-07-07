@@ -13,7 +13,7 @@ import { DialogActions, DialogContent, IconButton } from '@material-ui/core';
 import "../../../../shared/Shared.css";
 import SelectDepart from "./SelectDepart";
 
-const Add = ({ setClosePopUp }) => {
+const Modify = ({ setCloseModiPopUp }) => {
     const [selectDepartpopUp, setSelectDepartPopUp] = useState(false)
     const { t } = useTranslation();
     return (
@@ -26,17 +26,16 @@ const Add = ({ setClosePopUp }) => {
                                 <DialogTitle>
                                     <div className="d-flex f-align-center f-justify-between">
                                         <Typography variant="h5">
-                                            {t("Add")}
+                                            {t("Modify")}
                                         </Typography>
                                         <IconButton>
-                                            <CloseIcon onClick={() => { setClosePopUp(false) }} />
+                                            <CloseIcon onClick={() => { setCloseModiPopUp(false) }} />
                                         </IconButton>
                                     </div>
                                 </DialogTitle>
                                 <Divider />
                                 <DialogContent className="mt-4">
                                     <TextField
-                                        style={{ marginBottom: '10px' }}
                                         fullWidth
                                         label={t('processDepartmentName')}
                                         name="email"
@@ -51,7 +50,8 @@ const Add = ({ setClosePopUp }) => {
                                         <Button style={{ minWidth: '90px' }} className="Btn-Color" variant="contained" onClick={() => { setSelectDepartPopUp(!selectDepartpopUp) }}>Select</Button>
                                     </div>
                                     <TextareaAutosize
-                                        style={{ width: '100%', marginTop: '30px', borderRadius: '5px', fontSize: '16px', paddingLeft: '12px' }}
+                                        className="mt-6"
+                                        style={{ width: '100%', borderRadius: '5px', fontSize: '16px', paddingLeft: '12px' }}
                                         aria-label="minimum height"
                                         minRows={7}
                                         placeholder="Remark"
@@ -59,16 +59,16 @@ const Add = ({ setClosePopUp }) => {
                                 </DialogContent>
                                 <DialogActions>
                                     <div className="p-4">
-                                        <Button variant="contained" className="mr-4" onClick={() => { setClosePopUp(false) }}>
+                                        <Button variant="contained" className="mr-4" onClick={() => { setCloseModiPopUp(false) }}>
                                             {t('settingsCancel')}
                                         </Button>
                                         <Button
                                             className="Btn-Color"
                                             variant="contained"
                                             disabled={false}
-                                            onClick={() => { setClosePopUp(false) }}
+                                            onClick={() => { setCloseModiPopUp(false) }}
                                         >
-                                            {t('Add')}
+                                            {t('Modify')}
                                         </Button>
                                     </div>
                                 </DialogActions>
@@ -82,4 +82,4 @@ const Add = ({ setClosePopUp }) => {
     );
 };
 
-export default Add;
+export default Modify;

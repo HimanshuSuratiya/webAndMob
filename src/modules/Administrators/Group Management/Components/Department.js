@@ -7,25 +7,33 @@ import TextField from "@material-ui/core/TextField";
 import { Grid } from "shared/components";
 import Typography from "@material-ui/core/Typography";
 import Add from '../Components/Add';
+import Modify from "./Modify";
 import "../../../../shared/Shared.css";
+
+const TypographyWithClick = ({ children, onClick }) => {
+  return <Typography variant="body1" style={{ textAlign: "center" }} onClick={onClick}>
+    {children}
+  </Typography>
+}
 
 const Department = () => {
   const [Department, setDepartment] = useState(0);
   const [popUp, setPopUp] = useState(false)
+  const [modiPopUp, setModiPopUp] = useState(false)
   const { t } = useTranslation();
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
-  const columnConfig = [
+  const columnConfig = [  
     {
       id: "_Department",
       fieldName: "_Department",
       label: t("processDepartment"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => { setModiPopUp(true) }}>
           {Rows.Department}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -34,9 +42,9 @@ const Department = () => {
       label: t("processUpperDepartment"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => { setModiPopUp(true) }}>
           {Rows.UpperDepartment}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -45,9 +53,9 @@ const Department = () => {
       label: t("processRemark"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => { setModiPopUp(true) }}>
           {Rows.Remark}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
     {
@@ -56,9 +64,9 @@ const Department = () => {
       label: t("processRegistrationDate"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "center" }}>
+        <TypographyWithClick onClick={() => { setModiPopUp(true) }}>
           {Rows.RegistrationDate}
-        </Typography>
+        </TypographyWithClick>
       ),
     },
   ];
@@ -95,7 +103,7 @@ const Department = () => {
   ];
   return (
     <>
-      <div className="DepartMainDiv">
+      <div className="DepartMainDiv mt-4 mb-4">
         <div className="DepartField">
           <a className="commonTextPadding">{t('processShow')}</a>
           <Select
@@ -104,7 +112,7 @@ const Department = () => {
             onChange={updateDepartment}
             displayEmpty
             variant="outlined"
-            style={{ height: "40px", marginLeft: '2px', minWidth:'70px' }}
+            style={{ height: "40px", marginLeft: '2px', minWidth: '70px' }}
           >
             <MenuItem value={0}>{t("20")}</MenuItem>
             <MenuItem value={'50'}>50</MenuItem>
@@ -114,7 +122,7 @@ const Department = () => {
           <a className="commonTextPadding">{t('processEntries')}</a>
           <a className="commonTextPadding">{t('processSearch')}</a>
           <TextField
-            style={{marginLeft:'4px'}}
+            style={{ marginLeft: '4px' }}
             className="SearchTextField"
             name="noticeUsageLevel"
             variant="outlined"
@@ -127,12 +135,11 @@ const Department = () => {
           <Button variant="contained" className="btn Delete-Btn" >{t('processDelete')} </Button>
         </div>
       </div>
-      <br />
-      <br />
       <Paper elevation={4}>
         <Grid columns={columnConfig} rows={Rows} />
       </Paper>
       {popUp ? <Add setClosePopUp={setPopUp} /> : ''}
+      {modiPopUp ? <Modify setCloseModiPopUp={setModiPopUp} /> : ''}
     </>
   );
 };

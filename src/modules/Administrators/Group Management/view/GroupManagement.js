@@ -15,7 +15,7 @@ const GroupManagement = ({ match, getUnassignDeviceCount = noop }) => {
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
-        <Typography variant="h4">{t("processGroup")}</Typography>
+        <Typography variant="h4">{t("Group Management")}</Typography>
       </div>
       <Paper elevation={4} style={{backgroundColor:'#fafafa'}}>
         <ul className='tabBtn'>
