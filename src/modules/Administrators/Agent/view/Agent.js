@@ -11,7 +11,7 @@ const Agent = ({ match, getUnassignDeviceCount = noop }) => {
     const { t } = useTranslation();
     return (
         <>
-            <Paper elevation={4} style={{backgroundColor:'#fafafa'}}>
+            <Paper className="GroupPaper" elevation={4} style={{backgroundColor:'#fafafa'}}>
                 <ul className='AgentTabBtn'>
                     <li >
                         <Link className={window.location.pathname === `${match.path}` ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

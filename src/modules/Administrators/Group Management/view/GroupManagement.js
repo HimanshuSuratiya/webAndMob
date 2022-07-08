@@ -17,7 +17,7 @@ const GroupManagement = ({ match, getUnassignDeviceCount = noop }) => {
       <div className="d-flex f-align-center f-justify-between mb-8">
         <Typography variant="h4">{t("Group Management")}</Typography>
       </div>
-      <Paper elevation={4} style={{backgroundColor:'#fafafa'}}>
+      <Paper className="GroupPaper" elevation={4} style={{backgroundColor:'#fafafa'}}>
         <ul className='tabBtn'>
           <li >
             <Link className={window.location.pathname === `${match.path}` ? 'active' : ''} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

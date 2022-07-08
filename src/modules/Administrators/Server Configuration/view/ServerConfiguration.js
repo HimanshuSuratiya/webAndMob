@@ -16,7 +16,7 @@ const ServerConfiguration = ({ match, getUnassignDeviceCount = noop }) => {
             <div className="d-flex f-align-center f-justify-between mb-8">
                 <Typography variant="h4">{t("Servers")}</Typography>
             </div>
-            <Paper elevation={4} style={{backgroundColor:'#fafafa'}}>
+            <Paper className="GroupPaper" elevation={4} style={{backgroundColor:'#fafafa'}}>
                 <ul className='ServerTab'>
                     <li >
                         <Link className={window.location.pathname === `${match.path}` ? 'active ellipsis' : 'ellipsis'} to={`${match.path}`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >

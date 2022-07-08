@@ -131,6 +131,7 @@ const ViewSettings = ({ history }) => {
             label={t('settingsWarningDuration')}
             value={state.noticeNoEmail}
             onChange={handleChange}
+            disabled={true}
           />
           <TextField
             name='noticeUsageLevel'
@@ -142,6 +143,7 @@ const ViewSettings = ({ history }) => {
             label={t('settingsShortTime')}
             value={state.noticeUsageLevel}
             onChange={handleChange}
+            disabled={true}
           />
           <TextField
             name='noticeNoUse'
@@ -153,6 +155,7 @@ const ViewSettings = ({ history }) => {
             label={t('settingsNoUsage')}
             value={state.noticeNoUse}
             onChange={handleChange}
+            disabled={true}
           />
           <TextField
             name='deviceDeletePeriod'
@@ -164,6 +167,7 @@ const ViewSettings = ({ history }) => {
             label={t('settingsCompletelyDelete')}
             value={state.deviceDeletePeriod}
             onChange={handleChange}
+            disabled={true}
           />
           <TextField
             name='defaultEmail'
@@ -177,6 +181,7 @@ const ViewSettings = ({ history }) => {
             onChange={handleChange}
             error={!!state?.errors?.defaultEmail}
             helperText={state?.errors?.defaultEmail}
+            disabled={true}
           />
           <TextField
             name='additionalEmail'
@@ -190,6 +195,7 @@ const ViewSettings = ({ history }) => {
             onChange={handleChange}
             error={!!state?.errors?.additionalEmail}
             helperText={state?.errors?.additionalEmail}
+            disabled={true}
           />
           <TextField
             name='partnerName'
@@ -201,6 +207,7 @@ const ViewSettings = ({ history }) => {
             label={t('settingsCompanyName')}
             value={state.partnerName}
             onChange={handleChange}
+            disabled={true}
           />
           <div className='d-flex f-align-center pt-5'>
             <Button
