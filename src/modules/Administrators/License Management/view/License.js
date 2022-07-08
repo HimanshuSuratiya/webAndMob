@@ -126,7 +126,7 @@ const License = () => {
                     <br />
                     <br />
                     <Divider />
-                    <h5 style={{ fontSize: '15px', margin: '8px 0px' }}>{t("Funtions / Options Subjects")}</h5>
+                    <h5 style={{ fontSize: '15px', margin: '8px 0px' }}>{t("Functions / Options Subjects")}</h5>
                     <TextField
                         name="noticeNoUse"
                         className='mt-4'

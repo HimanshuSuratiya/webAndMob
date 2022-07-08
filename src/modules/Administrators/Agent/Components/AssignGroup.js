@@ -16,9 +16,6 @@ const AssignGroup = () => {
     const { t } = useTranslation();
     return (
         <>
-            <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("Assign Group")}</Typography>
-            </div>
             <Paper elevation={4}>
                 <div className="divideParentDiv">
                     <div className="divideDiv1">
@@ -56,7 +53,7 @@ const AssignGroup = () => {
                             <p style={{ marginLeft: '12px' }}>Assigned Department</p>
                             <Button
                                 className="AgentAddDiv Btn-Color"
-                                style={{height:'46px', width:'160px', marginLeft:'8px'}}
+                                style={{ height: '46px', width: '160px', marginLeft: '8px' }}
                                 variant="contained"
                                 onClick={() => { setPopUp(!popUp) }}
                             >
@@ -70,7 +67,7 @@ const AssignGroup = () => {
                                     <tr>
                                         <th>ID</th>
                                         <th class="ip-border-main-area-2">Name</th>
-                                        <th style={{textAlign:'center'}}>Action</th>
+                                        <th style={{ textAlign: 'center' }}>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

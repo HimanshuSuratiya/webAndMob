@@ -211,9 +211,6 @@ const AgentInformation = () => {
 
     return (
         <>
-            <div className="d-flex f-align-center f-justify-between mb-8">
-                <Typography variant="h4">{t("Agent List")}</Typography>
-            </div>
             <Paper elevation={4}>
                 <Grid hasSelection={true} columns={columnConfig} rows={Rows} />
             </Paper>

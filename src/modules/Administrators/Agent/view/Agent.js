@@ -19,15 +19,15 @@ const Agent = ({ match, getUnassignDeviceCount = noop }) => {
                         </Link>
                     </li>
                     <li >
-                        <Link className={window.location.pathname === `${match.path}/assigment` ? 'active' : ''} to={`${match.path}/assigment`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            {t('Assigment')}
+                        <Link className={window.location.pathname === `${match.path}/assignment` ? 'active' : ''} to={`${match.path}/assignment`} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            {t('Assignment')}
                         </Link>
                     </li>
                 </ul>
             </Paper>
             <Switch>
                 <Route exact path={match.path} render={props => <AgentInformation getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
-                <Route exact path={`${match.path}/assigment`} render={props => <AssignGroup getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
+                <Route exact path={`${match.path}/assignment`} render={props => <AssignGroup getUnassignDeviceCount={getUnassignDeviceCount} {...props} />} />
                 <Redirect to="/" />
             </Switch>
         </>

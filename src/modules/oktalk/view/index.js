@@ -407,7 +407,7 @@ const ViewOKTalk = ({
                         component={NavLink}
                         to={`/printers/equipment-modification/${state.deviceInfoId}`}
                       >
-                        <SettingsIcon style={{color:'#757575'}}/>
+                        <SettingsIcon style={{color:'#434141'}}/>
                       </Link>
                     </div>
                   </div>
