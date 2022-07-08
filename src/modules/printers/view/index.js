@@ -379,6 +379,7 @@ const ViewPrinters = ({ match, history }) => {
           >
             <Select
               value={state.status}
+              style={{height:'46px'}}
               onChange={(event) => {
                 history.push(`/printers/status/${event.target.value}`)
                 // setState((prevState) => ({
@@ -394,7 +395,8 @@ const ViewPrinters = ({ match, history }) => {
           </FormControl>
           <Button
             variant="contained"
-            className="ml-4 w-25 Btn-Color"
+            className="ml-4 Btn-Color"
+            style={{height:'45px', width:'15%'}}
             onClick={() => exportToExcel()}
           >
             {t('printerExcel')}

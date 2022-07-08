@@ -31,6 +31,7 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
         {
             date: '2022-06-24 8:32:08',
             agent: 34,
+            ip:'192.162.0.100',
             message: "Hello",
             serailNumber: "HPHS12355511",
             printerName: 'SamsungC351xSeries/)0CA6BJENB0002JA',
@@ -38,6 +39,7 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
         {
             date: '2022-06-24 8:32:08',
             agent: 31,
+            ip:'192.162.0.99',
             message: "(주)빅윈어드바이저",
             serailNumber: "HPHS12355511",
             printerName: 'SamsungC351xSeries/)0CA6BJENB0002JA',
@@ -45,6 +47,7 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
         {
             date: '2022-06-24 8:32:08',
             agent: 31,
+            ip:'192.162.100.100',
             message: "봉담도서관",
             serailNumber: "HPHS12355511",
             printerName: 'SamsungC351xSeries/)0CA6BJENB0002JA',
@@ -71,6 +74,17 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
             render: (Rows) => (
                 <Typography variant="body1">
                     {Rows.agent}
+                </Typography>
+            ),
+        },
+        {
+            id: "_IP",
+            fieldName: "_IP",
+            label: t("IP"),
+            canSort: true,
+            render: (Rows) => (
+                <Typography variant="body1">
+                    {Rows.ip}
                 </Typography>
             ),
         },

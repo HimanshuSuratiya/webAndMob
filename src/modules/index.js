@@ -55,7 +55,6 @@ import ProbeNotice from "./probe-notice";
 import NaverLogin from "./naver-login";
 import DnsIcon from '@material-ui/icons/Dns';
 import ServerConfiguration from "./Administrators/Server Configuration/view/ServerConfiguration";
-import AgentConfiguration from "./Administrators/Agent Configuration/view/AgentConfiguration";
 import Agent from "./Administrators/Agent/view/Agent";
 import "../shared/Shared.css";
 import 'react-nestable/dist/styles/index.css';
@@ -314,10 +313,6 @@ const AppModule = () => {
           label: t("Server Configuration"),
         },
         {
-          to: "/agent-configuration",
-          label: t("Agent Configuration"),
-        },
-        {
           to: "/agent",
           label: t("Agent"),
         },
@@ -491,18 +486,6 @@ const AppModule = () => {
                 path="/server-configuration"
                 render={(props) => (
                   <ServerConfiguration
-                    getUnassignDeviceCount={() => {
-                      GetUnassignDeviceCount();
-                      GetWaitDeviceCount();
-                    }}
-                    {...props}
-                  />
-                )}
-              />
-              <Route
-                path="/agent-configuration"
-                render={(props) => (
-                  <AgentConfiguration
                     getUnassignDeviceCount={() => {
                       GetUnassignDeviceCount();
                       GetWaitDeviceCount();

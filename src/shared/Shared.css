@@ -45,3 +45,7 @@
 .Test-Color:hover {
     background-color: #001d44 !important;
 }
+
+.setPadding div input {
+    padding: 14px;
+}

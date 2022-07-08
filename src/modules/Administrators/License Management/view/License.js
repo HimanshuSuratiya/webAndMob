@@ -59,6 +59,7 @@ const License = () => {
                             size='small'
                             label={t('Status')}
                             value={Data.status}
+                            disabled={true}
                         />
                         {importKey ? <Button onClick={() => { setDeleteKeyPopUp(true) }} variant="contained" className="LicenseBtn Btn-Color" style={{ display: `${state.setActivation}` }}
                         >{t('Return')} </Button> : <Button variant="contained" className="LicenseBtn Btn-Color" onClick={() => { setPopUp(true) }} style={{ display: `${state.setActivation}` }}
@@ -71,6 +72,7 @@ const License = () => {
                             size='small'
                             label={t('Application Key')}
                             value={Data.ApplicationKey}
+                            disabled={true}
                         />
                         {importKey ? '' : (state.createDownload ? <Button variant="contained" className="mt-6 LicenseBtn Btn-Color" onClick={() => createKey()}
                         >{t('Create')} </Button> : <Button variant="contained" className="mt-6 LicenseBtn Btn-Color" onClick={() => createKey()}
@@ -86,6 +88,7 @@ const License = () => {
                         size='small'
                         label={t('Expire Date')}
                         value={Data.ExpireDate}
+                        disabled={true}
                     />
                     <TextField
                         name="noticeNoUse"
@@ -96,6 +99,7 @@ const License = () => {
                         size="small"
                         value={Data.CustomerDisplayName}
                         label={t("Customer Display Name * ")}
+                        disabled={true}
                     />
                     <TextField
                         name="noticeNoUse"
@@ -106,6 +110,7 @@ const License = () => {
                         size="small"
                         value={Data.Email}
                         label={t("Email * ")}
+                        disabled={true}
                     />
                     <TextField
                         name="noticeNoUse"
@@ -116,6 +121,7 @@ const License = () => {
                         size="small"
                         value={Data.Contact}
                         label={t("Contact * ")}
+                        disabled={true}
                     />
                     <br />
                     <br />
@@ -130,6 +136,7 @@ const License = () => {
                         size="small"
                         value={Data.NoofDevices}
                         label={t("No of Devices")}
+                        disabled={true}
                     />
                 </div>
             </Paper>

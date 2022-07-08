@@ -56,6 +56,7 @@ const AssignGroup = () => {
                             <p style={{ marginLeft: '12px' }}>Assigned Department</p>
                             <Button
                                 className="AgentAddDiv Btn-Color"
+                                style={{height:'46px', width:'160px', marginLeft:'8px'}}
                                 variant="contained"
                                 onClick={() => { setPopUp(!popUp) }}
                             >

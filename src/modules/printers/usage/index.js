@@ -177,6 +177,7 @@ const exportToExcel =async () => {
         <div className="d-flex">
           <Datepicker
             label="Date"
+            className="setPadding"
             selected={
               typeof state.viewDate === "string"
                 ? getDateObject(state.viewDate)
@@ -192,8 +193,8 @@ const exportToExcel =async () => {
           />
           <Button
             variant="contained"
-            className="ml-4 w-25 Btn-Color"
-            style={{height:'38px'}}
+            className="ml-4 Btn-Color"
+            style={{height:'46px', width:'160px', margin:'0px 10px'}}
             onClick={() => exportToExcel()}
           >
            {t('userPageExcel')}

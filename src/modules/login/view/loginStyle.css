@@ -29,8 +29,18 @@
     cursor: pointer;
 }
 
-.Remember input:first-child+input[type=hidden]+label::before,
-input:first-child+label::before {
+.Remember input:first-child+input[type=hidden]+label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #D3CFC8;
+    border-radius: 0;
+    margin-left: -29px;
+}
+
+.Remember input:first-child+label::before {
     content: "";
     display: inline-block;
     position: absolute;
@@ -41,8 +51,12 @@ input:first-child+label::before {
     margin-left: -29px;
 }
 
-.Remember input:first-child:checked+input[type=hidden]+label::before,
-input:first-child:checked+label::before {
+.Remember input:first-child:checked+input[type=hidden]+label::before {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.Remember input:first-child:checked+label::before {
     background-color: #007bff;
     border-color: #007bff;
 }
@@ -53,8 +67,22 @@ input:first-child:checked+label::before {
     margin: 0;
 }
 
-.Remember input:first-child:checked+input[type=hidden]+label::after,
-input:first-child:checked+label::after {
+.Remember input:first-child:checked+input[type=hidden]+label::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    width: 5px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-left: none;
+    border-top: none;
+    transform: translate(7.75px, 4.5px) rotate(45deg);
+    -ms-transform: translate(7.75px, 4.5px) rotate(45deg);
+}
+
+.Remember input:first-child:checked+label::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -69,8 +97,12 @@ input:first-child:checked+label::after {
     -ms-transform: translate(7.75px, 4.5px) rotate(45deg);
 }
 
-.Remember input:first-child:not(:checked):not(:disabled):hover+input[type=hidden]+label::before,
-input:first-child:not(:checked):not(:disabled):hover+label::before {
+.Remember input:first-child:not(:checked):not(:disabled):hover+input[type=hidden]+label::before {
+    border-color: #007bff;
+    border-width: 2px;
+}
+
+.Remember input:first-child:not(:checked):not(:disabled):hover+label::before {
     border-color: #007bff;
     border-width: 2px;
 }
