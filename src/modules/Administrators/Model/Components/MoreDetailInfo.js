@@ -16,21 +16,28 @@ import SaveIcon from '@mui/icons-material/Save';
 
 const MoreDetailInfo = () => {
   const { t } = useTranslation();
+  const [firstTableData, setFirstTableData] = useState({
+    TonerValue: 5,
+    FuserValue: 27,
+    DeveloperValue: 77,
+    OPCValue: 45,
+    TransferValue: 88,
+    OtherValue: 100,
+  })
+  const [secondTableData, setSecondTableData] = useState({
+    MinValue: 94,
+    MaxValue: 57,
+  })
   const [ModelType, setModelType] = useState(0);
   const [SupplyType, setSupplyType] = useState(0);
   const [PaperSize, setPaperSize] = useState(0);
-  const [toner, setToner] = useState(0)
-  const [fuser, setFuser] = useState(0)
-  const [developer, setDeveloper] = useState(0)
-  const [opc, setOPC] = useState(0)
-  const [transfer, setTransfer] = useState(0)
-  const [other, setOther] = useState(0)
-  const [min, setMin] = useState(0)
-  const [max, setMax] = useState(0)
   const [MCTshowOtherButton, setMCTShowOtherButton] = useState(false)
   const [MCTdisable, setMCTDisable] = useState(true);
   const [MUTshowOtherButton, setMUTShowOtherButton] = useState(false)
   const [MUTdisable, setMUTDisable] = useState(true);
+  const [firstTableDublicateValue, setFisrtTableDublicateValue] = useState()
+  const [secondTableDublicateValue, setSecondTableDublicateValue] = useState()
+
 
   const updateModelType = (event) => {
     setModelType(event.target.value);
@@ -43,6 +50,41 @@ const MoreDetailInfo = () => {
   const updatePaperSize = (event) => {
     setPaperSize(event.target.value);
   }
+
+  const FirstEventValue = (event) => {
+    const { name, value } = event.target;
+    setFirstTableData((prevState) => {
+      let percentageValue = parseInt(value, 10);
+      if (percentageValue > 100) percentageValue = 100;
+      if (percentageValue < 0) percentageValue = 0;
+      return {
+        ...prevState,
+        [name]: percentageValue,
+      }
+    })
+  }
+
+  const getFirstDublicateValue = () => {
+    setFisrtTableDublicateValue(firstTableData)
+  }
+
+  const getSecondDublicateValue = () => {
+    setSecondTableDublicateValue(secondTableData)
+  }
+
+  const SecondEventValue = (event) => {
+    const { name, value } = event.target;
+    setSecondTableData((prevState) => {
+      let percentageValue = parseInt(value, 10);
+      if (percentageValue > 100) percentageValue = 100;
+      if (percentageValue < 0) percentageValue = 0;
+      return {
+        ...prevState,
+        [name]: percentageValue,
+      }
+    })
+  }
+
 
   const columnConfig = [
     {
@@ -131,7 +173,7 @@ const MoreDetailInfo = () => {
                     style={{ margin: '0px 6px' }}
                     variant="contained"
                     className="Btn-Color"
-                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton) }}
+                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true); }}
                   >
                     <SaveIcon />
                   </Button>
@@ -141,7 +183,7 @@ const MoreDetailInfo = () => {
                     style={{ margin: '0px 6px' }}
                     variant="contained"
                     className="deleteBtn"
-                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true) }}
+                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true); setFirstTableData(firstTableDublicateValue); }}
                   >
                     <CloseIcon />
                   </Button>
@@ -152,7 +194,7 @@ const MoreDetailInfo = () => {
                 <Button
                   style={{ margin: '0px 6px' }}
                   variant="contained"
-                  onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(false) }}
+                  onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(false); getFirstDublicateValue(); }}
                 >
                   <EditIcon />
                 </Button>
@@ -170,105 +212,69 @@ const MoreDetailInfo = () => {
       PrinterModal: 'ALL',
       Toner: <TextField
         className="Rowfield TextRight"
-        name="noticeUsageLevel"
         variant="outlined"
-        value={toner}
+        value={firstTableData.TonerValue}
         size="small"
+        name="TonerValue"
         type={'number'}
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Toner = parseInt(e.target.value, 10);
-          if (Toner > 100) Toner = 100;
-          if (Toner < 0) Toner = 0;
-          setToner(Toner);
-        }
-        }
+        onChange={FirstEventValue}
       />,
       Fuser: <TextField
-        name="noticeUsageLevel"
         variant="outlined"
         className="Rowfield TextRight"
-        value={fuser}
+        value={firstTableData.FuserValue}
         size="small"
         type={'number'}
+        name="FuserValue"
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Fuser = parseInt(e.target.value, 10);
-          if (Fuser > 100) Fuser = 100;
-          if (Fuser < 0) Fuser = 0;
-          setFuser(Fuser);
-        }
-        }
+        onChange={FirstEventValue}
       />,
       Developer: <TextField
-        name="noticeUsageLevel"
         className="Rowfield TextRight"
         variant="outlined"
-        value={developer}
+        value={firstTableData.DeveloperValue}
         size="small"
         type={'number'}
+        name="DeveloperValue"
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Developer = parseInt(e.target.value, 10);
-          if (Developer > 100) Developer = 100;
-          if (Developer < 0) Developer = 0;
-          setDeveloper(Developer);
-        }
-        }
+        onChange={FirstEventValue}
       />,
       OPC: <TextField
-        name="noticeUsageLevel"
         variant="outlined"
         className="Rowfield TextRight"
-        value={opc}
+        value={firstTableData.OPCValue}
         size="small"
         type={'number'}
+        name="OPCValue"
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let OPC = parseInt(e.target.value, 10);
-          if (OPC > 100) OPC = 100;
-          if (OPC < 0) OPC = 0;
-          setOPC(OPC);
-        }
-        }
+        onChange={FirstEventValue}
       />,
       Transfer: <TextField
-        name="noticeUsageLevel"
         className="Rowfield TextRight"
         variant="outlined"
-        value={transfer}
+        value={firstTableData.TransferValue}
         size="small"
         type={'number'}
+        name="TransferValue"
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Transfer = parseInt(e.target.value, 10);
-          if (Transfer > 100) Transfer = 100;
-          if (Transfer < 0) Transfer = 0;
-          setTransfer(Transfer);
-        }
-        }
+        onChange={FirstEventValue}
       />,
       Other: <TextField
-        name="noticeUsageLevel"
         className="Rowfield TextRight"
         variant="outlined"
-        value={other}
+        value={firstTableData.OtherValue}
         size="small"
         type={'number'}
+        name="OtherValue"
         disabled={MCTdisable}
         style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Other = parseInt(e.target.value, 10);
-          if (Other > 100) Other = 100;
-          if (Other < 0) Other = 0;
-          setOther(Other);
-        }
-        }
+        onChange={FirstEventValue}
       />,
     },
   ];
@@ -310,7 +316,7 @@ const MoreDetailInfo = () => {
                     style={{ margin: '0px 6px' }}
                     variant="contained"
                     className="Btn-Color"
-                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton) }}
+                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true); }}
                   >
                     <SaveIcon />
                   </Button>
@@ -320,7 +326,7 @@ const MoreDetailInfo = () => {
                     style={{ margin: '0px 6px' }}
                     variant="contained"
                     className="deleteBtn"
-                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true) }}
+                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true); setSecondTableData(secondTableDublicateValue); }}
                   >
                     <CloseIcon />
                   </Button>
@@ -331,7 +337,7 @@ const MoreDetailInfo = () => {
                 <Button
                   style={{ margin: '0px 6px' }}
                   variant="contained"
-                  onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(false) }}
+                  onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(false); getSecondDublicateValue() }}
                 >
                   <EditIcon />
                 </Button>
@@ -348,38 +354,26 @@ const MoreDetailInfo = () => {
       id: 1,
       Client: 'ALL',
       Min: <TextField
-        name="noticeUsageLevel"
         variant="outlined"
         className="Rowfield TextRight"
-        value={min}
+        value={secondTableData.MinValue}
         size="small"
         type={'number'}
+        name="MinValue"
         disabled={MUTdisable}
         style={{ backgroundColor: `${MUTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Min = parseInt(e.target.value, 10);
-          if (Min > 100) Min = 100;
-          if (Min < 0) Min = 0;
-          setMin(Min);
-        }
-        }
+        onChange={SecondEventValue}
       />,
       Max: <TextField
-        name="noticeUsageLevel"
         className="Rowfield TextRight"
         variant="outlined"
-        value={max}
+        value={secondTableData.MaxValue}
         size="small"
         type={'number'}
+        name="MaxValue"
         disabled={MUTdisable}
         style={{ backgroundColor: `${MUTdisable ? '#f5f6f8' : ''}` }}
-        onChange={(e) => {
-          let Max = parseInt(e.target.value, 10);
-          if (Max > 100) Max = 100;
-          if (Max < 0) Max = 0;
-          setMax(Max);
-        }
-        }
+        onChange={SecondEventValue}
       />,
     },
   ]
@@ -522,13 +516,13 @@ const MoreDetailInfo = () => {
             </tr>
             <tr>
               <td>
-                <p className="para">{t('processReduced-Size')}</p>
+                <p className="para">{t('processImage')}</p>
               </td>
-              <td style={{ display: 'flex', justifyContent: "space-between", alignItems: 'center' }}>
-                <div style={{ width: '78%' }}>
+              <td style={{ display: 'flex' }}>
+                <div>
                   <TextField
                     className="textfieldStyleAnother"
-                    style={{ width: '64%' }}
+                    style={{ width: '106%' }}
                     name="noticeUsageLevel"
                     variant="outlined"
                     defaultValue={""}
@@ -540,8 +534,8 @@ const MoreDetailInfo = () => {
                   <a className="textClass">-Filename can be alphanumeric characters,'-' and '-', 65x65
                     pixle image size is appropriate. </a>
                 </div>
-                <div style={{ height: 'auto', width: '12%' }}>
-                  <img style={{ width: '100%' }} src={PrinterImage} alt="No Image" />
+                <div style={{ textAlign: 'right' }}>
+                  <img style={{ width: '25%' }} src={PrinterImage} alt="No Image" />
                 </div>
               </td>
             </tr>
