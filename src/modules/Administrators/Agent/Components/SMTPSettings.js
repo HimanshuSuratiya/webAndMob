@@ -25,7 +25,7 @@ const SMTPSettings = ({ setClosePopUp }) => {
                                 <DialogTitle>
                                     <div className="d-flex f-align-center f-justify-between">
                                         <Typography variant="h5">
-                                            {t("SMTP Settings")}
+                                            {t("SNMP Settings")}
                                         </Typography>
                                         <IconButton>
                                             <CloseIcon onClick={() => { setClosePopUp(false) }} />

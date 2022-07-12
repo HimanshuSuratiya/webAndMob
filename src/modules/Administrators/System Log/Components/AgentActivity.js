@@ -89,17 +89,6 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
             ),
         },
         {
-            id: "_message",
-            fieldName: "_message",
-            label: t("Message"),
-            canSort: true,
-            render: (Rows) => (
-                <Typography variant="body1" >
-                    {Rows.message}
-                </Typography>
-            ),
-        },
-        {
             id: "_serial_Number",
             fieldName: "_serial_Number",
             label: t("Serial Number"),
@@ -120,7 +109,18 @@ const AgentActivity = ({ match, getUnassignDeviceCount = noop }) => {
                     {Rows.printerName}
                 </Typography>
             ),
-        }
+        },
+        {
+            id: "_message",
+            fieldName: "_message",
+            label: t("Message"),
+            canSort: true,
+            render: (Rows) => (
+                <Typography variant="body1" >
+                    {Rows.message}
+                </Typography>
+            ),
+        },
     ];
 
     return (

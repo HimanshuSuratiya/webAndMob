@@ -52,6 +52,19 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
   const updateDepartment = (event) => {
     setDepartment(event.target.value);
   };
+
+  const setAutoSearch = (e) => {
+    if (e.target.checked) {
+      setFirstTextfield('1.1.1.1')
+      setSecondTextfield('1.1.1.1')
+      console.log('true', firstTextfield, secondTextfield)
+    } else {
+      setFirstTextfield('')
+      setSecondTextfield('')
+      console.log('false', firstTextfield, secondTextfield)
+    }
+  }
+
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
@@ -85,6 +98,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
               className="textField"
               size="small"
               label="IP Address"
+              value={firstTextfield}
               helperText={(startIpError ? "IP Address is required." : '')}
               onChange={(e) => {
                 const isIpCorrect = ipRegex.test(e.target.value);
@@ -120,6 +134,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
               color="yellow"
               size="small"
               label="IP Address"
+              value={secondTextfield}
               helperText={(endIpError ? "IP Address is required." : firstSecondPartError ? 'Make sure first 2 parts are same and end IP is greater' : '')}
               onChange={(e) => {
                 const isIpCorrect = ipRegex.test(e.target.value);
@@ -145,7 +160,7 @@ const IPAddress = ({ match, getUnassignDeviceCount = noop }) => {
                 ),
               }}
             />
-            <span style={{ color: 'red' }}><Checkbox color="primary" /> <span style={{ color: 'rgba(0, 0, 0, 0.87)', fontSize: '16px', fontWeight: 'bold' }}>Auto</span></span>
+            <span style={{ color: 'red' }}><Checkbox color="primary" onChange={(e) => { setAutoSearch(e) }} /> <span style={{ color: 'rgba(0, 0, 0, 0.87)', fontSize: '16px', fontWeight: 'bold' }}>Auto</span></span>
           </div>
         </div>
         <div className="agent-start-end-smbtbtn-area">

@@ -427,7 +427,7 @@ const MoreDetailInfo = () => {
                     pixle image size is appropriate. </a>
                 </div>
                 <div style={{ height: 'auto', width: '12%' }}>
-                  <img style={{ width: '100%' }} src={PrinterImage} />
+                  <img style={{ width: '100%' }} src={PrinterImage} alt="No Image"/>
                 </div>
               </td>
             </tr>
