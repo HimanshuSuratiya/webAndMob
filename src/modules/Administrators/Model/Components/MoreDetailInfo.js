@@ -9,12 +9,29 @@ import TextField from "@material-ui/core/TextField";
 import { Button, MenuItem } from "@material-ui/core";
 import "../../../../shared/Shared.css";
 import PrinterImage from "../Image/printer1.png";
+import Tooltip from '@material-ui/core/Tooltip';
+import EditIcon from '@mui/icons-material/Edit';
+import CloseIcon from '@mui/icons-material/Close';
+import SaveIcon from '@mui/icons-material/Save';
 
 const MoreDetailInfo = () => {
   const { t } = useTranslation();
   const [ModelType, setModelType] = useState(0);
   const [SupplyType, setSupplyType] = useState(0);
   const [PaperSize, setPaperSize] = useState(0);
+  const [toner, setToner] = useState(0)
+  const [fuser, setFuser] = useState(0)
+  const [developer, setDeveloper] = useState(0)
+  const [opc, setOPC] = useState(0)
+  const [transfer, setTransfer] = useState(0)
+  const [other, setOther] = useState(0)
+  const [min, setMin] = useState(0)
+  const [max, setMax] = useState(0)
+  const [MCTshowOtherButton, setMCTShowOtherButton] = useState(false)
+  const [MCTdisable, setMCTDisable] = useState(true);
+  const [MUTshowOtherButton, setMUTShowOtherButton] = useState(false)
+  const [MUTdisable, setMUTDisable] = useState(true);
+
   const updateModelType = (event) => {
     setModelType(event.target.value);
   };
@@ -27,15 +44,6 @@ const MoreDetailInfo = () => {
     setPaperSize(event.target.value);
   }
 
-  const [toner, setToner] = useState(0)
-  const [fuser, setFuser] = useState(0)
-  const [developer, setDeveloper] = useState(0)
-  const [opc, setOPC] = useState(0)
-  const [transfer, setTransfer] = useState(0)
-  const [other, setOther] = useState(0)
-  const [min, setMin] = useState(0)
-  const [max, setMax] = useState(0)
-
   const columnConfig = [
     {
       id: "_Toner",
@@ -43,7 +51,7 @@ const MoreDetailInfo = () => {
       label: t("processToner"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "right" }}>
+        <Typography variant="body1" style={{ textAlign: "center" }}>
           {Rows.Toner}
         </Typography>
       ),
@@ -54,7 +62,7 @@ const MoreDetailInfo = () => {
       label: t("processFuser"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "right" }}>
+        <Typography variant="body1" style={{ textAlign: "center" }}>
           {Rows.Fuser}
         </Typography>
       ),
@@ -65,7 +73,7 @@ const MoreDetailInfo = () => {
       label: t("processDeveloper"),
       canSort: true,
       render: (Rows) => (
-        <Typography variant="body1" style={{ textAlign: "right" }}>
+        <Typography variant="body1" style={{ textAlign: "center" }}>
           {Rows.Developer}
         </Typography>
       ),
@@ -77,7 +85,7 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "right" }}>
+          <Typography variant="body1" style={{ textAlign: "center" }}>
             {Rows.OPC}
           </Typography>
         </>
@@ -90,7 +98,7 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "right" }}>
+          <Typography variant="body1" style={{ textAlign: "center" }}>
             {Rows.Transfer}
           </Typography>
         </>
@@ -103,11 +111,56 @@ const MoreDetailInfo = () => {
       canSort: true,
       render: (Rows) => (
         <>
-          <Typography variant="body1" style={{ textAlign: "right" }}>
+          <Typography variant="body1" style={{ textAlign: "center" }}>
             {Rows.Other}
           </Typography>
         </>
       ),
+    },
+    {
+      id: "_action",
+      field: "_action",
+      label: t("Action"),
+      render: (row) => {
+        return (
+          <div className="d-flex" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
+            {MCTshowOtherButton ?
+              <>
+                <Tooltip title={t('Save')} placement='top-start'>
+                  <Button
+                    style={{ margin: '0px 6px' }}
+                    variant="contained"
+                    className="Btn-Color"
+                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton) }}
+                  >
+                    <SaveIcon />
+                  </Button>
+                </Tooltip>
+                <Tooltip title={t('Close')} placement='top-start'>
+                  <Button
+                    style={{ margin: '0px 6px' }}
+                    variant="contained"
+                    className="deleteBtn"
+                    onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true) }}
+                  >
+                    <CloseIcon />
+                  </Button>
+                </Tooltip>
+              </>
+              :
+              <Tooltip title={t('Edit')} placement='top-start'>
+                <Button
+                  style={{ margin: '0px 6px' }}
+                  variant="contained"
+                  onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(false) }}
+                >
+                  <EditIcon />
+                </Button>
+              </Tooltip>
+            }
+          </div>
+        )
+      }
     },
   ];
 
@@ -122,6 +175,8 @@ const MoreDetailInfo = () => {
         value={toner}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Toner = parseInt(e.target.value, 10);
           if (Toner > 100) Toner = 100;
@@ -137,6 +192,8 @@ const MoreDetailInfo = () => {
         value={fuser}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Fuser = parseInt(e.target.value, 10);
           if (Fuser > 100) Fuser = 100;
@@ -152,6 +209,8 @@ const MoreDetailInfo = () => {
         value={developer}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Developer = parseInt(e.target.value, 10);
           if (Developer > 100) Developer = 100;
@@ -167,6 +226,8 @@ const MoreDetailInfo = () => {
         value={opc}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let OPC = parseInt(e.target.value, 10);
           if (OPC > 100) OPC = 100;
@@ -182,6 +243,8 @@ const MoreDetailInfo = () => {
         value={transfer}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Transfer = parseInt(e.target.value, 10);
           if (Transfer > 100) Transfer = 100;
@@ -197,6 +260,8 @@ const MoreDetailInfo = () => {
         value={other}
         size="small"
         type={'number'}
+        disabled={MCTdisable}
+        style={{ backgroundColor: `${MCTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Other = parseInt(e.target.value, 10);
           if (Other > 100) Other = 100;
@@ -215,7 +280,7 @@ const MoreDetailInfo = () => {
       label: t("processMin"),
       canSort: true,
       render: (Rows2) => (
-        <Typography variant="body1" style={{ textAlign: "right" }}>
+        <Typography variant="body1" style={{ textAlign: "center" }}>
           {Rows2.Min}
         </Typography>
       ),
@@ -226,10 +291,55 @@ const MoreDetailInfo = () => {
       label: t("processMax"),
       canSort: true,
       render: (Rows2) => (
-        <Typography variant="body1" style={{ textAlign: "right" }}>
+        <Typography variant="body1" style={{ textAlign: "center" }}>
           {Rows2.Max}
         </Typography>
       ),
+    },
+    {
+      id: "_action",
+      field: "_action",
+      label: t("Action"),
+      render: (row) => {
+        return (
+          <div className="d-flex" style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
+            {MUTshowOtherButton ?
+              <>
+                <Tooltip title={t('Save')} placement='top-start'>
+                  <Button
+                    style={{ margin: '0px 6px' }}
+                    variant="contained"
+                    className="Btn-Color"
+                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton) }}
+                  >
+                    <SaveIcon />
+                  </Button>
+                </Tooltip>
+                <Tooltip title={t('Close')} placement='top-start'>
+                  <Button
+                    style={{ margin: '0px 6px' }}
+                    variant="contained"
+                    className="deleteBtn"
+                    onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true) }}
+                  >
+                    <CloseIcon />
+                  </Button>
+                </Tooltip>
+              </>
+              :
+              <Tooltip title={t('Edit')} placement='top-start'>
+                <Button
+                  style={{ margin: '0px 6px' }}
+                  variant="contained"
+                  onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(false) }}
+                >
+                  <EditIcon />
+                </Button>
+              </Tooltip>
+            }
+          </div>
+        )
+      }
     },
   ]
 
@@ -244,6 +354,8 @@ const MoreDetailInfo = () => {
         value={min}
         size="small"
         type={'number'}
+        disabled={MUTdisable}
+        style={{ backgroundColor: `${MUTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Min = parseInt(e.target.value, 10);
           if (Min > 100) Min = 100;
@@ -259,6 +371,8 @@ const MoreDetailInfo = () => {
         value={max}
         size="small"
         type={'number'}
+        disabled={MUTdisable}
+        style={{ backgroundColor: `${MUTdisable ? '#f5f6f8' : ''}` }}
         onChange={(e) => {
           let Max = parseInt(e.target.value, 10);
           if (Max > 100) Max = 100;
@@ -385,7 +499,7 @@ const MoreDetailInfo = () => {
               </td>
             </tr>
             <tr>
-              <td rowspan="2" style={{padding:'0px', border:'none'}}>
+              <td rowspan="2" style={{ padding: '0px', border: 'none' }}>
                 <p className="para">{t('')}</p>
               </td>
               <td>
@@ -427,7 +541,7 @@ const MoreDetailInfo = () => {
                     pixle image size is appropriate. </a>
                 </div>
                 <div style={{ height: 'auto', width: '12%' }}>
-                  <img style={{ width: '100%' }} src={PrinterImage} alt="No Image"/>
+                  <img style={{ width: '100%' }} src={PrinterImage} alt="No Image" />
                 </div>
               </td>
             </tr>
