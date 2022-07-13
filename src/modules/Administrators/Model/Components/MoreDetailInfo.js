@@ -170,7 +170,7 @@ const MoreDetailInfo = () => {
               <>
                 <Tooltip title={t('Save')} placement='top-start'>
                   <Button
-                    style={{ margin: '0px 6px' }}
+                    style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                     variant="contained"
                     className="Btn-Color"
                     onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true); }}
@@ -180,7 +180,7 @@ const MoreDetailInfo = () => {
                 </Tooltip>
                 <Tooltip title={t('Close')} placement='top-start'>
                   <Button
-                    style={{ margin: '0px 6px' }}
+                    style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                     variant="contained"
                     className="deleteBtn"
                     onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(true); setFirstTableData(firstTableDublicateValue); }}
@@ -192,7 +192,7 @@ const MoreDetailInfo = () => {
               :
               <Tooltip title={t('Edit')} placement='top-start'>
                 <Button
-                  style={{ margin: '0px 6px' }}
+                  style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                   variant="contained"
                   onClick={() => { setMCTShowOtherButton(!MCTshowOtherButton); setMCTDisable(false); getFirstDublicateValue(); }}
                 >
@@ -313,7 +313,7 @@ const MoreDetailInfo = () => {
               <>
                 <Tooltip title={t('Save')} placement='top-start'>
                   <Button
-                    style={{ margin: '0px 6px' }}
+                    style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                     variant="contained"
                     className="Btn-Color"
                     onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true); }}
@@ -323,7 +323,7 @@ const MoreDetailInfo = () => {
                 </Tooltip>
                 <Tooltip title={t('Close')} placement='top-start'>
                   <Button
-                    style={{ margin: '0px 6px' }}
+                    style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                     variant="contained"
                     className="deleteBtn"
                     onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(true); setSecondTableData(secondTableDublicateValue); }}
@@ -335,7 +335,7 @@ const MoreDetailInfo = () => {
               :
               <Tooltip title={t('Edit')} placement='top-start'>
                 <Button
-                  style={{ margin: '0px 6px' }}
+                  style={{ margin: '0px 6px', padding: '0px', minWidth: '38px' }}
                   variant="contained"
                   onClick={() => { setMUTShowOtherButton(!MUTshowOtherButton); setMUTDisable(false); getSecondDublicateValue() }}
                 >
@@ -522,7 +522,7 @@ const MoreDetailInfo = () => {
                 <div>
                   <TextField
                     className="textfieldStyleAnother"
-                    style={{ width: '106%' }}
+                    style={{ width: '100%' }}
                     name="noticeUsageLevel"
                     variant="outlined"
                     defaultValue={""}
