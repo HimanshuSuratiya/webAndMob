@@ -63,7 +63,7 @@ const SMTPSettings = ({ setClosePopUp }) => {
                                     <TextField
                                         className="mt-4"
                                         fullWidth
-                                        label={t('SMTP Port')}
+                                        label={t('SNMP Port')}
                                         name="email"
                                         defaultValue={'161'}
                                         variant="outlined"
@@ -71,7 +71,7 @@ const SMTPSettings = ({ setClosePopUp }) => {
                                     <TextField
                                         className="mt-4"
                                         fullWidth
-                                        label={t('SMTP Community')}
+                                        label={t('SNMP Community')}
                                         name="email"
                                         defaultValue={'Public'}
                                         variant="outlined"
@@ -79,7 +79,7 @@ const SMTPSettings = ({ setClosePopUp }) => {
                                     <TextField
                                         className="mt-4"
                                         fullWidth
-                                        label={t('SMTP Collecting Retries')}
+                                        label={t('SNMP Collecting Retries')}
                                         name="email"
                                         defaultValue={'1'}
                                         variant="outlined"
@@ -87,7 +87,7 @@ const SMTPSettings = ({ setClosePopUp }) => {
                                     <TextField
                                         className="mt-4"
                                         fullWidth
-                                        label={t('SMTP Collecting Timeout')}
+                                        label={t('SNMP Collecting Timeout')}
                                         name="email"
                                         defaultValue={'10000'}
                                         variant="outlined"
