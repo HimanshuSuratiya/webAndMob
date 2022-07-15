@@ -8,7 +8,7 @@ import TextField from "@material-ui/core/TextField";
 import "../../../../shared/Shared.css";
 import { Divider } from '@material-ui/core';
 import SelectedDepartment from "./SelectedDepartment";
-import {Datepicker } from "shared/components";
+import { Datepicker } from "shared/components";
 import { useHistory } from "react-router-dom";
 
 const EndDefaultDate = () => {
@@ -23,7 +23,7 @@ const RegisterPrinter = () => {
   const [popUp, setPopUp] = useState(false)
   const history = useHistory();
   const { t } = useTranslation();
-  
+
   return (
     <>
       <div className="d-flex f-align-center f-justify-between mb-8">
@@ -38,7 +38,7 @@ const RegisterPrinter = () => {
             size="small"
             label={t("Printer Model")}
             value="Brother MFC-LS700DW services"
-            style={{backgroundColor:'#f5f6f8'}}
+            style={{ backgroundColor: '#f5f6f8' }}
             disabled={true}
           />
           <TextField
@@ -49,7 +49,7 @@ const RegisterPrinter = () => {
             size="small"
             label={t("Serial Number")}
             value="RJF9800293"
-            style={{backgroundColor:'#f5f6f8'}}
+            style={{ backgroundColor: '#f5f6f8' }}
             disabled={true}
           />
           <Divider className="mt-6" />
@@ -79,16 +79,14 @@ const RegisterPrinter = () => {
             variant="outlined"
             size="small"
             label={t("Printer Information")}
-            value="Brother MFC-LS700DW services"
-            style={{backgroundColor:'#f5f6f8'}}
-            disabled={true}
+            defaultValue="Brother MFC-LS700DW services"
           />
           <Divider className="mt-6 mb-6" />
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Datepicker
               className="set-default-date"
               label={t("Start of contract")}
-              selected={ new Date()}
+              selected={new Date()}
             />
             <Datepicker
               className="set-default-date"
@@ -105,10 +103,10 @@ const RegisterPrinter = () => {
             label={t("Memo")}
           />
           <div className="d-flex f-align-center mt-6">
-            <Button 
-              fullWidth 
-              className="mr-10" 
-              style={{height: '40.3px'}}
+            <Button
+              fullWidth
+              className="mr-10"
+              style={{ height: '40.3px' }}
               size="large"
               variant="contained"
               onClick={() => {
@@ -128,7 +126,7 @@ const RegisterPrinter = () => {
           </div>
         </div>
       </Paper>
-      {popUp ? <SelectedDepartment setClosePopUp={setPopUp}/> : ''}
+      {popUp ? <SelectedDepartment setClosePopUp={setPopUp} /> : ''}
     </>
   );
 };

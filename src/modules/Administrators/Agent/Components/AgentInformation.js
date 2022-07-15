@@ -109,9 +109,14 @@ const AgentInformation = () => {
             label: t("IP"),
             canSort: true,
             render: (Rows) => (
-                <TypographyWithClick onClick={() => { setPopUp(!popUp) }}>
-                    {Rows.IP}
-                </TypographyWithClick>
+                // <TypographyWithClick onClick={() => { setPopUp(!popUp) }}>
+                //     {Rows.IP}
+                // </TypographyWithClick>
+                <div style={{ height: '100%', width: '100%', backgroundColor: 'red', padding: '0px' }}>
+                    <TypographyWithClick onClick={() => { setPopUp(!popUp) }}>
+                        {Rows.IP}
+                    </TypographyWithClick>
+                </div>
             ),
         },
         {
